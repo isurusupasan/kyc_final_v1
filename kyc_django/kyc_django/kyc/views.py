@@ -109,10 +109,10 @@ def office(request):
 
 # defining function to filter and display flagged records in update.html
 def update(request):
-    result = Kyc_Infotemp.objects.filter(blue_flagadd_temp=True)
+    result = Kyc_Infotemp.objects.filter(green_flag_temp=True)
     result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
     result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
-    result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, blue_flagadd_temp=False)
+    result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
     productnames = Kyc_Infotemp.objects.all()
 
     # get the form output using get method
@@ -280,7 +280,7 @@ def update_data(request, id):
             reason_for_rej_temp = request.POST["reason_for_rej_temp"]
             rejected_temp = request.POST["rejected_temp"]
             flag_1 = request.POST["red_flag_temp"]
-            flag_2 = request.POST["blue_flagadd_temp"]
+            flag_2 = request.POST["green_flag_temp"]
             flag_3 = request.POST["blue_flag_temp"]
 
             submit_kyc_temp = Kyc_Reject(salutation_temp=salutation, full_name_temp=full_name,
@@ -310,7 +310,7 @@ def update_data(request, id):
                                         mob_no_temp=mob_no, office_num_temp=office_num,
                                         home_num_temp=home_num, email_add_verification=email_add_verification,
                                         email_add_temp=email_add, red_flag_temp=flag_1,
-                                        blue_flagadd_temp=flag_2, blue_flag_temp=flag_3, date_now_temp=date_now_temp,
+                                        green_flag_temp=flag_2, blue_flag_temp=flag_3, date_now_temp=date_now_temp,
                                         staff_member_temp=staff_member_temp, file_note_temp=file_note_temp,
                                         reason_for_rej_temp=reason_for_rej_temp, rejected_temp=rejected_temp,
                                         file_attachment_temp=file_attachment_temp)
@@ -319,10 +319,10 @@ def update_data(request, id):
             submit_kyc_temp.save()
             Kyc_Infotemp.objects.filter(id=id).delete()
             messages.success(request, 'successfully submitted')
-            result = Kyc_Infotemp.objects.filter(blue_flagadd_temp=True)
+            result = Kyc_Infotemp.objects.filter(green_flag_temp=True)
             result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
             result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
-            result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, blue_flagadd_temp=False)
+            result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
             productnames = Kyc_Infotemp.objects.all()
 
             # get the form output using get method
@@ -367,7 +367,7 @@ def update_data(request, id):
 
         new_entry = request.POST["nics_no_temp"]
         flag_1 = request.POST["red_flag_temp"]
-        flag_2 = request.POST["blue_flagadd_temp"]
+        flag_2 = request.POST["green_flag_temp"]
         flag_3 = request.POST["blue_flag_temp"]
 
         if Kyc_Info.objects.filter(nics_no_temp=new_entry).exists():
@@ -386,10 +386,10 @@ def update_data(request, id):
                     # Kyc_Infotemp.objects.filter(id=id).delete()
                     Kyc_Infotemp.objects.filter(id=id).delete()
 
-                    result = Kyc_Infotemp.objects.filter(blue_flagadd_temp=True)
+                    result = Kyc_Infotemp.objects.filter(green_flag_temp=True)
                     result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
                     result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
-                    result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, blue_flagadd_temp=False)
+                    result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
                     productnames = Kyc_Infotemp.objects.all()
 
                     # get the form output using get method
@@ -559,16 +559,16 @@ def update_data(request, id):
                                            mob_no_temp=mob_no, office_num_temp=office_num,
                                            home_num_temp=home_num, email_add_verification=email_add_verification,
                                            email_add_temp=email_add, red_flag_temp=flag_1,
-                                           blue_flagadd_temp=flag_2, blue_flag_temp=flag_3)
+                                           green_flag_temp=flag_2, blue_flag_temp=flag_3)
 
                 
                 submit_kyc_temp.save()
                 Kyc_Infotemp.objects.filter(id=id).delete()
                 messages.success(request, 'successfully submitted')
-                result = Kyc_Infotemp.objects.filter(blue_flagadd_temp=True)
+                result = Kyc_Infotemp.objects.filter(green_flag_temp=True)
                 result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
                 result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
-                result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, blue_flagadd_temp=False)
+                result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
                 productnames = Kyc_Infotemp.objects.all()
 
                 # get the form output using get method
@@ -625,7 +625,7 @@ def update_data(request, id):
                                        email_add_temp=email_add,
                                        occu_state_temp=occu_state, date_of_birth_temp=date_of_birth,
                                        driv_exp_temp=driv_exp,
-                                       blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag, profile_pic=profile_pic)
+                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag, profile_pic=profile_pic)
         submit_kyc_temp.save()
         messages.success(request, 'saved look')
         return render(request, 'kyc/(2nd)AccEmp.html')
@@ -659,7 +659,7 @@ def update_data(request, id):
                                            email_add_temp=email_add,
                                            occu_state_temp=occu_state, date_of_birth_temp=date_of_birth,
                                            driv_exp_temp=driv_exp, red_flag_temp=red_flag,
-                                           blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
+                                           green_flag_temp=green_flag, blue_flag_temp=blue_flag)
             submit_kyc_temp.save()
             messages.success(request, 'saved look')
             return render(request, 'kyc/(2nd)AccEmp.html')"""
@@ -865,7 +865,7 @@ def insertkyc(request):
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add,
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'successfully submitted, Document is processing')
                         idS =  str(submit_kyc_temp.id)
@@ -909,7 +909,7 @@ def insertkyc(request):
                                                        mob_no_temp=mob_no, office_num_temp=office_num,
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add, red_flag_temp=red_flag,
-                                                       blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'Submitted successfully, processing')
                         return render(request, 'kyc/verify.html')
@@ -981,7 +981,7 @@ def insertkyc(request):
                                                        mob_no_temp=mob_no, office_num_temp=office_num,
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add, red_flag_temp=red_flag,
-                                                       blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'Successfully submitted, Document is processing')
                         return render(request, 'kyc/verify.html')
@@ -1020,7 +1020,7 @@ def insertkyc(request):
                                                        mob_no_temp=mob_no, office_num_temp=office_num,
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add, red_flag_temp=red_flag,
-                                                       blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'successfully submitted, Document is processing')
                         return render(request, 'kyc/verify.html')

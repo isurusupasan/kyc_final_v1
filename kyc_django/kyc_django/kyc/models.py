@@ -57,7 +57,7 @@ class Kyc_Info(models.Model):
     email_add_temp = models.CharField(max_length=50, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    blue_flagadd_temp = models.CharField(max_length=5, blank=True, null=True)
+    green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
 
     # rejection /acceptance variables
@@ -134,7 +134,7 @@ class Kyc_Infotemp(models.Model):
     email_add_temp = models.CharField(max_length=50, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    blue_flagadd_temp = models.CharField(max_length=5, blank=True, null=True)
+    green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     
     # rejection acceptance variables
@@ -221,7 +221,7 @@ class Kyc_Reject(models.Model):
     email_add_temp = models.CharField(max_length=50, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    blue_flagadd_temp = models.CharField(max_length=5, blank=True, null=True)
+    green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     
     # rejection acceptance variables

@@ -24,7 +24,7 @@
 
                             {% endif %}
 
-                            {% if display.blue_flagadd_temp == "True" %}
+                            {% if display.green_flag_temp == "True" %}
                     
                                 <option value="{{ display.id }}" id="op_nic" style="background-color: rgb(76, 250, 105);"> {{display.id}} | {{display.full_name_temp}} </option>
 
@@ -36,7 +36,7 @@
                                     
                             {% endif %}
                                 
-                            {% if display.red_flag_temp != "True" and display.blue_flagadd_temp != "True" and display.blue_flag_temp != "True" %}
+                            {% if display.red_flag_temp != "True" and display.green_flag_temp != "True" and display.blue_flag_temp != "True" %}
 
                                 <option value="{{ display.id }}" id="op_nic"> {{display.id}} | {{display.full_name_temp}} </option>
                                     
