@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>verify</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'kyc/css/search.css' %}">
+</head>
+
+
+<body style="background: url({% static 'kyc/img/7.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
+    
+    <div class="container">
+        
+        <div style="padding: 20px"></div>
+
+        {% if Kyc_Infotemp.id == null %}
+
+            <form method="post" action="{% url 'search' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-3"></div>
+
+                    <div class="col-md-6" style="border:1px solid #000;margin-top:180px;border-radius: 10px; height:250px;">
+
+                        <div class="row">
+                            <div class="col-md-12 title" style="background-color: #f3f3f300;">
+                    
+                                <p style="padding-top:10px; padding-left:50px;color:#000"><b>Know Your Customer (KYC) Form</b></p>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table width="100%">
+
+                                    <tr>
+                                        <td style="font-size:17px;"><b>Please enter your NIC number</b></td>
+                                        <td><input class="ajust" type="text" name="nics_no_temp" required="" style="height:40px;"></td>
+                                    </tr>
+                                    <tr><td><br></td><td></td></tr>
+                                    <tr>
+                                        <td colspan="2"><label for="submit"></label><button id="submit" type="submit" class="btn btn-default" style="width:100px;background-color: #47adf1;border-color: #47adf1;border-radius:10px;color:#fff;">Submit</button></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            <form>
+
+
+        {% endif %}
+
+        {% for message in messages %}
+
+        
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>Message </strong>{{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+        
+        {% endfor %}
+
+        {% if Kyc_Infotemp.id != null %}
+
+            <form method="post">
+            
+
+                <p>{{Kyc_Infotemp.driv_lic_temp}}</p>
+
+                
+                {% include "kyc/update_main.html"  with Kyc_Infotemp=Kyc_Infotemp %}
+
+                
+                
+            
+            <form>
+        {% endif %}
+        
+
+    </div>
+</body>

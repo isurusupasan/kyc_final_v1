@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+    {% load static %}
+
+    <link rel="stytlesheet" href="{% static 'css/index.css' %}">
+
+    <style>
+      .personel_info{
+        border:1px solid #000;
+        border-radius: 25px;
+        margin-right:10px;
+        padding-left:20px;
+        padding-right:20px;
+        padding-bottom:10px;
+      }
+      .declaration{
+        border:1px solid #000;
+        border-radius: 25px;
+        margin-left: 10px;
+        padding-left:20px;
+        padding-right:20px;
+      }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      input{
+        border-radius: 5px;
+        border:1px solid rgb(102, 101, 101);
+      }
+      select{
+        border-radius:5px;
+        width:180px;
+      }
+    </style>
+</head>
+
+<body style="background: url({% static 'img/6.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
+  <div class="row">
+    <div class="col-md-12 title" style="background-color: #f3f3f300;">
+      <p style="padding-top:10px; padding-left:50px;color:#000"><b>Know Your Customer (KYC) Form</b></p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: -50px;">
+      <div class="col-md-1">
+
+      </div>
+      <div class="col-md-5 personel_info">
+        <form>
+          <br>  
+          <table class="contact" width="100%">
+          <tr>
+            <td>
+              Operating Authority of the Accounts
+            </td>
+            <td>                  
+              <select name="Author" id="Author">
+                <option value="My-Self/Our-Selves">My-Self/Our-Selves</option>
+                <option value="Power of Attorney">Power of Attorney</option>
+                <option value="Guardian/Mother/Father">Guardian/Mother/Father</option>
+                <option value="Other">Other</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <br>
+            </td>
+            <td>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              If other please specify
+            </td>
+            <td> 
+              <input type="text" name="Author">
+            </td>
+          </tr>
+        </table>
+        <br>
+        <p><i><b>Availability of address verification document</b></i></p>
+        <table width="100%">
+          <tr>
+            <td>
+              <input type = "checkbox" id = "c1">
+              <label for = "c1">NIC/Passport</label>
+            </td>
+            <td>
+              <input type = "checkbox" id = "c2">
+              <label for = "c2">Valid Driving License</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type = "checkbox" id = "c3">
+              <label for = "c1">Tenacy Agreement</label>
+            </td>
+            <td>
+              <input type = "checkbox" id = "c4">
+              <label for = "c4">Utility Bill</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type = "checkbox" id = "c5">
+              <label for = "c7">Employment Contract</label>
+            </td>
+            <td>
+              <input type = "checkbox" id = "c6">
+              <label for = "c6">Grama Niladari</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type = "checkbox" id = "c7">
+              <label for = "c5">Letter From apublic Authority</label>
+            </td>
+            <td>
+              <input type = "checkbox" id = "c8">
+              <label for = "c5">Income Tax Receipt/Assesment Notice</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <br>
+                <label for="img">Upload a scan copy of the selected Address Verification document</label>
+            </td>
+            <td>
+                <input type="file" id="img_address" name="img_address" accept="image/*">
+            </td>
+        </tr>
+        </table>
+        <hr>
+        <table width="100%">
+          <tr>
+            <td width="70%">
+              Are you residing with in the same district where the bank branch is located?
+            </td>
+            <td style="padding-bottom:20px; padding-left: 20px;">
+              <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+            </td>
+            <td style="padding-bottom:20px; padding-left: 30px;"> 
+              <input type="radio" id="No" name="No" value="No">No 
+            </td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%">
+          <tr>
+            <td>If not, please mention the reason</td>
+            <td colspan="2"><input type="text" name="address_reason" style="width:100%;"></td>
+          </tr>
+        </table>
+        <hr>
+        <table width="100%">
+          <tr>
+            <td>
+              Are you a Politically Exposed Person?
+            </td>
+            <td style="padding-bottom:20px;padding-right:20px;">
+              <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+            </td>
+            <td style="padding-bottom:20px;"> 
+              <input type="radio" id="No" name="No" value="No">No 
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Are you a US citizen?
+            </td>
+            <td style="padding-bottom:20px;padding-right:20px;">
+              <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+            </td>
+            <td style="padding-bottom:20px;"> 
+              <input type="radio" id="No" name="No" value="No">No 
+            </td>
+          </tr>
+        </table><br>
+
+        <input type="file" id="sign_img" name="sign_img" accept="image/*" style="width:100px; height:100px;"><br>
+        Signature
+      </div>
+      <div class="col-md-5 declaration">
+        <br>
+        <p><b>Customer Declaration</b></p>
+        <p>I declare that the information furnished by me is true and correct. I also agree that if such 
+        declaration made by me are found to be incorrect, the company shall be entitled to terminate the 
+        account relationship. I confirm having read and understood the account rules and hereby agree to be bound 
+        by the terms and conditions and amendments governing the account(s) issued by the company.</p>     
+        <table width="25%">
+          <tr>
+            <td>
+              <input type="radio" id="Agree" name="Agree" value="Agree"></td><td>
+              <label for="Agree">I Agree</label><br>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <p style="padding-left: 450px;"><button type="button" class="btn btn-primary">Submit</button></p>
+      </form>
+      </div>
+      <div class="col-md-1">
+
+      </div>
+    </div>
+  <br>
+
+
+      {% block content %}
+            
+      {% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+    {% load static %}
+    <link rel="stytlesheet" href="{% static 'index.css' %}">
+
+    <style>
+      .personal_info{
+        margin-left: 20px;
+      }
+      .contact_info{
+        margin-left: 20px;
+      }
+      form{
+        border:1px solid #232322;
+        border-radius: 15px;
+        height:600px;
+      }
+      input{
+        border-radius: 5px;
+        width:90%;
+        height:30px;
+        font-size: 12px;
+        border:1px solid #232322;
+      }
+      select{
+        border-radius: 5px;
+        width:90%;
+        font-size: 15px;
+        border:1px solid #232322;
+      }
+      table tr td{
+        width:50%;
+        padding-left: 10px;
+      }
+      .left_border{
+        border-left: 1px solid #232322;
+        padding-left: 10px;
+      }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      .contact tr td{
+        width:25%;
+        padding-bottom: 20px;
+      }
+      .check tr td{
+        width:25%;
+        padding-bottom: 20px;
+
+      }
+      .check {
+        height:20px;
+        width: 20px;
+      }
+      .declaration{
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+    </style>
+</head>
+
+
+<body style="background: url({% static 'img/6.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
+  <div class="row">
+    <div class="col-md-12 title" style="background-color: #f3f3f300;">
+      <p style="padding-top:10px; padding-left:50px;color:#000"><b>Know Your Customer (KYC) Form</b></p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: -50px;">
+  <div class="col-md-3 contact_info"></div>
+
+    <div class="col-md-6 contact_info">
+      <form>
+          <h5 style="padding-left: 500px; padding-top: 25px;padding-bottom: 20px; color: red;">For Office Use Only</h5>
+          <center><table class="contact" width="90%"></center>
+          <tr>
+            <td>
+              <label>Date</label>
+            </td>
+            <td>
+              <input type="text" name="Date">
+            </td>
+            <td class="border-left">
+              <label>Branch No.</label>
+            </td>
+            <td>
+              <input type="text" name="Branch">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Manager INTL</label>
+            </td>
+            <td>
+              <input type="text" name="Manager_INTL">
+            </td>
+            <td class="border-left">
+              <label>Account No.</label>
+            </td>
+            <td>
+              <input type="text" name="Account_No">
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <p>Officer SNO
+            </td>
+            <td>
+              <input type="text" name="officer_sno" id="officer_sno">
+            </td>
+            <td class="border-left">   
+                <p class = "Risk_Category">Risk Category
+            </td>
+            <td>
+              <select name="Risk_Category" id="Risk_Category">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            </td>
+          </tr>
+          </table>
+          <table width="90%">
+            <tr>
+              <td style="width:70%;">
+                <p>Does the name appear on the special reference list?
+              </td>
+              <td style="padding-bottom:20px;">
+                <input type="radio"  name="yes" id="yes" value="Yes" style="width:15px; height:15px;">Yes
+              </td>
+              <td style="padding-bottom:20px;"> 
+                <input type="radio"  name="yes" id="yes" value="No" style="width:15px; height:15px;">No 
+              </td>
+            </tr>
+          </table>
+            <p style="text-align: left; padding-left: 35px;"><i>Officer Authorization</i></p>
+            <table class="contact" width="90%">
+            <tr>
+              <td align="center">
+                <input type="text" name="Name" >
+                <p>Name<br>
+              </td>
+              <td align="center">
+                <input type="text" name="Signature">
+                <p>Signature<br>
+              </td>
+              <td align="center">
+                <input type="text" name="Date">
+                <p>Date<br>
+              </td>
+            </tr>
+          </table>    
+          <p style="text-align: left; padding-left: 35px;"><i>Manager Authorization</i></p>
+          <table class="contact" width="90%">          
+            <tr>
+              <td align="center">  
+                <input type="text" name="Name">
+                <p>Name<br>
+              </td>
+              <td align="center">   
+                <input type="text" name="Signature">
+                <p>Signature<br>
+              </td>
+              <td align="center">
+                <input type="text" name="Date">
+                <p>Date<br>
+              </td>
+            </tr>
+          </table></center>
+          <p style="padding-left: 550px;"><button type="button" class="btn btn-primary">Submit</button></p>
+        </form>
+    </div>
+    <div class="col-md-3 contact_info"></div>
+  </div>
+<br>
+
+
+    {% block content %}
+          
+    {% endblock %}
+
+
+</body>
+</html>

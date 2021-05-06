@@ -1,0 +1,13 @@
+.border{
+   border: 1px solid black;
+}
+
+.fakeimg {
+   height: 200px;
+   background: #aaa;
+}
+
+.scrollmenu{
+   overflow: auto;
+   white-space: nowrap;
+}
