@@ -38,23 +38,23 @@ class Kyc_Info(models.Model):
     country_resident_temp =models.CharField(blank=True, max_length=50)
 
     # current Address
-    house_no_temp = models.CharField(max_length=20)
-    street_temp = models.CharField(max_length=20)
-    city_temp = models.CharField(max_length=20)
+    house_no_temp = models.CharField(max_length=100)
+    street_temp = models.CharField(max_length=100)
+    city_temp = models.CharField(max_length=50)
     postal_code_temp = models.CharField(max_length=10, blank=True, null=True)
-    state_address_temp = models.CharField(max_length=20, blank=True, null=True)
+    state_address_temp = models.CharField(max_length=40, blank=True, null=True)
 
     # permenent Address
-    house_no_per_temp = models.CharField(max_length=20)
-    street_per_temp = models.CharField(max_length=20)
-    city_per_temp = models.CharField(max_length=20)
+    house_no_per_temp = models.CharField(max_length=100)
+    street_per_temp = models.CharField(max_length=100)
+    city_per_temp = models.CharField(max_length=50)
     postal_code_per_temp = models.CharField(max_length=10, blank=True, null=True)
     
     # contact infromation
     mob_no_temp = models.CharField(max_length=20)
     office_num_temp = models.CharField(max_length=20, blank=True, null=True)
     home_num_temp = models.CharField(max_length=20, blank=True, null=True)
-    email_add_temp = models.CharField(max_length=50, blank=True, null=True)
+    email_add_temp = models.CharField(max_length=100, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
@@ -115,23 +115,23 @@ class Kyc_Infotemp(models.Model):
     country_resident_temp =models.CharField(blank=True, max_length=50)
 
     # current Address
-    house_no_temp = models.CharField(max_length=20)
-    street_temp = models.CharField(max_length=20)
-    city_temp = models.CharField(max_length=20)
+    house_no_temp = models.CharField(max_length=100)
+    street_temp = models.CharField(max_length=100)
+    city_temp = models.CharField(max_length=50)
     postal_code_temp = models.CharField(max_length=10, blank=True, null=True)
-    state_address_temp = models.CharField(max_length=20, blank=True, null=True)
+    state_address_temp = models.CharField(max_length=50, blank=True, null=True)
 
     # permenent Address
-    house_no_per_temp = models.CharField(max_length=20)
-    street_per_temp = models.CharField(max_length=20)
-    city_per_temp = models.CharField(max_length=20)
+    house_no_per_temp = models.CharField(max_length=100)
+    street_per_temp = models.CharField(max_length=100)
+    city_per_temp = models.CharField(max_length=50)
     postal_code_per_temp = models.CharField(max_length=10, blank=True, null=True)
     
     # contact infromation
     mob_no_temp = models.CharField(max_length=20)
     office_num_temp = models.CharField(max_length=20, blank=True, null=True)
     home_num_temp = models.CharField(max_length=20, blank=True, null=True)
-    email_add_temp = models.CharField(max_length=50, blank=True, null=True)
+    email_add_temp = models.CharField(max_length=100, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
@@ -148,11 +148,11 @@ class Kyc_Infotemp(models.Model):
 
 class Id_Info(models.Model):
     nic_no = models.CharField(max_length=50)
-    name_full = models.CharField(max_length=100)
+    name_full = models.CharField(max_length=200)
     birth_day = models.DateField('%Y-%m-%d')
-    house_num = models.CharField(max_length=20)
-    street_add = models.CharField(max_length=20)
-    city_ref = models.CharField(max_length=20)
+    house_num = models.CharField(max_length=100)
+    street_add = models.CharField(max_length=100)
+    city_ref = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name_full
@@ -202,34 +202,34 @@ class Kyc_Reject(models.Model):
     country_resident_temp =models.CharField(blank=True, max_length=50)
 
     # current Address
-    house_no_temp = models.CharField(max_length=20)
-    street_temp = models.CharField(max_length=20)
-    city_temp = models.CharField(max_length=20)
+    house_no_temp = models.CharField(max_length=100)
+    street_temp = models.CharField(max_length=100)
+    city_temp = models.CharField(max_length=50)
     postal_code_temp = models.CharField(max_length=10, blank=True, null=True)
-    state_address_temp = models.CharField(max_length=20, blank=True, null=True)
+    state_address_temp = models.CharField(max_length=50, blank=True, null=True)
 
     # permenent Address
-    house_no_per_temp = models.CharField(max_length=20)
-    street_per_temp = models.CharField(max_length=20)
-    city_per_temp = models.CharField(max_length=20)
+    house_no_per_temp = models.CharField(max_length=100)
+    street_per_temp = models.CharField(max_length=100)
+    city_per_temp = models.CharField(max_length=50)
     postal_code_per_temp = models.CharField(max_length=10, blank=True, null=True)
     
     # contact infromation
     mob_no_temp = models.CharField(max_length=20)
     office_num_temp = models.CharField(max_length=20, blank=True, null=True)
     home_num_temp = models.CharField(max_length=20, blank=True, null=True)
-    email_add_temp = models.CharField(max_length=50, blank=True, null=True)
+    email_add_temp = models.CharField(max_length=100, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     
     # rejection acceptance variables
-    date_now_temp = models.CharField(max_length=100, null=True, blank= True)
+    date_now_temp = models.CharField(max_length=150, null=True, blank= True)
     staff_member_temp = models.CharField(null=True, max_length=50, blank=True)
-    file_note_temp = models.TextField(max_length=200, null=True, blank=True)
-    rejected_temp = models.CharField(max_length=20, null=True, blank=True)
-    reason_for_rej_temp = models.CharField(max_length=50, null=True, blank=True)
+    file_note_temp = models.TextField(max_length=250, null=True, blank=True)
+    rejected_temp = models.CharField(max_length=40, null=True, blank=True)
+    reason_for_rej_temp = models.CharField(max_length=100, null=True, blank=True)
     file_attachment_temp = models.FileField(upload_to='rej/videos/liv_vid/%Y/%m/%d/', null=True)
     
 
