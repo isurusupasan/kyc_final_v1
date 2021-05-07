@@ -867,7 +867,7 @@ def insertkyc(request):
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
-                        messages.success(request, 'successfully submitted, Document is processing')
+                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
                         idS =  str(submit_kyc_temp.id)
                         request.session['id'] = submit_kyc_temp.id
 
@@ -912,7 +912,7 @@ def insertkyc(request):
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
-                        messages.success(request, 'Submitted successfully, processing')
+                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
                         idS =  str(submit_kyc_temp.id)
                         request.session['id'] = submit_kyc_temp.id
 
@@ -990,7 +990,7 @@ def insertkyc(request):
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
-                        messages.success(request, 'Successfully submitted, Document is processing')
+                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
                         idS =  str(submit_kyc_temp.id)
                         request.session['id'] = submit_kyc_temp.id
 
@@ -1035,7 +1035,13 @@ def insertkyc(request):
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
-                        messages.success(request, 'successfully submitted, Document is processing')
+                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
+
+                        idS =  str(submit_kyc_temp.id)
+                        request.session['id'] = submit_kyc_temp.id
+
+                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+                        
                         return render(request, 'kyc/verify.html')
 
 
