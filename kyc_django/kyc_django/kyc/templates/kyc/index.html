@@ -39,116 +39,7 @@
 
 
 	<script type="text/javascript">
-		function  chackDOB(){
-
-			var id =  document.getElementById("NIC").value;
-			var bir = document.getElementById("birthday").value;
-			var sex;
-
-			var ele = document.getElementsByName('gender');
-
-			for(i = 0; i < ele.length; i++) {
-				if(ele[i].checked)
-				sex = ele[i].value;
-			}
-
-			var iY = Math.round((id/10000000)%100);
-
-			// find sex
-
-			var sexNumber = Math.round((id/10000)%1000);
-
-			if(sexNumber < 500)
-				{
-					if(sex == "M")
-						{
-
-						}
-					else
-						{
-							//window.alert('wrong gender')
-
-						}
-				}
-
-			if(sexNumber >= 500)
-				{
-					iY = iY-1;
-
-					if(sex == "F")
-						{
-
-						}
-					else
-						{
-							//window.alert('wrong gender')
-
-						}
-				}
-
-				// find DOB
-
-			var birS = bir.toString()
-			var bY = birS.slice(2,4);
-			var bM = birS.slice(5,7);
-			var bD = birS.slice(8,10);
-
-
-
-			var iMD ;
-
-			if(sexNumber >= 500)
-				{
-					iMD = sexNumber - 500;
-				}
-			else
-				{
-					iMD = sexNumber;
-				}
-			var dArray = [0,31,60,91,121,152,182,213,244,274,305,335,336];
-			var i=0;
-
-			while(iMD>dArray[i])
-				{
-					i++;
-
-				}
-			var iD = iMD-dArray[i-1];
-			var iM = i;
-			var temY = parseInt(bY);
-			var temM = parseInt(bM);
-			var temD = parseInt(bD);
-
-			if(iY==temY)
-				{
-
-				}
-			else
-				{
-					window.alert('wrong Year in Date of Birth');
-				}
-
-			if(iM==temM)
-				{
-
-				}
-			else
-				{
-					window.alert('wrong Month in Date of Birth');
-				}
-
-			if(iD==temD)
-				{
-
-				}
-			else
-				{
-					window.alert('wrong Date in Date of Birth');
-				}
-
-
-		}
-
+		
 
 
 	</script>
@@ -384,6 +275,129 @@
                 document.getElementById("type_of_your_visa").disabled = true;
                 document.getElementById("visa_exp_other").disabled = true;}
         }
+
+        function  chackDOB(){
+
+			var id =  document.getElementById("NIC").value;
+			var bir = document.getElementById("birthday").value;
+			var sex;
+
+			var ele = document.getElementsByName('gender');
+
+			for(i = 0; i < ele.length; i++) {
+				if(ele[i].checked)
+				sex = ele[i].value;
+			}
+
+			var iY = Math.round((id/10000000)%100);
+
+			// find sex
+
+			var sexNumber = Math.round((id/10000)%1000);
+
+			if(sexNumber < 500)
+				{
+					if(sex == "M")
+						{
+
+						}
+					else
+						{
+							//window.alert('wrong gender')
+
+						}
+				}
+
+			if(sexNumber >= 500)
+				{
+					iY = iY-1;
+
+					if(sex == "F")
+						{
+
+						}
+					else
+						{
+							//window.alert('wrong gender')
+
+						}
+				}
+
+				// find DOB
+
+			var birS = bir.toString()
+			var bY = birS.slice(2,4);
+			var bM = birS.slice(5,7);
+			var bD = birS.slice(8,10);
+
+
+
+			var iMD ;
+
+			if(sexNumber >= 500)
+				{
+					iMD = sexNumber - 500;
+				}
+			else
+				{
+					iMD = sexNumber;
+				}
+			var dArray = [0,31,60,91,121,152,182,213,244,274,305,335,336];
+			var i=0;
+
+			while(iMD>dArray[i])
+				{
+					i++;
+
+				}
+			var iD = iMD-dArray[i-1];
+			var iM = i;
+			var temY = parseInt(bY);
+			var temM = parseInt(bM);
+			var temD = parseInt(bD);
+
+			if(document.getElementById("NIC").value != ""){
+            
+                if(iY!=temY)
+                                    
+                    {
+                        window.alert('Wrong NIC number or date of birth');
+
+
+                    }
+
+                else if(iM!=temM)
+                    
+                    {
+                        window.alert('Wrong NIC number or date of birth');
+                    }
+
+                else if(iD!=temD)
+                    
+                    {
+                        window.alert('Wrong NIC number or date of birth');
+                    }
+                
+
+                //		find 18+
+                var b18Y = birS.slice(0,4);
+                var tem18Y = parseInt(b18Y);
+                var date = new Date();
+                var dateS = date.toString();
+                var dateY = dateS.slice(11,16);
+                var dateYint = parseInt(dateY);
+                var age = dateYint - tem18Y;
+                
+                
+                if(age<18)
+                    {
+                        window.alert("You are under 18 years old");
+                    }
+
+
+		    }
+        }
+
     </script>
 
 
@@ -488,7 +502,8 @@
                         
                         <td>
                             <p class = "ID_Recognitio">Identity Recognititon
-                            <select name="id_types" id="ID_type" required="" onChange="identity_recognition()">
+                            <select name="id_types" id="ID_type" required="" onChange="identity_recognition()"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                                 <option value="" id="op_def">Select Your ID Type</option>
                                 <option value="National_ID" id="op_nic">National ID</option>
                                 <option value="Passport" id="op_passport">Passport</option>
@@ -508,14 +523,15 @@
                     <tr>
                         <td>
                             <p class = "NIC">NIC</br>
-                                <input class="NIC" type="number" name="nic_no" placeholder="NIC (fill only numbers)" id="NIC" onkeypress="isnumber(event)" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')">
+                                <input class="NIC" type="number" name="nic_no" placeholder="NIC (fill only numbers)" id="NIC" onkeypress="isnumber(event)" required=""
+                                oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                             </p>
                         </td>
 
                         
                         <td class="left_border">
                             <p class = "DOB">Date of Birth <br>
-                            <input type="date" id="birthday" name="birth_day" required placeholder="" oninvalid="this.setCustomValidity('Please enter your birthday')" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
+                            <input type="date" id="birthday" name="birth_day" required placeholder="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                         </td>
 
                     </tr>
@@ -600,7 +616,8 @@
                     <tr>
                         <td>
                             <br><p class = "Nationality"> Nationality<br>
-                            <select name="nationality" id="Nationality" required="" onChange="select_nationality()">
+                            <select name="nationality" id="Nationality" required="" onChange="select_nationality()"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                                 <option value="">Select Your Nationality</option>
                                 <option value="Sri_Lankan">Sri Lankan</option>
                                 <option value="Sri_Lankan_with_dual_citizenship">Sri Lankan with dual citizenship</option>
@@ -619,7 +636,8 @@
                     <tr>
                         <td>
                             <p>Type of Visa<br>
-                            <select id="visa" required="" name="visa_type"  onChange="select_visa()">
+                            <select id="visa" required="" name="visa_type"  onChange="select_visa()" 
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                                 <option value="Permanent Resident">Permanent Resident</option>
                                 <option value="Temporary Resident">Temporary Resident</option>
                                 <option value="Green Card">Green Card</option>
@@ -662,7 +680,8 @@
                     <tr>
                         <td>
                             <p class = "Verification_address">Availability of verification doc. Address
-                                <select name="Verification_addres" id="Verification_address" required="" >
+                                <select name="Verification_addres" id="Verification_address" required="" 
+                                oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                                     <option id="NIC/passport">NIC/passport</option>
                                     <option id="Utilityb_ill">Utility bill</option>
                                     <option id="Driving_licene">Valid Driving licene</option>
@@ -899,7 +918,7 @@
 
                                 <p>Mobile number<br>
                                     <input  name="mobile_number" id="mobile" onkeypress="isnumber(event)" type="tel" id="phone" name="phone" placeholder="0771234567"
-                                    pattern="[0-9]{10}" required="">
+                                    pattern="[0-9]{10}" required="" oninvalid="this.setCustomValidity('Oop! wrong format')" oninput="this.setCustomValidity('')"/>
                                 </p>
 
                             </td>
@@ -924,7 +943,7 @@
                             </td>
 
                             <td colspan="2" style="width: 100%;">
-                                <input type="email" name="email_add" id="email" placeholder="Ex; abc@gmail.com" required="" />
+                                <input type="email" name="email_add" id="email" placeholder="Ex; abc@gmail.com" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                             </td>
 
                         </tr>
@@ -933,7 +952,7 @@
 
                 </center>
                 <br>
-                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" name="submit" onclick="chackDOB();validate();return" >Next</button></p>
+                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" id="submit_kyc" name="submit" onclick="chackDOB();validate();return" >Next</button></p>
           </form>
       </div>
 
