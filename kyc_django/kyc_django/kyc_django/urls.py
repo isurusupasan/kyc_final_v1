@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('index', index),
     path('office', office),
     path('personal', personal),
     path('account', account),
@@ -36,7 +36,7 @@ urlpatterns = [
     path('upload/', views.image_upload_view),
     path('verify/', views.verify, name="verify" ),
     
-    path('search/', views.search_val, name="search")
+    path('', include("kyc.urls"))
 ]
 
 if settings.DEBUG:
