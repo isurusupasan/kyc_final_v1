@@ -908,10 +908,16 @@ def insertkyc(request):
                                                        city_per_temp=city_per, postal_code_per_temp=postal_code_per,
                                                        mob_no_temp=mob_no, office_num_temp=office_num,
                                                        home_num_temp=home_num,
-                                                       email_add_temp=email_add, red_flag_temp=red_flag,
+                                                       email_add_temp=email_add,
+                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'Submitted successfully, processing')
+                        idS =  str(submit_kyc_temp.id)
+                        request.session['id'] = submit_kyc_temp.id
+
+                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+
                         return render(request, 'kyc/verify.html')
 
                 # if date of birth is false
@@ -980,10 +986,16 @@ def insertkyc(request):
                                                        city_per_temp=city_per, postal_code_per_temp=postal_code_per,
                                                        mob_no_temp=mob_no, office_num_temp=office_num,
                                                        home_num_temp=home_num,
-                                                       email_add_temp=email_add, red_flag_temp=red_flag,
+                                                       email_add_temp=email_add,
+                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'Successfully submitted, Document is processing')
+                        idS =  str(submit_kyc_temp.id)
+                        request.session['id'] = submit_kyc_temp.id
+
+                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+
                         return render(request, 'kyc/verify.html')
 
                     else:
@@ -1019,7 +1031,8 @@ def insertkyc(request):
                                                        city_per_temp=city_per, postal_code_per_temp=postal_code_per,
                                                        mob_no_temp=mob_no, office_num_temp=office_num,
                                                        home_num_temp=home_num,
-                                                       email_add_temp=email_add, red_flag_temp=red_flag,
+                                                       email_add_temp=email_add,
+                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
                                                        green_flag_temp=green_flag, blue_flag_temp=blue_flag)
                         submit_kyc_temp.save()
                         messages.success(request, 'successfully submitted, Document is processing')
