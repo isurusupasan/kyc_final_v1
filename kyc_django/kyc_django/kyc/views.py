@@ -282,6 +282,7 @@ def update_data(request, id):
             flag_1 = request.POST["red_flag_temp"]
             flag_2 = request.POST["green_flag_temp"]
             flag_3 = request.POST["blue_flag_temp"]
+            masegEmail = "Sorry! \n"
 
             submit_kyc_temp = Kyc_Reject(salutation_temp=salutation, full_name_temp=full_name,
                                         name_init_temp=name_init, profile_pic_temp=profile_pic,
@@ -319,11 +320,16 @@ def update_data(request, id):
             submit_kyc_temp.save()
             Kyc_Infotemp.objects.filter(id=id).delete()
             messages.success(request, 'successfully submitted')
+
+            
+            email_alert("BANK", masegEmail + "Kyc of " + full_name  + "is rejected. on " + date_now_temp + " Please visit the nearest XXX branch or Call xxx-xxxxxxx. Our staff will assist you in this process ", email_add)
+
             result = Kyc_Infotemp.objects.filter(green_flag_temp=True)
             result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
             result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
             result4 = Kyc_Infotemp.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
             productnames = Kyc_Infotemp.objects.all()
+
 
             # get the form output using get method
             if request.method == 'GET':
@@ -370,6 +376,11 @@ def update_data(request, id):
         flag_2 = request.POST["green_flag_temp"]
         flag_3 = request.POST["blue_flag_temp"]
 
+        masegEmail = "Verification successfull\n"
+        full_name = request.POST["full_name_temp"]
+        nics_no = request.POST["nics_no_temp"]
+        email_add = request.POST["email_add_temp"]
+
         if Kyc_Info.objects.filter(nics_no_temp=new_entry).exists():
 
             place = Kyc_Info.objects.get(nics_no_temp=new_entry)
@@ -385,6 +396,8 @@ def update_data(request, id):
                     form = update_forms(request.POST, instance=updates_data)
                     # Kyc_Infotemp.objects.filter(id=id).delete()
                     Kyc_Infotemp.objects.filter(id=id).delete()
+
+                    email_alert("BANK", masegEmail + "KYC of " + full_name  + " and " + nics_no + " verified successfullly, Thank you for banking with us. ", email_add)
 
                     result = Kyc_Infotemp.objects.filter(green_flag_temp=True)
                     result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
@@ -1041,7 +1054,7 @@ def insertkyc(request):
                         request.session['id'] = submit_kyc_temp.id
 
                         email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
-                        
+
                         return render(request, 'kyc/verify.html')
 
 
