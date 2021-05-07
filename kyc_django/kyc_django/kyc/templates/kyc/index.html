@@ -440,7 +440,7 @@
                         <td>
                             <p class = "name">Name with Initials</br>
                             <input class = "nwi" type = "text" name = "name_init" placeholder = "Name with Initials" id="nwi" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your name with initials')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')" />
                         </td>
                     </tr>
@@ -449,7 +449,7 @@
                         <td colspan="2">
                             <p class = "name">Name in Full<br>
                             <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" style="width:95%;" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your Full Name')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"  />
                         </td>
                     </tr>
@@ -465,7 +465,7 @@
                             </td>
                             <td>
                                 <input type="file" id="img" name="self_nic" accept="image/*" required placeholder=""
-                                oninvalid="this.setCustomValidity('Please upload a live selfie')" oninput="this.setCustomValidity('')"  />
+                                oninvalid="this.setCustomValidity('Upload a clear selfie of you holding the photo identity card towards the camera. Show  your ID card photo clearly.')" oninput="this.setCustomValidity('')"  />
 
                                 
                             </td>
@@ -481,14 +481,14 @@
                             </td>
                             <td>
                                 <input type="file" id="vid" name="live_video" accept="video/*" required placeholder=""
-                                oninvalid="this.setCustomValidity('Please upload a live video')" oninput="this.setCustomValidity('')"  />
+                                oninvalid="this.setCustomValidity('Oops! Vedio has not been uploaded')" oninput="this.setCustomValidity('')"  />
                             </td>
                         </tr>
                         
                         
                         <td>
                             <p class = "ID_Recognitio">Identity Recognititon
-                            <select name="id_types" id="ID_type" required="" onChange="identity_recognition()">
+                            <select name="id_types" id="ID_type" required="" onChange="identity_recognition()" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" >
                                 <option value="" id="op_def">Select Your ID Type</option>
                                 <option value="National_ID" id="op_nic">National ID</option>
                                 <option value="Passport" id="op_passport">Passport</option>
@@ -508,14 +508,14 @@
                     <tr>
                         <td>
                             <p class = "NIC">NIC</br>
-                                <input class="NIC" type="number" name="nic_no" placeholder="NIC (fill only numbers)" id="NIC" onkeypress="isnumber(event)" required="">
+                                <input class="NIC" type="number" name="nic_no" placeholder="NIC (fill only numbers)" id="NIC" onkeypress="isnumber(event)" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')">
                             </p>
                         </td>
 
                         
                         <td class="left_border">
                             <p class = "DOB">Date of Birth <br>
-                            <input type="date" id="birthday" name="birth_day" required placeholder="" oninvalid="this.setCustomValidity('Please enter your birthday')"  oninput="this.setCustomValidity('')"/>
+                            <input type="date" id="birthday" name="birth_day" required placeholder="" oninvalid="this.setCustomValidity('Please enter your birthday')" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" oninput="this.setCustomValidity('')"/>
                         </td>
 
                     </tr>
@@ -525,13 +525,13 @@
                         <td>
                             <p class = "Driving_License">Driving License<br>
                             <input class="Driving_License" type="text" name="drive_lice" placeholder="Driving License" id="drlicense" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter the driving licene number')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                         <td class="left_border">
                             <p class = "Exp">Expiration Date<br>
                             <input class="Exp" type="date" name="drive_exp" placeholder="Expire Date" id="drive_exp" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter the expire date of your license')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -540,13 +540,13 @@
                         <td>
                             <p class = "Passport">Passport No.<br>
                             <input class="Passport" type="text" name="passport_num" placeholder="Passport" id="passport" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your passport number')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                         <td class="left_border">
                             <p class = "Exp">Expiration Date</br>
                             <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter the expire date of your passport')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -555,13 +555,13 @@
                         <td >
                             <p class = "Birthcertificatenumber">Birth certificate No.<br>
                             <input class="Birthcertificatenumber" type="text" name="birth_certi" placeholder="Birth certificate number" id="BRC" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your birth certification number')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                         <td class="left_border">
                             <p class = "Postal ID">Postal ID<br>
                             <input class="Postal ID" type="text" name="postal_iden" placeholder="Postal ID" id="PID" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your postal ID number')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                         
@@ -570,7 +570,7 @@
                         <td td colspan="2" style="padding-left: 150px; ">
                             <p class = "OAFSC">Official armed forces service card<br>
                             <input class="OAFSC" type="text" name="oafsc" placeholder="Official armed forces service card" id="OAFSC" style="width: 60%" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your Official armed forces number')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                        
@@ -581,7 +581,7 @@
                         </td>
                         <td>
                             <input type="file" id="imgVisa" name="img_visa" accept="image/*" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please upload a copy of your VISA')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -592,7 +592,7 @@
                         </td>
                         <td>
                             <input type="file" id="imgOther" name="img_other" accept="image/*" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please Upload a scan copy of the selected identity recognition document')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -600,7 +600,7 @@
                     <tr>
                         <td>
                             <br><p class = "Nationality"> Nationality<br>
-                            <select name="nationality" id="Nationality" required="" onChange="select_nationality()">
+                            <select name="nationality" id="Nationality" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" onChange="select_nationality()">
                                 <option value="">Select Your Nationality</option>
                                 <option value="Sri_Lankan">Sri Lankan</option>
                                 <option value="Sri_Lankan_with_dual_citizenship">Sri Lankan with dual citizenship</option>
@@ -611,7 +611,7 @@
                         <td>
                             <br><p class = "Nationality">Nationality<br>
                             <input class="Nationality" type="text" name="nationality_other" placeholder="Nationality" id="otherNationality" onkeyup="lettersOnly(this)" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your Nationality')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -619,7 +619,7 @@
                     <tr>
                         <td>
                             <p>Type of Visa<br>
-                            <select id="visa" required="" name="visa_type" onChange="select_visa()">
+                            <select id="visa" required="" name="visa_type" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" onChange="select_visa()">
                                 <option value="Permanent Resident">Permanent Resident</option>
                                 <option value="Temporary Resident">Temporary Resident</option>
                                 <option value="Green Card">Green Card</option>
@@ -629,7 +629,7 @@
                         <td class="left_border">
                             <p class = "Exp">Expiration Date</br>
                             <input class="Exp" type="date" name="visa_exp" placeholder="Expire Date" id="visa_exp" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter the expire date of your VISA')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -637,13 +637,13 @@
                         <td>
                             <p>If other please specify<br>
                             <input class="type_of_visa" type="text" name="type_of_visa" placeholder="Type of your visa" id="type_of_your_visa"  required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter other details')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                         <td class="left_border">
                             <p class = "Exp">Expiration Date</br>
                             <input class="Exp" type="date" name="visa_other_exp" placeholder="Expire Date" id="visa_exp_other" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter the expire date')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -651,7 +651,7 @@
                         <td colspan="2">
                             <p>Foreign Address<br>
                             <input type="text" name="foreign_address" id="foreign_address" placeholder="Enter your foreign address, if you have any" style="width:95%;" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please enter your foreign address')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                     </tr>
@@ -662,7 +662,7 @@
                     <tr>
                         <td>
                             <p class = "Verification_address">Availability of verification doc. Address
-                                <select name="Verification_addres" id="Verification_address" required="">
+                                <select name="Verification_addres" id="Verification_address" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')">
                                     <option id="NIC/passport">NIC/passport</option>
                                     <option id="Utilityb_ill">Utility bill</option>
                                     <option id="Driving_licene">Valid Driving licene</option>
@@ -677,7 +677,7 @@
                         </td>
                         <td><br> 
                             <input type="file" id="img" name="vari_image" accept="image/*" required placeholder=""
-                            oninvalid="this.setCustomValidity('Please upload Availability of verification doc. Address')"
+                            oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
                         </td>
@@ -688,9 +688,9 @@
 
                             </td>
                         <td>
-                            <input type="radio" required=""  name="pep" id="yes" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
+                            <input type="radio" required="" name="pep" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" id="yes" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
                          
-                            <input type="radio" required="" name="pep" id="no" value="No" style="height:15px; width:15px;"> &nbsp; No 
+                            <input type="radio" required="" name="pep" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" id="no" value="No" style="height:15px; width:15px;"> &nbsp; No 
                        
                         </td>
                           
@@ -701,9 +701,9 @@
                             </td>
 
                             <td>
-                                <input type="radio" required="" name="us_city" id="yes" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
+                                <input type="radio" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" name="us_city" id="yes" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
                              
-                                <input type="radio" required="" name="us_city" id="no" value="No" style="height:15px; width:15px;"> &nbsp; No 
+                                <input type="radio" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" name="us_city" id="no" value="No" style="height:15px; width:15px;"> &nbsp; No 
                             </td>    
                         </tr>
 
@@ -729,9 +729,9 @@
                             <td style="width:60%;" colspan="2">
                                 <p>Are you a resident of Sri Lanka? &nbsp; &nbsp; &nbsp; &nbsp;
                         
-                                <input type="radio" required="" name="residence_sri" id="yes" value="Yes" style="height:15px; width:15px;" onclick="disable()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" name="residence_sri" id="yes" value="Yes" style="height:15px; width:15px;" onclick="disable()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                          
-                                <input type="radio" required="" name="residence_sri" id="no" value="No" style="height:15px; width:15px;" onclick="enable()"> &nbsp; No 
+                                <input type="radio" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" name="residence_sri" id="no" value="No" style="height:15px; width:15px;" onclick="enable()"> &nbsp; No 
                             </td>
                         </tr>
 
@@ -765,7 +765,7 @@
                             </td>
 
                             <td style="width:30%">
-                                <input type="text" name="house_number_per" id="houseNo" placeholder="Ex; 50"  required placeholder=""
+                                <input type="text" name="house_number_per" id="houseNo" placeholder="Ex; 50"  required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" placeholder=""
                                 oninvalid="this.setCustomValidity('Please enter the house number')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
@@ -775,7 +775,7 @@
                             </td>
 
                             <td style="width:25%">
-                                <input type="text" name="street_per" id="street"  placeholder="Ex; Jaffna Rd"  required placeholder=""
+                                <input type="text" name="street_per" id="street"  placeholder="Ex; Jaffna Rd"  required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" placeholder=""
                                 oninvalid="this.setCustomValidity('Please enter the street name')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
@@ -789,7 +789,7 @@
                             </td>
 
                             <td style="width:30%">
-                                <Select name="city_per" id="city" required="" onkeyup="lettersOnly(this)">
+                                <Select name="city_per" id="city" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" onkeyup="lettersOnly(this)">
                                     <option>Anuradhapura</option>
                                     <option>Colombo</option>
                                     <option>Kandy</option>
@@ -807,7 +807,7 @@
 
                             <td style="width:25%">
                                 <input type="text" name="postal_code_per" id="postal_code" onkeypress="isnumber(event)" placeholder="20000"  required placeholder=""
-                                oninvalid="this.setCustomValidity('Please enter the postal code')"
+                                oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
 
@@ -827,7 +827,7 @@
 
                             <td style="width:30%">
                                 <input type="text" name="house_number" id="houseNo"  placeholder="Ex; 50" required placeholder=""
-                                oninvalid="this.setCustomValidity('Please enter the house number')"
+                                oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
 
@@ -837,7 +837,7 @@
 
                             <td style="width:25%">
                                 <input type="text" name="street" id="street"  placeholder="Ex; Jaffna Rd"  required placeholder=""
-                                oninvalid="this.setCustomValidity('Please enter the street name')"
+                                oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
 
@@ -849,7 +849,7 @@
                                 <label>City</label>
                             </td>
                             <td style="width:30%">
-                                <Select name="city" id="city" required="" onkeyup="lettersOnly(this)">
+                                <Select name="city" id="city" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" onkeyup="lettersOnly(this)">
                                     <option>Anuradhapura</option>
                                     <option>Colombo</option>
                                     <option>Kandy</option>
@@ -867,7 +867,7 @@
 
                             <td style="width:25%">
                                 <input type="text" name="postal_code" id="postal_code"  onkeypress="isnumber(event)" placeholder="20000"  required placeholder=""
-                                oninvalid="this.setCustomValidity('Please enter the postal code')"
+                                oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
 
@@ -899,7 +899,7 @@
 
                                 <p>Mobile number<br>
                                     <input  name="mobile_number" id="mobile" onkeypress="isnumber(event)" type="tel" id="phone" name="phone" placeholder="0771234567"
-                                    pattern="[0-9]{10}" required="">
+                                    pattern="[0-9]{10}" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')">
                                 </p>
 
                             </td>
@@ -924,7 +924,7 @@
                             </td>
 
                             <td colspan="2" style="width: 100%;">
-                                <input type="email" name="email_add" id="email" placeholder="Ex; abc@gmail.com" required />
+                                <input type="email" name="email_add" id="email" placeholder="Ex; abc@gmail.com" required="" oninvalid="this.setCustomValidity('Oop! This field is mandatory')" />
                             </td>
 
                         </tr>
