@@ -12,7 +12,7 @@
 
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'kyc/css/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'kyc/css/update_main.css' %}">
     <script src="{% static 'kyc/js/index_min.js' %}" type="text/javascript"></script>
 
     <title>existing Customer</title>
@@ -40,34 +40,34 @@
                         <tr class="next_use control">
                             <td class="next_use">
                                 <p>Id<br>
-                                    <input type="text" name="id" value="{{Kyc_Infotemp.id}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="id" value="{{Kyc_Infotemp.id}}" readonly>
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <p>Salutation<br>
-                                    <input  type="text" name="salutation_temp" value="{{Kyc_Infotemp.salutation_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec"  type="text" name="salutation_temp" value="{{Kyc_Infotemp.salutation_temp}}">
                                 </p>
                             </td>
                             
 
                             <td class="next_use">
                                 <p class="red_mark">Name with initials<br>
-                                    <input type="text" name="name_init_temp" value="{{Kyc_Infotemp.name_init_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="name_init_temp" value="{{Kyc_Infotemp.name_init_temp}}">
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td class="next_use">
                                 <p class="red_mark">Name in full<br>
-                                    <input type="text" name="full_name_temp" value="{{Kyc_Infotemp.full_name_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="full_name_temp" value="{{Kyc_Infotemp.full_name_temp}}" readonly>
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Live Selfie<br>
                                     <img style="width:80px; height:50px" name="profile_pic_temp" src="{{Kyc_Infotemp.profile_pic_temp.url}}" accept="image/*" readonly></p>
-                                <p> <input  type="text" name="profile_pic_temp" value="{{Kyc_Infotemp.profile_pic_temp}}" accept="image/*" readonly>
+                                <p> <input class="text-dec" class="text-dec" class="text-dec" class="text-dec"  type="text" name="profile_pic_temp" value="{{Kyc_Infotemp.profile_pic_temp}}" accept="image/*" readonly>
                                 </p>
                             </td>
                         </tr>
@@ -77,7 +77,7 @@
                             <td class="next_use">
                                 <br>
                                 <p>Live video<br>
-                                    <input type="text" name="live_video_temp" value="{{Kyc_Infotemp.live_video_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="live_video_temp" value="{{Kyc_Infotemp.live_video_temp}}" readonly>
                                 </p>
                             </td>
                         </tr>
@@ -92,19 +92,19 @@
 
                             <td class="next_use">
                                 <p>Id type<br>
-                                    <input type="text" name="id_type_temp" value="{{Kyc_Infotemp.id_type_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="id_type_temp" value="{{Kyc_Infotemp.id_type_temp}}" readonly>
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>NIC NO<br>
-                                    <input type="number" name="nics_no_temp" value="{{Kyc_Infotemp.nics_no_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="number" name="nics_no_temp" value="{{Kyc_Infotemp.nics_no_temp}}" readonly>
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Date of birth<br>
-                                    <input type="date"  name="date_of_birth_temp" value="{{Kyc_Infotemp.date_of_birth_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="date"  name="date_of_birth_temp" value="{{Kyc_Infotemp.date_of_birth_temp}}" readonly>
                                 </p>
                             </td>
                         </tr>
@@ -114,7 +114,7 @@
                             <td class="next_use">
                                 <br>
                                 <p>Driving licence<br>
-                                    <input type="number" name="driv_lic_temp" value="{{Kyc_Infotemp.driv_lic_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="number" name="driv_lic_temp" value="{{Kyc_Infotemp.driv_lic_temp}}">
                                 </p>
                             </td>
 
@@ -122,7 +122,7 @@
                             <td class="next_use">
                                 <br>
                                 <p>Driving licence Expire<br>
-                                    <input type="text" name="driv_exp_temp" value="{{Kyc_Infotemp.driv_exp_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="driv_exp_temp" value="{{Kyc_Infotemp.driv_exp_temp}}">
                                 </p>
                             </td>
 
@@ -133,14 +133,14 @@
                             <td class="next_use">
                                 <br>
                                 <p>Passport number<br>
-                                    <input type="number" name="pass_no_temp" value="{{Kyc_Infotemp.pass_no_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="number" name="pass_no_temp" value="{{Kyc_Infotemp.pass_no_temp}}">
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <br>
                                 <p>Passport number expire<br>
-                                    <input type="text" name="pass_exp_temp" value="{{Kyc_Infotemp.pass_exp_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="pass_exp_temp" value="{{Kyc_Infotemp.pass_exp_temp}}">
                                 </p>
                             </td>
 
@@ -159,13 +159,13 @@
 
                             <td class="next_use">
                                 <p>Birth certificate No<br>
-                                    <input type="text" name="birth_cernum_temp" value="{{Kyc_Infotemp.birth_cernum_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="birth_cernum_temp" value="{{Kyc_Infotemp.birth_cernum_temp}}">
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Postal ID<br>
-                                    <input type="text" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}">
                                 </p>
                             </td>
                         
@@ -174,13 +174,13 @@
                         
                             <td class="next_use">
                                 <p>OAFSC<br>
-                                    <input type="text" name="oafsc_temp" value="{{Kyc_Infotemp.oafsc_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="oafsc_temp" value="{{Kyc_Infotemp.oafsc_temp}}">
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Copy of Visa<br>
-                                    <input type="text" name="visa_copy_temp" value="{{Kyc_Infotemp.visa_copy_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="visa_copy_temp" value="{{Kyc_Infotemp.visa_copy_temp}}">
                                 </p>
                             </td>
 
@@ -189,13 +189,13 @@
 
                             <td class="next_use">
                                 <p>Identity recognition<br>
-                                    <input type="text" name="othe_identity_doc_temp" value="{{Kyc_Infotemp.othe_identity_doc_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="othe_identity_doc_temp" value="{{Kyc_Infotemp.othe_identity_doc_temp}}">
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <p>Nationality<br>
-                                    <input type="text" name="nationality_temp" value="{{Kyc_Infotemp.nationality_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="nationality_temp" value="{{Kyc_Infotemp.nationality_temp}}">
                                 </p>
                             </td>
                                                                            
@@ -213,19 +213,19 @@
 
                             <td class="next_use">
                                 <p>Other Nationality<br>
-                                    <input type="text" name="nationality_other_temp" value="{{Kyc_Infotemp.nationality_other_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="nationality_other_temp" value="{{Kyc_Infotemp.nationality_other_temp}}">
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Type of Visa<br>
-                                    <input type="text" name="type_of_visa_temp" value="{{Kyc_Infotemp.type_of_visa_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="type_of_visa_temp" value="{{Kyc_Infotemp.type_of_visa_temp}}">
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <p>Expiration Date<br>
-                                    <input type="text" name="visa_exp_temp" value="{{Kyc_Infotemp.visa_exp_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="visa_exp_temp" value="{{Kyc_Infotemp.visa_exp_temp}}">
                                 </p>
                             </td>
 
@@ -235,14 +235,14 @@
                             <td class="next_use">
                                 <br>
                                 <p>If other please specify<br>
-                                    <input type="text" name="other_types_temp" value="{{Kyc_Infotemp.other_types_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="other_types_temp" value="{{Kyc_Infotemp.other_types_temp}}">
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <br>
                                 <p>Expiration Date of other<br>
-                                    <input type="text" name="other_exp_temp" value="{{Kyc_Infotemp.other_exp_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="other_exp_temp" value="{{Kyc_Infotemp.other_exp_temp}}">
                                 </p>
                             </td>
                         </tr>
@@ -252,7 +252,7 @@
                             <td class="next_use">
                                 <br>
                                 <p>Foreign Address<br>
-                                    <input type="text" name="foreign_addre_temp" value="{{Kyc_Infotemp.foreign_addre_temp}}" style="width:80%;">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="foreign_addre_temp" value="{{Kyc_Infotemp.foreign_addre_temp}}" style="width:80%;">
                                 </p>
                             </td>          
                             
@@ -269,14 +269,14 @@
 
                             <td class="next_use">
                                 <p>Verification doc type<br>
-                                    <input type="text" name="vari_doc_type_temp" value="{{Kyc_Infotemp.vari_doc_type_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="vari_doc_type_temp" value="{{Kyc_Infotemp.vari_doc_type_temp}}">
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Verification document<br>
                                     <img style="width:80px; height:50px" name="profile_pic_temp" src="{{Kyc_Infotemp.vari_doc_temp.url}}" accept="image/*" readonly></p>
-                                    <p> <input type="text" name="vari_doc_temp" value="{{Kyc_Infotemp.vari_doc_temp}}" readonly>
+                                    <p> <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="vari_doc_temp" value="{{Kyc_Infotemp.vari_doc_temp}}" readonly>
                                 </p>
                             </td>
                         
@@ -285,7 +285,7 @@
                         
                             <td class="next_use">
                                 <p>PEP<br>
-                                    <input type="text" name="pep_person_temp" value="{{Kyc_Infotemp.pep_person_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="pep_person_temp" value="{{Kyc_Infotemp.pep_person_temp}}">
                                 </p>
                             </td>
 
@@ -293,7 +293,7 @@
 
                             <td class="next_use">
                                 <p>US citizen<br>
-                                    <input type="text" name="us_city_temp" value="{{Kyc_Infotemp.us_city_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="us_city_temp" value="{{Kyc_Infotemp.us_city_temp}}">
                                 </p>
                             </td>
                         
@@ -309,13 +309,13 @@
                             
                             <td class="next_use">
                                 <p>Resident of Sri Lanka?<br>
-                                    <input type="text" name="resident_sri_temp" value="{{Kyc_Infotemp.resident_sri_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="resident_sri_temp" value="{{Kyc_Infotemp.resident_sri_temp}}">
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <p>Country of residence<br>
-                                    <input type="text" name="country_resident_temp" value="{{Kyc_Infotemp.country_resident_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="country_resident_temp" value="{{Kyc_Infotemp.country_resident_temp}}">
                                 </p>
                             </td>
                                                                     
@@ -333,19 +333,19 @@
                         
                             <td class="next_use">
                                 <p>House number Permanent<br>
-                                    <input type="text" name="house_no_per_temp" value="{{Kyc_Infotemp.house_no_per_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="house_no_per_temp" value="{{Kyc_Infotemp.house_no_per_temp}}" readonly >
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Street Permanent<br>
-                                    <input type="text" name="street_per_temp" value="{{Kyc_Infotemp.street_per_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="street_per_temp" value="{{Kyc_Infotemp.street_per_temp}}" readonly >
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>City Permanent<br>
-                                    <input type="text" name="city_per_temp" value="{{Kyc_Infotemp.city_per_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="city_per_temp" value="{{Kyc_Infotemp.city_per_temp}}" readonly >
                                 </p>
                             </td>
 
@@ -354,7 +354,7 @@
                             
                             <td class="next_use">
                                 <p>Postal code Permanent<br>
-                                    <input type="text" name="postal_code_per_temp" value="{{Kyc_Infotemp.postal_code_per_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="postal_code_per_temp" value="{{Kyc_Infotemp.postal_code_per_temp}}" readonly >
                                 </p>
                             </td>
 
@@ -377,19 +377,19 @@
                         <tr>
                             <td class="next_use">
                                 <p class="blue_mark green_mark red_mark">House number<br>
-                                    <input type="text" name="house_no_temp" value="{{Kyc_Infotemp.house_no_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="house_no_temp" value="{{Kyc_Infotemp.house_no_temp}}" readonly >
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p class="blue_mark green_mark red_mark">Street<br>
-                                    <input type="text" name="street_temp" value="{{Kyc_Infotemp.street_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="street_temp" value="{{Kyc_Infotemp.street_temp}}" readonly >
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p class="blue_mark green_mark red_mark">City<br>
-                                    <input type="text" name="city_temp" value="{{Kyc_Infotemp.city_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="city_temp" value="{{Kyc_Infotemp.city_temp}}" readonly >
                                 </p>
                             </td>
 
@@ -398,13 +398,13 @@
 
                             <td class="next_use">
                                 <p>Postal code<br>
-                                    <input type="text" name="postal_code_temp" value="{{Kyc_Infotemp.postal_code_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="postal_code_temp" value="{{Kyc_Infotemp.postal_code_temp}}" readonly>
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>State of the Current address<br>
-                                    <input type="text" name="state_address_temp" value="{{Kyc_Infotemp.state_address_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="text" name="state_address_temp" value="{{Kyc_Infotemp.state_address_temp}}">
                                 </p>
                             </td>
                         
@@ -428,19 +428,19 @@
 
                             <td class="next_use">
                                 <p>Mobile number<br>
-                                    <input type="number" name="mob_no_temp" value="{{Kyc_Infotemp.mob_no_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="number" name="mob_no_temp" value="{{Kyc_Infotemp.mob_no_temp}}" readonly >
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <p>Office phone number<br>
-                                    <input type="number" name="office_num_temp" value="{{Kyc_Infotemp.office_num_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="number" name="office_num_temp" value="{{Kyc_Infotemp.office_num_temp}}">
                                 </p>
                             </td>
 
                             <td class="next_use">
                                 <p>Home phone number<br>
-                                    <input type="number" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}">
+                                    <input class="text-dec" class="text-dec" class="text-dec" class="text-dec" type="number" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}">
                                 </p>
                             </td>
                         
@@ -453,7 +453,7 @@
 
                             <td class="next_use">
                                 <p>Email address<br>
-                                    <input type="text" name="email_add_temp" value="{{Kyc_Infotemp.email_add_temp}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" type="text" name="email_add_temp" value="{{Kyc_Infotemp.email_add_temp}}" readonly >
                                 </p>
                             </td>
                         
@@ -469,7 +469,7 @@
                             <td class="next_use">
                                 <br>
                                 <p>Email Verification<br>
-                                    <input type="text" name="email_add_verification" value="{{Kyc_Infotemp.email_add_verification}}" readonly >
+                                    <input class="text-dec" class="text-dec" class="text-dec" type="text" name="email_add_verification" value="{{Kyc_Infotemp.email_add_verification}}" readonly >
                                 </p>
                             </td>
 
@@ -485,19 +485,19 @@
                         
                             <td class="next_use">
                                 <p class="red_mark">RED flaged<br>
-                                    <input type="text" name="red_flag_temp" value="{{Kyc_Infotemp.red_flag_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" type="text" name="red_flag_temp" value="{{Kyc_Infotemp.red_flag_temp}}" readonly>
                                 </p>
                             </td>
                         
                             <td class="next_use">
                                 <p class="green_mark">Green flaged<br>
-                                    <input type="text" name="green_flag_temp" value="{{Kyc_Infotemp.green_flag_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" type="text" name="green_flag_temp" value="{{Kyc_Infotemp.green_flag_temp}}" readonly>
                                 </p>
                             </td>
                       
                             <td class="next_use">
                                 <p class="blue_mark">Blue flaged<br>
-                                    <input type="text" name="blue_flag_temp" value="{{Kyc_Infotemp.blue_flag_temp}}" readonly>
+                                    <input class="text-dec" class="text-dec" class="text-dec" type="text" name="blue_flag_temp" value="{{Kyc_Infotemp.blue_flag_temp}}" readonly>
                                 </p>
                             </td>
                         </tr>
@@ -509,7 +509,7 @@
                     
                     <br>
                     
-                    <input type="submit" name="update" value="update"/>
+                    <input class="text-dec" class="text-dec" class="text-dec" type="submit" name="update" value="update"/>
                     
 
                     <br><br>
