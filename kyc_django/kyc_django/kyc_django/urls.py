@@ -36,7 +36,9 @@ urlpatterns = [
     path('upload/', views.image_upload_view),
     path('verify/', views.verify, name="verify" ),
     
-    path('', include("kyc.urls"))
+    path('', include("kyc.urls")),
+    path('reject/', views.reject, name="reject"),
+    path('edit_reject/<int:id>', views.edit_val1, name="edit_reject"),
 ]
 
 if settings.DEBUG:

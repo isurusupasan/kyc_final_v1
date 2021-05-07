@@ -1140,3 +1140,40 @@ def search_val(request):
 
 def update_main(request):
     return render(request, "kyc/update_main.html")
+
+
+
+
+def reject(request):
+    result = Kyc_Reject.objects.filter(green_flag_temp=True)
+    result2 = Kyc_Reject.objects.filter(blue_flag_temp=True)
+    result3 = Kyc_Reject.objects.filter(red_flag_temp=True)
+    result4 = Kyc_Reject.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
+    productnames = Kyc_Reject.objects.all()
+
+    # get the form output using get method
+    if request.method == 'GET':
+        p = request.GET.getlist('select_user')
+        # print(p)
+        # k = request.GET('parameters[]')
+        productnames = Kyc_Reject.objects.all()
+        context = {
+            "Kyc_Reject1": result, "Kyc_Reject2": result2,
+            "Kyc_Reject3": result3, "Kyc_Reject4": result4,
+            'userList': p, 'Kyc_Reject': productnames,
+        }
+
+    else:
+
+        context = {
+            "Kyc_Reject1": result, "Kyc_Reject2": result2,
+            "Kyc_Reject3": result3, "Kyc_Reject4": result4,
+            "Kyc_Reject": productnames,
+        }
+    # passing variables to the update.html using dictionary
+    return render(request, "kyc/reject.html", context)
+
+def edit_val1(request, id):
+    update_val = Kyc_Reject.objects.get(id=id)
+
+    return render(request, "kyc/edit_reject.html", {"Kyc_Reject": update_val})
