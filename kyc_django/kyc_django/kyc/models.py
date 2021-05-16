@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime, date
+from simple_history.models import HistoricalRecords
 
 
 # Create your models here.
@@ -59,6 +60,7 @@ class Kyc_Info(models.Model):
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
+    history = HistoricalRecords(excluded_fields=['blue_flag_temp','green_flag_temp','red_flag_temp'])
 
     # rejection /acceptance variables
     
