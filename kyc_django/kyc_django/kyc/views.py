@@ -5,7 +5,7 @@ from email.message import EmailMessage
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject
+from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject, HistoricalKyc_Info
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
 from .forms import update_forms, accept_form, ImageForm, reject_forms
@@ -1177,3 +1177,38 @@ def edit_val1(request, id):
     update_val = Kyc_Reject.objects.get(id=id)
 
     return render(request, "kyc/edit_reject.html", {"Kyc_Reject": update_val})
+
+
+
+def update_history(request):
+    #result = HistoricalKyc_Info.objects.filter(green_flag_temp=True)
+    #result2 = HistoricalKyc_Info.objects.filter(blue_flag_temp=True)
+    #result3 = HistoricalKyc_Info.objects.filter(red_flag_temp=True)
+    #result4 = HistoricalKyc_Info.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
+    history_user = HistoricalKyc_Info.objects.all()
+    original_user = Kyc_Info.objects.all()
+
+    both_user = zip(history_user, original_user)
+
+    # get the form output using get method
+    if request.method == 'GET':
+        selected_user = request.GET.getlist('select_user')
+        # print(p)
+        # k = request.GET('parameters[]')
+        history_user = HistoricalKyc_Info.objects.all()
+        original_user = Kyc_Info.objects.all()
+        both_user = zip(history_user, original_user)
+        context = {
+            
+            'userList': selected_user, 'all_info': history_user,
+            'originList': original_user,
+        }
+
+    else:
+
+        context = {
+            
+            "all_info": history_user, "originList": original_user,
+        }
+    # passing variables to the update.html using dictionary
+    return render(request, "kyc/update_history.html", context)

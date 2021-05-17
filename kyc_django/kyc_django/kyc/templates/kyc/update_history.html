@@ -1,0 +1,392 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'kyc/css/update.css' %}">
+    <script src="{% static 'kyc/js/index_min.js' %}" type="text/javascript"></script>
+
+    <title>Update Admin</title>
+</head>
+
+<body style="background: url({% static 'kyc/img/7.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4">
+                <div class="#">
+
+                    <h2><center>Original database records</center></h2>
+                    <br>
+
+                    <form id="selectUsers" role="search" method="get" action="{% url 'update_history' %}">
+                    
+                        <select name="select_user" data-placeholder="Choose user" class="chosen-select" multiple tabindex="10" style="width: 100%; height: 400px;">
+                            <option value="default" disabled="True">Select user to view history</option>
+                            
+                            {% for display in originList %}
+    
+                                    <option value="{{ display.id }}" id="op_nic"> {{display.id}} | {{display.full_name_temp}} | {{display.nics_no_temp}} | {{display.mob_no_temp}} </option>
+                                    
+                            {% endfor %}
+                        </select><br/>
+                        <center><label for="submit"></label><button id="submit" type="submit" class="btn btn-primary">Submit</button></center>
+                    </form>
+                </div>
+            
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-8" style="overflow: scroll;">
+                <h2><center>Updated Records</center></h2>
+                <br>
+                            
+                            
+                <table class="table table-bordered">
+                    <tr>
+                        <th scope="col">History Date </th>
+                        <th scope="col">History Id</th>
+                        <th scope="col">History Status</th>
+                        <th scope="col">House number</th>
+                        <th scope="col">Street</th>
+                        <th scope="col">City</th>
+                        
+                    </tr>
+            
+                    {% for p in userList %}
+                        {% for display in all_info %}
+                            {% if p == display.id|stringformat:"s" %}
+                    
+                
+                    <tr class="table">
+                        
+                        <td class="#">{{display.history_date}}</td>
+                        <td class="#">{{display.history_id}}</td>
+
+                        {% if display.history_type == '+' %}
+                            <td class="#">Created</td>
+                        {% elif display.history_type == '~' %}
+                            <td class="#">Updated</td>
+                        {% else %}
+                            <td class="#">Deleted</td>
+                        {% endif %}
+
+                        <th scope="row" class="#">{{display.house_no_temp}}</th>
+                        <td class="#">{{display.street_temp}}</td>
+                        <td class="#">{{display.city_temp}}</td>
+                        
+                    </tr>
+
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+    
+                </table>
+
+
+                            <!--<p>{{display.id|stringformat:"s"}}  {{p}}</p>
+                            <p>exists</p>-->
+
+                
+                <!--<p>{{ productList }}</p>-->
+                
+                
+            
+                
+            </div>
+        </div>
+        
+        <!--
+        <div>
+
+            <center>
+                <div><h2>Green falged touples</h2>
+                    <small>(existing kyc, all the infromation are matching)</small>
+                </div>
+                <br>
+                <table class="border" style="margin-top: 10px;">
+                    <tr class="border">
+                        <th id="userid"  class="border">Temp_ID</th>
+                        <th id="full_name"  class="border">Name in full</th>
+                        <th id="Name_inti"  class="border">Name with initials</th>
+                        <th id="Id_num"  class="border">Id number</th>
+                        
+                        <th id="Driving_lic"  class="border">Driving licence</th>
+                        <th id="Driving_lic"  class="border">Driving licence expire</th>
+                        <th id="passport"  class="border">Passport number</th>
+                        <th id="passport"  class="border">Passport number expire</th>
+                        <th id="nationality"  class="border">Nationality</th>
+                        <th id="other_nationality"  class="border">Other Nationality</th>
+                        <th id="DOB"  class="border">Date of birth</th>
+                        <th id="Resi_info"  class="border">House number</th>
+                        <th id="Resi_info"  class="border">Street</th>
+                        <th id="Resi_info"  class="border">City</th>
+                        <th id="Resi_info"  class="border">Country</th>
+                        <th id="contact_info" class="border">Mobile number</th>
+                        <th id="contact_info" class="border">Office number</th>
+                        <th id="contact_info" class="border">Home number</th>
+                        <th id="contact_info" class="border">Email address</th>
+                        <th id="contact_info" class="border">Occupation state</th>
+                        <th id="edit1" class="border">Edit</th>
+
+        
+                    </tr>
+
+                    {% for display in Kyc_Infotemp1 %}
+                    <tr class="border">
+                        <td class="border">{{display.id}}</td>
+                        <td class="border">{{display.full_name_temp}}</td>
+                        <td class="border">{{display.name_init_temp}}</td>
+                        <td class="border">{{display.nics_no_temp}}</td>
+                        <td class="border">{{display.driv_lic_temp}}</td>
+                        <td class="border">{{display.driv_exp_temp}}</td>
+                        <td class="border">{{display.pass_no_temp}}</td>
+                        <td class="border">{{display.pass_exp_temp}}</td>
+                        <td class="border">{{display.nationality_temp}}</td>
+                        <td class="border">{{display.nationality_other_temp}}</td>
+                        <td class="border">{{display.date_of_birth_temp}}</td>
+                        <td class="border">{{display.house_no_temp}}</td>
+                        <td class="border">{{display.street_temp}}</td>
+                        <td class="border">{{display.city_temp}}</td>
+                        <td class="border">{{display.country_temp}}</td>
+                        <td class="border">{{display.mob_no_temp}}</td>
+                        <td class="border">{{display.office_num_temp}}</td>
+                        <td class="border">{{display.home_num_temp}}</td>
+                        <td class="border">{{display.email_add_temp}}</td>
+                        <td class="border">{{display.occu_state_temp}}</td>
+                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+
+               
+        
+            </center>
+        </div>
+
+        <div style="padding: 10px;"></div>
+
+        <div>
+
+            <center>
+                <div><h2>Blue falged touples</h2>
+                    <small>(existing kyc, only address is false)</small>
+                </div>
+                <br>
+                <table class="border">
+                    <tr class="border">
+                        <th id="userid"  class="border">Temp_ID</th>
+                        <th id="full_name"  class="border">Name in full</th>
+                        <th id="Name_inti"  class="border">Name with initials</th>
+                        <th id="Id_num"  class="border">Id number</th>
+                        <th id="Driving_lic"  class="border">Driving licence</th>
+                        <th id="Driving_lic"  class="border">Driving licence expire</th>
+                        <th id="passport"  class="border">Passport number</th>
+                        <th id="passport"  class="border">Passport number expire</th>
+                        <th id="nationality"  class="border">Nationality</th>
+                        <th id="other_nationality"  class="border">Other Nationality</th>
+                        <th id="DOB"  class="border">Date of birth</th>
+                        <th id="Resi_info"  class="border">House number</th>
+                        <th id="Resi_info"  class="border">Street</th>
+                        <th id="Resi_info"  class="border">City</th>
+                        <th id="Resi_info"  class="border">Country</th>
+                        <th id="contact_info" class="border">Mobile number</th>
+                        <th id="contact_info" class="border">Office number</th>
+                        <th id="contact_info" class="border">Home number</th>
+                        <th id="contact_info" class="border">Email address</th>
+                        <th id="contact_info" class="border">Occupation state</th>
+                        <th id="edit1" class="border">Edit</th>
+                        
+        
+                    </tr>
+
+                    {% for display in Kyc_Infotemp2 %}
+                    <tr class="border">
+                        <td class="border">{{display.id}}</td>
+                        <td class="border">{{display.full_name_temp}}</td>
+                        <td class="border">{{display.name_init_temp}}</td>
+                        <td class="border">{{display.nics_no_temp}}</td>
+                        <td class="border">{{display.driv_lic_temp}}</td>
+                        <td class="border">{{display.driv_exp_temp}}</td>
+                        <td class="border">{{display.pass_no_temp}}</td>
+                        <td class="border">{{display.pass_exp_temp}}</td>
+                        <td class="border">{{display.nationality_temp}}</td>
+                        <td class="border">{{display.nationality_other_temp}}</td>
+                        <td class="border">{{display.date_of_birth_temp}}</td>
+                        <td class="border">{{display.house_no_temp}}</td>
+                        <td class="border">{{display.street_temp}}</td>
+                        <td class="border">{{display.city_temp}}</td>
+                        <td class="border">{{display.country_temp}}</td>
+                        <td class="border">{{display.mob_no_temp}}</td>
+                        <td class="border">{{display.office_num_temp}}</td>
+                        <td class="border">{{display.home_num_temp}}</td>
+                        <td class="border">{{display.email_add_temp}}</td>
+                        <td class="border">{{display.occu_state_temp}}</td>
+                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+
+               
+        
+            </center>
+        </div>
+
+        <div style="padding: 10px;"></div>
+
+        <div>
+
+            <center>
+                <div><h2>Red falged touples</h2>
+                    <small>( non existing kyc, address is invalid)</small>
+                </div>
+                <br>
+                <table class="border">
+                    <tr class="border">
+                        <th id="userid"  class="border">Temp_ID</th>
+                        <th id="full_name"  class="border">Name in full</th>
+                        <th id="Name_inti"  class="border">Name with initials</th>
+                        <th id="Id_num"  class="border">Id number</th>
+                        <th id="Driving_lic"  class="border">Driving licence</th>
+                        <th id="Driving_lic"  class="border">Driving licence expire</th>
+                        <th id="passport"  class="border">Passport number</th>
+                        <th id="passport"  class="border">Passport number expire</th>
+                        <th id="nationality"  class="border">Nationality</th>
+                        <th id="other_nationality"  class="border">Other Nationality</th>
+                        <th id="DOB"  class="border">Date of birth</th>
+                        <th id="Resi_info"  class="border">House number</th>
+                        <th id="Resi_info"  class="border">Street</th>
+                        <th id="Resi_info"  class="border">City</th>
+                        <th id="Resi_info"  class="border">Country</th>
+                        <th id="contact_info" class="border">Mobile number</th>
+                        <th id="contact_info" class="border">Office number</th>
+                        <th id="contact_info" class="border">Home number</th>
+                        <th id="contact_info" class="border">Email address</th>
+                        <th id="contact_info" class="border">Occupation state</th>
+                        <th id="edit1" class="border">Edit</th>
+
+
+                    </tr>
+
+                    {% for display in Kyc_Infotemp3 %}
+                    <tr class="border">
+                        <td class="border">{{display.id}}</td>
+                        <td class="border">{{display.full_name_temp}}</td>
+                        <td class="border">{{display.name_init_temp}}</td>
+                        <td class="border">{{display.nics_no_temp}}</td>
+                        <td class="border">{{display.driv_lic_temp}}</td>
+                        <td class="border">{{display.driv_exp_temp}}</td>
+                        <td class="border">{{display.pass_no_temp}}</td>
+                        <td class="border">{{display.pass_exp_temp}}</td>
+                        <td class="border">{{display.nationality_temp}}</td>
+                        <td class="border">{{display.nationality_other_temp}}</td>
+                        <td class="border">{{display.date_of_birth_temp}}</td>
+                        <td class="border">{{display.house_no_temp}}</td>
+                        <td class="border">{{display.street_temp}}</td>
+                        <td class="border">{{display.city_temp}}</td>
+                        <td class="border">{{display.country_temp}}</td>
+                        <td class="border">{{display.mob_no_temp}}</td>
+                        <td class="border">{{display.office_num_temp}}</td>
+                        <td class="border">{{display.home_num_temp}}</td>
+                        <td class="border">{{display.email_add_temp}}</td>
+                        <td class="border">{{display.occu_state_temp}}</td>
+                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+
+
+
+            </center>
+        </div>
+
+        <div style="padding: 10px;"></div>
+
+        <div>
+
+            <center>
+                <div><h2>Non falged touples</h2>
+                    <small>( non existing kyc, all valid)</small>
+                </div>
+                <br>
+                <table class="border">
+                    <tr class="border">
+                        <th id="userid"  class="border">Temp_ID</th>
+                        <th id="full_name"  class="border">Name in full</th>
+                        <th id="Name_inti"  class="border">Name with initials</th>
+                        <th id="Id_num"  class="border">Id number</th>
+                        <th id="Driving_lic"  class="border">Driving licence</th>
+                        <th id="Driving_lic"  class="border">Driving licence expire</th>
+                        <th id="passport"  class="border">Passport number</th>
+                        <th id="passport"  class="border">Passport number expire</th>
+                        <th id="nationality"  class="border">Nationality</th>
+                        <th id="other_nationality"  class="border">Other Nationality</th>
+                        <th id="DOB"  class="border">Date of birth</th>
+                        <th id="Resi_info"  class="border">House number</th>
+                        <th id="Resi_info"  class="border">Street</th>
+                        <th id="Resi_info"  class="border">City</th>
+                        <th id="Resi_info"  class="border">Country</th>
+                        <th id="contact_info" class="border">Mobile number</th>
+                        <th id="contact_info" class="border">Office number</th>
+                        <th id="contact_info" class="border">Home number</th>
+                        <th id="contact_info" class="border">Email address</th>
+                        <th id="contact_info" class="border">Occupation state</th>
+                        <th id="edit1" class="border">Edit</th>
+
+
+                    </tr>
+
+                    {% for display in Kyc_Infotemp4 %}
+                    <tr class="border">
+                        <td class="border">{{display.id}}</td>
+                        <td class="border">{{display.full_name_temp}}</td>
+                        <td class="border">{{display.name_init_temp}}</td>
+                        <td class="border">{{display.nics_no_temp}}</td>
+                        <td class="border">{{display.driv_lic_temp}}</td>
+                        <td class="border">{{display.driv_exp_temp}}</td>
+                        <td class="border">{{display.pass_no_temp}}</td>
+                        <td class="border">{{display.pass_exp_temp}}</td>
+                        <td class="border">{{display.nationality_temp}}</td>
+                        <td class="border">{{display.nationality_other_temp}}</td>
+                        <td class="border">{{display.date_of_birth_temp}}</td>
+                        <td class="border">{{display.house_no_temp}}</td>
+                        <td class="border">{{display.street_temp}}</td>
+                        <td class="border">{{display.city_temp}}</td>
+                        <td class="border">{{display.country_temp}}</td>
+                        <td class="border">{{display.mob_no_temp}}</td>
+                        <td class="border">{{display.office_num_temp}}</td>
+                        <td class="border">{{display.home_num_temp}}</td>
+                        <td class="border">{{display.email_add_temp}}</td>
+                        <td class="border">{{display.occu_state_temp}}</td>
+                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+
+
+
+            </center>
+        </div>
+        
+        <div style="padding: 10px;"></div>
+
+    </div>
+-->
+
+</body>
+{% endblock content %}
+</html>
