@@ -283,6 +283,7 @@ def update_data(request, id):
             flag_2 = request.POST["green_flag_temp"]
             flag_3 = request.POST["blue_flag_temp"]
             masegEmail = "Sorry! \n"
+            profile_rating = request.POST["profile_rating_temp"]
 
             submit_kyc_temp = Kyc_Reject(salutation_temp=salutation, full_name_temp=full_name,
                                         name_init_temp=name_init, profile_pic_temp=profile_pic,
@@ -314,7 +315,7 @@ def update_data(request, id):
                                         green_flag_temp=flag_2, blue_flag_temp=flag_3, date_now_temp=date_now_temp,
                                         staff_member_temp=staff_member_temp, file_note_temp=file_note_temp,
                                         reason_for_rej_temp=reason_for_rej_temp, rejected_temp=rejected_temp,
-                                        file_attachment_temp=file_attachment_temp)
+                                        file_attachment_temp=file_attachment_temp, profile_rating_temp=profile_rating)
 
                     
             submit_kyc_temp.save()
@@ -544,6 +545,7 @@ def update_data(request, id):
                 home_num = request.POST["home_num_temp"]
                 email_add = request.POST["email_add_temp"]
                 email_add_verification = request.POST["email_add_verification"]
+                profile_rating = request.POST["profile_rating_temp"]
 
                 submit_kyc_temp = Kyc_Info(salutation_temp=salutation, full_name_temp=full_name,
                                            name_init_temp=name_init, profile_pic_temp=profile_pic,
@@ -572,7 +574,8 @@ def update_data(request, id):
                                            mob_no_temp=mob_no, office_num_temp=office_num,
                                            home_num_temp=home_num, email_add_verification=email_add_verification,
                                            email_add_temp=email_add, red_flag_temp=flag_1,
-                                           green_flag_temp=flag_2, blue_flag_temp=flag_3)
+                                           green_flag_temp=flag_2, blue_flag_temp=flag_3,
+                                           profile_rating_temp=profile_rating)
 
                 
                 submit_kyc_temp.save()
@@ -690,7 +693,7 @@ def insertkyc(request):
 
     global salutation, full_name, name_init, profile_pic, id_type, nics_no, date_of_birth, drive_lic, driv_exp, pass_no, pass_exp
     global birth_cernum, post_id, oafsc, visa_copy, othe_identity_doc, nationality, nationality_other, type_of_visa, visa_exp
-    global other_types, other_exp, foreign_addre, vari_doc_type, vari_doc, pep_person, us_city
+    global other_types, other_exp, foreign_addre, vari_doc_type, vari_doc, pep_person, us_city, profile_rating
 
     # global full_name_temp, name_init_temp, date_of_birth_temp
 
@@ -812,6 +815,9 @@ def insertkyc(request):
     masegEmail = "you submit kyc information success\n"
     codeEmail = str(email_add_verification)
 
+    # profile rating
+    profile_rating = request.POST["profile_rating"]
+
 
 
 
@@ -878,7 +884,8 @@ def insertkyc(request):
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add,
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag, 
+                                                       profile_rating_temp=profile_rating)
                         submit_kyc_temp.save()
                         messages.success(request, 'Your submission is recorded. We will contact you soon!')
                         idS =  str(submit_kyc_temp.id)
@@ -923,7 +930,8 @@ def insertkyc(request):
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add,
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+                                                       profile_rating_temp=profile_rating)
                         submit_kyc_temp.save()
                         messages.success(request, 'Your submission is recorded. We will contact you soon!')
                         idS =  str(submit_kyc_temp.id)
@@ -1001,7 +1009,8 @@ def insertkyc(request):
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add,
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+                                                       profile_rating_temp=profile_rating)
                         submit_kyc_temp.save()
                         messages.success(request, 'Your submission is recorded. We will contact you soon!')
                         idS =  str(submit_kyc_temp.id)
@@ -1046,7 +1055,8 @@ def insertkyc(request):
                                                        home_num_temp=home_num,
                                                        email_add_temp=email_add,
                                                        email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag)
+                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+                                                       profile_rating_temp=profile_rating)
                         submit_kyc_temp.save()
                         messages.success(request, 'Your submission is recorded. We will contact you soon!')
 

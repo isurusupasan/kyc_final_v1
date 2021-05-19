@@ -947,15 +947,29 @@
                             </td>
 
                         </tr>
+                        <tr>
+                            <td>
+                                <p>Profile rating</p>
+                            </td>
+                            <td>
+                                <input type="text" readonly id="profile_rate" name="profile_rating">
+                            </td>
+                        </tr>
 
                     </table>
 
                 </center>
                 <br>
-                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" id="submit_kyc" name="submit" onclick="chackDOB();validate();return" >Next</button></p>
-          </form>
-      </div>
+                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" id="submit_kyc" name="submit" onclick="choicesCompleted();chackDOB();validate();return" >Next</button></p>
+            </form>
 
+            <!--<button onClick="choicesCompleted()">Update Wheel</button>          
+            <p>choices disabled: <span id="showc1"></span>
+            <p>choices all: <span id="showc2"></span>-->
+
+        </div>
+        
+        
       <div class="col-md-1">
           
       </div>

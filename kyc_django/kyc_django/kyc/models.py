@@ -61,6 +61,7 @@ class Kyc_Info(models.Model):
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     history = HistoricalRecords(excluded_fields=['blue_flag_temp','green_flag_temp','red_flag_temp'])
+    profile_rating_temp = models.CharField(max_length=50)
 
     # rejection /acceptance variables
     
@@ -138,6 +139,7 @@ class Kyc_Infotemp(models.Model):
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
+    profile_rating_temp = models.CharField(max_length=50)
     
     # rejection acceptance variables
 
@@ -233,6 +235,7 @@ class Kyc_Reject(models.Model):
     rejected_temp = models.CharField(max_length=40, null=True, blank=True)
     reason_for_rej_temp = models.CharField(max_length=100, null=True, blank=True)
     file_attachment_temp = models.FileField(upload_to='rej/videos/liv_vid/%Y/%m/%d/', null=True)
+    profile_rating_temp = models.CharField(max_length=50)
     
 
     class Meta:

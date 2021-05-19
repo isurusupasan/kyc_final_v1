@@ -97,3 +97,36 @@ function validate()
       }
 
 
+function choicesCompleted() {
+  var c = 0;
+  var e= document.getElementsByTagName('input');
+  var inactive_text = $('input[type="text"]:disabled');
+  var inactive_num = $('input[type="number"]:disabled');
+  var inactive_file = $('input[type="file"]:disabled');
+  var inactive_date = $('input[type="date"]:disabled');
+  var inactive_radio = $('input[type="radio"]:disabled');
+  var inactive_email = $('input[type="email"]:disabled');
+  var inactive = (inactive_text.length+inactive_num.length+inactive_file.length+inactive_date.length+inactive_radio.length+inactive_email.length);
+	var inactiv_col = inactive;
+
+  for (i = 0; i < (e.length-3); i++) {
+
+    if ((document.getElementById("mobile").value !== '') && (i==0)) {
+      c = c + 1;
+    }
+    else if ((document.getElementById("officetel").value !== '') && (i==1)) {
+      c = c + 1;
+    }
+    else if ((document.getElementById("hometel").value !== '') && (i==2)) {
+      c = c + 1;
+    }
+    else if ((document.getElementById("email").value !== '') && (i==3)) {
+      c = c + 1;
+    }
+
+  }
+  var ans = (c/(e.length-inactiv_col-3))*100;
+  document.getElementById("profile_rate").value = ans + "%";
+  document.getElementById("showc1").innerHTML = inactiv_col;
+  document.getElementById("showc2").innerHTML = e.length-3;
+}
