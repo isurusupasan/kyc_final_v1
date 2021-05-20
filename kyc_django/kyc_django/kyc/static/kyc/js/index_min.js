@@ -97,36 +97,138 @@ function validate()
       }
 
 
-function choicesCompleted() {
-  var c = 0;
-  var e= document.getElementsByTagName('input');
-  var inactive_text = $('input[type="text"]:disabled');
-  var inactive_num = $('input[type="number"]:disabled');
-  var inactive_file = $('input[type="file"]:disabled');
-  var inactive_date = $('input[type="date"]:disabled');
-  var inactive_radio = $('input[type="radio"]:disabled');
-  var inactive_email = $('input[type="email"]:disabled');
-  var inactive = (inactive_text.length+inactive_num.length+inactive_file.length+inactive_date.length+inactive_radio.length+inactive_email.length);
-	var inactiv_col = inactive;
+      function choicesCompleted() {
+        var c = 0;
+        var e= document.getElementsByTagName('input');
+        var inactive_text = $('input[type="text"]:disabled');
+        var inactive_num = $('input[type="number"]:disabled');
+        var inactive_file = $('input[type="file"]:disabled');
+        var inactive_date = $('input[type="date"]:disabled');
+        var inactive_radio = $('input[type="radio"]:disabled');
+        var inactive_email = $('input[type="email"]:disabled');
+        var inactive = (inactive_text.length+inactive_num.length+inactive_file.length+inactive_date.length+inactive_radio.length+inactive_email.length);
+        var inactiv_col = inactive;
 
-  for (i = 0; i < (e.length-3); i++) {
+        for (i = 0; i < (e.length-3); i++) {
 
-    if ((document.getElementById("mobile").value !== '') && (i==0)) {
-      c = c + 1;
-    }
-    else if ((document.getElementById("officetel").value !== '') && (i==1)) {
-      c = c + 1;
-    }
-    else if ((document.getElementById("hometel").value !== '') && (i==2)) {
-      c = c + 1;
-    }
-    else if ((document.getElementById("email").value !== '') && (i==3)) {
-      c = c + 1;
-    }
+          if ((document.getElementById("nwi").value !== '') && (i==0)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("fullName").value !== '') && (i==1)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("img").value !== '') && (i==2)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("vid").value !== '') && (i==3)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("NIC").value !== '') && (i==4)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("birthday").value !== '') && (i==5)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("drlicense").value !== '') && (i==6)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("drive_exp").value !== '') && (i==7)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("passport").value !== '') && (i==8)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("passport_exp").value !== '') && (i==9)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("BRC").value !== '') && (i==10)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("PID").value !== '') && (i==11)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("OAFSC").value !== '') && (i==12)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("imgVisa").value !== '') && (i==13)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("imgOther").value !== '') && (i==14)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("otherNationality").value !== '') && (i==15)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("visa_exp").value !== '') && (i==16)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("type_of_your_visa").value !== '') && (i==17)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("visa_exp_other").value !== '') && (i==18)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("foreign_address").value !== '') && (i==19)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("img2").value !== '') && (i==20)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("pep_id1").value !== '') && (i==21)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("us_id1").value !== '') && (i==22)) {
+            c = c + 1;
+          }
+          
+          else if ((document.getElementById("res_id1").value !== '') && (i==23)) {
+            c = c + 1;
+          }
+          
+          else if ((document.getElementById("houseNo").value !== '') && (i==24)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("street").value !== '') && (i==25)) {
+            c = c + 1;
+          }
+        
+          else if ((document.getElementById("postal_code").value !== '') && (i==26)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("houseNo2").value !== '') && (i==27)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("street2").value !== '') && (i==28)) {
+            c = c + 1;
+          }
+          
+          else if ((document.getElementById("postal_code2").value !== '') && (i==29)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("mobile").value !== '') && (i==30)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("officetel").value !== '') && (i==31)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("hometel").value !== '') && (i==32)) {
+            c = c + 1;
+          }
+          else if ((document.getElementById("email").value !== '') && (i==33)) {
+            c = c + 1;
+          }
+          
 
-  }
-  var ans = (c/(e.length-inactiv_col-3))*100;
-  document.getElementById("profile_rate").value = ans + "%";
-  document.getElementById("showc1").innerHTML = inactiv_col;
-  document.getElementById("showc2").innerHTML = e.length-3;
-}
+        }
+        var ans1 = (c/(e.length-inactiv_col-5))*100;
+        if (ans1>=100){
+          ans = 100;
+        }
+        else{
+          ans = ans1
+        }
+        document.getElementById("profile_rate").value = ans + "%";
+        document.getElementById("showc1").innerHTML = inactiv_col;
+        document.getElementById("showc3").innerHTML = c;
+        document.getElementById("showc2").innerHTML = e.length-5;
+      }

@@ -76,9 +76,11 @@
         function disable(){
             document.getElementById("resident").disabled=true;
         }
+
         function enable() {
         document.getElementById("resident").disabled=false;
         }
+
         function identity_recognition(){
             var NIC = document.getElementById("NIC");
             var drlicense = document.getElementById("drlicense");
@@ -225,6 +227,7 @@
             
 
         }
+
         function select_nationality(){
             if(document.getElementById("Nationality").value == "default"){
                 document.getElementById("otherNationality").disabled = false;
@@ -263,6 +266,7 @@
 
            }
         }
+
         function select_visa()
         {
             if(document.getElementById("visa").value == "Permanent Resident"){
@@ -695,7 +699,7 @@
                             
                         </td>
                         <td><br> 
-                            <input type="file" id="img" name="vari_image" accept="image/*" required placeholder=""
+                            <input type="file" id="img2" name="vari_image" accept="image/*" required placeholder=""
                             oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                             oninput="this.setCustomValidity('')"/>
                         </td>
@@ -707,9 +711,9 @@
 
                             </td>
                         <td>
-                            <input type="radio" required="" name="pep" id="yes" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
+                            <input type="radio" required="" name="pep" id="pep_id1" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
                          
-                            <input type="radio" required="" name="pep" id="no" value="No" style="height:15px; width:15px;"> &nbsp; No 
+                            <input type="radio" required="" name="pep" id="pep_id2" value="No" style="height:15px; width:15px;"> &nbsp; No 
                        
                         </td>
                           
@@ -720,9 +724,9 @@
                             </td>
 
                             <td>
-                                <input type="radio" required="" name="us_city" id="yes" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
+                                <input type="radio" required="" name="us_city" id="us_id1" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes  &nbsp; &nbsp; &nbsp;
                              
-                                <input type="radio" required="" name="us_city" id="no" value="No" style="height:15px; width:15px;"> &nbsp; No 
+                                <input type="radio" required="" name="us_city" id="us_id2" value="No" style="height:15px; width:15px;"> &nbsp; No 
                             </td>    
                         </tr>
 
@@ -748,9 +752,9 @@
                             <td style="width:60%;" colspan="2">
                                 <p>Are you a resident of Sri Lanka? &nbsp; &nbsp; &nbsp; &nbsp;
                         
-                                <input type="radio" required="" name="residence_sri" id="yes" value="Yes" style="height:15px; width:15px;" onclick="disable()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" required="" name="residence_sri" id="res_id1" value="Yes" style="height:15px; width:15px;" onclick="disable()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                          
-                                <input type="radio" required="" name="residence_sri" id="no" value="No" style="height:15px; width:15px;" onclick="enable()"> &nbsp; No 
+                                <input type="radio" required="" name="residence_sri" id="res_id2" value="No" style="height:15px; width:15px;" onclick="enable()"> &nbsp; No 
                             </td>
                         </tr>
 
@@ -845,7 +849,7 @@
                             </td>
 
                             <td style="width:30%">
-                                <input type="text" name="house_number" id="houseNo"  placeholder="Ex; 50" required placeholder=""
+                                <input type="text" name="house_number" id="houseNo2"  placeholder="Ex; 50" required placeholder=""
                                 oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
@@ -855,7 +859,7 @@
                             </td>
 
                             <td style="width:25%">
-                                <input type="text" name="street" id="street"  placeholder="Ex; Jaffna Rd"  required placeholder=""
+                                <input type="text" name="street" id="street2"  placeholder="Ex; Jaffna Rd"  required placeholder=""
                                 oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
@@ -868,7 +872,7 @@
                                 <label>City</label>
                             </td>
                             <td style="width:30%">
-                                <Select name="city" id="city" required="" onkeyup="lettersOnly(this)">
+                                <Select name="city" id="city2" required="" onkeyup="lettersOnly(this)">
                                     <option>Anuradhapura</option>
                                     <option>Colombo</option>
                                     <option>Kandy</option>
@@ -885,7 +889,7 @@
                             </td>
 
                             <td style="width:25%">
-                                <input type="text" name="postal_code" id="postal_code"  onkeypress="isnumber(event)" placeholder="20000"  required placeholder=""
+                                <input type="text" name="postal_code" id="postal_code2"  onkeypress="isnumber(event)" placeholder="20000"  required placeholder=""
                                 oninvalid="this.setCustomValidity('Oop! This field is mandatory')"
                                 oninput="this.setCustomValidity('')"/>
                             </td>
@@ -960,12 +964,13 @@
 
                 </center>
                 <br>
-                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" id="submit_kyc" name="submit" onclick="choicesCompleted();chackDOB();validate();return" >Next</button></p>
+                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" id="submit_kyc" name="submit" onclick="chackDOB();choicesCompleted();validate();return;" >Next</button></p>
             </form>
 
             <!--<button onClick="choicesCompleted()">Update Wheel</button>          
             <p>choices disabled: <span id="showc1"></span>
-            <p>choices all: <span id="showc2"></span>-->
+            <p>choices all: <span id="showc2"></span>
+            <p>selected: <span id="showc3"></span>-->
 
         </div>
         
