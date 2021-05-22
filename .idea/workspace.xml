@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="94f08506-734c-4d86-ada0-f45b8abe0fc3" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0025_auto_20210507_1652.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0026_kyc_infotemp_submited_form.py" afterDir="false" />
@@ -139,6 +140,9 @@
       <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/views.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="a7fed620-2860-456f-ab1d-b2bf5a57ef5b" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +151,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectId" id="1sCl1UaD0p5cIekXNJi3mOOqKQC" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -215,4 +220,15 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+=======
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+>>>>>>> Stashed changes
 </project>
