@@ -278,6 +278,9 @@
             else if(document.getElementById("visa").value == "Green Card"){
                 document.getElementById("type_of_your_visa").disabled = true;
                 document.getElementById("visa_exp_other").disabled = true;}
+            else if(document.getElementById("visa").value == "Other"){
+                document.getElementById("type_of_your_visa").disabled = false;
+                document.getElementById("visa_exp_other").disabled = false;}
         }
 
         function  chackDOB(){
