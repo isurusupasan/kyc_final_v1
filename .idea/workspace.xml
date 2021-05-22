@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94f08506-734c-4d86-ada0-f45b8abe0fc3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0025_auto_20210507_1652.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0026_kyc_infotemp_submited_form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0027_kyc_infotemp_wrong_flag.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0028_alter_kyc_infotemp_wrong_flag.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/migrations/0029_auto_20210522_0214.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/07/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/19/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/19/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/20/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/54786141_0qHl4co.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/54786141_1cjpiG1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/54786141_YOM7Qqh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_100vusO.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_Eo9jHZb.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_FxmVh0x.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_IJqCHJ5.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_R4XTA7k.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_cjYUY5N.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_jaKSDSk.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_peOwRLK.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/Request_A_Sample_1532534180500_0_uqrTgWc.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/outstanding-success-stories-thumb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/21/outstanding-success-stories-thumb_jDmO9r0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_2bkvVXl.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_3XPGSyi.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_50mHN3A.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_8hfwsSi.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_AIsXWxE.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_ICV3rNt.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_JiYg8UV.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_VOVpAEO.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_XKEdqPh.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_bQNTI3Y.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_fCZUIKD.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_oV3Vn5A.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_ueUgwEL.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/Request_A_Sample_1532534180500_0_z3yNvVB.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/outstanding-success-stories-thumb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/outstanding-success-stories-thumb_DYmPjcV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/outstanding-success-stories-thumb_FpA6OSQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/outstanding-success-stories-thumb_mWv7G2j.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/id_self/2021/05/22/outstanding-success-stories-thumb_rLR4Xgy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/07/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/19/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/19/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/20/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_AI7gMbI.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_AaowwgM.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_IuiHiQD.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_NCPmjRs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_TZKU4kS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_XfYTSoL.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_bQuUBzM.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_ikY14qG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_jTckjG8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_rohLZ1c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/54786141_tw3Li4E.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/Request_A_Sample_1532534180500_0_CYOWeqQ.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/Request_A_Sample_1532534180500_0_M8ajUjf.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/21/Request_A_Sample_1532534180500_0_aQPuexc.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/54786141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/54786141_20sksme.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/54786141_4G2VTCw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/54786141_kJ7m2wc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/7_MqPmHvi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_1iUlwtH.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_2MaeRgC.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_HSnQ2F7.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_MLQAJwn.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_OfXrY8J.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_VNemlcp.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_aBTBNE7.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_aebDLaR.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/Request_A_Sample_1532534180500_0_yUjbYJU.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/outstanding-success-stories-thumb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/outstanding-success-stories-thumb_42pgt0a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/outstanding-success-stories-thumb_APTcQhn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/outstanding-success-stories-thumb_cHE8sMI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/images/vari_doc/2021/05/22/outstanding-success-stories-thumb_qqgOET3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/07/Sirilaka_Piri_Aurudu_Siri_-_Aurudu_Song_Rupavahini_Offici_0UB6Ylc.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/19/Lela_Lela_Lela_Le_Official_Video_Rauf__Faik__Tik_Tok_song_PdGPrch.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/19/status_me_status_3e7dd2920f144d27944418a05fd32cd3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/20/status_me_status_3e7dd2920f144d27944418a05fd32cd3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_0h9NaUS.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_1Ah7wX4.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_Agy2YXn.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_IY2Gg1O.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_LV13vef.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_OqUH3Hy.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_TKCN3ZG.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_YdpA9gz.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_glubNyr.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_hyIQQG7.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_lAKAAUf.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_n9HdBZZ.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_oTpttEc.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_qd3OeKs.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_rpwatCT.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/21/status_me_status_3e7dd2920f144d27944418a05fd32cd3_vbSvL8W.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/Sirilaka_Piri_Aurudu_Siri_-_Aurudu_Song_Rupavahini_Offici_gUkbWHG.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_7RE00Jq.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_8K4Ilyw.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_BKH9ESd.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_EqwPP3d.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_H2eNZ75.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_HKdXLvt.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_JmIfkzr.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_MMJKRsT.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_UWJdIXW.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_WGWOz3w.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_Ww9Aevm.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_eUXfsQE.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_h9PyRuN.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_lWr39Ce.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_mBgl3OI.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_nC7RF9E.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_nwpZm7i.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_sOucWVM.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kyc_django/kyc_django/media/temp/videos/liv_vid/2021/05/22/status_me_status_3e7dd2920f144d27944418a05fd32cd3_w0ZsPqf.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/templates/kyc/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/kyc_django/kyc_django/kyc/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sCl1UaD0p5cIekXNJi3mOOqKQC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kyc_final_v1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kyc_django/kyc_django/kyc" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kyc_django/kyc_django/kyc/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94f08506-734c-4d86-ada0-f45b8abe0fc3" name="Default Changelist" comment="" />
+      <created>1620384238074</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620384238074</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
