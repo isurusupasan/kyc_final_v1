@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'kyc/css/update.css' %}">
+    <link rel="stylesheet" href="{% static 'kyc/css/update_history.css' %}">
     <script src="{% static 'kyc/js/index_min.js' %}" type="text/javascript"></script>
 
     <title>Update Admin</title>
@@ -27,65 +27,252 @@
             <div class="col-12 col-sm-12 col-md-4">
                 <div class="#">
 
-                    <h2><center>Original database records</center></h2>
+                    <h2><center>Search Using NIC number</center></h2>
                     <br>
 
                     <form id="selectUsers" role="search" method="get" action="{% url 'update_history' %}">
-                    
-                        <select name="select_user" data-placeholder="Choose user" class="chosen-select" multiple tabindex="10" style="width: 100%; height: 400px;">
-                            <option value="default" disabled="True">Select user to view history</option>
+
+                        <table>
                             
-                            {% for display in originList %}
-    
-                                    <option value="{{ display.id }}" id="op_nic"> {{display.id}} | {{display.full_name_temp}} | {{display.nics_no_temp}} | {{display.mob_no_temp}} </option>
-                                    
-                            {% endfor %}
-                        </select><br/>
-                        <center><label for="submit"></label><button id="submit" type="submit" class="btn btn-primary">Submit</button></center>
+                            <input type="number" id="fname" name="idval" placeholder="NIC number" required>
+                              
+                        </table>
+
+                        <div style="padding-top:20px"></div>
+
+                        <table>
+                            <select name="select_user" data-placeholder="Choose Filter" style="width: 100%">
+                                <option value="0001">Salutation</option>
+                                <option value="0002">Name with initials</option> 
+                                <option value="0003">Name in full</option> 
+                                <option value="0004">Id type</option> 
+                                <option value="0005">NIC NO</option> 
+                                <option value="0006">Date of birth</option> 
+                                <option value="0007">Driving licence</option> 
+                                <option value="0008">Driving licence Expire</option> 
+                                <option value="0009">Passport number</option> 
+                                <option value="0010">Passport number expire</option> 
+                                <option value="0011">Birth certificate No</option>
+                                <option value="0012">Postal ID</option> 
+                                <option value="0013">OAFSC</option>
+                                <option value="0014">Copy of Visa</option>
+                                <option value="0015">Identity recognition</option>
+                                <option value="0016">Nationality</option>
+                                <option value="0017">Other Nationality</option>
+                                <option value="0018">Type of Visa</option>
+                                <option value="0019">Visa Expiration Date</option>
+                                <option value="0020">If other please specify</option>
+                                <option value="0021">Expiration Date</option>
+                                <option value="0022">Foreign Address</option>
+                                <option value="0023">Verification doc type</option>
+                                <option value="0024">Country of residence</option>
+                                <option value="0025">House number</option>
+                                <option value="0026">Street</option>
+                                <option value="0027">City</option>
+                                <option value="0028">Postal code</option>
+                                <option value="0029">State of the address</option>
+                                <option value="0030">Mobile number</option>
+                                <option value="0031">Office phone number</option>
+                                <option value="0032">Home phone number</option>
+                                <option value="0033">Email address</option>
+
+                                
+
+                            </select>
+                            <br><br>
+                            <center><label for="submit"></label><button id="submit" type="submit" class="btn btn-primary">Submit</button></center>
+
+                        </table>
+
+                    
                     </form>
                 </div>
             
             </div>
 
+            
             <div class="col-12 col-sm-12 col-md-8" style="overflow: scroll;">
                 <h2><center>Updated Records</center></h2>
                 <br>
                             
                             
                 <table class="table table-bordered">
-                    <tr>
-                        <th scope="col">History Date </th>
-                        <th scope="col">History Id</th>
-                        <th scope="col">History Status</th>
-                        <th scope="col">House number</th>
-                        <th scope="col">Street</th>
-                        <th scope="col">City</th>
-                        
-                    </tr>
+                    {% for display,r,q in ziped %}
+                        {% if r != '' %}
+                            <tr>
+                                <th scope="col">History Date </th>
+                                <th scope="col">History Id</th>
+                                <th scope="col">History Status</th>
+                                <th scope="col">
+                                        {% if q|stringformat:"s" == "0001" %}
+                                                Salutation
+                                        {% elif q|stringformat:"s" == "0002" %}
+                                                Name with initials
+                                        {% elif q|stringformat:"s" == "0003" %}
+                                                Name in full
+                                        {% elif q|stringformat:"s" == "0004" %}
+                                                Id type
+                                        {% elif q|stringformat:"s" == "0005" %}
+                                                NIC NO
+                                        {% elif q|stringformat:"s" == "0006" %}
+                                                Date of birth
+                                        {% elif q|stringformat:"s" == "0007" %}
+                                                Driving licence
+                                        {% elif q|stringformat:"s" == "0008" %}
+                                                Driving licence Expire
+                                        {% elif q|stringformat:"s" == "0009" %}
+                                                Passport number
+                                        {% elif q|stringformat:"s" == "0010" %}
+                                                Passport number expire
+                                        {% elif q|stringformat:"s" == "0011" %}
+                                                Birth certificate No
+                                        {% elif q|stringformat:"s" == "0012" %}
+                                                Postal ID
+                                        {% elif q|stringformat:"s" == "0013" %}
+                                                OAFSC
+                                        {% elif q|stringformat:"s" == "0014" %}
+                                                Copy of Visa
+                                        {% elif q|stringformat:"s" == "0015" %}
+                                                Identity recognition
+                                        {% elif q|stringformat:"s" == "0016" %}
+                                                Nationality
+                                        {% elif q|stringformat:"s" == "0017" %}
+                                                Other Nationality
+                                        {% elif q|stringformat:"s" == "0018" %}
+                                                Type of Visa
+                                        {% elif q|stringformat:"s" == "0019" %}
+                                                Visa Expiration Date
+                                        {% elif q|stringformat:"s" == "0020" %}
+                                                If other please specify
+                                        {% elif q|stringformat:"s" == "0021" %}
+                                                Expiration Date
+                                        {% elif q|stringformat:"s" == "0022" %}
+                                                Foreign Address
+                                        {% elif q|stringformat:"s" == "0023" %}
+                                                Verification doc type
+                                        {% elif q|stringformat:"s" == "0024" %}
+                                                Country of residence
+                                        {% elif q|stringformat:"s" == "0025" %}
+                                                House number
+                                        {% elif q|stringformat:"s" == "0026" %}
+                                                Street
+                                        {% elif q|stringformat:"s" == "0027" %}
+                                                City
+                                        {% elif q|stringformat:"s" == "0028" %}
+                                                Postal code
+                                        {% elif q|stringformat:"s" == "0029" %}
+                                                State of the address
+                                        {% elif q|stringformat:"s" == "0030" %}
+                                                Mobile number
+                                        {% elif q|stringformat:"s" == "0031" %}
+                                                Office phone number
+                                        {% elif q|stringformat:"s" == "0032" %}
+                                                Home phone number
+                                        {% elif q|stringformat:"s" == "0033" %}
+                                                Email address
+                                        
+                                        {% endif %}
+                                </th>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
             
-                    {% for p in userList %}
+                    {% for p,q in searched_nic %}
                         {% for display in all_info %}
-                            {% if p == display.id|stringformat:"s" %}
+                            {% if p == display.nics_no_temp|stringformat:"s" %}
                     
                 
-                    <tr class="table">
-                        
-                        <td class="#">{{display.history_date}}</td>
-                        <td class="#">{{display.history_id}}</td>
+                                <tr class="table">
+                                    
+                                    <td class="#">{{display.history_date}}</td>
+                                    <td class="#">{{display.history_id}}</td>
+                                    
+                                    {% if display.history_type == '+' %}
+                                        <td class="#">Created</td>
+                                    {% elif display.history_type == '~' %}
+                                        <td class="#">Updated</td>
+                                    {% else %}
+                                        <td class="#">Deleted</td>
+                                    {% endif %}
 
-                        {% if display.history_type == '+' %}
-                            <td class="#">Created</td>
-                        {% elif display.history_type == '~' %}
-                            <td class="#">Updated</td>
-                        {% else %}
-                            <td class="#">Deleted</td>
-                        {% endif %}
+                                    <th scope="row" class="#">
 
-                        <th scope="row" class="#">{{display.house_no_temp}}</th>
-                        <td class="#">{{display.street_temp}}</td>
-                        <td class="#">{{display.city_temp}}</td>
-                        
-                    </tr>
+                                    {% if q|stringformat:"s" == "0001" %}
+                                        {{display.salutation_temp}}
+                                    {% elif q|stringformat:"s" == "0002" %}
+                                        {{display.full_name_temp}}
+                                    {% elif q|stringformat:"s" == "0003" %}
+                                        {{display.name_init_temp}}
+                                    {% elif q|stringformat:"s" == "0004" %}
+                                            {{display.id_type_temp}}
+                                    {% elif q|stringformat:"s" == "0005" %}
+                                            {{display.nics_no_temp}}
+                                    {% elif q|stringformat:"s" == "0006" %}
+                                            {{display.date_of_birth_temp}}
+                                    {% elif q|stringformat:"s" == "0007" %}
+                                            {{display.driv_lic_temp}}
+                                    {% elif q|stringformat:"s" == "0008" %}
+                                            {{display.driv_exp_temp}}
+                                    {% elif q|stringformat:"s" == "0009" %}
+                                            {{display.pass_no_temp}}
+                                    {% elif q|stringformat:"s" == "0010" %}
+                                            {{display.pass_exp_temp}}
+                                    {% elif q|stringformat:"s" == "0011" %}
+                                            {{display.birth_cernum_temp}}
+                                    {% elif q|stringformat:"s" == "0012" %}
+                                            {{display.post_id_temp}}
+                                    {% elif q|stringformat:"s" == "0013" %}
+                                            {{display.oafsc_temp}}
+                                    {% elif q|stringformat:"s" == "0014" %}
+                                            {{display.visa_copy_temp}}
+                                    {% elif q|stringformat:"s" == "0015" %}
+                                            {{display.othe_identity_doc_temp}}
+                                    {% elif q|stringformat:"s" == "0016" %}
+                                            {{display.nationality_temp}}
+                                    {% elif q|stringformat:"s" == "0017" %}
+                                            {{display.nationality_other_temp}}
+                                    {% elif q|stringformat:"s" == "0018" %}
+                                            {{display.type_of_visa_temp}}
+                                    {% elif q|stringformat:"s" == "0019" %}
+                                            {{display.visa_exp_temp}}
+                                    {% elif q|stringformat:"s" == "0020" %}
+                                            {{display.other_types_temp}}
+                                    {% elif q|stringformat:"s" == "0021" %}
+                                            {{display.other_exp_temp}}
+                                    {% elif q|stringformat:"s" == "0022" %}
+                                            {{display.foreign_addre_temp}}
+                                    {% elif q|stringformat:"s" == "0023" %}
+                                            {{display.vari_doc_type_temp}}
+                                    {% elif q|stringformat:"s" == "0024" %}
+                                            {{display.country_resident_temp}}
+                                    {% elif q|stringformat:"s" == "0025" %}
+                                            {{display.house_no_temp}}
+                                    {% elif q|stringformat:"s" == "0026" %}
+                                            {{display.street_temp}}
+                                    {% elif q|stringformat:"s" == "0027" %}
+                                            {{display.city_temp}}
+                                    {% elif q|stringformat:"s" == "0028" %}
+                                            {{display.postal_code_temp}}
+                                    {% elif q|stringformat:"s" == "0029" %}
+                                            {{display.state_address_temp}}
+                                    {% elif q|stringformat:"s" == "0030" %}
+                                            {{display.mob_no_temp}}
+                                    {% elif q|stringformat:"s" == "0031" %}
+                                            {{display.office_num_temp}}
+                                    {% elif q|stringformat:"s" == "0032" %}
+                                            {{display.home_num_temp}}
+                                    {% elif q|stringformat:"s" == "0033" %}
+                                            {{display.email_add_temp}}
+                                    
+                                    {% endif %}
+                                    
+                                    
+                                    
+                                            
+                                    </th>
+                                    
+                                    
+                                </tr>
 
                             {% endif %}
                         {% endfor %}
@@ -105,287 +292,8 @@
                 
             </div>
         </div>
-        
-        <!--
-        <div>
-
-            <center>
-                <div><h2>Green falged touples</h2>
-                    <small>(existing kyc, all the infromation are matching)</small>
-                </div>
-                <br>
-                <table class="border" style="margin-top: 10px;">
-                    <tr class="border">
-                        <th id="userid"  class="border">Temp_ID</th>
-                        <th id="full_name"  class="border">Name in full</th>
-                        <th id="Name_inti"  class="border">Name with initials</th>
-                        <th id="Id_num"  class="border">Id number</th>
-                        
-                        <th id="Driving_lic"  class="border">Driving licence</th>
-                        <th id="Driving_lic"  class="border">Driving licence expire</th>
-                        <th id="passport"  class="border">Passport number</th>
-                        <th id="passport"  class="border">Passport number expire</th>
-                        <th id="nationality"  class="border">Nationality</th>
-                        <th id="other_nationality"  class="border">Other Nationality</th>
-                        <th id="DOB"  class="border">Date of birth</th>
-                        <th id="Resi_info"  class="border">House number</th>
-                        <th id="Resi_info"  class="border">Street</th>
-                        <th id="Resi_info"  class="border">City</th>
-                        <th id="Resi_info"  class="border">Country</th>
-                        <th id="contact_info" class="border">Mobile number</th>
-                        <th id="contact_info" class="border">Office number</th>
-                        <th id="contact_info" class="border">Home number</th>
-                        <th id="contact_info" class="border">Email address</th>
-                        <th id="contact_info" class="border">Occupation state</th>
-                        <th id="edit1" class="border">Edit</th>
-
-        
-                    </tr>
-
-                    {% for display in Kyc_Infotemp1 %}
-                    <tr class="border">
-                        <td class="border">{{display.id}}</td>
-                        <td class="border">{{display.full_name_temp}}</td>
-                        <td class="border">{{display.name_init_temp}}</td>
-                        <td class="border">{{display.nics_no_temp}}</td>
-                        <td class="border">{{display.driv_lic_temp}}</td>
-                        <td class="border">{{display.driv_exp_temp}}</td>
-                        <td class="border">{{display.pass_no_temp}}</td>
-                        <td class="border">{{display.pass_exp_temp}}</td>
-                        <td class="border">{{display.nationality_temp}}</td>
-                        <td class="border">{{display.nationality_other_temp}}</td>
-                        <td class="border">{{display.date_of_birth_temp}}</td>
-                        <td class="border">{{display.house_no_temp}}</td>
-                        <td class="border">{{display.street_temp}}</td>
-                        <td class="border">{{display.city_temp}}</td>
-                        <td class="border">{{display.country_temp}}</td>
-                        <td class="border">{{display.mob_no_temp}}</td>
-                        <td class="border">{{display.office_num_temp}}</td>
-                        <td class="border">{{display.home_num_temp}}</td>
-                        <td class="border">{{display.email_add_temp}}</td>
-                        <td class="border">{{display.occu_state_temp}}</td>
-                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
-
-                    </tr>
-                    {% endfor %}
-                </table>
-
-               
-        
-            </center>
-        </div>
-
-        <div style="padding: 10px;"></div>
-
-        <div>
-
-            <center>
-                <div><h2>Blue falged touples</h2>
-                    <small>(existing kyc, only address is false)</small>
-                </div>
-                <br>
-                <table class="border">
-                    <tr class="border">
-                        <th id="userid"  class="border">Temp_ID</th>
-                        <th id="full_name"  class="border">Name in full</th>
-                        <th id="Name_inti"  class="border">Name with initials</th>
-                        <th id="Id_num"  class="border">Id number</th>
-                        <th id="Driving_lic"  class="border">Driving licence</th>
-                        <th id="Driving_lic"  class="border">Driving licence expire</th>
-                        <th id="passport"  class="border">Passport number</th>
-                        <th id="passport"  class="border">Passport number expire</th>
-                        <th id="nationality"  class="border">Nationality</th>
-                        <th id="other_nationality"  class="border">Other Nationality</th>
-                        <th id="DOB"  class="border">Date of birth</th>
-                        <th id="Resi_info"  class="border">House number</th>
-                        <th id="Resi_info"  class="border">Street</th>
-                        <th id="Resi_info"  class="border">City</th>
-                        <th id="Resi_info"  class="border">Country</th>
-                        <th id="contact_info" class="border">Mobile number</th>
-                        <th id="contact_info" class="border">Office number</th>
-                        <th id="contact_info" class="border">Home number</th>
-                        <th id="contact_info" class="border">Email address</th>
-                        <th id="contact_info" class="border">Occupation state</th>
-                        <th id="edit1" class="border">Edit</th>
-                        
-        
-                    </tr>
-
-                    {% for display in Kyc_Infotemp2 %}
-                    <tr class="border">
-                        <td class="border">{{display.id}}</td>
-                        <td class="border">{{display.full_name_temp}}</td>
-                        <td class="border">{{display.name_init_temp}}</td>
-                        <td class="border">{{display.nics_no_temp}}</td>
-                        <td class="border">{{display.driv_lic_temp}}</td>
-                        <td class="border">{{display.driv_exp_temp}}</td>
-                        <td class="border">{{display.pass_no_temp}}</td>
-                        <td class="border">{{display.pass_exp_temp}}</td>
-                        <td class="border">{{display.nationality_temp}}</td>
-                        <td class="border">{{display.nationality_other_temp}}</td>
-                        <td class="border">{{display.date_of_birth_temp}}</td>
-                        <td class="border">{{display.house_no_temp}}</td>
-                        <td class="border">{{display.street_temp}}</td>
-                        <td class="border">{{display.city_temp}}</td>
-                        <td class="border">{{display.country_temp}}</td>
-                        <td class="border">{{display.mob_no_temp}}</td>
-                        <td class="border">{{display.office_num_temp}}</td>
-                        <td class="border">{{display.home_num_temp}}</td>
-                        <td class="border">{{display.email_add_temp}}</td>
-                        <td class="border">{{display.occu_state_temp}}</td>
-                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
-                        
-                    </tr>
-                    {% endfor %}
-                </table>
-
-               
-        
-            </center>
-        </div>
-
-        <div style="padding: 10px;"></div>
-
-        <div>
-
-            <center>
-                <div><h2>Red falged touples</h2>
-                    <small>( non existing kyc, address is invalid)</small>
-                </div>
-                <br>
-                <table class="border">
-                    <tr class="border">
-                        <th id="userid"  class="border">Temp_ID</th>
-                        <th id="full_name"  class="border">Name in full</th>
-                        <th id="Name_inti"  class="border">Name with initials</th>
-                        <th id="Id_num"  class="border">Id number</th>
-                        <th id="Driving_lic"  class="border">Driving licence</th>
-                        <th id="Driving_lic"  class="border">Driving licence expire</th>
-                        <th id="passport"  class="border">Passport number</th>
-                        <th id="passport"  class="border">Passport number expire</th>
-                        <th id="nationality"  class="border">Nationality</th>
-                        <th id="other_nationality"  class="border">Other Nationality</th>
-                        <th id="DOB"  class="border">Date of birth</th>
-                        <th id="Resi_info"  class="border">House number</th>
-                        <th id="Resi_info"  class="border">Street</th>
-                        <th id="Resi_info"  class="border">City</th>
-                        <th id="Resi_info"  class="border">Country</th>
-                        <th id="contact_info" class="border">Mobile number</th>
-                        <th id="contact_info" class="border">Office number</th>
-                        <th id="contact_info" class="border">Home number</th>
-                        <th id="contact_info" class="border">Email address</th>
-                        <th id="contact_info" class="border">Occupation state</th>
-                        <th id="edit1" class="border">Edit</th>
-
-
-                    </tr>
-
-                    {% for display in Kyc_Infotemp3 %}
-                    <tr class="border">
-                        <td class="border">{{display.id}}</td>
-                        <td class="border">{{display.full_name_temp}}</td>
-                        <td class="border">{{display.name_init_temp}}</td>
-                        <td class="border">{{display.nics_no_temp}}</td>
-                        <td class="border">{{display.driv_lic_temp}}</td>
-                        <td class="border">{{display.driv_exp_temp}}</td>
-                        <td class="border">{{display.pass_no_temp}}</td>
-                        <td class="border">{{display.pass_exp_temp}}</td>
-                        <td class="border">{{display.nationality_temp}}</td>
-                        <td class="border">{{display.nationality_other_temp}}</td>
-                        <td class="border">{{display.date_of_birth_temp}}</td>
-                        <td class="border">{{display.house_no_temp}}</td>
-                        <td class="border">{{display.street_temp}}</td>
-                        <td class="border">{{display.city_temp}}</td>
-                        <td class="border">{{display.country_temp}}</td>
-                        <td class="border">{{display.mob_no_temp}}</td>
-                        <td class="border">{{display.office_num_temp}}</td>
-                        <td class="border">{{display.home_num_temp}}</td>
-                        <td class="border">{{display.email_add_temp}}</td>
-                        <td class="border">{{display.occu_state_temp}}</td>
-                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
-
-                    </tr>
-                    {% endfor %}
-                </table>
-
-
-
-            </center>
-        </div>
-
-        <div style="padding: 10px;"></div>
-
-        <div>
-
-            <center>
-                <div><h2>Non falged touples</h2>
-                    <small>( non existing kyc, all valid)</small>
-                </div>
-                <br>
-                <table class="border">
-                    <tr class="border">
-                        <th id="userid"  class="border">Temp_ID</th>
-                        <th id="full_name"  class="border">Name in full</th>
-                        <th id="Name_inti"  class="border">Name with initials</th>
-                        <th id="Id_num"  class="border">Id number</th>
-                        <th id="Driving_lic"  class="border">Driving licence</th>
-                        <th id="Driving_lic"  class="border">Driving licence expire</th>
-                        <th id="passport"  class="border">Passport number</th>
-                        <th id="passport"  class="border">Passport number expire</th>
-                        <th id="nationality"  class="border">Nationality</th>
-                        <th id="other_nationality"  class="border">Other Nationality</th>
-                        <th id="DOB"  class="border">Date of birth</th>
-                        <th id="Resi_info"  class="border">House number</th>
-                        <th id="Resi_info"  class="border">Street</th>
-                        <th id="Resi_info"  class="border">City</th>
-                        <th id="Resi_info"  class="border">Country</th>
-                        <th id="contact_info" class="border">Mobile number</th>
-                        <th id="contact_info" class="border">Office number</th>
-                        <th id="contact_info" class="border">Home number</th>
-                        <th id="contact_info" class="border">Email address</th>
-                        <th id="contact_info" class="border">Occupation state</th>
-                        <th id="edit1" class="border">Edit</th>
-
-
-                    </tr>
-
-                    {% for display in Kyc_Infotemp4 %}
-                    <tr class="border">
-                        <td class="border">{{display.id}}</td>
-                        <td class="border">{{display.full_name_temp}}</td>
-                        <td class="border">{{display.name_init_temp}}</td>
-                        <td class="border">{{display.nics_no_temp}}</td>
-                        <td class="border">{{display.driv_lic_temp}}</td>
-                        <td class="border">{{display.driv_exp_temp}}</td>
-                        <td class="border">{{display.pass_no_temp}}</td>
-                        <td class="border">{{display.pass_exp_temp}}</td>
-                        <td class="border">{{display.nationality_temp}}</td>
-                        <td class="border">{{display.nationality_other_temp}}</td>
-                        <td class="border">{{display.date_of_birth_temp}}</td>
-                        <td class="border">{{display.house_no_temp}}</td>
-                        <td class="border">{{display.street_temp}}</td>
-                        <td class="border">{{display.city_temp}}</td>
-                        <td class="border">{{display.country_temp}}</td>
-                        <td class="border">{{display.mob_no_temp}}</td>
-                        <td class="border">{{display.office_num_temp}}</td>
-                        <td class="border">{{display.home_num_temp}}</td>
-                        <td class="border">{{display.email_add_temp}}</td>
-                        <td class="border">{{display.occu_state_temp}}</td>
-                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
-
-                    </tr>
-                    {% endfor %}
-                </table>
-
-
-
-            </center>
-        </div>
-        
-        <div style="padding: 10px;"></div>
-
     </div>
--->
+
 
 </body>
 {% endblock content %}

@@ -1191,34 +1191,31 @@ def edit_val1(request, id):
 
 
 def update_history(request):
-    #result = HistoricalKyc_Info.objects.filter(green_flag_temp=True)
-    #result2 = HistoricalKyc_Info.objects.filter(blue_flag_temp=True)
-    #result3 = HistoricalKyc_Info.objects.filter(red_flag_temp=True)
-    #result4 = HistoricalKyc_Info.objects.filter(red_flag_temp=False, blue_flag_temp=False, green_flag_temp=False)
+    
     history_user = HistoricalKyc_Info.objects.all()
-    original_user = Kyc_Info.objects.all()
-
-    both_user = zip(history_user, original_user)
+    
 
     # get the form output using get method
     if request.method == 'GET':
-        selected_user = request.GET.getlist('select_user')
+        
+        searched_nic = request.GET.getlist('idval')
+        search_filter = request.GET.getlist('select_user')
         # print(p)
         # k = request.GET('parameters[]')
         history_user = HistoricalKyc_Info.objects.all()
-        original_user = Kyc_Info.objects.all()
-        both_user = zip(history_user, original_user)
+        both_user = zip(history_user, searched_nic,search_filter)
+        filter_and_search = zip(searched_nic,search_filter)
         context = {
             
-            'userList': selected_user, 'all_info': history_user,
-            'originList': original_user,
+            'all_info': history_user, 'ziped': both_user,
+            'searched_nic': filter_and_search, 'search_fileter': search_filter,
         }
 
     else:
 
         context = {
             
-            "all_info": history_user, "originList": original_user,
+            "all_info": history_user,
         }
     # passing variables to the update.html using dictionary
     return render(request, "kyc/update_history.html", context)
