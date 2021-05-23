@@ -72,7 +72,7 @@
                             </td>
 
                             <td class="border">
-                                <p class="red_mark">Name in full<br>
+                                <p class="name">Name in full<br>
                                     <input type="text" name="full_name_temp" value="{{Kyc_Infotemp.full_name_temp}}">
                                 </p>
                             </td>
@@ -316,7 +316,7 @@
                             </td>
 
                             <td class="border">
-                                <p class="blue_mark green_mark red_mark">House number<br>
+                                <p class="house">House number<br>
                                     <input type="text" name="house_no_temp" value="{{Kyc_Infotemp.house_no_temp}}">
                                 </p>
                             </td>
@@ -330,13 +330,13 @@
                         <tr class="border control">
 
                             <td class="border">
-                                <p class="blue_mark green_mark red_mark">Street<br>
+                                <p class="street">Street<br>
                                     <input type="text" name="street_temp" value="{{Kyc_Infotemp.street_temp}}">
                                 </p>
                             </td>
 
                             <td class="border">
-                                <p class="blue_mark green_mark red_mark">City<br>
+                                <p class="city">City<br>
                                     <input type="text" name="city_temp" value="{{Kyc_Infotemp.city_temp}}">
                                 </p>
                             </td>
@@ -570,6 +570,42 @@
                             }
                         </style>
                         <p class="red_mark">New User</p>
+                    {% endif %}
+                    
+                    {% if Kyc_Infotemp.check_name == 1 %}
+                    <style>
+                        .name{
+                            background-color: rgb(245, 129, 129);
+                            color: #000;
+                        }
+                    </style>
+                    {% endif %}
+
+                    {% if Kyc_Infotemp.check_city == 1 %}
+                        <style>
+                            .city{
+                                background-color: rgb(245, 129, 129);
+                                color: #000;
+                            }
+                        </style>
+                    {% endif %}
+
+                    {% if Kyc_Infotemp.check_home == 1 %}
+                    <style>
+                        .house{
+                            background-color: rgb(245, 129, 129);
+                            color: #000;
+                        }
+                    </style>
+                    {% endif %}
+
+                    {% if Kyc_Infotemp.check_street == 1 %}
+                        <style>
+                            .street{
+                                background-color: rgb(245, 129, 129);
+                                color: #000;
+                            }
+                        </style>
                     {% endif %}
 
                     

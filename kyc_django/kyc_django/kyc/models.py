@@ -141,6 +141,14 @@ class Kyc_Infotemp(models.Model):
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     profile_rating_temp = models.CharField(max_length=50)
     
+    #flag
+
+    submited_form = models.IntegerField(null=True)
+    check_city = models.IntegerField(null=True)
+    check_name = models.IntegerField(null=True)
+    check_home = models.IntegerField(null=True)
+    check_street = models.IntegerField(null=True)
+
     # rejection acceptance variables
 
     

@@ -92,6 +92,17 @@
                                 </style>
                             {% endif %}
 
+
+                            {% if display.submited_form > 0 %}
+                            <style>
+                                .mark_id{
+                                    background-color: rgb(245, 129, 129);
+                                    color: #000;
+                                }
+                            </style>
+                            {% endif %}
+
+
                             {% if display.green_flag_temp == "True" %}
                                 <style>
                                     .green_mark{
@@ -113,6 +124,42 @@
                                 
                             {% endif %}
 
+                            {% if display.check_name == 1 %}
+                            <style>
+                                .name{
+                                    background-color: rgb(245, 129, 129);
+                                    color: #000;
+                                }
+                            </style>
+                            {% endif %}
+
+                            {% if display.check_city == 1 %}
+                                <style>
+                                    .city{
+                                        background-color: rgb(245, 129, 129);
+                                        color: #000;
+                                    }
+                                </style>
+                            {% endif %}
+
+                            {% if display.check_home == 1 %}
+                                <style>
+                                    .house{
+                                        background-color: rgb(245, 129, 129);
+                                        color: #000;
+                                    }
+                                </style>
+                            {% endif %}
+
+                            {% if display.check_street == 1 %}
+                            <style>
+                                .street{
+                                    background-color: rgb(245, 129, 129);
+                                    color: #000;
+                                }
+                            </style>
+                            {% endif %}
+
 
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
@@ -127,10 +174,10 @@
                                 <tbody>
                                 <tr>
                                     <th scope="row" class="green_mark">{{display.id}}</th>
-                                    <td class="red_mark green_mark">{{display.full_name_temp}}</td>
+                                    <td class="name">{{display.full_name_temp}}</td>
                                     <td class="green_mark">{{display.name_init_temp}}</td>
                                     <td class="green_mark">{{display.nics_no_temp}}</td>
-                                    <td class="green_mark red_mark blue_mark">{{display.house_no_temp}}</td>
+                                    <td class="house">{{display.house_no_temp}}</td>
                                 </tbody>
                             </table>
             
@@ -146,8 +193,8 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th scope="row" class="green_mark red_mark blue_mark">{{display.street_temp}}</th>
-                                    <td class="green_mark red_mark blue_mark">{{display.city_temp}}</td>
+                                    <th scope="row" class="street">{{display.street_temp}}</th>
+                                    <td class="city">{{display.city_temp}}</td>
                                     <td class="green_mark">{{display.country_temp}}</td>
                                     <td class="green_mark">{{display.mob_no_temp}}</td>
                                     <td class="green_mark red_mark blue_mark"><a href="/edit/{{display.id}}">edit</a></td>

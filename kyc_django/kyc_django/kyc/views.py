@@ -818,278 +818,440 @@ def insertkyc(request):
     # profile rating
     profile_rating = request.POST["profile_rating"]
 
+    rightFlag = []
+    wrongFlag = []
+    rightFlag2 = []
+    wrongFlag2 = []
+
+    chekCity = 0
+    chekname = 0
+    chekhome = 0
+    chekStreet = 0
 
 
 
-
-    # checking is there ID exists in Identity information database
+# checking is there ID exists in Identity information database
     if Id_Info.objects.filter(nic_no=nics_no).exists():
+        rightFlag.insert(len(rightFlag) + 1, "nic no ok")
+    else:
+        wrongFlag.insert(len(wrongFlag) + 1, "nic no wrong")
 
-        # if exists id number proceed to next step
-        #messages.success(request, 'NIC validated successfully')
+    # check if birthday is true according to id info database
+    if Id_Info.objects.filter(nic_no=nics_no, birth_day=date_of_birth).exists():
+        rightFlag.insert(len(rightFlag) + 1, "birthday is ok")
+    else:
+        wrongFlag.insert(len(wrongFlag) + 1, "birthday is wrong")
 
-        # check whether there are existing kyc in the database to the given id number
+    if len(rightFlag) > 1:
+
+        # if true for existing kyc
+        # messages.success(request, 'existing kyc')
+
         if Kyc_Infotemp.objects.filter(nics_no_temp=nics_no).exists():
+            sub_form = Kyc_Infotemp.objects.filter(nics_no_temp=nics_no).count()
+            
+        else:
+            sub_form = 0
 
-            # if true for existing kyc
-            # messages.success(request, 'existing kyc')
+        messages.success(request, rightFlag)
+        # check whether the full name is similar to id info database
+        if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
+            rightFlag2.insert(len(rightFlag2) + 1, "name is ok")
+        else:
+            wrongFlag2.insert(len(wrongFlag2) + 1, "name is wrong")
+            chekname = 1
 
-            # check whether the full name is similar to id info database
-            if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
+        if Id_Info.objects.filter(nic_no=nics_no, house_num=house_no, ).exists():
+            rightFlag2.insert(len(rightFlag2) + 1, "house number is ok")
+        else:
+            wrongFlag2.insert(len(wrongFlag2) + 1, "house number is wrong")
+            chekhome = 1
 
-                # return to next page
-                # return render(request, 'kyc/(2nd)AccEmp.html')
+        if Id_Info.objects.filter(nic_no=nics_no, city_ref=city).exists():
+            rightFlag2.insert(len(rightFlag2) + 1, "city is ok")
+        else:
+            wrongFlag2.insert(len(wrongFlag2) + 1, "city is wrong")
+            chekCity = 1
 
-                # give an message if name is true
-                # messages.success(request, 'existing kyc, name true')
+        if Id_Info.objects.filter(nic_no=nics_no, street_add=street).exists():
+            rightFlag2.insert(len(rightFlag2) + 1, "street address is ok")
+        else:
+            wrongFlag2.insert(len(wrongFlag2) + 1, "street address is wrong")
+            chekStreet = 1
 
-                # check if birthday is true according to id info database
-                if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
 
-                    # giving a message if dob is true
-                    # messages.success(request, 'existing kyc, name true,dob ture')
+        if len(rightFlag2) > 3:
+            green_flag = False
+            blue_flag = False
+            red_flag = False
 
-                    if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
-                                              house_num=house_no,
-                                              street_add=street, city_ref=city).exists():
-                        green_flag = 'True'
-
-                        #messages.success(request, 'existing kyc, name true, dob ture, address true')
-
-                        submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
-                                                       name_init_temp=name_init, profile_pic_temp=profile_pic,
-                                                       live_video_temp=live_video,
-                                                       id_type_temp=id_type,
-                                                       nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
-                                                       driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
-                                                       pass_no_temp=pass_no, pass_exp_temp=pass_exp,
-                                                       birth_cernum_temp=birth_cernum,
-                                                       post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
-                                                       othe_identity_doc_temp=othe_identity_doc,
-                                                       nationality_temp=nationality,
-                                                       nationality_other_temp=nationality_other,
-                                                       type_of_visa_temp=type_of_visa,
-                                                       visa_exp_temp=visa_exp, other_types_temp=other_types,
-                                                       other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
-                                                       vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
-                                                       pep_person_temp=pep_person,
-                                                       us_city_temp=us_city,
-                                                       resident_sri_temp=resident_sri,
-                                                       country_resident_temp=country_resident,
-                                                       house_no_temp=house_no, street_temp=street, city_temp=city,
-                                                       postal_code_temp=postal_code, state_address_temp=state_address,
-                                                       house_no_per_temp=house_no_per, street_per_temp=street_per,
-                                                       city_per_temp=city_per, postal_code_per_temp=postal_code_per,
-                                                       mob_no_temp=mob_no, office_num_temp=office_num,
-                                                       home_num_temp=home_num,
-                                                       email_add_temp=email_add,
-                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag, 
-                                                       profile_rating_temp=profile_rating)
-                        submit_kyc_temp.save()
-                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
-                        idS =  str(submit_kyc_temp.id)
-                        request.session['id'] = submit_kyc_temp.id
-
-                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
-
-                        return render(request, 'kyc/verify.html')
-                        print(green_flag)
-
-                    else:
-
-                        """messages.warning(request, 'existing kyc, name true,dob true, address false attach proof '
-                                                  'document')"""
-
-                        blue_flag = 'True'
-                        submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
-                                                       name_init_temp=name_init, profile_pic_temp=profile_pic,
-                                                       live_video_temp=live_video,
-                                                       id_type_temp=id_type,
-                                                       nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
-                                                       driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
-                                                       pass_no_temp=pass_no, pass_exp_temp=pass_exp,
-                                                       birth_cernum_temp=birth_cernum,
-                                                       post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
-                                                       othe_identity_doc_temp=othe_identity_doc,
-                                                       nationality_temp=nationality,
-                                                       nationality_other_temp=nationality_other,
-                                                       type_of_visa_temp=type_of_visa,
-                                                       visa_exp_temp=visa_exp, other_types_temp=other_types,
-                                                       other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
-                                                       vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
-                                                       pep_person_temp=pep_person,
-                                                       us_city_temp=us_city,
-                                                       resident_sri_temp=resident_sri,
-                                                       country_resident_temp=country_resident,
-                                                       house_no_temp=house_no, street_temp=street, city_temp=city,
-                                                       postal_code_temp=postal_code, state_address_temp=state_address,
-                                                       house_no_per_temp=house_no_per, street_per_temp=street_per,
-                                                       city_per_temp=city_per, postal_code_per_temp=postal_code_per,
-                                                       mob_no_temp=mob_no, office_num_temp=office_num,
-                                                       home_num_temp=home_num,
-                                                       email_add_temp=email_add,
-                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag,
-                                                       profile_rating_temp=profile_rating)
-                        submit_kyc_temp.save()
-                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
-                        idS =  str(submit_kyc_temp.id)
-                        request.session['id'] = submit_kyc_temp.id
-
-                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
-
-                        return render(request, 'kyc/verify.html')
-
-                # if date of birth is false
-                else:
-                    # give an error message
-                    messages.error(request, 'Date of birth is invalid, please check again')
-                    return render(request, 'kyc/verify.html')
-            else:
-                # give an message if name is false
-                messages.error(request, 'Invalid name, please check again')
-                return render(request, 'kyc/verify.html')
+            submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
+                                           name_init_temp=name_init, profile_pic_temp=profile_pic,
+                                           live_video_temp=live_video,
+                                           id_type_temp=id_type,
+                                           nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+                                           driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+                                           pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+                                           birth_cernum_temp=birth_cernum,
+                                           post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+                                           othe_identity_doc_temp=othe_identity_doc,
+                                           nationality_temp=nationality,
+                                           nationality_other_temp=nationality_other,
+                                           type_of_visa_temp=type_of_visa,
+                                           visa_exp_temp=visa_exp, other_types_temp=other_types,
+                                           other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+                                           vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+                                           pep_person_temp=pep_person,
+                                           us_city_temp=us_city,
+                                           resident_sri_temp=resident_sri,
+                                           country_resident_temp=country_resident,
+                                           house_no_temp=house_no, street_temp=street, city_temp=city,
+                                           postal_code_temp=postal_code, state_address_temp=state_address,
+                                           house_no_per_temp=house_no_per, street_per_temp=street_per,
+                                           city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+                                           mob_no_temp=mob_no, office_num_temp=office_num,
+                                           home_num_temp=home_num,
+                                           email_add_temp=email_add,
+                                           email_add_verification=email_add_verification, red_flag_temp=red_flag,    green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+                                           submited_form=sub_form,
+                                           check_city=chekCity,
+                                           check_name=chekname,
+                                           check_home=chekhome,
+                                           check_street=chekStreet,
+                                           )
+            submit_kyc_temp.save()
+            # messages.success(request, rightFlag2)
+            idS = str(submit_kyc_temp.id)
+            # request.session['id'] = submit_kyc_temp.id
+            email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS,
+                        email_add)
+            return render(request, 'kyc/verify.html')
 
         else:
-
-            print(drive_lic)
-            print(driv_exp)
-            print(id_type)
-            print(nics_no)
-            print(date_of_birth)
-            # print(driv_exp)
-
-            # check whether the full name is similar to id info database
-            if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
-
-                # return to next page
-                # return render(request, 'kyc/(2nd)AccEmp.html')
-
-                # give an message if name is true
-                # messages.success(request, 'no kyc, name true')
-
-                # check if birthday is true according to id info database
-                if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
-
-                    # giving a message if dob is true
-                    # messages.success(request, 'no kyc, name true,dob ture')
-
-                    if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
-                                              house_num=house_no,
-                                              street_add=street, city_ref=city).exists():
-
-                        #messages.success(request, 'no kyc, name true, dob ture, address true')
-
-                        submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
-                                                       name_init_temp=name_init, profile_pic_temp=profile_pic,
-                                                       live_video_temp=live_video,
-                                                       id_type_temp=id_type,
-                                                       nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
-                                                       driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
-                                                       pass_no_temp=pass_no, pass_exp_temp=pass_exp,
-                                                       birth_cernum_temp=birth_cernum,
-                                                       post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
-                                                       othe_identity_doc_temp=othe_identity_doc,
-                                                       nationality_temp=nationality,
-                                                       nationality_other_temp=nationality_other,
-                                                       type_of_visa_temp=type_of_visa,
-                                                       visa_exp_temp=visa_exp, other_types_temp=other_types,
-                                                       other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
-                                                       vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
-                                                       pep_person_temp=pep_person,
-                                                       us_city_temp=us_city,
-                                                       resident_sri_temp=resident_sri,
-                                                       country_resident_temp=country_resident,
-                                                       house_no_temp=house_no, street_temp=street, city_temp=city,
-                                                       postal_code_temp=postal_code, state_address_temp=state_address,
-                                                       house_no_per_temp=house_no_per, street_per_temp=street_per,
-                                                       city_per_temp=city_per, postal_code_per_temp=postal_code_per,
-                                                       mob_no_temp=mob_no, office_num_temp=office_num,
-                                                       home_num_temp=home_num,
-                                                       email_add_temp=email_add,
-                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag,
-                                                       profile_rating_temp=profile_rating)
-                        submit_kyc_temp.save()
-                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
-                        idS =  str(submit_kyc_temp.id)
-                        request.session['id'] = submit_kyc_temp.id
-
-                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
-
-                        return render(request, 'kyc/verify.html')
-
-                    else:
-
-                        """messages.warning(request, 'no kyc, name true,dob true, address false attach proof '
-                                                  'document')"""
-
-                        red_flag = True
-
-                        submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
-                                                       name_init_temp=name_init, profile_pic_temp=profile_pic,
-                                                       live_video_temp=live_video,
-                                                       id_type_temp=id_type,
-                                                       nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
-                                                       driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
-                                                       pass_no_temp=pass_no, pass_exp_temp=pass_exp,
-                                                       birth_cernum_temp=birth_cernum,
-                                                       post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
-                                                       othe_identity_doc_temp=othe_identity_doc,
-                                                       nationality_temp=nationality,
-                                                       nationality_other_temp=nationality_other,
-                                                       type_of_visa_temp=type_of_visa,
-                                                       visa_exp_temp=visa_exp, other_types_temp=other_types,
-                                                       other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
-                                                       vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
-                                                       pep_person_temp=pep_person,
-                                                       us_city_temp=us_city,
-                                                       resident_sri_temp=resident_sri,
-                                                       country_resident_temp=country_resident,
-                                                       house_no_temp=house_no, street_temp=street, city_temp=city,
-                                                       postal_code_temp=postal_code, state_address_temp=state_address,
-                                                       house_no_per_temp=house_no_per, street_per_temp=street_per,
-                                                       city_per_temp=city_per, postal_code_per_temp=postal_code_per,
-                                                       mob_no_temp=mob_no, office_num_temp=office_num,
-                                                       home_num_temp=home_num,
-                                                       email_add_temp=email_add,
-                                                       email_add_verification=email_add_verification, red_flag_temp=red_flag,
-                                                       green_flag_temp=green_flag, blue_flag_temp=blue_flag,
-                                                       profile_rating_temp=profile_rating)
-                        submit_kyc_temp.save()
-                        messages.success(request, 'Your submission is recorded. We will contact you soon!')
-
-                        idS =  str(submit_kyc_temp.id)
-                        request.session['id'] = submit_kyc_temp.id
-
-                        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
-
-                        return render(request, 'kyc/verify.html')
-
-
-
-
-                # If date of birth is false
-                else:
-                    # give an error message
-                    messages.warning(request, 'Invalid date of birth, please check again')
-                    return render(request, 'kyc/verify.html')
+            if len(rightFlag2) > 2:
+                green_flag = True
             else:
-                # give an message if name is false
-                messages.error(request, 'Invalid name, please check again')
-                return render(request, 'kyc/index.html')
+                if len(rightFlag2) > 1:
+                    blue_flag = True
+                else:
+                    red_flag = True
 
-            # messages.success(request, 'Successfully submitted')
-            # return to next page
-            # return render(request, 'kyc/(2nd)AccEmp.html')
-            # return render(request, 'kyc/index.html')
+            submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
+                                name_init_temp=name_init, profile_pic_temp=profile_pic,
+                                live_video_temp=live_video,
+                                id_type_temp=id_type,
+                                nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+                                driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+                                pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+                                birth_cernum_temp=birth_cernum,
+                                post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+                                othe_identity_doc_temp=othe_identity_doc,
+                                nationality_temp=nationality,
+                                nationality_other_temp=nationality_other,
+                                type_of_visa_temp=type_of_visa,
+                                visa_exp_temp=visa_exp, other_types_temp=other_types,
+                                other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+                                vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+                                pep_person_temp=pep_person,
+                                us_city_temp=us_city,
+                                resident_sri_temp=resident_sri,
+                                country_resident_temp=country_resident,
+                                house_no_temp=house_no, street_temp=street, city_temp=city,
+                                postal_code_temp=postal_code, state_address_temp=state_address,
+                                house_no_per_temp=house_no_per, street_per_temp=street_per,
+                                city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+                                mob_no_temp=mob_no, office_num_temp=office_num,
+                                home_num_temp=home_num,
+                                email_add_temp=email_add,
+                                email_add_verification=email_add_verification, red_flag_temp=red_flag,
+                                green_flag_temp=green_flag, blue_flag_temp=blue_flag, submited_form=sub_form,
+                                check_city=chekCity,
+                                check_name=chekname,
+                                check_home=chekhome,
+                                check_street=chekStreet,)
+            submit_kyc_temp.save()
+            print(len(rightFlag))
+            idS = str(submit_kyc_temp.id)
+            # request.session['id'] = submit_kyc_temp.id
+            email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS,
+                        email_add)
+            return render(request, 'kyc/verify.html')
 
-    # it there is no id number in id information system give error message
+
     else:
+        messages.warning(request, wrongFlag)
+        return render(request, 'kyc/index.html')   
 
-        messages.error(request, 'Invalid NIC Number. please check again')
-        return render(request, 'kyc/verify.html')
+
+
+    # # checking is there ID exists in Identity information database
+    # if Id_Info.objects.filter(nic_no=nics_no).exists():
+
+    #     # if exists id number proceed to next step
+    #     #messages.success(request, 'NIC validated successfully')
+
+    #     # check whether there are existing kyc in the database to the given id number
+    #     if Kyc_Infotemp.objects.filter(nics_no_temp=nics_no).exists():
+
+    #         # if true for existing kyc
+    #         # messages.success(request, 'existing kyc')
+
+    #         # check whether the full name is similar to id info database
+    #         if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
+
+    #             # return to next page
+    #             # return render(request, 'kyc/(2nd)AccEmp.html')
+
+    #             # give an message if name is true
+    #             # messages.success(request, 'existing kyc, name true')
+
+    #             # check if birthday is true according to id info database
+    #             if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
+
+    #                 # giving a message if dob is true
+    #                 # messages.success(request, 'existing kyc, name true,dob ture')
+
+    #                 if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
+    #                                           house_num=house_no,
+    #                                           street_add=street, city_ref=city).exists():
+    #                     green_flag = 'True'
+
+    #                     #messages.success(request, 'existing kyc, name true, dob ture, address true')
+
+    #                     submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
+    #                                                    name_init_temp=name_init, profile_pic_temp=profile_pic,
+    #                                                    live_video_temp=live_video,
+    #                                                    id_type_temp=id_type,
+    #                                                    nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+    #                                                    driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+    #                                                    pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+    #                                                    birth_cernum_temp=birth_cernum,
+    #                                                    post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+    #                                                    othe_identity_doc_temp=othe_identity_doc,
+    #                                                    nationality_temp=nationality,
+    #                                                    nationality_other_temp=nationality_other,
+    #                                                    type_of_visa_temp=type_of_visa,
+    #                                                    visa_exp_temp=visa_exp, other_types_temp=other_types,
+    #                                                    other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+    #                                                    vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+    #                                                    pep_person_temp=pep_person,
+    #                                                    us_city_temp=us_city,
+    #                                                    resident_sri_temp=resident_sri,
+    #                                                    country_resident_temp=country_resident,
+    #                                                    house_no_temp=house_no, street_temp=street, city_temp=city,
+    #                                                    postal_code_temp=postal_code, state_address_temp=state_address,
+    #                                                    house_no_per_temp=house_no_per, street_per_temp=street_per,
+    #                                                    city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+    #                                                    mob_no_temp=mob_no, office_num_temp=office_num,
+    #                                                    home_num_temp=home_num,
+    #                                                    email_add_temp=email_add,
+    #                                                    email_add_verification=email_add_verification, red_flag_temp=red_flag,
+    #                                                    green_flag_temp=green_flag, blue_flag_temp=blue_flag, 
+    #                                                    profile_rating_temp=profile_rating)
+    #                     submit_kyc_temp.save()
+    #                     messages.success(request, 'Your submission is recorded. We will contact you soon!')
+    #                     idS =  str(submit_kyc_temp.id)
+    #                     request.session['id'] = submit_kyc_temp.id
+
+    #                     email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+
+    #                     return render(request, 'kyc/verify.html')
+    #                     print(green_flag)
+
+    #                 else:
+
+    #                     """messages.warning(request, 'existing kyc, name true,dob true, address false attach proof '
+    #                                               'document')"""
+
+    #                     blue_flag = 'True'
+    #                     submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
+    #                                                    name_init_temp=name_init, profile_pic_temp=profile_pic,
+    #                                                    live_video_temp=live_video,
+    #                                                    id_type_temp=id_type,
+    #                                                    nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+    #                                                    driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+    #                                                    pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+    #                                                    birth_cernum_temp=birth_cernum,
+    #                                                    post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+    #                                                    othe_identity_doc_temp=othe_identity_doc,
+    #                                                    nationality_temp=nationality,
+    #                                                    nationality_other_temp=nationality_other,
+    #                                                    type_of_visa_temp=type_of_visa,
+    #                                                    visa_exp_temp=visa_exp, other_types_temp=other_types,
+    #                                                    other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+    #                                                    vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+    #                                                    pep_person_temp=pep_person,
+    #                                                    us_city_temp=us_city,
+    #                                                    resident_sri_temp=resident_sri,
+    #                                                    country_resident_temp=country_resident,
+    #                                                    house_no_temp=house_no, street_temp=street, city_temp=city,
+    #                                                    postal_code_temp=postal_code, state_address_temp=state_address,
+    #                                                    house_no_per_temp=house_no_per, street_per_temp=street_per,
+    #                                                    city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+    #                                                    mob_no_temp=mob_no, office_num_temp=office_num,
+    #                                                    home_num_temp=home_num,
+    #                                                    email_add_temp=email_add,
+    #                                                    email_add_verification=email_add_verification, red_flag_temp=red_flag,
+    #                                                    green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+    #                                                    profile_rating_temp=profile_rating)
+    #                     submit_kyc_temp.save()
+    #                     messages.success(request, 'Your submission is recorded. We will contact you soon!')
+    #                     idS =  str(submit_kyc_temp.id)
+    #                     request.session['id'] = submit_kyc_temp.id
+
+    #                     email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+
+    #                     return render(request, 'kyc/verify.html')
+
+    #             # if date of birth is false
+    #             else:
+    #                 # give an error message
+    #                 messages.error(request, 'Date of birth is invalid, please check again')
+    #                 return render(request, 'kyc/verify.html')
+    #         else:
+    #             # give an message if name is false
+    #             messages.error(request, 'Invalid name, please check again')
+    #             return render(request, 'kyc/verify.html')
+
+    #     else:
+
+    #         print(drive_lic)
+    #         print(driv_exp)
+    #         print(id_type)
+    #         print(nics_no)
+    #         print(date_of_birth)
+    #         # print(driv_exp)
+
+    #         # check whether the full name is similar to id info database
+    #         if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
+
+    #             # return to next page
+    #             # return render(request, 'kyc/(2nd)AccEmp.html')
+
+    #             # give an message if name is true
+    #             # messages.success(request, 'no kyc, name true')
+
+    #             # check if birthday is true according to id info database
+    #             if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
+
+    #                 # giving a message if dob is true
+    #                 # messages.success(request, 'no kyc, name true,dob ture')
+
+    #                 if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
+    #                                           house_num=house_no,
+    #                                           street_add=street, city_ref=city).exists():
+
+    #                     #messages.success(request, 'no kyc, name true, dob ture, address true')
+
+    #                     submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
+    #                                                    name_init_temp=name_init, profile_pic_temp=profile_pic,
+    #                                                    live_video_temp=live_video,
+    #                                                    id_type_temp=id_type,
+    #                                                    nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+    #                                                    driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+    #                                                    pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+    #                                                    birth_cernum_temp=birth_cernum,
+    #                                                    post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+    #                                                    othe_identity_doc_temp=othe_identity_doc,
+    #                                                    nationality_temp=nationality,
+    #                                                    nationality_other_temp=nationality_other,
+    #                                                    type_of_visa_temp=type_of_visa,
+    #                                                    visa_exp_temp=visa_exp, other_types_temp=other_types,
+    #                                                    other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+    #                                                    vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+    #                                                    pep_person_temp=pep_person,
+    #                                                    us_city_temp=us_city,
+    #                                                    resident_sri_temp=resident_sri,
+    #                                                    country_resident_temp=country_resident,
+    #                                                    house_no_temp=house_no, street_temp=street, city_temp=city,
+    #                                                    postal_code_temp=postal_code, state_address_temp=state_address,
+    #                                                    house_no_per_temp=house_no_per, street_per_temp=street_per,
+    #                                                    city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+    #                                                    mob_no_temp=mob_no, office_num_temp=office_num,
+    #                                                    home_num_temp=home_num,
+    #                                                    email_add_temp=email_add,
+    #                                                    email_add_verification=email_add_verification, red_flag_temp=red_flag,
+    #                                                    green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+    #                                                    profile_rating_temp=profile_rating)
+    #                     submit_kyc_temp.save()
+    #                     messages.success(request, 'Your submission is recorded. We will contact you soon!')
+    #                     idS =  str(submit_kyc_temp.id)
+    #                     request.session['id'] = submit_kyc_temp.id
+
+    #                     email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+
+    #                     return render(request, 'kyc/verify.html')
+
+    #                 else:
+
+    #                     """messages.warning(request, 'no kyc, name true,dob true, address false attach proof '
+    #                                               'document')"""
+
+    #                     red_flag = True
+
+    #                     submit_kyc_temp = Kyc_Infotemp(salutation_temp=salutation, full_name_temp=full_name,
+    #                                                    name_init_temp=name_init, profile_pic_temp=profile_pic,
+    #                                                    live_video_temp=live_video,
+    #                                                    id_type_temp=id_type,
+    #                                                    nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+    #                                                    driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+    #                                                    pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+    #                                                    birth_cernum_temp=birth_cernum,
+    #                                                    post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+    #                                                    othe_identity_doc_temp=othe_identity_doc,
+    #                                                    nationality_temp=nationality,
+    #                                                    nationality_other_temp=nationality_other,
+    #                                                    type_of_visa_temp=type_of_visa,
+    #                                                    visa_exp_temp=visa_exp, other_types_temp=other_types,
+    #                                                    other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+    #                                                    vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+    #                                                    pep_person_temp=pep_person,
+    #                                                    us_city_temp=us_city,
+    #                                                    resident_sri_temp=resident_sri,
+    #                                                    country_resident_temp=country_resident,
+    #                                                    house_no_temp=house_no, street_temp=street, city_temp=city,
+    #                                                    postal_code_temp=postal_code, state_address_temp=state_address,
+    #                                                    house_no_per_temp=house_no_per, street_per_temp=street_per,
+    #                                                    city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+    #                                                    mob_no_temp=mob_no, office_num_temp=office_num,
+    #                                                    home_num_temp=home_num,
+    #                                                    email_add_temp=email_add,
+    #                                                    email_add_verification=email_add_verification, red_flag_temp=red_flag,
+    #                                                    green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+    #                                                    profile_rating_temp=profile_rating)
+    #                     submit_kyc_temp.save()
+    #                     messages.success(request, 'Your submission is recorded. We will contact you soon!')
+
+    #                     idS =  str(submit_kyc_temp.id)
+    #                     request.session['id'] = submit_kyc_temp.id
+
+    #                     email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS, email_add)
+
+    #                     return render(request, 'kyc/verify.html')
+
+
+
+
+    #             # If date of birth is false
+    #             else:
+    #                 # give an error message
+    #                 messages.warning(request, 'Invalid date of birth, please check again')
+    #                 return render(request, 'kyc/verify.html')
+    #         else:
+    #             # give an message if name is false
+    #             messages.error(request, 'Invalid name, please check again')
+    #             return render(request, 'kyc/index.html')
+
+    #         # messages.success(request, 'Successfully submitted')
+    #         # return to next page
+    #         # return render(request, 'kyc/(2nd)AccEmp.html')
+    #         # return render(request, 'kyc/index.html')
+
+    # # it there is no id number in id information system give error message
+    # else:
+
+    #     messages.error(request, 'Invalid NIC Number. please check again')
+    #     return render(request, 'kyc/verify.html')
 
     """if request.method=='POST':
         if request.POST.get('ID_type'):
