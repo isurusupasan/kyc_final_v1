@@ -912,13 +912,14 @@ def insertkyc(request):
                                            mob_no_temp=mob_no, office_num_temp=office_num,
                                            home_num_temp=home_num,
                                            email_add_temp=email_add,
-                                           email_add_verification=email_add_verification, red_flag_temp=red_flag,    green_flag_temp=green_flag, blue_flag_temp=blue_flag,
+                                           email_add_verification=email_add_verification, red_flag_temp=red_flag, 
+                                           green_flag_temp=green_flag, blue_flag_temp=blue_flag,
                                            submited_form=sub_form,
                                            check_city=chekCity,
                                            check_name=chekname,
                                            check_home=chekhome,
                                            check_street=chekStreet,
-                                           )
+                                           profile_rating_temp=profile_rating)
             submit_kyc_temp.save()
             # messages.success(request, rightFlag2)
             idS = str(submit_kyc_temp.id)
@@ -968,7 +969,7 @@ def insertkyc(request):
                                 check_city=chekCity,
                                 check_name=chekname,
                                 check_home=chekhome,
-                                check_street=chekStreet,)
+                                check_street=chekStreet,profile_rating_temp=profile_rating)
             submit_kyc_temp.save()
             print(len(rightFlag))
             idS = str(submit_kyc_temp.id)
