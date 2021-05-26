@@ -269,7 +269,7 @@ def update_data(request, id):
                     # calling variables for form inputs in contact detail section
             mob_no = request.POST["mob_no_temp"]
             office_num = request.POST["office_num_temp"]
-            home_num = request.POST["home_num_temp"]
+            home_num = request.POST["house_no_temp"]
             email_add = request.POST["email_add_temp"]
             email_add_verification = request.POST["email_add_verification"]
 

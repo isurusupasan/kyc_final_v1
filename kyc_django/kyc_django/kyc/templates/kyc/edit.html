@@ -8,7 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -39,433 +42,510 @@
 
     {% endfor %}
 
-    <div class="container">
-
-        <div>
-
+    <div class="row">
+        <div class="col-sm-12 title" style="background-color: #f3f3f300; margin-top: 20px;">
             <center>
-                <form method="post" action="/update/{{Kyc_Infotemp.id}}">
-                    {% csrf_token %}
+                <h2>Customer Verification</h2>
+            </center>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-top: 5px;">
+        <div class="col-md-1">
 
-                    <div><h2>Customer Verification</h2></div>
+        </div>
 
-                    <table class="border" style="width: 100%;">
+        <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px; height:1600px;">
 
-                        <tr class="border control">
-                            <td class="border">
-                                <p>Id<br>
-                                    <input type="text" name="id" value="{{Kyc_Infotemp.id}}" readonly>
-                                </p>
+            <form method="post" action="/update/{{Kyc_Infotemp.id}}">
+                {% csrf_token %}
+                <br>
+                <center><h5>Personal Information</h5></center>
+            
+                <table align="center" width="90%">
+
+                    <tr>
+                        <td>
+                            <select name="salutation_temp" id="solutation" required="" style="width:100px;">
+                                <option value="{{Kyc_Infotemp.salutation_temp}}">{{Kyc_Infotemp.salutation_temp}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <p class="name">Name with Initials<br>
+                            <input class = "nwi" type = "text" name = "name_init_temp" value="{{Kyc_Infotemp.name_init_temp}}" id="nwi">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <p class="name">Name in Full<br>
+                            <input type="text" name="full_name_temp" value="{{Kyc_Infotemp.full_name_temp}}" id="fullName" style="width:95%;">
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <tr>
+                            <td>
+                                <div style="color: blue">
+                                    <label data-toggle="popover" title="Guidelines">Upload Live Selfie to validate NIC</label>
+
+                                </div>
                             </td>
+                            <td>
+                                <input type="text" id="img" name="profile_pic_temp" value="{{Kyc_Infotemp.profile_pic_temp}}">
 
-                            <td class="border">
-                                <p>Salutation<br>
-                                    <input  type="text" name="salutation_temp" value="{{Kyc_Infotemp.salutation_temp}}" readonly>
-                                </p>
+                                
                             </td>
-                            
-
-                            <td class="border">
-                                <p class="red_mark">Name with initials<br>
-                                    <input type="text" name="name_init_temp" value="{{Kyc_Infotemp.name_init_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p class="name">Name in full<br>
-                                    <input type="text" name="full_name_temp" value="{{Kyc_Infotemp.full_name_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Live Selfie<br>
-                                    <input  type="text" name="profile_pic_temp" value="{{Kyc_Infotemp.profile_pic_temp}}" accept="image/*" readonly>
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>Id type<br>
-                                    <input type="text" name="id_type_temp" value="{{Kyc_Infotemp.id_type_temp}}">
-                                </p>
-                            </td>
-
-                            
-                            
                         </tr>
+
+                        
+                        <tr>
+                            <td>
+                                <div>
+                                    <p></p>
+                                    <label for="img">Upload Live VIDEO</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" id="vid" name="live_video_temp" value="{{Kyc_Infotemp.live_video_temp}}">
+                            </td>
+                        </tr>
+                        
+                        
+                        <td>
+                            <p class = "ID_Recognitio">Identity Recognititon
+                            <select id="ID_type" name="id_type_temp">
+                                <option value="{{Kyc_Infotemp.id_type_temp}}">{{Kyc_Infotemp.id_type_temp}}</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p class = "NIC">NIC</br>
+                                <input class="NIC" type="number" id="NIC" name="nics_no_temp" value="{{Kyc_Infotemp.nics_no_temp}}" readonly>
+                            </p>
+                        </td>
+
+                        
+                        <td class="left_border">
+                            <p class = "DOB">Date of Birth <br>
+                            <input type="date" id="birthday" name="date_of_birth_temp" value="{{Kyc_Infotemp.date_of_birth_temp}}" readonly>
+                        </td>
+
+                    </tr>
+
+                       
+                    <tr>
+                        <td>
+                            <p class = "Driving_License">Driving License<br>
+                            <input class="Driving_License" type="text" id="drlicense" name="driv_lic_temp" value="{{Kyc_Infotemp.driv_lic_temp}}">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date<br>
+                            <input class="Exp" type="date" id="drive_exp"  name="driv_exp_temp" value="{{Kyc_Infotemp.driv_exp_temp}}">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p class = "Passport">Passport No.<br>
+                            <input class="Passport" type="text" id="passport" name="pass_no_temp" value="{{Kyc_Infotemp.pass_no_temp}}">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date<br>
+                            <input class="Exp" type="date" id="passport_exp" name="pass_exp_temp" value="{{Kyc_Infotemp.pass_exp_temp}}">
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td >
+                            <p class = "Birthcertificatenumber">Birth certificate No.<br>
+                            <input class="Birthcertificatenumber" type="text" id="BRC" name="birth_cernum_temp" value="{{Kyc_Infotemp.birth_cernum_temp}}">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Postal ID">Postal ID<br>
+                            <input class="Postal ID" type="text" id="PID" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}">
+                        </td>
+                        
+                    </tr>
+
+                    <tr > 
+                        <td td colspan="2" style="padding-left: 150px; ">
+                            <p class = "OAFSC">Official armed forces service card<br>
+                            <input class="OAFSC" type="text" id="OAFSC" style="width: 60%" name="oafsc_temp" value="{{Kyc_Infotemp.oafsc_temp}}">
+                        </td>
+                       
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Copy of Visa</label>
+                        </td>
+                        <td>
+                            <input type="text" id="imgVisa" name="visa_copy_temp" value="{{Kyc_Infotemp.visa_copy_temp}}" readonly>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Upload a scan copy of the selected identity recognition document</label>
+                        </td>
+                        <td>
+                            <input type="text" id="imgOther" name="othe_identity_doc_temp" value="{{Kyc_Infotemp.othe_identity_doc_temp}}" readonly>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <br><p class = "Nationality"> Nationality<br>
+                            <select name="nationality_temp" id="Nationality">
+                                <option value="{{Kyc_Infotemp.nationality_temp}}">{{Kyc_Infotemp.nationality_temp}}</option>
+                            </select></p>
+                        </td>
+                        <td>
+                            <br><p class = "Nationality">Nationality<br>
+                            <input class="Nationality" type="text" name="nationality_other_temp" value="{{Kyc_Infotemp.nationality_other_temp}}">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p>Type of Visa<br>
+                            <select id="visa" name="type_of_visa_temp">
+                                <option value="{{Kyc_Infotemp.type_of_visa_temp}}">{{Kyc_Infotemp.type_of_visa_temp}}</option>
+                            </select>
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date<br>
+                            <input class="Exp" type="date" id="visa_exp" name="visa_exp_temp" value="{{Kyc_Infotemp.visa_exp_temp}}">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p>If other please specify<br>
+                            <input class="type_of_visa" type="text" id="type_of_your_visa" name="other_types_temp" value="{{Kyc_Infotemp.other_types_temp}}">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date<br>
+                            <input class="Exp" type="date" id="visa_exp_other" name="other_exp_temp" value="{{Kyc_Infotemp.other_exp_temp}}">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <p>Foreign Address<br>
+                            <input type="text" id="foreign_address" name="foreign_addre_temp" value="{{Kyc_Infotemp.foreign_addre_temp}}">
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+
+                <table align="center" width="90%">
+                    <tr>
+                        <td>
+                            <p class = "Verification_address">Availability of verification doc. Address
+                                <select id="Verification_address" name="vari_doc_type_temp">
+                                    <option value="{{Kyc_Infotemp.vari_doc_type_temp}}">{{Kyc_Infotemp.vari_doc_type_temp}}</option>                                   
+                                </select>
+                            </p>
+                            
+                        </td>
+
+                        <td><br> 
+                            <input type="text" id="img2" name="vari_doc_temp" value="{{Kyc_Infotemp.vari_doc_temp}}" readonly>
+                        </td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>PEP (politically exposed person)
+
+                        </td>
+                        <td>
+                            <select id="pep_id1" name="pep_person_temp">
+                                <option value="{{Kyc_Infotemp.pep_person_temp}}">{{Kyc_Infotemp.pep_person_temp}}</option>                                   
+                            </select>                      
+                        </td>
+                          
+                    </tr>
+                        <tr>
+                            <td>
+                                <p>US citizen
+                            </td>
+
+                            <td>
+                                <select id="us_id1" name="us_city_temp">
+                                    <option value="{{Kyc_Infotemp.us_city_temp}}">{{Kyc_Infotemp.us_city_temp}}</option>                                   
+                                </select>
+                                
+                            </td>    
+                        </tr>
+
+                </table>
+
+                <br>
+                <center>
+                    <h5>Contact Information</h5>
+                </center><br>
+
+                <p style="padding-left: 35px;"><i><b>Residential Information</b></i></p>
+                <center>
+                    <table width="90%">
+                        <tr>
+                            <td>
+                                <p>Are you a resident of Sri Lanka?</p>
+                            </td>
+                            <td>
+                                <select id="res_id1" name="resident_sri_temp">
+                                    <option value="{{Kyc_Infotemp.resident_sri_temp}}">{{Kyc_Infotemp.resident_sri_temp}}</option>                                   
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 50%;">
+                                <p>Country of residence</p>
+                            </td>
+                            <td style="width:50%;">
+                                <select type="text" name="country_resident_temp" id="resident">
+                                    <option value="{{Kyc_Infotemp.country_resident_temp}}">{{Kyc_Infotemp.country_resident_temp}}</option>
+                                </select>
+                            </td>
+                        </tr>
+
                     </table>
-
-                    <br>
-
-                    <table class="border" style="width: 100%;">
-
-                        <tr class="border control">
-                            <td class="border">
-                                <p>NIC NO<br>
-                                    <input type="number" name="nics_no_temp" value="{{Kyc_Infotemp.nics_no_temp}}" readonly>
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Date of birth<br>
-                                    <input type="date"  name="date_of_birth_temp" value="{{Kyc_Infotemp.date_of_birth_temp}}" readonly>
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Driving licence<br>
-                                    <input type="number" name="driv_lic_temp" value="{{Kyc_Infotemp.driv_lic_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Driving licence Expire<br>
-                                    <input type="text" name="driv_exp_temp" value="{{Kyc_Infotemp.driv_exp_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>Passport number<br>
-                                    <input type="number" name="pass_no_temp" value="{{Kyc_Infotemp.pass_no_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>Passport number expire<br>
-                                    <input type="text" name="pass_exp_temp" value="{{Kyc_Infotemp.pass_exp_temp}}">
-                                </p>
-                            </td>
-
-                                                    
-                            
-                        </tr>
-                    </table>
-
-                    <br>
-
-                    <table class="border" style="width: 100%;">
-                        
-                        <tr class="border control">
-
-                            <td class="border">
-                                <p>Birth certificate No<br>
-                                    <input type="text" name="birth_cernum_temp" value="{{Kyc_Infotemp.birth_cernum_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Postal ID<br>
-                                    <input type="text" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>OAFSC<br>
-                                    <input type="text" name="oafsc_temp" value="{{Kyc_Infotemp.oafsc_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Copy of Visa<br>
-                                    <input type="text" name="visa_copy_temp" value="{{Kyc_Infotemp.visa_copy_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Identity recognition<br>
-                                    <input type="text" name="othe_identity_doc_temp" value="{{Kyc_Infotemp.othe_identity_doc_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>Nationality<br>
-                                    <input type="text" name="nationality_temp" value="{{Kyc_Infotemp.nationality_temp}}">
-                                </p>
-                            </td>
-                                                                           
-                        </tr>
+                </center>
                     
-                    </table>
+                
+        </div>
+        
 
+      
+        <div class="col-md-5 contact_info" style="border:1px solid #000; border-radius:25px;">
+                
+                <center>
                     <br>
+                    <p style="text-align: left; padding-left: 35px;"><i><b>Permanent Address</b></i></p>
 
-                    <table class="border" style="width: 100%;">
-                    
-                        <tr class="border control">
+                    <table class="contact" width="90%">
 
-                            <td class="border">
-                                <p>Other Nationality<br>
-                                    <input type="text" name="nationality_other_temp" value="{{Kyc_Infotemp.nationality_other_temp}}">
-                                </p>
+                        <tr>
+
+                            <td style="width:25%">
+                                <label>House number</label>
                             </td>
 
-                            <td class="border">
-                                <p>Type of Visa<br>
-                                    <input type="text" name="type_of_visa_temp" value="{{Kyc_Infotemp.type_of_visa_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>Expiration Date<br>
-                                    <input type="text" name="visa_exp_temp" value="{{Kyc_Infotemp.visa_exp_temp}}">
-                                </p>
+                            <td style="width:30%">
+                                <input type="text" id="houseNo" name="house_no_per_temp" value="{{Kyc_Infotemp.house_no_per_temp}}">
                             </td>
 
-                            <td class="border">
-                                <p>If other please specify<br>
-                                    <input type="text" name="other_types_temp" value="{{Kyc_Infotemp.other_types_temp}}">
-                                </p>
+                            <td class="left_border" style="width:20%">
+                                <label>Street</label>
                             </td>
 
-                            <td class="border">
-                                <p>Expiration Date<br>
-                                    <input type="text" name="other_exp_temp" value="{{Kyc_Infotemp.other_exp_temp}}">
-                                </p>
+                            <td style="width:25%">
+                                <input type="text" id="street" name="street_per_temp" value="{{Kyc_Infotemp.street_per_temp}}">
                             </td>
-                        
-                            <td class="border">
-                                <p>Foreign Address<br>
-                                    <input type="text" name="foreign_addre_temp" value="{{Kyc_Infotemp.foreign_addre_temp}}">
-                                </p>
-                            </td>          
-                            
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="width:25%">
+                                <label>City</label>
+                            </td>
+
+                            <td style="width:30%">
+                                <Select id="city" name="city_per_temp">
+                                    <option value="{{Kyc_Infotemp.city_per_temp}}">{{Kyc_Infotemp.city_per_temp}}</option>
+                                </Select>
+                            </td>
+
+                            <td class="left_border" style="width:20%">
+                                <label>Postal Code</label>
+                            </td>
+
+                            <td style="width:25%">
+                                <input type="text" id="postal_code" name="postal_code_per_temp" value="{{Kyc_Infotemp.postal_code_per_temp}}">
+                            </td>
+
                         </tr>
 
                     </table>
 
-                    <br>
+                    <p style="text-align: left; padding-left: 35px;"><i><b>Current Address</b></i></p>
 
-                    <table class="border" style="width: 100%;">
-                    
-                        <tr class="border control">
+                    <table class="contact" width="90%">
 
-                            <td class="border">
-                                <p>Verification doc type<br>
-                                    <input type="text" name="vari_doc_type_temp" value="{{Kyc_Infotemp.vari_doc_type_temp}}">
-                                </p>
+                        <tr>
+
+                            <td style="width:25%">
+                                <label class="house">House number</label>
                             </td>
 
-                            <td class="border">
-                                <p>Verification document<br>
-                                    <input type="text" name="vari_doc_temp" value="{{Kyc_Infotemp.vari_doc_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>PEP<br>
-                                    <input type="text" name="pep_person_temp" value="{{Kyc_Infotemp.pep_person_temp}}">
-                                </p>
+                            <td style="width:30%">
+                                <input type="text" id="houseNo2" name="house_no_temp" value="{{Kyc_Infotemp.house_no_temp}}">
                             </td>
 
-                            <td class="border">
-                                <p>US citizen<br>
-                                    <input type="text" name="us_city_temp" value="{{Kyc_Infotemp.us_city_temp}}">
-                                </p>
+                            <td class="left_border" style="width:20%">
+                                <label class="street">Street</label>
                             </td>
 
-                            <td class="border">
-                                <p>Resident of Sri Lanka?<br>
-                                    <input type="text" name="resident_sri_temp" value="{{Kyc_Infotemp.resident_sri_temp}}">
-                                </p>
+                            <td style="width:25%">
+                                <input type="text" id="street2"  name="street_temp" value="{{Kyc_Infotemp.street_temp}}">
                             </td>
-                        
-                            <td class="border">
-                                <p>Country of residence<br>
-                                    <input type="text" name="country_resident_temp" value="{{Kyc_Infotemp.country_resident_temp}}">
-                                </p>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="width:25%">
+                                <label class="city">City</label>
                             </td>
-                                                                    
+                            <td style="width:30%">
+                                <Select id="city2" name="city_temp">
+                                    <option value="{{Kyc_Infotemp.city_temp}}">{{Kyc_Infotemp.city_temp}}</option>
+                                </Select>
+                            </td>
+
+                            <td class="left_border" style="width:20%">
+                                <label>Postal Code</label>
+                            </td>
+
+                            <td style="width:25%">
+                                <input type="text" id="postal_code2" name="postal_code_temp" value="{{Kyc_Infotemp.postal_code_temp}}">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label>State of your current address</label>
+                            </td>
+                            <td colspan="2">
+                                <select style="width:95%" name="state_address_temp" >
+                                    <option value="{{Kyc_Infotemp.state_address_temp}}">{{Kyc_Infotemp.state_address_temp}}</option>
+                                </select> 
+                            </td>
                         </tr>
 
                     </table>
 
+                    <hr>
 
-                    <br>
+                    <p style="text-align: left; padding-left: 35px;"><i><b><label>Contact Information</label></b></i></p>
 
-                    <table class="border" style="width: 100%;">
+                    <table class="contact" width="90%">
 
-                        <tr class="border control">
+                        <tr>
+                            <td>
 
-                            <td class="border">
-                                <p>Verification doc type<br>
-                                    <input type="text" name="vari_doc_type_temp" value="{{Kyc_Infotemp.vari_doc_type_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>House number Permanent<br>
-                                    <input type="text" name="house_no_per_temp" value="{{Kyc_Infotemp.house_no_per_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Street Permanent<br>
-                                    <input type="text" name="street_per_temp" value="{{Kyc_Infotemp.street_per_temp}}">
-                                </p>
-                            </td>
-                            
-                            <td class="border">
-                                <p>City Permanent<br>
-                                    <input type="text" name="city_per_temp" value="{{Kyc_Infotemp.city_per_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Postal code Permanent<br>
-                                    <input type="text" name="postal_code_per_temp" value="{{Kyc_Infotemp.postal_code_per_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p class="house">House number<br>
-                                    <input type="text" name="house_no_temp" value="{{Kyc_Infotemp.house_no_temp}}">
-                                </p>
-                            </td>
-                                                    
-                        </tr>
-                    </table>
-
-                    <br>
-
-                    <table class="border" style="width: 100%;">
-                        <tr class="border control">
-
-                            <td class="border">
-                                <p class="street">Street<br>
-                                    <input type="text" name="street_temp" value="{{Kyc_Infotemp.street_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p class="city">City<br>
-                                    <input type="text" name="city_temp" value="{{Kyc_Infotemp.city_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Postal code<br>
-                                    <input type="text" name="postal_code_temp" value="{{Kyc_Infotemp.postal_code_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>State of the address<br>
-                                    <input type="text" name="state_address_temp" value="{{Kyc_Infotemp.state_address_temp}}">
-                                </p>
-                            </td>
-                                            
-                            <td class="border">
                                 <p>Mobile number<br>
-                                    <input type="number" name="mob_no_temp" value="{{Kyc_Infotemp.mob_no_temp}}">
+                                    <input id="mobile" type="tel" name="mob_no_temp" value="{{Kyc_Infotemp.mob_no_temp}}">
+                                </p>
+
+                            </td>
+
+                            <td>
+                                <p>Office<br>
+                                    <input type="tel" id="officetel" name="office_num_temp" value="{{Kyc_Infotemp.office_num_temp}}">
                                 </p>
                             </td>
-                        
-                            <td class="border">
-                                <p>Office phone number<br>
-                                    <input type="number" name="office_num_temp" value="{{Kyc_Infotemp.office_num_temp}}">
+
+                            <td>
+                                <p>Home<br>
+                                    <input type="tel" name="home_number" id="hometel" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}">
                                 </p>
                             </td>
-                        
-                            
                         </tr>
+
+                        <tr>
+                            <td>
+                                <p>Email Address</p>
+                            </td>
+
+                            <td colspan="2" style="width: 100%;">
+                                <input type="email" id="email" name="email_add_temp" value="{{Kyc_Infotemp.email_add_temp}}" readonly>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Profile rating</p>
+                            </td>
+                            <td>
+                                <input type="text" readonly id="profile_rate" name="profile_rating_temp" value="{{Kyc_Infotemp.profile_rating_temp}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Email Verification</p>
+                            </td>
+                            <td>
+                                <input type="text" name="email_add_verification" value="{{Kyc_Infotemp.email_add_verification}}" readonly>
+                            </td>
+                        </tr>
+
                     </table>
-                    
-                    <br>
 
-                    <table class="border" style="width: 100%;">
+                    <p style="text-align: left; padding-left: 35px;"><i><b><label>Flags</label></b></i></p>
 
-                        <tr class="border control">
-
-                            <td class="border">
-                                <p>Home phone number<br>
-                                    <input type="number" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}">
-                                </p>
-                            </td>
-
-                            <td class="border">
-                                <p>Email address<br>
-                                    <input type="email" name="email_add_temp" value="{{Kyc_Infotemp.email_add_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
-                                <p>Occupation state<br>
-                                    <input type="text" name="occu_state_temp" value="{{Kyc_Infotemp.occu_state_temp}}">
-                                </p>
-                            </td>
-                        
-                            <td class="border">
+                    <table style="width: 90%;">
+                        <tr>
+                            <td style="width: 30%;">
                                 <p class="red_mark">RED flaged<br>
                                     <input type="text" name="red_flag_temp" value="{{Kyc_Infotemp.red_flag_temp}}">
                                 </p>
                             </td>
                         
-                            <td class="border">
+                            <td style="width: 30%;">
                                 <p class="green_mark">Green flaged<br>
                                     <input type="text" name="green_flag_temp" value="{{Kyc_Infotemp.green_flag_temp}}">
                                 </p>
                             </td>
                       
-                            <td class="border">
+                            <td style="width: 30%;">
                                 <p class="blue_mark">Blue flaged<br>
                                     <input type="text" name="blue_flag_temp" value="{{Kyc_Infotemp.blue_flag_temp}}">
                                 </p>
                             </td>
                         </tr>
-
-
-
                     </table>
 
-                    <br>
-
-                    <table class="border" style="width: 100%;">
-
-                        <tr class="border control">
-
-                            <td class="border">
-                                <p>Live video<br>
-                                    <input type="text" name="live_video_temp" value="{{Kyc_Infotemp.live_video_temp}}">
-                                </p>
-                            </td>
-
-
-                            <td class="border">
-                                <p>Profile Rating<br>
-                                    <input type="text" name="profile_rating_temp" value="{{Kyc_Infotemp.profile_rating_temp}}">
-                                </p>
-                            </td>
-
-                        
-                            <td class="border">
-                                <p>Email Verification<br>
-                                    <input type="text" name="email_add_verification" value="{{Kyc_Infotemp.email_add_verification}}" readonly>
-                                </p>
-                            </td>
-
-                        </tr>
-
-
-
-                    </table>
                     <hr>
 
                     <br>
                     
                     <table class="border" style="width: 100%;">
                     
-                        <tr class="border control">
+                        <tr>
                             <p><b>please select suitable options</b></p>
                         
 
-                            <td class="border">
+                            <td>
                                 <p> Verify or Reject record <br>
-                                    <select name="rejected_temp" id="Reject" required="" onChange="select_rejection()">
+                                    <select name="rejected_temp" id="Reject" required="" onChange="select_rejection()" style="width: 90%;">
                                         <option value="">Select one of a method</option>
                                         <option value="accept_val">Verify</option>
                                         <option value="reject_val">Reject</option>
 
                                     </select>
                                 </p>
+                            </td>
+                            <td>
+                                
+                                <p>Date and time<br>
+                                    <input id="rej_1" name="date_now_temp" readonly>
+                                </p>
+                                
+
+                                <script type="text/javascript">
+                                document.getElementById('rej_1').value = Date();
+                                </script>
+                                
                             </td>
 
 
@@ -476,40 +556,39 @@
            
                     <table class="border" style="width: 100%;">
 
-                        <tr class="border control">
+                        <tr style="width: 90%;">
 
-                            <td class="border">
-                                <p>Date and time<br>
-                                    <input id="rej_1" name="date_now_temp" readonly>
-                                </p>
-                                
+                            
 
-                                <script type="text/javascript">
-                                document.getElementById('rej_1').value = Date();
-                                </script>
-                            </td>
-
-                            <td class="border">
+                            <td style="width: 45%;">
                                 <p>Staff member<br>
                                     <input type="text" id="rej_2" name="staff_member_temp" value="{{Kyc_Infotemp.staff_member_temp}}">
                                 </p>
                             </td>
-                        
-                            
-                        
-                            <td class="border">
-                                <p>Reason for rejction<br>
-                                    <input type="text" id="rej_4" name="reason_for_rej_temp" value="{{Kyc_Infotemp.reason_for_rej_temp}}">
-                                </p>
-                            </td>
 
-                            <td class="border">
+                            <td style="width: 45%;">
                                 <p>Attachment<br>
                                     <input type="file" id="rej_5" name="file_attachment_temp" accept=".pdf,.doc,.txt,image/*" >
                                 </p>
                             </td>
                       
                            
+                        </tr>
+                    </table>
+
+                    <table>
+
+                        <tr style="width: 90%;">
+                            <td>
+                                <p>Reason for rejction<br>
+                                    <input type="text" id="rej_4" name="reason_for_rej_temp" value="{{Kyc_Infotemp.reason_for_rej_temp}}" style="width: 100%;">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="id" value="{{Kyc_Infotemp.id}}">
+                            </td>
                         </tr>
 
 
@@ -535,93 +614,92 @@
 
                     <br><br>
                     
-                    <input type="submit" name="update_db" value="Reject"/> |
-                    <input type="submit" name="accept_rec" value="Verify"/> | <a href="{% url 'update' %}">back to summary page</a>
+                    <input type="submit" style="width: 30%;" name="update_db" value="Reject"/> |
+                    <input type="submit" style="width: 30%;" name="accept_rec" value="Verify"/> | <a style="width: 30%;" href="{% url 'update' %}">back to summary page</a>
 
-                     
-
-                    <br><br>
-                    {% if Kyc_Infotemp.blue_flag_temp == "True" %}
-                        <style>
-                            .blue_mark{
-                                background-color: rgb(56, 56, 219);
-                                color: #000;
-                                        
-                            }
-                        </style>
-                    {% endif %}
-
-                    {% if Kyc_Infotemp.green_flag_temp == "True" %}
-                        <style>
-                            .green_mark{
-                                background-color: rgb(76, 250, 105);
-                                color: #000;
-                                        
-                            }
-                        </style>
-                    {% endif %}
-
-                    {% if Kyc_Infotemp.red_flag_temp == "True" %}
-                        <style>
-                            .red_mark{
-                                background-color: rgb(245, 129, 129);
-                                color: #000;
-                                        
-                            }
-                        </style>
-                        <p class="red_mark">New User</p>
-                    {% endif %}
-                    
-                    {% if Kyc_Infotemp.check_name == 1 %}
-                    <style>
-                        .name{
-                            background-color: rgb(245, 129, 129);
-                            color: #000;
-                        }
-                    </style>
-                    {% endif %}
-
-                    {% if Kyc_Infotemp.check_city == 1 %}
-                        <style>
-                            .city{
-                                background-color: rgb(245, 129, 129);
-                                color: #000;
-                            }
-                        </style>
-                    {% endif %}
-
-                    {% if Kyc_Infotemp.check_home == 1 %}
-                    <style>
-                        .house{
-                            background-color: rgb(245, 129, 129);
-                            color: #000;
-                        }
-                    </style>
-                    {% endif %}
-
-                    {% if Kyc_Infotemp.check_street == 1 %}
-                        <style>
-                            .street{
-                                background-color: rgb(245, 129, 129);
-                                color: #000;
-                            }
-                        </style>
-                    {% endif %}
-
-                    
-
-                </form>
-
+                </center>
                 
+            </form>
 
-                <br><br>
-
-            </center>
-
+        </div>
+        
+        
+        <div class="col-md-1">
+          
         </div>
 
     </div>
+     
+    {% if Kyc_Infotemp.blue_flag_temp == "True" %}
+        <style>
+            .blue_mark{
+                background-color: rgb(56, 56, 219);
+                color: #000;
+                        
+            }
+        </style>
+    {% endif %}
+
+    {% if Kyc_Infotemp.green_flag_temp == "True" %}
+        <style>
+            .green_mark{
+                background-color: rgb(76, 250, 105);
+                color: #000;
+                        
+            }
+        </style>
+    {% endif %}
+
+    {% if Kyc_Infotemp.red_flag_temp == "True" %}
+        <style>
+            .red_mark{
+                background-color: rgb(245, 129, 129);
+                color: #000;
+                        
+            }
+        </style>
+        <p class="red_mark">New User</p>
+    {% endif %}
+    
+    {% if Kyc_Infotemp.check_name == 1 %}
+    <style>
+        .name{
+            background-color: rgb(245, 129, 129);
+            color: #000;
+        }
+    </style>
+    {% endif %}
+
+    {% if Kyc_Infotemp.check_city == 1 %}
+        <style>
+            .city{
+                background-color: rgb(245, 129, 129);
+                color: #000;
+            }
+        </style>
+    {% endif %}
+
+    {% if Kyc_Infotemp.check_home == 1 %}
+    <style>
+        .house{
+            background-color: rgb(245, 129, 129);
+            color: #000;
+        }
+    </style>
+    {% endif %}
+
+    {% if Kyc_Infotemp.check_street == 1 %}
+        <style>
+            .street{
+                background-color: rgb(245, 129, 129);
+                color: #000;
+            }
+        </style>
+    {% endif %}
+
+                    
 
 </body>
+
 {% endblock content %}
 </html>

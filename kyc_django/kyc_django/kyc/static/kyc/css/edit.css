@@ -6,3 +6,50 @@
     color: blue;
     padding-top: 10px;
 }
+
+.personal_info{
+    margin-left: 20px;
+    border:1px solid #232322;
+    border-radius: 15px;
+    padding-left:50px;
+  }
+  .contact_info{
+    margin-left: 20px;
+  }
+  form{
+    border-radius: 15px;
+    height:600px;
+  }
+  input{
+    border-radius: 5px;
+    width:90%;
+    height:30px;
+    font-size: 12px;
+    border:1px solid #232322;
+  }
+  select{
+    border-radius: 5px;
+    width:90%;
+    font-size: 15px;
+    border:1px solid #232322;
+  }
+  table tr td{
+    width:50%;
+    padding-left: 10px;
+  }
+  .left_border{
+    border-left: 1px solid #232322;
+    padding-left: 10px;
+  }
+  .title{
+    margin-bottom: 50px;
+    font-size: 30px;
+    background-color: #E4E3DA;
+  }
+  .contact tr td{
+    width:25%;
+    padding-bottom: 20px;
+  }
+  #solutation{
+    width:50px;
+  }
