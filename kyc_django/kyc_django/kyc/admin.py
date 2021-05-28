@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject
+from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject,Kyc_front
 from simple_history.admin import SimpleHistoryAdmin
 
 # Register your models here.
@@ -9,6 +9,7 @@ admin.site.register(Kyc_Infotemp)
 admin.site.register(Id_Info)
 admin.site.register(Image)
 admin.site.register(Kyc_Reject)
+admin.site.register(Kyc_front)
 #admin.site.register(HistoricalKyc_Info)
 
 class kycHistoryAdmin(SimpleHistoryAdmin):

@@ -5,7 +5,7 @@ from email.message import EmailMessage
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject, HistoricalKyc_Info
+from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject, HistoricalKyc_Info, Kyc_front
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
 from .forms import update_forms, accept_form, ImageForm, reject_forms
@@ -57,8 +57,8 @@ def verify(request):
         input_number = request.POST["code"]
         
         print(input_number)
-        
-        if Kyc_Infotemp.objects.filter(email_add_verification=input_number).exists():
+        # previous method Kyc_Infotemp.objects
+        if Kyc_front.objects.filter(email_add_verification=input_number).exists():
             
             messages.success(request, "verified sucessfully")
             return render(request, "kyc/search.html")
@@ -1307,7 +1307,7 @@ def search_val(request):
             return render(request, 'kyc/search.html', context)
         else:
             messages.success(request, 'Please fill the above details')
-            return render(request, 'kyc/index.html')
+            return render(request, 'kyc/index1.html')
 
     return render(request, 'kyc/search.html')
 
@@ -1382,3 +1382,34 @@ def update_history(request):
         }
     # passing variables to the update.html using dictionary
     return render(request, "kyc/update_history.html", context)
+
+def front(request):
+    if request.method == 'POST':
+        salutation = request.POST["salutation"]
+        full_name = request.POST["fullname"]
+        mob_no = request.POST["mobile_number"]
+        office_num = request.POST["office_number"]
+        home_num = request.POST["home_number"]
+        email_add = request.POST["email_add"]
+        email_add_verification=round(100000*random.random())
+        masegEmail = "you submit kyc information success\n"
+        codeEmail = str(email_add_verification)
+
+        submit_val= Kyc_front(salutation_temp=salutation, full_name_temp=full_name, mob_no_temp=mob_no,
+                                office_num_temp=office_num, home_num_temp=home_num, email_add_temp=email_add,
+                                email_add_verification=email_add_verification)
+        
+        submit_val.save()
+
+        
+
+        idS = str(submit_val.id)
+            # request.session['id'] = submit_kyc_temp.id
+        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS,
+                    email_add)
+
+        return render(request, "kyc/verify.html")
+
+    else:
+
+        return render(request, "kyc/index1.html")

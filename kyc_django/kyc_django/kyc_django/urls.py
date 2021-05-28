@@ -40,6 +40,7 @@ urlpatterns = [
     path('reject/', views.reject, name="reject"),
     path('edit_reject/<int:id>', views.edit_val1, name="edit_reject"),
     path('update_history', update_history, name="update_history"),
+    path('front', views.front)
 ]
 
 if settings.DEBUG:

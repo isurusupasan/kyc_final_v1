@@ -84,14 +84,14 @@ class Kyc_Info(models.Model):
 
 class Kyc_Infotemp(models.Model):
     
-    salutation_temp = models.CharField(max_length=5)
-    full_name_temp = models.CharField(max_length=200)
-    name_init_temp = models.CharField(max_length=100)
-    profile_pic_temp = models.ImageField(upload_to='temp/images/id_self/%Y/%m/%d/', null=True)
-    live_video_temp = models.FileField(upload_to='temp/videos/liv_vid/%Y/%m/%d/', null=True)
-    id_type_temp = models.CharField(max_length=50)
-    nics_no_temp = models.CharField(max_length=50)
-    date_of_birth_temp = models.CharField(max_length=20)
+    salutation_temp = models.CharField(max_length=5, null=True, blank=True)
+    full_name_temp = models.CharField(max_length=200, null=True, blank=True)
+    name_init_temp = models.CharField(max_length=100, null=True, blank=True)
+    profile_pic_temp = models.ImageField(upload_to='temp/images/id_self/%Y/%m/%d/', null=True, blank=True)
+    live_video_temp = models.FileField(upload_to='temp/videos/liv_vid/%Y/%m/%d/', null=True, blank=True)
+    id_type_temp = models.CharField(max_length=50, null=True, blank=True)
+    nics_no_temp = models.CharField(max_length=50, null=True, blank=True)
+    date_of_birth_temp = models.CharField(max_length=20, null=True, blank=True)
     driv_lic_temp = models.CharField(max_length=50, blank=True, null=True)
     driv_exp_temp = models.CharField(max_length=20, blank=True, null=True)
     pass_no_temp = models.CharField(max_length=50, blank=True, null=True)
@@ -101,9 +101,9 @@ class Kyc_Infotemp(models.Model):
     oafsc_temp = models.CharField(max_length=10, blank=True, null=True)
     visa_copy_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/visa_copy/%Y/%m/%d/")
     othe_identity_doc_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/other_doc/%Y/%m/%d/")
-    nationality_temp = models.CharField(max_length=50)
+    nationality_temp = models.CharField(max_length=50, null=True, blank=True)
     nationality_other_temp = models.CharField(max_length=50, blank=True, null=True)
-    type_of_visa_temp = models.CharField(max_length=20,blank=True)
+    type_of_visa_temp = models.CharField(max_length=20,blank=True, null=True)
     visa_exp_temp = models.CharField(max_length=20, blank=True, null=True)
     other_types_temp = models.CharField(max_length=20,blank=True)
     other_exp_temp = models.CharField(max_length=20, blank=True, null=True)
@@ -115,19 +115,19 @@ class Kyc_Infotemp(models.Model):
 
     # residential information
     resident_sri_temp = models.CharField(max_length=10, blank=True, null=True)
-    country_resident_temp =models.CharField(blank=True, max_length=50)
+    country_resident_temp =models.CharField(blank=True, max_length=50, null=True)
 
     # current Address
-    house_no_temp = models.CharField(max_length=100)
-    street_temp = models.CharField(max_length=100)
-    city_temp = models.CharField(max_length=50)
+    house_no_temp = models.CharField(max_length=100, null=True, blank=True)
+    street_temp = models.CharField(max_length=100, null=True, blank=True)
+    city_temp = models.CharField(max_length=50, null=True, blank=True)
     postal_code_temp = models.CharField(max_length=10, blank=True, null=True)
     state_address_temp = models.CharField(max_length=50, blank=True, null=True)
 
     # permenent Address
-    house_no_per_temp = models.CharField(max_length=100)
-    street_per_temp = models.CharField(max_length=100)
-    city_per_temp = models.CharField(max_length=50)
+    house_no_per_temp = models.CharField(max_length=100, null=True, blank=True)
+    street_per_temp = models.CharField(max_length=100, null=True, blank=True)
+    city_per_temp = models.CharField(max_length=50, null=True, blank=True)
     postal_code_per_temp = models.CharField(max_length=10, blank=True, null=True)
     
     # contact infromation
@@ -139,7 +139,7 @@ class Kyc_Infotemp(models.Model):
     red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    profile_rating_temp = models.CharField(max_length=50)
+    profile_rating_temp = models.CharField(max_length=50, null=True, blank=True)
     
     #flag
 
@@ -250,3 +250,14 @@ class Kyc_Reject(models.Model):
         db_table = "Kyc_Reject"
     def __str__(self):
         return self.full_name_temp
+
+
+class Kyc_front(models.Model):
+
+    salutation_temp = models.CharField(max_length=5, null=True, blank=True)
+    full_name_temp = models.CharField(max_length=200, null=True, blank=True)
+    mob_no_temp = models.CharField(max_length=20, null=True, blank=True)
+    office_num_temp = models.CharField(max_length=20, blank=True, null=True)
+    home_num_temp = models.CharField(max_length=20, blank=True, null=True)
+    email_add_temp = models.CharField(max_length=100, blank=True, null=True)
+    email_add_verification = models.CharField(max_length=50, blank=True, null=True)
