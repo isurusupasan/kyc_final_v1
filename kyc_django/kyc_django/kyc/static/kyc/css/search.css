@@ -1,14 +1,32 @@
-.title{
-    margin-bottom: 50px;
-    font-size: 30px;
-    background-color: #E4E3DA;
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: #dedde0;
+    font-family: 'Raleway', sans-serif;font-weight:500;
 }
-
-.ajust{
-    border-radius: 5px;
-    width: 90%;
-    height: 30px;
-    font-size: auto;
-    border: 1px solid #232322;
-    text-align: center;
+.login_form #email_error
+{
+	margin-top: 5px;
+	width: 345px;
+	font-size: 18px;
+	color: red;
+	background-color:#dedde0 ;
+	text-align: center;
+	padding: 5px 8px;
+	border-radius: 3px;
+	font-size: 15px;
+	display: none;
+}
+.btn .submit{
+    width:150px;
+    background-color: #dedde0; 
+    border-color: rgb(58, 6, 88);
+    border-radius:50px;
+    font-size:20px;
+    padding:5px;
+    transition-duration: 1.4s;
+}
+.submit:hover{
+	background-color: #241158; /* Green */
+    color: white;
 }

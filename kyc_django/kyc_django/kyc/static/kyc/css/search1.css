@@ -1,0 +1,14 @@
+.title{
+    margin-bottom: 50px;
+    font-size: 30px;
+    background-color: #E4E3DA;
+}
+
+.ajust{
+    border-radius: 5px;
+    width: 90%;
+    height: 30px;
+    font-size: auto;
+    border: 1px solid #232322;
+    text-align: center;
+}
