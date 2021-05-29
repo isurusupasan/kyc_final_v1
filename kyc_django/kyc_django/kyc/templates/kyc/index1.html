@@ -51,8 +51,7 @@
 						<tr>
 							<td>
 								<div id="cn_error" class="error"><b>Oops! you cannot proceed without entering your contact number</b></div>
-								<input type="text"  id="mobile" name="mobile_number" placeholder="Contact number (sms security)"
-                                pattern="[0-9]{10}" required="" oninvalid="this.setCustomValidity('Oop! wrong format')">
+								<input type="text"  id="mobile" name="mobile_number" placeholder="Contact number (sms security)">
 							</td>
 							<td>
 								<div id="email_error" class="error"><b>Oops! you cannot proceed without entering your email</b></div>
@@ -62,20 +61,18 @@
 						<tr>
 							<td>
 								<div id="cn_error1" class="error"><b>Oops! you cannot proceed without entering your contact number (Home)</b></div> 
-								<input type="text"  id="hometel" name="home_number" placeholder="Contact number (Home)" pattern="[0-9]{10}" 
-                                required="" oninvalid="this.setCustomValidity('Oop! wrong format')">
+								<input type="text"  id="hometel" name="home_number" placeholder="Contact number (Home)">
 							</td>
 							
 						</tr>
 						<tr>
 							<td>
 								<div id="cn_error2" class="error"><b>Oops! you cannot proceed without entering your contact number (Office)</b></div> 
-								<input type="text"  id="officetel" name="office_number" placeholder="Contact number (Office)"
-                                pattern="[0-9]{10}" required="" oninvalid="this.setCustomValidity('Oop! wrong format')">
+								<input type="text"  id="officetel" name="office_number" placeholder="Contact number (Office)">
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" style="text-align:right;padding-right:70px;"><button id="submit" name="submit" class="submit" type="submit"  onclick="return fun()" value="Submit">Next</button></td>
+							<td colspan="2" style="text-align:right;padding-right:70px;"><button id="submit" name="submit" class="submit" type="submit"  onclick="validate1(0)" value="Submit">Next</button></td>
 						</tr>
 					</table>
 				</form></center>
@@ -83,8 +80,8 @@
         </div>
 	</div>
     <script>
-        function fun()
-        {
+        //function fun()
+        //{
             var name = document.getElementById("fullname");
             var name_error = document.getElementById('name_error');
 			
@@ -99,7 +96,102 @@
 			
 			var cn2 = document.getElementById("officetel");
             var cn_error2 = document.getElementById('cn_error2');
-            if(name.value == "" && cn.value == "" && email.value == "" && cn1.value == "" && cn2.value == "")
+
+            function validate1(val) {
+			
+			var name = document.getElementById("fullname");
+            var name_error = document.getElementById('name_error');
+			
+			var cn = document.getElementById("mobile");
+            var cn_error = document.getElementById('cn_error');
+			
+			var email = document.getElementById("email");
+            var email_error = document.getElementById('email_error');
+			
+			var cn1 = document.getElementById("hometel");
+            var cn_error1 = document.getElementById('cn_error1');
+			
+			var cn2 = document.getElementById("officetel");
+            var cn_error2 = document.getElementById('cn_error2');
+			
+			
+			/*v1 = document.getElementById("name");
+			v2 = document.getElementById("email");
+			v3 = document.getElementById("email2");*/
+
+			flag1 = true;
+			flag2 = true;
+
+			if(val>=1 || val==0) {
+				if(name.value == "") {
+					name.style.borderColor = "#ebcd34";
+					name.style.border = "2px solid #ebcd34";
+					name_error.style.display = "block";
+					flag1 = false;
+				}
+				else {
+				//v1.style.borderColor = "white";
+				flag1 = true;
+				}
+			}
+
+			if(val>=2 || val==0) {
+			if(cn.value == "") {
+				cn.style.borderColor = "#ebcd34";
+                cn.style.border = "2px solid #ebcd34";
+                cn_error.style.display = "block";
+				flag2 = false;
+			}
+			else {
+			//v2.style.borderColor = "white";
+				flag2 = true;
+			}
+			}
+
+			if(val>=3 || val==0) {
+			if(email.value == "") {
+				email.style.borderColor = "#ebcd34";
+                email.style.border = "2px solid #ebcd34";
+                email_error.style.display = "block";
+				flag3 = false;
+			}
+			else {
+			//v3.style.borderColor = "white";
+			flag3 = true;
+			}
+			}
+			
+			if(val>=3 || val==0) {
+			if(cn2.value == "") {
+				cn2.style.borderColor = "#ebcd34";
+                cn2.style.border = "2px solid #ebcd34";
+                cn_error2.style.display = "block";
+				flag3 = false;
+			}
+			else {
+			//v3.style.borderColor = "white";
+			flag3 = true;
+			}
+			}
+			
+			if(val>=3 || val==0) {
+			if(cn1.value == "") {
+				cn1.style.borderColor = "#ebcd34";
+                cn1.style.border = "2px solid #ebcd34";
+                cn_error1.style.display = "block";
+				flag3 = false;
+			}
+			else {
+			//v3.style.borderColor = "white";
+			flag3 = true;
+			}
+			}
+
+			flag = flag1 && flag2 && flag3;
+
+			return flag;
+			}
+            /*if(name.value == "" && cn.value == "" && email.value == "" && cn1.value == "" && cn2.value == "")
             {
                 name.style.borderColor = "#ebcd34";
                 name.style.border = "2px solid #ebcd34";
@@ -184,7 +276,7 @@
                 return true;
             }
 
-        }
+        }*/
     </script>
 </body>
 </html>
