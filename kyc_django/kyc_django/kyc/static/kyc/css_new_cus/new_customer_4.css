@@ -1,0 +1,149 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    /*background-color: #dedde0;*/
+	background-color: #1669ad;
+	color:#fff;
+	background-image: linear-gradient(to bottom right, #5b32ac, #5a34ad, #5639b0, #503fb2, #4c42b5, #464ab8, #315fc1, #2a67c2);
+	background-attachment: fixed;
+	height: 100%;
+}
+html{
+	height: 100%;
+}
+/*.equalDivide tr td { width:33%; }*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }
+input
+{
+    position: relative;
+	width:100%;
+	/*height:40px;
+	border-radius: 25px;
+	border:1px solid rgb(58, 6, 88);
+	padding-left:20px;*/
+	
+	color:#fff;
+	height:35px; 
+	border:1px solid #fff;
+	padding-left:20px;
+	padding-top:1px;
+	font-size:15px;
+	background-color:rgba(0,0,0,0);
+	background-repeat:no-repeat;
+	background-position:center;
+	outline:0;
+	border-radius: 10px;
+}
+
+button{
+	
+	border:1px solid #fff;
+	background-color:rgba(0,0,0,0);
+	color:#fff;
+	width:150px;
+	height:40px;
+	border-radius:25px;
+	transition-duration: 1.4s;
+	overflow-x: hidden;
+	background-attachment: fixed;
+}
+.submit:hover{
+	background-color: #fff; /* Green */
+    color:#1669ad;
+}
+input[type=file]::file-selector-button {
+	border:1px solid #fff;
+	background-color:rgba(0,0,0,0);
+	color:#fff;
+	width:150px;
+	height:34px;
+	border-radius:25px;
+	transition-duration: 1.4s;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #fff; /* Green */
+    color:#1669ad;
+}
+
+select{
+	position: relative;
+	width:100px;
+	/*height:40px;
+	border-radius:10px;
+	border:1px solid rgb(58, 6, 88);
+	padding-left:20px;*/
+	
+	height:35px; 
+	border:1px solid #fff;
+	padding-left:20px;
+	padding-top:1px;
+	font-size:15px;
+	background-color:rgba(0,0,0,0);
+	color:#fff;
+	background-repeat:no-repeat;
+	background-position:center;
+	outline:0;
+	border-radius: 10px;
+}
+
+/*.error{
+    font-size: 12px;
+	color: #ebcd34;
+	
+	text-align: left;
+	border-radius: 3px;
+	display: none;
+	text-decoration: bold;
+}*/
+option{
+	color:#000;
+	
+}
+/*input[type=date]{
+	position: relative;
+	width:100%;
+	/*height:40px;
+	border-radius: 25px;
+	border:1px solid rgb(58, 6, 88);
+	padding-left:20px;*/
+	
+	
+	/*height:35px; 
+	border:1px solid #fff;
+	padding-left:20px;
+	padding-top:1px;
+	font-size:15px;
+	background-color:rgba(0,0,0,0);
+	background-repeat:no-repeat;
+	background-position:center;
+	outline:0;
+	border-radius: 10px;
+}*/
+#nationality_error, #other_error, #visa_error, #visa_exp_error, #visa_other_error, #visa_exp_error1, #copy_of_visa_error
+{
+	font-size: 12px;
+	color: #ebcd34;
+	background-color: rgba(0,0,0,0);
+	text-align: left;
+	border-radius: 3px;
+	display: none;
+	text-decoration: bold;
+}
+form{
+	text-align:center;
+}
+table tr td{
+	padding:25px;
+	color:#fff;
+}
+.error{
+	padding-left:10px;
+	display: none;
+}
+option{
+	color:#000;
+}
