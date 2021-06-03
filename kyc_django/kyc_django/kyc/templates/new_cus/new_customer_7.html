@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+	<head>
+		<title>new_customer_7</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<link rel="stylesheet" href="style3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<form>
+				<div class="row" style="padding-top: 50px;">
+					<h2 style="padding-left: 200px;">Help us validate your occupation status</h2>
+						<table>
+							<tr>
+								<td style="padding-left: 200px; padding-top: 20px;">
+									<div id="occupation_status_error" class="error" ><b>Oops! you cannot proceed without selecting the occupation status</b></div>
+									<select id="Occutation_Status">
+										<option value="default">Occupation status</option>
+										<option value="Salaried Worker">Salaried Worker</option>
+										<option value="Retire">Retired</option>
+										<option value="Self-Employee">Self-Employee</option>
+									</select>
+								</td>
+								
+								<td  colspan="2" style="padding-left: 400px; padding-top: 20px;">
+									<div id="occupation_error" class="error" ><b>Oops! you cannot proceed without entering the occupation</b></div>
+									<input type="text" style="width: 400px;" id="occupation" name="occupation" class="occupation" placeholder="Occupation"></td>
+							</tr>
+							
+							<tr>
+								<td>
+									<div  style="padding-left: 200px; padding-top: 50px;">
+										Source of income <br>
+										<div id="check_error" class="error" ><b>Oops! you cannot proceed without <br> selecting the Source of income</b></div>
+										
+									</div>
+								</td>
+								<td >
+									<div style="padding-left: 150px; padding-top: 50px;">
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name=""class="checkbox"> &nbsp;Sales and business turnover
+										
+									</div>
+								</td>
+								<td>
+									<div style=" padding-top: 50px;">
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name=""class="checkbox">&nbsp;Family remittance
+										
+									</div>
+								</td>
+								
+							</tr>
+							<tr>
+								<td></td>
+								<td >
+									<div style="padding-left: 150px; padding-top: 20px;">
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name=""class="checkbox">&nbsp;Commission income
+										
+									</div>
+								</td>
+								<td>
+									<div style=" padding-top: 20px;">
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name=""class="checkbox">&nbsp;Export proceeds
+										
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<tr>
+									<td>
+										<div  style="padding-left: 200px; padding-top: 20px;">
+											Average monthly income (Rs.)<br>
+											<div id="check_error2" class="error" ><b>Oops! you cannot proceed without <br> selecting the mode of transaction</b></div>
+										</div>
+									</td>
+									<td style="width: 50px;">
+										<div style="padding-left: 150px; padding-top: 20px;">
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name=""class="checkbox2">&nbsp;Less than 100,000
+											
+										</div>
+									</td>
+									<td>
+										<div style=" padding-top: 20px;">
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;100,001.00 - 500,000.00 
+											
+										</div>
+									</td>
+									
+								</tr>
+								<tr>
+									<td></td>
+									<td style="width: 100px;">
+										<div style="padding-left: 150px; padding-top: 20px;">
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="" class="checkbox2">&nbsp;500,001.00 - 1,000,000.00  
+											
+										</div>
+									</td>
+									<td>
+										<div style=" padding-top: 20px;">
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;Above 1,000,000.00
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div  style="padding-left: 200px; padding-top: 20px;">
+											PEP (Politically exposed person) <br>
+											<div id="PEP_error" class="error" ><b>Oops! you cannot proceed without <br> selecting the PEP</b></div>
+										</div>
+									</td>
+									<td>
+										<div  style="padding-left: 150px; padding-top: 20px;">
+											<input type="radio" name="PEP" id="pep_id1">Yes &nbsp;&nbsp;&nbsp;
+											<input type="radio" name="PEP" id="pep_id2">No &nbsp;&nbsp;&nbsp;
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										
+									   </td> 
+									   <td>
+										<div  style="padding-left: 400px; padding-top: 100px;">
+										   
+										<button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction(0)" value="Submit">Skip</button> 
+									</div>   
+									</td>
+									
+								</tr>
+						</table>
+						<script>
+						function myFunction(val) 
+						{ 
+							var PEP = document.querySelector( 'input[name="PEP"]:checked');
+                        	var PEP_error = document.getElementById('PEP_error');
+
+							var check = document.querySelector('.checkbox:checked');
+							var check_error = document.getElementById("check_error"); 
+							
+							var check2 = document.querySelector('.checkbox2:checked');
+							var check_error2 = document.getElementById("check_error2"); 
+	
+							var occupation_status = document.getElementById("Occutation_Status"); 
+							var occupation_status_error = document.getElementById("occupation_status_error"); 
+
+							var occupation = document.getElementById("occupation"); 
+							var occupation_error = document.getElementById("occupation_error");
+	
+							flag1 = true;
+							flag2 = true;
+
+						
+							if(val>=1 || val==0) {
+								if(occupation_status.value == "default") {
+									occupation_status.style.borderColor = "#ebcd34";
+									occupation_status.style.border = "2px solid #ebcd34";
+									occupation_status_error.style.display = "block";
+									flag1 = false;
+								}
+								else {
+								//v1.style.borderColor = "white";
+								flag1 = true;
+								}
+							}
+							if(val>=2 || val==0) {
+								if(occupation.value == "") {
+									occupation.style.borderColor = "#ebcd34";
+									occupation.style.border = "2px solid #ebcd34";
+									occupation_error.style.display = "block";
+									flag2 = false;
+								}
+								else {
+								//v2.style.borderColor = "white";
+									flag2 = true;
+								}
+							}
+
+							if(val>=3 || val==0) {
+							if(check == null) {
+								check_error.style.display = "block"
+								flag3 = false;
+							}
+							else {
+							//v3.style.borderColor = "white";
+							flag3 = true;
+							}
+							}
+							if(val>=3 || val==0) {
+							if(check2 == null) {
+								check_error2.style.display = "block"
+								flag3 = false;
+							}
+							else {
+							//v3.style.borderColor = "white";
+							flag3 = true;
+							}
+							}
+
+							if(val>=3 || val==0) {
+							if(PEP == null) {
+								
+								PEP_error.style.display = "block";
+								flag3 = false;
+							}
+							else 
+							{
+								flag3 = true;
+							}
+							}
+							flag = flag1 && flag2 && flag3;
+
+							return flag;		
+						
+						}
+						
+						</script>
+					</div>
+			<form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>E - KYC</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="row" style="padding-left: 200px; padding-top: 100px;">
+            <form action="">
+                <h2 style="padding-left: 100px;">Help us validate your identity</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <div  style="padding-left: 100px; padding-top: 50px;">
+                               
+                                Upload a live selfie to validate NIC
+                            </div> 
+                        </td>
+                        <td>
+                            <div style="padding-left: 100px; padding-top: 50px;">
+                                <div id="selfie_error" class="error"><b>Oops! you cannot proceed without uploading a live selfie</b></div>
+                                <input type="file" id="img" name="selfie" style="border: 0px;" class="inputfile"> 
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div  style="padding-left: 100px; padding-top: 50px;">
+                                
+                                Upload a live video
+                            </div> 
+                        </td>
+                        <td>
+                            <div style="padding-left: 100px; padding-top: 50px;">
+                                <div id="video_error" class="error"><b>Oops! you cannot proceed without uploading a live video</b></div>
+                                <input type="file" id="vid" name="video" style="border: 0px;" class="inputfile">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           
+                               
+                           </td>
+                        <td>
+                            <div style="padding-left: 500px; padding-top: 200px;">
+                               <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return fun()" value="Submit">Next</button>
+                           </div>
+                        </td>
+                    </tr>
+                </table>
+                <script>
+            function fun() {
+			
+			var selfie = document.getElementById("img");
+            var selfie_error = document.getElementById('selfie_error');
+			
+			var video = document.getElementById("vid");
+            var video_error = document.getElementById('video_error');
+
+			flag1 = true;
+			flag2 = true;
+
+			if(selfie.value =="" && video.value=="")
+            {
+                selfie_error.style.display = "block";
+                video_error.style.display = "block";
+                return false;
+            }
+            else if(video.value =="")
+            {
+                video_error.style.display = "block";
+               return false;
+            }
+            else if(selfie.value =="")
+            {
+                selfie_error.style.display = "block";
+               return false;
+            }
+            else
+            {
+                return true;
+            }
+			}
+                </script>
+            </form>
+        </div>         
+    </body>
+</html>

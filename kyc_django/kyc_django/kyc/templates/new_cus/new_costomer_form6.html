@@ -1,0 +1,227 @@
+<html>
+    <head>
+        <title>E - KYC</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <form>
+            <div class="row" style="padding-top: 50px;">
+                <h2 style="padding-left: 200px;">Help us validate your account status</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 200px; padding-top: 50px;">
+                                    Have an account in Bank X?
+                                    <div id="yes_error" class="error" ><b>Oops! you cannot proceed without selecting <br> whether you have a acconunt in bank X or not</b></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div  style="padding-left: 150px; padding-top: 50px;">
+                                   
+                                    <input type="radio" style="height:10px; width: 10px; " name="yes" id="haveAcc"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height:10px; width: 10px; "name="yes" id="noAcc" onclick="disable()"> &nbsp;No
+                                </div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                               
+                            </td>
+                            <td>
+                                <div style="padding-left: 150px; padding-top: 20px;">
+                                    <div id="Account_type_error" class="error" ><b>Oops! you cannot proceed without entering your account type</b></div>
+                                    <input id="Account_type" type="text" name="Name"style="border-radius: 10px; width: 250px; " placeholder="Type of the account">
+                                </div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 200px; padding-top: 20px;">
+                                    <p>Purpose of the account</p>
+                                    <div id="check_error" class="error" ><b>Oops! you cannot proceed without <br> selecting the purpose of the account</b></div>
+                                    
+                                </div>
+                            </td>
+                            <td >
+                                <div style="padding-left: 150px; padding-top: 20px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name=""class="checkbox"> &nbsp;Business Transaction
+                                    
+                                </div>
+                            </td>
+                            <td>
+                                <div style=" padding-top: 20px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name=""class="checkbox">&nbsp;Family inward remittance
+                                    
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td >
+                                <div style="padding-left: 150px; padding-top: 20px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name=""class="checkbox">&nbsp;Employment/Professional income
+                                    
+                                </div>
+                            </td>
+                            <td>
+                                <div style=" padding-top: 20px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name=""class="checkbox">&nbsp;Rare transaction
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <tr>
+                                <td>
+                                    <div  style="padding-left: 200px; padding-top: 20px;">
+                                        <p>Mode of transaction</p>
+                                        <div id="check_error2" class="error" ><b>Oops! you cannot proceed without <br> selecting the mode of transaction</b></div>
+                                    </div>
+                                </td>
+                                <td style="width: 50px;">
+                                    <div style="padding-left: 150px; padding-top: 20px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name=""class="checkbox2">&nbsp;Cash
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style=" padding-top: 20px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="" class="checkbox2">&nbsp;Cheque
+                                        
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="width: 100px;">
+                                    <div style="padding-left: 150px; padding-top: 20px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="" class="checkbox2">&nbsp;Standing order 
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style=" padding-top: 20px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="" class="checkbox2">&nbsp;Slip wire
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                   </td>
+                                   <td>
+                                    <div  style="padding-left: 400px; padding-top: 100px;">
+                                       
+                                    <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction()" value="Submit">Skip</button> 
+                                </div>   
+                                </td>
+                                <td>
+                                    <div  style="padding-left: 30px; padding-top: 100px;">
+                                       
+                                        <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction()" value="Submit">Next</button>
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+                    <script>
+                        function myFunction() 
+                    {    
+                        var yes = document.querySelector( 'input[name="yes"]:checked');
+                        var yes_error = document.getElementById("yes_error");   
+
+                        var check = document.querySelector('.checkbox:checked');
+                        var check_error = document.getElementById("check_error"); 
+                        
+                        var check2 = document.querySelector('.checkbox2:checked');
+                        var check_error2 = document.getElementById("check_error2"); 
+
+                        var Account_type = document.getElementById("Account_type"); 
+                        var Account_type_error = document.getElementById("Account_type_error"); 
+
+                        
+                        
+                        if(document.getElementById('haveAcc').checked == true )
+                        {
+                            if(Account_type.value == "") {
+                                Account_type.style.borderColor = "#ebcd34";
+                                Account_type.style.border = "2px solid #ebcd34";
+                                Account_type_error.style.display = "block";
+                            }
+                        
+                        }
+                        if(check == null && yes == null && check2 == null)
+                        {   
+                            check_error2.style.display = "block";
+                            check_error.style.display = "block";
+                            yes_error.style.display = "block";
+                            return false;
+                              
+                        }
+                        else if(check == null  && check2 == null)
+                        {   
+                            check_error2.style.display = "block";
+                            check_error.style.display = "block";
+                           
+                            return false;
+                              
+                        }
+                        else if(check2 == null && yes == null)
+                        {   
+                            check_error2.style.display = "block";
+                            yes_error.style.display = "block";
+                            return false;
+                              
+                        }
+                        else if(check == null && yes == null)
+                        {   
+                            check_error.style.display = "block";
+                            yes_error.style.display = "block";
+                            return false;
+                              
+                        }
+                        else if(check == null)
+                        {   
+                            check_error.style.display = "block";
+                            
+                            return false;
+                              
+                        }
+                        else if( yes == null)
+                        {   
+                            yes_error.style.display = "block";
+                            return false;
+                              
+                        }
+                        else if(check2 == null)
+                        {   
+                            check_error2.style.display = "block";
+                        
+                            return false;     
+                        }
+                        else 
+                        {      
+                            return true; 
+                        }
+                    }
+                    function disable()
+                    {
+                        if(document.getElementById('noAcc').checked == true) {   
+                                document.getElementById("Account_type").disabled = true;
+                            } 
+                    }
+                    </script>
+                </div>
+        <form>
+    </body>
+</html>
+
+
+   
+
+    

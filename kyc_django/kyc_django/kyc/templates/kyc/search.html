@@ -13,18 +13,16 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
+    
     {% load static %}
     <link rel="stylesheet" href="{% static 'kyc/css/search.css' %}">
     
 </head>
-<body>
+<body style="background: url({% static 'kyc/img/piggy.jpeg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: 100% 100%;">
 
     <div class="text-center mt-4">
        
-        <div class="row" style="margin-top:10%; padding-left: 550px;">
+        <div class="row" style="padding-top: 200px; padding-left: 450px;">
 
             {% if Kyc_Infotemp.id == null %}
         
@@ -36,13 +34,12 @@
                             <td>
                                 <label for="Tooltips" class="error"></label>
 
-                                <div class="cont" >
-                                    <div id="email_error">Oops! Cannot proceed without NIC number</div> 
-                                </div>
+                                 <label for="Tooltips" class="error"></label>
+                                    <div class="cont" ><b><div id="email_error" class="error">Oops! Cannot proceed without NIC number</div></b> </div>
                                 
-                                <input type="text"  id="nic" name="nics_no_temp" style="position: relative; width: 400px;border-radius: 25px;width:400px;height:49px; 
-                                border:3px solid rgb(58, 6, 88);
-                                padding-left:20px;" placeholder="Enter your NIC number" class="form-control" pattern="^(?:19|20)?\d{2}[0-9]{10}|[0-9]{9}[x|X|v|V]$|[0-9]{11}[x|X|v|V]|[0-9]{9}" oninvalid="this.setCustomValidity('Oop! wrong format')" oninput="this.setCustomValidity('')"/>
+                                <input type="text"  id="nic" name="nics_no_temp" placeholder="Enter your NIC number" class="form-control" 
+                                    pattern="^(?:19|20)?\d{2}[0-9]{10}|[0-9]{9}[x|X|v|V]$|[0-9]{11}[x|X|v|V]|[0-9]{9}" 
+                                    oninvalid="this.setCustomValidity('Oop! wrong format')" oninput="this.setCustomValidity('')"/>
                                 
                             </td>
                             
@@ -50,7 +47,7 @@
                         <tr>
                             
                             <td> <br>
-                                <i class="fa fa-info-circle" style="color: rgb(91, 91, 247);" aria-hidden="true"></i>&nbsp;&nbsp; Make sure you enter the NIC number in the correct format
+                                <i class="fa fa-info-circle" style="color: #000;" aria-hidden="true"></i>&nbsp;&nbsp; Make sure you enter the NIC number in the correct format
                                 <p name="info" id="info" style="text-align: left;"></p>
                             </td>
                         </tr>
@@ -119,10 +116,10 @@
             }
             else
             {
-                nic.style.borderColor = "red";
-                nic.style.border = "1px solid red";
+                nic.style.borderColor = "rgb(209, 36, 36)";
+                nic.style.border = "2px solid rgb(209, 36, 36)";
                 email_error.style.display = "block";
-                nic.focus();
+                
                 return false;
             }
         }

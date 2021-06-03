@@ -1,0 +1,521 @@
+<html>
+    <head>
+        <title>E - KYC</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="row" style="padding-left: 100px;">
+            <h2 style="padding-left: 100px; padding-top: 50px;">Help us validate your idenetity</h2>
+            <table>
+                <tr>
+                    <td>
+                        <div style="padding-left: 100px; padding-top: 50px;">
+                            
+                            <div id="birthday_error" class="error"><b>Oops! you cannot proceed without entering your birthday</b></div>
+                            
+                           
+                            <input id="birthday" type="date" name="birthday"style=" width: 400px; padding-left:20px; color:#fff; " placeholder="Date of Birth"> <br>
+                            <p id="message" style="color:#ebcd34;font-size: 12px;font-weight: bold;"></p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                       
+                        <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                            <div id="ID_error" class="error"><b>Oops! you cannot proceed without selecting yout ID type</b></div>
+                         <select id="ID_type" style="width: 400px;">
+                             <option id="op_def" value="default">Select your ID type</option>
+                             <option id="op_nic" value="National_ID">NIC</option>
+                             <option id="op_dl"value="Driving_License" >Diving License</option>
+                             <option id="op_passport"value="Passport">Passport</option>
+                             <option id="op_PID"value="Postal_ID">Postal ID</option>
+                             <option id="op_BCN"value="Birth_certificate_number">Birth Certificate</option>
+                             <option id="op_OAFSC"value="Official_armed_forces_service_card">Offical armed force service card</option>
+                        </select>
+                     </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                 <td colspan="2">
+                  <div style="padding-left: 100px; padding-top: 20px;">
+                    <div id="NIC_error" class="error"><b>Oops! you cannot proceed without entering your NIC Number</b></div>
+                     <input id="NIC" name="Search" type="text" placeholder="NIC Number" style="width:400px;" />
+                  </div>
+                     
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                  <div style="padding-left: 100px; padding-top: 20px;">
+                    <div id="drlicense_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Number</b></div>
+                      <input id="drlicense" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Drivng License Number">
+                  </div>
+                     
+                 </td>
+                 <td>
+                     <div style="padding-left: 50px; padding-top: 20px;">
+                        <div id="drive_exp_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Expiration Date</b></div>
+                         <input id="drive_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                     </div>
+                        
+                    </td>
+             </tr>
+             <tr>
+                 <td>
+                  <div style="padding-left: 100px; padding-top: 20px;">
+                    <div id="passport_error" class="error"><b>Oops! you cannot proceed without entering your Passport Number</b></div>
+                      <input id="passport" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Passport Number">
+                  </div>
+                     
+                 </td>
+                 <td>
+                     <div style="padding-left: 50px; padding-top: 20px;">
+                        <div id="passport_exp_error" class="error"><b>Oops! you cannot proceed without entering your Passport Expiration Date</b></div>
+                         <input id="passport_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                     </div>
+                        
+                    </td>
+             </tr>
+            
+             <tr>
+                 <td>
+                  <div style="padding-left: 100px; padding-top: 20px;">
+                    <div id="PID_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Number</b></div>
+                      <input id="PID" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Postal ID Number">
+                  </div>
+                     
+                 </td>
+                 <td>
+                     <div style="padding-left: 50px; padding-top: 20px;">
+                        <div id="PIDexpr_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Expiration Date</b></div>
+                         <input id="PIDexpr"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                     </div>
+                        
+                    </td>
+             </tr>
+             <tr>
+                 <td>
+                  <div style="padding-left: 100px; padding-top: 20px;">
+                    <div id="BRC_error" class="error"><b>Oops! you cannot proceed without entering your Birth Certifacte Number</b></div>
+                      <input id="BRC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Birth Certifacte Number">
+                  </div>
+                     
+                 </td>
+                 <td rowspan="2" style="padding-left: 50px; padding-top: 20px;">
+                     <p>Upload a scan copy of selected identity recognition document</p>
+                     <div id="varification_error" class="error"><b>Oops! you cannot proceed without uploading an idenetity verification document</b></div>
+                    <input type="file" id="imgOther" name="varification" style="border: 0px;">
+                    
+                 </td>
+                 
+             </tr>
+             <tr>
+                 <td>
+                    <div style="padding-left: 100px; padding-top: 20px;">
+                        <div id="OAFSC_error" class="error"><b>Oops! you cannot proceed without entering your Offical armed force service card Number</b></div>
+                      <input id="OAFSC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Offical armed force service card Number">
+                  </div>
+                     
+                 </td>
+                 
+             </tr>
+            
+             <tr>
+                 <td>
+                    
+                        
+                    </td>
+                 <td>
+                     <div style="padding-left: 600px; padding-top: 20px;">
+                        <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="fun(0)" value="Submit">Next</button>
+                    </div>
+                 </td>
+             </tr>
+             
+            </table>
+             <script>
+                 function myFunction(){
+                    ageCal();
+                    fun();
+                }
+                function ageCal()
+                {
+                    var userinput = document.getElementById("birthday").value;  
+                    var dob = new Date(userinput);  
+                    
+                    //calculate month difference from current date in time  
+                    var month_diff = Date.now() - dob.getTime();  
+                    
+                    //convert the calculated difference in date format  
+                    var age_dt = new Date(month_diff);   
+                    
+                    //extract year from date      
+                    var year = age_dt.getUTCFullYear();  
+                    
+                    //now calculate the age of the user  
+                    var age = Math.abs(year - 1970);  
+                    
+                    //display the calculated age  
+                    if(age<18)
+                    {
+                        
+                    return document.getElementById("message").innerHTML =    
+                            "You are under 18! Please visti the bank with your guardian. ";  
+                    }
+   
+                
+
+                }
+                function fun(val)
+                {
+                    var varification = document.getElementById("imgOther");
+                    var varification_error = document.getElementById("varification_error");
+
+                    var birthday = document.getElementById("birthday");
+                    var birthday_error = document.getElementById("birthday_error");
+                    var dob = new Date(birthday);
+
+                    var ID = document.getElementById("ID_type");
+                    var ID_error = document.getElementById("ID_error");
+                    
+                    var NIC = document.getElementById("NIC");
+                    var NIC_error = document.getElementById("NIC_error");
+
+                    
+                    var drlicense = document.getElementById("drlicense");
+                    var drlicense_error = document.getElementById("drlicense_error");
+
+                    var drive_exp = document.getElementById("drive_exp");
+                    var drive_exp_error = document.getElementById("drive_exp_error");
+
+                    var passport = document.getElementById("passport");
+                    var passport_error = document.getElementById("passport_error");
+
+                    var passport_exp = document.getElementById("passport_exp");
+                    var passport_exp_error = document.getElementById("passport_exp_error");
+
+                    var PID = document.getElementById("PID");
+                    var PID_error = document.getElementById("PID_error");
+
+                    var PIDexpr = document.getElementById("PIDexpr");
+                    var PIDexpr_error = document.getElementById("PIDexpr_error");
+
+                    var BRC = document.getElementById("BRC");
+                    var BRC_error = document.getElementById("BRC_error");
+
+                    var OAFSC = document.getElementById("OAFSC");
+                    var OAFSC_error = document.getElementById("OAFSC_error");
+
+                    flag1 = true;
+			        flag2 = true;
+           
+
+			if(val>=1 || val==0) {
+				if(ID.value == "default") {
+					ID.style.borderColor = "#ebcd34";
+					ID.style.border = "2px solid #ebcd34";
+					ID_error.style.display = "block";
+					flag1 = false;
+				}
+				else {
+				//v1.style.borderColor = "white";
+				flag1 = true;
+				}
+			}
+			
+				if(val>=2 || val==0) {
+					if(varification.value == "") {
+						
+						varification_error.style.display = "block";
+						flag2 = false;
+					}
+					else {
+					//v2.style.borderColor = "white";
+						flag2 = true;
+					}
+                }
+                if(val>=3 || val==0) {
+					if(birthday.value == "") {
+						birthday.style.borderColor = "#ebcd34";
+						birthday.style.border = "2px solid #ebcd34";
+						birthday_error.style.display = "block";
+						flag3 = false;
+					}
+					else {
+                        ageCal();
+					//calculate month difference from current date in time  
+                   
+					flag3 = true;
+					}
+				}
+				
+			    if(ID.value == "National_ID"){
+				if(val>=3 || val==0) {
+					if(NIC.value == "") {
+						NIC.style.borderColor = "#ebcd34";
+						NIC.style.border = "2px solid #ebcd34";
+						NIC_error.style.display = "block";
+						flag3 = false;
+					}
+					else {
+					//v2.style.borderColor = "white";
+						flag3 = true;
+					}
+				}
+				
+			    }   
+                if(ID.value == "Driving_License"){
+				if(val>=4 || val==0) {
+					if(drlicense.value == "") {
+						drlicense.style.borderColor = "#ebcd34";
+						drlicense.style.border = "2px solid #ebcd34";
+						drlicense_error.style.display = "block";
+
+                        
+						flag4 = false;
+					}
+                    if(drive_exp.value == "") {
+						drive_exp.style.borderColor = "#ebcd34";
+						drive_exp.style.border = "2px solid #ebcd34";
+						drive_exp_error.style.display = "block";
+   
+						flag4 = false;
+					}
+					else {
+					//v2.style.borderColor = "white";
+						flag4 = true;
+					}
+				}
+				
+			    }   
+
+                if(ID.value == "Passport"){
+				if(val>=5 || val==0) {
+					if(passport.value == "") {
+						passport.style.borderColor = "#ebcd34";
+						passport.style.border = "2px solid #ebcd34";
+						passport_error.style.display = "block";
+
+                        
+						flag5 = false;
+					}
+                    if(passport_exp.value == "") {
+						passport_exp.style.borderColor = "#ebcd34";
+						passport_exp.style.border = "2px solid #ebcd34";
+						passport_exp_error.style.display = "block";
+   
+						flag5 = false;
+					}
+					else {
+					//v2.style.borderColor = "white";
+						flag4 = true;
+					}
+				}
+				
+			    }   
+
+                if(ID.value == "Postal_ID"){
+				if(val>=6 || val==0) {
+					if(PID.value == "") {
+						PID.style.borderColor = "#ebcd34";
+						PID.style.border = "2px solid #ebcd34";
+						PID_error.style.display = "block";
+
+                        
+						flag6 = false;
+					}
+                    if(PIDexpr.value == "") {
+						PIDexpr.style.borderColor = "#ebcd34";
+						PIDexpr.style.border = "2px solid #ebcd34";
+						PIDexpr_error.style.display = "block";
+   
+						flag6 = false;
+					}
+					else {
+					//v2.style.borderColor = "white";
+						flag4 = true;
+					}
+				}
+				
+			    }  
+               
+                if(ID.value == "Birth_certificate_number"){
+				if(val>=7 || val==0) {
+					if(BRC.value == "") {
+						BRC.style.borderColor = "#ebcd34";
+						BRC.style.border = "2px solid #ebcd34";
+						BRC_error.style.display = "block";
+
+                        
+						flag7 = false;
+					}
+                   
+					else {
+					//v2.style.borderColor = "white";
+						flag7 = true;
+					}
+				}
+				
+			    } 
+
+                if(ID.value == "Official_armed_forces_service_card"){
+				if(val>=8 || val==0) {
+					if(OAFSC.value == "") {
+						OAFSC.style.borderColor = "#ebcd34";
+						OAFSC.style.border = "2px solid #ebcd34";
+						OAFSC_error.style.display = "block";
+
+                        
+						flag8 = false;
+					}
+                   
+					else {
+					//v2.style.borderColor = "white";
+						flag8 = true;
+					}
+				}
+				
+			    } 
+                flag = flag1 && flag2 && flag3 && flag4 && flag5 && flag6  && flag7 && flag8;
+
+                return flag;
+                }
+                    
+                
+                
+                 function identity_recognition()
+                 {
+                    var NIC = document.getElementById("NIC");
+            var drlicense = document.getElementById("drlicense");
+            var drive_exp = document.getElementById("drive_exp");
+            var passport = document.getElementById("passport");
+            var passport_exp = document.getElementById("passport_exp");
+            var birthCertificate = document.getElementById("BRC");
+            var postalID = document.getElementById("Postal_ID");
+            var ArmedID = document.getElementById("OAFSC");
+          
+            //NIC.disabled = ID_type.value = National_ID ? false : true;
+
+            if(document.getElementById("ID_type").value == "National_ID"){
+                document.getElementById("NIC").disabled = '';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("birthday").disabled = '';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true'; 
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true'; 
+               
+            }
+            else if(document.getElementById("ID_type").value == "Passport"){
+                document.getElementById("passport").disabled = '';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("passport_exp").disabled = '';
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true'; 
+               
+            }
+            else if(document.getElementById("ID_type").value == "Driving_License"){
+                document.getElementById("drlicense").disabled = '';
+                document.getElementById("drive_exp").disabled = '';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true'; 
+                
+            }
+            else if(document.getElementById("ID_type").value == "Birth_certificate_number") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = '';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true';
+                
+            }
+            else if(document.getElementById("ID_type").value == "Postal_ID") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = '';
+                document.getElementById("OAFSC").disabled = 'true'; 
+               
+            }
+            else if(document.getElementById("ID_type").value == "Official_armed_forces_service_card") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = ''; 
+               
+            }
+            else if(document.getElementById("ID_type").value == "Copy_of_Visa") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true'; 
+                
+            }
+            else if(document.getElementById("ID_type").value == "Other") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true'; 
+                
+            }
+            else if(document.getElementById("ID_type").value == "default") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("birthday").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+                document.getElementById("BRC").disabled = 'true';
+                document.getElementById("PID").disabled = 'true';
+                document.getElementById("OAFSC").disabled = 'true'; 
+                
+            }
+            
+                 }
+             </script>
+         
+     </div>
+     <form>
+     </div>
+    </body>
+</html>

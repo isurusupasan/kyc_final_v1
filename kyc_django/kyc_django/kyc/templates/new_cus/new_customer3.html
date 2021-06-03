@@ -1,0 +1,400 @@
+<html>
+    <head>
+        <title>E - KYC</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <form>
+            <div class="row" style="padding-left: 100px;">
+                <div class="tbl1" >
+                    <h2 style="padding-left:100px;padding-top: 50px;">Help us validate your Residence</h2>
+                    <table >
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 100px; padding-top: 20px;">
+                                    <div id="residence_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
+                                    Are you a residence of Sri Lanka?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id1" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id2">No
+                                </div>
+                            </td>
+                            <td>
+                                <div  style="padding-left: 300px; padding-top: 20px;">
+                                    <div id="resident_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
+                                    <input name="resident" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
+                                </div>
+                                
+                            </td> 
+                        </tr>
+                    </table>
+                </div>
+                <hr>
+                <div class="tbl2">
+                    <table>  
+                        
+                        <tr>
+                            <td colspan="3">
+                                <div style="padding-left: 100px; padding-top: 20px; ">
+                                    <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                  <p style="padding-left: 450px;">Permanent Address</p> 
+                                </div>
+                                
+                            </td>
+
+                        <tr>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 100px; padding-top: 10px;">
+                                    <div id="houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
+                                    <input name="house_number" id="houseNo" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
+                                </div>
+                                   
+                               </td>
+                               <td>
+                                <div  style="padding-left: 100px; padding-top: 10px;">
+                                    <div id="street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
+                                    <input  type="text" name="street" id="street" tyle="border-radius: 10px; width: 10px; " placeholder="Street">
+                                </div>
+                                   
+                               </td>
+                               <td>
+                                <div  style="padding-left: 100px; padding-top: 10px;">
+                                    <div id="city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
+                                    <input  name="city" id="city" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
+                                </div>
+                                   
+                               </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 100px; padding-top: 10px;">
+                                    <div id="postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
+                                    <input type="text" name="postal_code" id="postal_code" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
+                                </div>
+                                   
+                               </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div style="padding-left: 100px; padding-top: 10px; ">
+                                    <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                  <p style="padding-left: 450px;">Current Address (if any)</p> 
+                                </div>
+                                
+                            </td>
+
+                            <tr>
+                                <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="Current_houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
+                                        <input name="Current_house_number" id="houseNo2" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
+                                    </div>
+                                       
+                                   </td>
+                                   <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="Current_street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
+                                        <input  type="text" name="Currentstreet" id="street2" tyle="border-radius: 10px; width: 250px; " placeholder="Street">
+                                    </div>
+                                       
+                                   </td>
+                                   <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="Current_city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
+                                        <input  name="Currentcity" id="city2" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
+                                    </div>
+                                       
+                                   </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="Current_postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
+                                        <input type="text" name="Current_postal_code" id="postal_code2" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
+                                    </div>
+                                       
+                                   </td>
+                            </tr>
+                            <td colspan="2">
+                             <div style="padding-left: 100px; padding-top: 30px;">
+                                
+                                <div id="state_of_address_error" class="error"><b>Oops! you cannot proceed without selecting the state of address</b></div>
+                                <select type="text" id="state_of_address">
+                                    <option  value="default">State of the current address</option>
+                                    <option>Parent</option>
+                                    <option>Lease/ rent</option>
+                                    <option>Official</option>
+                                    <option>Friend's/ Relatives</option>
+                                    <option>Boarder/ Lodger</option>
+                                </select> 
+                                
+                             </div>
+                                
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td> 
+                                <div style="padding-left: 100px; padding-top: 20px;">
+                                   <p>Address Verification Document</p>
+                                </div>
+                                   
+                               </td>
+                               <td>
+                                <div style="padding-left: 100px; padding-top: 10px;">
+                                    <div id="address_varification_error" class="error"><b>Oops! you cannot proceed without uploading an address verification document</b></div>
+                                    <input type="file" id="address_varification" name="address_varification" style="border: 0px;" class="inputfile">
+                                </div>
+                                   
+                               </td>
+                               <td>
+                                <div class="col-md-3" style="padding-left: 200px; padding-top: 10px;">
+                                    <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="validate(0)" value="Submit">Next</button>
+                                </div>
+                                   
+                               </td>
+                        </tr>
+                       
+                    </table>
+                </div>
+               <script>
+                    function disable()
+                    {
+                        if(document.getElementById('res_id1').checked == true) {   
+                                document.getElementById("resident").disabled = true;
+                            } 
+                        else{
+                            document.getElementById("resident").disabled = false;
+                        }
+                    }
+                    function validate(val)
+                    {
+                        
+                        var residence = document.querySelector( 'input[name="residence"]:checked');
+                        var residence_error = document.getElementById('residence_error');
+
+                        var resident = document.getElementById("resident");
+                        var resident_error = document.getElementById('resident_error');
+
+                        var houseNo = document.getElementById("houseNo");
+                        var houseNo_error = document.getElementById('houseNo_error');
+                        
+                        var street = document.getElementById("street");
+                        var street_error = document.getElementById('street_error');
+                        
+                        var city = document.getElementById("city");
+                        var city_error = document.getElementById('city_error');
+                        
+                        var postal_code = document.getElementById("postal_code");
+                        var postal_code_error = document.getElementById('postal_code_error');
+
+                        var address_varification = document.getElementById("address_varification");
+                        var address_varification_error = document.getElementById('address_varification_error');
+                        
+                        var state_of_address = document.getElementById("state_of_address");
+                        var state_of_address_error = document.getElementById('state_of_address_error');
+
+                        var CurrenthouseNo = document.getElementById("houseNo2");
+                        var Current_houseNo_error = document.getElementById('Current_houseNo_error');
+                        
+                        var Currentstreet = document.getElementById("street2");
+                        var Current_street_error = document.getElementById('Current_street_error');
+                        
+                        var Currentcity = document.getElementById("city2");
+                        var Current_city_error = document.getElementById('Current_city_error');
+                        
+                        var Current_postal_code = document.getElementById("postal_code2");
+                        var Current_postal_code_error = document.getElementById('Current_postal_code_error');
+
+                        var address_varification = document.getElementById("address_varification");
+                        var address_varification_error = document.getElementById('address_varification_error');
+
+                        var state_of_address = document.getElementById("state_of_address");
+                        var state_of_address_error = document.getElementById('state_of_address_error');
+            
+
+                        /*v1 = document.getElementById("name");
+                        v2 = document.getElementById("email");
+                        v3 = document.getElementById("email2");*/
+
+                        flag1 = true;
+                        flag2 = true;
+
+                        
+                        if(val>=1 || val==0) {
+                            if(houseNo.value == "") {
+                                houseNo.style.borderColor = "#ebcd34";
+                                houseNo.style.border = "2px solid #ebcd34";
+                                houseNo_error.style.display = "block";
+                                flag1 = false;
+                            }
+                            else {
+                            //v1.style.borderColor = "white";
+                            flag1 = true;
+                            }
+                        }
+
+                        if(val>=2 || val==0) {
+                        if(street.value == "") {
+                            street.style.borderColor = "#ebcd34";
+                            street.style.border = "2px solid #ebcd34";
+                            street_error.style.display = "block";
+                            flag2 = false;
+                        }
+                        else {
+                        //v2.style.borderColor = "white";
+                            flag2 = true;
+                        }
+                        }
+
+                        if(val>=3 || val==0) {
+                        if(city.value == "") {
+                            city.style.borderColor = "#ebcd34";
+                            city.style.border = "2px solid #ebcd34";
+                            city_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+                        
+                        if(val>=3 || val==0) {
+                        if(postal_code.value == "") {
+                            postal_code.style.borderColor = "#ebcd34";
+                            postal_code.style.border = "2px solid #ebcd34";
+                            postal_code_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+                        
+                        if(val>=3 || val==0) {
+                        if(CurrenthouseNo.value == "") {
+                            CurrenthouseNo.style.borderColor = "#ebcd34";
+                            CurrenthouseNo.style.border = "2px solid #ebcd34";
+                            Current_houseNo_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+                        if(val>=3 || val==0) {
+                        if(Currentcity.value == "") {
+                            Currentcity.style.borderColor = "#ebcd34";
+                            Currentcity.style.border = "2px solid #ebcd34";
+                            Current_city_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+                        if(val>=3 || val==0) {
+                        if(Currentstreet.value == "") {
+                            Currentstreet.style.borderColor = "#ebcd34";
+                            Currentstreet.style.border = "2px solid #ebcd34";
+                            Current_street_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+
+                        if(val>=3 || val==0) {
+                        if(Current_postal_code.value == "") {
+                            Current_postal_code.style.borderColor = "#ebcd34";
+                            Current_postal_code.style.border = "2px solid #ebcd34";
+                            Current_postal_code_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+
+                        
+                        if(val>=3 || val==0) {
+                        if(address_varification.value == "") {
+                            
+                            address_varification_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+
+                        if(val>=3 || val==0) {
+                        if(residence == null) {
+                            
+                            residence_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else 
+                        {
+                            if(document.getElementById('res_id2').checked == true) {   
+                               
+                            } 
+                           
+                            flag3 = true;
+                        }
+                        }
+                        if(val>=3 || val==0) {
+                        if(state_of_address.value == "default") {
+                            state_of_address.style.borderColor = "#ebcd34";
+                            state_of_address.style.border = "2px solid #ebcd34";
+                            state_of_address_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v1.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                    }
+                        if(document.getElementById('res_id2').checked == true )
+                        {
+                            if(val>=3 || val==0) {
+                            if(resident.value == "") {
+                            resident.style.borderColor = "#ebcd34";
+                            resident.style.border = "2px solid #ebcd34";
+                            resident_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                        //v3.style.borderColor = "white";
+                        flag3 = true;
+                        }
+                        }
+                        }
+
+                        flag = flag1 && flag2 && flag3;
+
+                        return flag;
+                        }
+
+                                    
+                                
+                        
+           
+        
+               </script>
+                
+            </div>
+        <form>
+    </body>
+</html>

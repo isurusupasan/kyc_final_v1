@@ -1,0 +1,285 @@
+<html>
+    <head>
+        <title>E - KYC</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="new_customer_4.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+		<div class="container-fluid">
+		<div class="row">
+		<div class="col-md-12">
+		<h2 style="padding-left:225px;padding-top: 50px;">Help us validate your identity</h2>
+		<center>
+        <form style="width:70%;padding-top:50px;">
+				<table width="100">
+                <tr>
+                    <td colspan="2">
+						<div id="nationality_error" class="error"><b>Oops! you cannot proceed without entering your nationality</b></div>
+							
+                            <select id="Nationality" style="width: 400px;">
+                                <option value="default">Nationality</option>
+                                <option value="srilankan">Sri Lankan</option>
+								<option value="other">Other</option>
+                           </select>
+                    </td>
+                    <td colspan="2">
+						<div id="other_error" class="error"><b>Oops! you cannot proceed without specifying your nationality</b></div>
+						<input id="otherNationality"type="text" name="Name" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">   
+				   </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+						<div id="visa_error" class="error"><b>Oops! you cannot proceed without entering your visa type</b></div>
+						<select id="visa" style="width: 400px;">
+							<option value="default">Type of Visa</option>
+							<option value="Mrs">Diving License</option>
+							<option value="Miss">Passport</option>
+							<option value="Miss">Postal ID</option>
+							<option value="Miss">Birth Certificate</option>
+							<option value="other">Other</option>
+					   </select>
+                    </td>
+                    <td colspan="2">
+						<div id="visa_exp_error" class="error"><b>Oops! you cannot proceed without entering the expiration date</b></div>
+						<input id="visa_exp" type="text" name="visa_exp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan="2">
+						<div id="visa_other_error" class="error"><b>Oops! you cannot proceed without specifying your visa type</b></div>
+                        <input id="type_of_your_visa" type="text" name="Name" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">
+                    </td>
+                    <td colspan="2">
+						<div id="visa_exp_error1" class="error"><b>Oops! you cannot proceed without entering the expiration date</b></div>
+						<input id="visa_exp_other"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+					</td>
+                </tr>
+                <tr>
+					<td style="padding-right:0px;width:100px;">Copy of Visa</td>
+                    <td style="padding-left:0px;width:200px;">
+						<div id="copy_of_visa_error" class="error"><b>Oops! you cannot proceed without uploading a copy of your visa</b></div>
+						<input type="file" id="imgVisa"  style="border: 1px;">  
+					</td>
+					<td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align:right;">
+                        <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="validate1(0)" value="Submit">Next</button>
+                    </td>
+                </tr>
+                
+               </table>
+        <form>
+		</div>
+		</div>
+		</div>
+		<script type="text/javascript">
+        //function fun()
+        //{
+			function validate1(val) {
+			
+				var nationality = document.getElementById("Nationality");
+				var nationality_error = document.getElementById('nationality_error');
+				
+				var other = document.getElementById("otherNationality");
+				var other_error = document.getElementById('other_error');
+				
+				var visa_type = document.getElementById("visa");
+				var visa_error = document.getElementById('visa_error');
+				
+				var visa_exp = document.getElementById("visa_exp");
+				var visa_exp_error = document.getElementById('visa_exp_error');
+				
+				var visa_other = document.getElementById("type_of_your_visa");
+				var visa_other_error = document.getElementById('visa_other_error');
+				
+				var visa_exp1 = document.getElementById("visa_exp_other");
+				var visa_exp_error1 = document.getElementById('visa_exp_error1');
+				
+				var copy_of_visa = document.getElementById("imgVisa");
+				var copy_of_visa_error = document.getElementById("copy_of_visa_error");
+				
+				
+				/*var name = document.getElementById("fullname");
+				var name_error = document.getElementById('name_error');
+				
+				var cn = document.getElementById("mobile");
+				var cn_error = document.getElementById('cn_error');
+				
+				var email = document.getElementById("email");
+				var email_error = document.getElementById('email_error');
+				
+				var cn1 = document.getElementById("hometel");
+				var cn_error1 = document.getElementById('cn_error1');
+				
+				var cn2 = document.getElementById("officetel");
+				var cn_error2 = document.getElementById('cn_error2');*/
+
+				flag1 = true;
+				flag2 = true;
+
+				if(val>=1 || val==0) {
+					if(nationality.value == "default") {
+						nationality.style.borderColor = "#ebcd34";
+						nationality.style.border = "2px solid #ebcd34";
+						nationality_error.style.display = "block";
+						flag1 = false;
+					}
+					else {
+					//v1.style.borderColor = "white";
+					flag1 = true;
+					}
+				}
+				if(nationality.value == "other"){
+					if(val>=2 || val==0) {
+						if(other.value == "") {
+							other.style.borderColor = "#ebcd34";
+							other.style.border = "2px solid #ebcd34";
+							other_error.style.display = "block";
+							flag2 = false;
+						}
+						else {
+						//v2.style.borderColor = "white";
+							flag2 = true;
+						}
+					}
+					if(val>=3 || val==0) {
+						if(visa_type.value == "default") {
+							visa_type.style.borderColor = "#ebcd34";
+							visa_type.style.border = "2px solid #ebcd34";
+							visa_error.style.display = "block";
+							flag3 = false;
+						}
+						else {
+						//v3.style.borderColor = "white";
+						flag3 = true;
+						}
+					}
+					if(val>=3 || val==0){
+						if(copy_of_visa.value == ""){
+							copy_of_visa_error.style.display = "block";
+							flag3 = false;
+						}
+						else {
+						//v3.style.borderColor = "white";
+						flag3 = true;
+						}
+					}
+					/*if(val>=3 || val==0) {
+						if(visa_exp.value == ""){
+							visa_exp.style.borderColor = "#ebcd34";
+							visa_exp.style.border = "2px solid #ebcd34";
+							visa_exp_error.style.display = "block";
+							flag3 = false;
+						}
+						else{
+						//v3.style.borderColor = "white";
+							
+							flag3 = true;
+						}
+					}*/
+					if(val>=3 || val==0) {
+						if(visa_type.value == "other"){
+							if(visa_other.value == "") {
+								visa_other.style.borderColor = "#ebcd34";
+								visa_other.style.border = "2px solid #ebcd34";
+								visa_other_error.style.display = "block";
+								flag3 = false;
+							}
+							else {
+							//v3.style.borderColor = "white";
+							flag3 = true;
+							}
+							
+							if(visa_exp1.value == "") {
+								visa_exp1.style.borderColor = "#ebcd34";
+								visa_exp1.style.border = "2px solid #ebcd34";
+								visa_exp_error1.style.display = "block";
+								flag3 = false;
+							}
+							else {
+							//v3.style.borderColor = "white";
+							flag3 = true;
+							}
+						}
+						else{
+							if(val>=3 || val==0) {
+								if(visa_exp.value == ""){
+									visa_exp.style.borderColor = "#ebcd34";
+									visa_exp.style.border = "2px solid #ebcd34";
+									visa_exp_error.style.display = "block";
+									flag3 = false;
+								}
+								else{
+								//v3.style.borderColor = "white";
+									
+									flag3 = true;
+								}
+							}
+						}
+					}
+				}
+				/*if(val>=2 || val==0) {
+				if(cn.value == "") {
+					cn.style.borderColor = "#ebcd34";
+					cn.style.border = "2px solid #ebcd34";
+					cn_error.style.display = "block";
+					flag2 = false;
+				}
+				else {
+				//v2.style.borderColor = "white";
+					flag2 = true;
+				}
+				}
+
+				if(val>=3 || val==0) {
+				if(email.value == "") {
+					email.style.borderColor = "#ebcd34";
+					email.style.border = "2px solid #ebcd34";
+					email_error.style.display = "block";
+					flag3 = false;
+				}
+				else {
+				//v3.style.borderColor = "white";
+				flag3 = true;
+				}
+				}
+				
+				if(val>=3 || val==0) {
+				if(cn2.value == "") {
+					cn2.style.borderColor = "#ebcd34";
+					cn2.style.border = "2px solid #ebcd34";
+					cn_error2.style.display = "block";
+					flag3 = false;
+				}
+				else {
+				//v3.style.borderColor = "white";
+				flag3 = true;
+				}
+				}
+				
+				if(val>=3 || val==0) {
+				if(cn1.value == "") {
+					cn1.style.borderColor = "#ebcd34";
+					cn1.style.border = "2px solid #ebcd34";
+					cn_error1.style.display = "block";
+					flag3 = false;
+				}
+				else {
+				//v3.style.borderColor = "white";
+				flag3 = true;
+				}
+				}*/
+
+				flag = flag1 && flag2 && flag3;
+
+				return flag;
+			}
+
+        //}
+    </script>
+    </body>
+</html>
