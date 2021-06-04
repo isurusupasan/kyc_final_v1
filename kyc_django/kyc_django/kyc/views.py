@@ -1421,7 +1421,25 @@ def new_cus_form2(request):
     if request.POST.get("nics_no_temp") != "":
 
         nics_no_temp = request.POST.get("nics_no_temp")
-        Kyc_front.objects.filter(id=grab_id).update(nics_no_temp=nics_no_temp)
+        date_of_birth_temp = request.POST.get("date_of_birth_temp")
+        id_type_temp = request.POST.get("id_type_temp")
+        driv_lic_temp = request.POST.get("driv_lic_temp")
+        driv_exp_temp = request.POST.get("driv_exp_temp")
+        pass_no_temp = request.POST.get("pass_no_temp")
+        pass_exp_temp = request.POST.get("pass_exp_temp")
+        post_id_temp = request.POST.get("post_id_temp")
+        post_id_exp_temp = request.POST.get("post_id_exp_temp")
+        birth_cernum_temp = request.POST.get("birth_cernum_temp")
+        oafsc_temp = request.POST.get("oafsc_temp")
+        vari_doc_temp = request.FILES["vari_doc_temp"]
+
+        Kyc_front.objects.filter(id=grab_id).update(nics_no_temp=nics_no_temp, date_of_birth_temp=date_of_birth_temp, id_type_temp=id_type_temp,
+        driv_lic_temp=driv_lic_temp, driv_exp_temp=driv_exp_temp, pass_no_temp=pass_no_temp, pass_exp_temp=pass_exp_temp, post_id_temp=post_id_temp, 
+        post_id_exp_temp=post_id_exp_temp, birth_cernum_temp=birth_cernum_temp, oafsc_temp=oafsc_temp)
+
+        adding_vari_doc = Kyc_front.objects.get(id=grab_id)
+        adding_vari_doc.vari_doc_temp = vari_doc_temp
+        adding_vari_doc.save()
         
         print(nics_no_temp)
         return render(request, "new_cus/new_customer3.html")
