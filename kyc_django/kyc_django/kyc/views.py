@@ -1432,7 +1432,7 @@ def new_cus_form2(request):
         post_id_exp_temp = request.POST.get("post_id_exp_temp")
         birth_cernum_temp = request.POST.get("birth_cernum_temp")
         oafsc_temp = request.POST.get("oafsc_temp")
-        vari_doc_temp = request.FILES["vari_doc_temp"]
+        othe_identity_doc_temp = request.FILES["othe_identity_doc_temp"]
 
         # updating objects of the kyc_front where id = grab_id
         Kyc_front.objects.filter(id=grab_id).update(nics_no_temp=nics_no_temp, date_of_birth_temp=date_of_birth_temp, id_type_temp=id_type_temp,
@@ -1441,20 +1441,41 @@ def new_cus_form2(request):
 
         # this code is used to save the file to the database
         adding_vari_doc = Kyc_front.objects.get(id=grab_id)
-        adding_vari_doc.vari_doc_temp = vari_doc_temp
+        adding_vari_doc.othe_identity_doc_temp = othe_identity_doc_temp
         adding_vari_doc.save()
         
         print(nics_no_temp)
         return render(request, "new_cus/new_customer3.html")
     else:
         return render(request, "new_cus/new_costomer_form2.html")
-        
+
 
 def new_cus_form3(request):
     if request.POST.get("house_no_temp") != "":
 
+        resident_sri_temp = request.POST.get("resident_sri_temp")
+        country_resident_temp = request.POST.get("country_resident_temp")
         house_no_temp = request.POST.get("house_no_temp")
-        Kyc_front.objects.filter(id=grab_id).update(house_no_temp=house_no_temp)
+        street_temp = request.POST.get("street_temp")
+        city_temp = request.POST.get("city_temp")
+        postal_code_temp = request.POST.get("postal_code_temp")
+        house_no_per_temp = request.POST.get("house_no_per_temp")
+        street_per_temp = request.POST.get("street_per_temp")
+        city_per_temp = request.POST.get("city_per_temp")
+        postal_code_per_temp = request.POST.get("postal_code_per_temp")
+        state_address_temp = request.POST.get("state_address_temp")
+        vari_doc_temp = request.FILES["vari_doc_temp"]
+        
+
+        Kyc_front.objects.filter(id=grab_id).update(resident_sri_temp=resident_sri_temp, country_resident_temp=country_resident_temp,
+        house_no_temp=house_no_temp, street_temp=street_temp, city_temp=city_temp, postal_code_temp=postal_code_temp,
+        house_no_per_temp=house_no_per_temp, street_per_temp=street_per_temp, city_per_temp=city_per_temp, postal_code_per_temp=postal_code_per_temp,
+        state_address_temp=state_address_temp)
+
+        # address varification documetn adding to kyc_front db
+        address_veri_doc = Kyc_front.objects.get(id=grab_id)
+        address_veri_doc.vari_doc_temp = vari_doc_temp
+        address_veri_doc.save()
         
         print(house_no_temp)
         return render(request, "new_cus/new_costomer_form4.html")

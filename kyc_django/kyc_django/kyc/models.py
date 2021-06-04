@@ -258,7 +258,7 @@ class Kyc_front(models.Model):
     full_name_temp = models.CharField(max_length=200, null=True, blank=True)
     name_init_temp = models.CharField(max_length=100, null=True, blank=True)
     profile_pic_temp = models.ImageField(upload_to='front/images/id_self/%Y/%m/%d/', null=True, blank=True)
-    live_video_temp = models.FileField(upload_to='temp/videos/liv_vid/%Y/%m/%d/', null=True, blank=True)
+    live_video_temp = models.FileField(upload_to='front/videos/liv_vid/%Y/%m/%d/', null=True, blank=True)
     id_type_temp = models.CharField(max_length=50, null=True, blank=True)
     nics_no_temp = models.CharField(max_length=50, null=True, blank=True)
     date_of_birth_temp = models.CharField(max_length=20, null=True, blank=True)
@@ -270,8 +270,8 @@ class Kyc_front(models.Model):
     post_id_temp = models.CharField(max_length=10, blank=True, null=True)
     post_id_exp_temp = models.CharField(max_length=10, blank=True, null=True) # new
     oafsc_temp = models.CharField(max_length=10, blank=True, null=True)
-    visa_copy_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/visa_copy/%Y/%m/%d/")
-    othe_identity_doc_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/other_doc/%Y/%m/%d/")
+    visa_copy_temp = models.ImageField(null=True, blank=True, upload_to="front/images/visa_copy/%Y/%m/%d/")
+    othe_identity_doc_temp = models.ImageField(null=True, blank=True, upload_to="front/images/other_doc/%Y/%m/%d/")
     nationality_temp = models.CharField(max_length=50, null=True, blank=True)
     nationality_other_temp = models.CharField(max_length=50, blank=True, null=True)
     type_of_visa_temp = models.CharField(max_length=20,blank=True, null=True)
@@ -280,7 +280,7 @@ class Kyc_front(models.Model):
     other_exp_temp = models.CharField(max_length=20, blank=True, null=True)
     foreign_addre_temp = models.CharField(max_length=200, blank=True, null=True)
     vari_doc_type_temp = models.CharField(max_length=200, blank=True, null=True)
-    vari_doc_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/vari_doc/%Y/%m/%d/")
+    vari_doc_temp = models.ImageField(null=True, blank=True, upload_to="front/images/vari_doc/%Y/%m/%d/")
     pep_person_temp = models.CharField(max_length=200, blank=True, null=True)
     us_city_temp = models.CharField(max_length=200, blank=True, null=True)
 
@@ -324,7 +324,7 @@ class Kyc_front(models.Model):
 
     #newly defined
     account_type_temp = models.CharField(max_length=50, null=True, blank=True)
-
+    
 
     occu_state_temp = models.CharField(max_length=50, null=True, blank=True)
 

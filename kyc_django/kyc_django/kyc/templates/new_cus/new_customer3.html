@@ -21,14 +21,14 @@
                                     <div id="residence_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
                                     Are you a residence of Sri Lanka?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     
-                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id1" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id2">No
+                                    <input type="radio" style="height: 10px;width: 10px;" name="resident_sri_temp" value="yes" id="res_id1" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height: 10px;width: 10px;" name="resident_sri_temp" value="No" id="res_id2">No
                                 </div>
                             </td>
                             <td>
                                 <div  style="padding-left: 300px; padding-top: 20px;">
                                     <div id="resident_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
-                                    <input name="resident" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
+                                    <input name="country_resident_temp" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
                                 </div>
                                 
                             </td> 
@@ -60,14 +60,14 @@
                                <td>
                                 <div  style="padding-left: 100px; padding-top: 10px;">
                                     <div id="street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
-                                    <input  type="text" name="street" id="street" tyle="border-radius: 10px; width: 10px; " placeholder="Street">
+                                    <input  type="text" name="street_temp" id="street" tyle="border-radius: 10px; width: 10px; " placeholder="Street">
                                 </div>
                                    
                                </td>
                                <td>
                                 <div  style="padding-left: 100px; padding-top: 10px;">
                                     <div id="city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
-                                    <input  name="city" id="city" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
+                                    <input  name="city_temp" id="city" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
                                 </div>
                                    
                                </td>
@@ -76,7 +76,7 @@
                             <td>
                                 <div  style="padding-left: 100px; padding-top: 10px;">
                                     <div id="postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
-                                    <input type="text" name="postal_code" id="postal_code" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
+                                    <input type="text" name="postal_code_temp" id="postal_code" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
                                 </div>
                                    
                                </td>
@@ -94,21 +94,21 @@
                                 <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="Current_houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
-                                        <input name="Current_house_number" id="houseNo2" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
+                                        <input name="house_no_per_temp" id="houseNo2" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
                                     </div>
                                        
                                    </td>
                                    <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="Current_street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
-                                        <input  type="text" name="Currentstreet" id="street2" tyle="border-radius: 10px; width: 250px; " placeholder="Street">
+                                        <input  type="text" name="street_per_temp" id="street2" tyle="border-radius: 10px; width: 250px; " placeholder="Street">
                                     </div>
                                        
                                    </td>
                                    <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="Current_city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
-                                        <input  name="Currentcity" id="city2" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
+                                        <input  name="city_per_temp" id="city2" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
                                     </div>
                                        
                                    </td>
@@ -117,7 +117,7 @@
                                 <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="Current_postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
-                                        <input type="text" name="Current_postal_code" id="postal_code2" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
+                                        <input type="text" name="postal_code_per_temp" id="postal_code2" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
                                     </div>
                                        
                                    </td>
@@ -126,7 +126,7 @@
                              <div style="padding-left: 100px; padding-top: 30px;">
                                 
                                 <div id="state_of_address_error" class="error"><b>Oops! you cannot proceed without selecting the state of address</b></div>
-                                <select type="text" id="state_of_address">
+                                <select type="text" id="state_of_address" name="state_address_temp">
                                     <option  value="default">State of the current address</option>
                                     <option>Parent</option>
                                     <option>Lease/ rent</option>
@@ -150,7 +150,7 @@
                                <td>
                                 <div style="padding-left: 100px; padding-top: 10px;">
                                     <div id="address_varification_error" class="error"><b>Oops! you cannot proceed without uploading an address verification document</b></div>
-                                    <input type="file" id="address_varification" name="address_varification" style="border: 0px;" class="inputfile">
+                                    <input type="file" id="address_varification" name="vari_doc_temp" style="border: 0px;" class="inputfile">
                                 </div>
                                    
                                </td>
