@@ -31,42 +31,41 @@
                     </td>
                     <td colspan="2">
 						<div id="other_error" class="error"><b>Oops! you cannot proceed without specifying your nationality</b></div>
-						<input id="otherNationality"type="text" name="Name" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">   
+						<input id="otherNationality"type="text" name="nationality_other_temp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">   
 				   </td>
                 </tr>
                 <tr>
                     <td colspan="2">
 						<div id="visa_error" class="error"><b>Oops! you cannot proceed without entering your visa type</b></div>
-						<select id="visa" style="width: 400px;">
+						<select id="visa" style="width: 400px;" name="type_of_visa_temp">
 							<option value="default">Type of Visa</option>
-							<option value="Mrs">Diving License</option>
-							<option value="Miss">Passport</option>
-							<option value="Miss">Postal ID</option>
-							<option value="Miss">Birth Certificate</option>
-							<option value="other">Other</option>
+							<option value="Permanent Resident">Permanent Resident</option>
+                            <option value="Temporary Resident">Temporary Resident</option>
+                            <option value="Green Card">Green Card</option>
+                            <option value="Other">Other</option>
 					   </select>
                     </td>
                     <td colspan="2">
 						<div id="visa_exp_error" class="error"><b>Oops! you cannot proceed without entering the expiration date</b></div>
-						<input id="visa_exp" type="text" name="visa_exp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+						<input id="visa_exp" type="text" name="visa_exp_temp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
                     </td>
                 </tr>
                
                 <tr>
                     <td colspan="2">
 						<div id="visa_other_error" class="error"><b>Oops! you cannot proceed without specifying your visa type</b></div>
-                        <input id="type_of_your_visa" type="text" name="Name" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">
+                        <input id="other_visa" type="text" name="other_types_temp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">
                     </td>
                     <td colspan="2">
 						<div id="visa_exp_error1" class="error"><b>Oops! you cannot proceed without entering the expiration date</b></div>
-						<input id="visa_exp_other"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+						<input id="visa_exp_other"type="text" name="other_exp_temp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
 					</td>
                 </tr>
                 <tr>
 					<td style="padding-right:0px;width:100px;">Copy of Visa</td>
                     <td style="padding-left:0px;width:200px;">
 						<div id="copy_of_visa_error" class="error"><b>Oops! you cannot proceed without uploading a copy of your visa</b></div>
-						<input type="file" id="imgVisa"  style="border: 1px;">  
+						<input type="file" id="imgVisa" name="visa_copy_temp" style="border: 1px;">  
 					</td>
 					<td colspan="2"></td>
                 </tr>
