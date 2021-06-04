@@ -1383,8 +1383,12 @@ def update_history(request):
     # passing variables to the update.html using dictionary
     return render(request, "kyc/update_history.html", context)
 
+
+# creating method for new customer data grabbig in front page which is index1.html.
+
 def front(request):
     if request.method == 'POST':
+        # grabbing data form the index1.html 
         salutation = request.POST["salutation"]
         full_name = request.POST["fullname"]
         mob_no = request.POST["mobile_number"]
