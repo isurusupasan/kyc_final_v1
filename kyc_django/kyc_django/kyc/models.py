@@ -324,7 +324,16 @@ class Kyc_front(models.Model):
 
     #newly defined
     account_type_temp = models.CharField(max_length=50, null=True, blank=True)
-    
+    have_acc_temp = models.CharField(max_length=10, null=True, blank=True)
+
+    buisness_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+    fam_remittance_temp = models.CharField(max_length=20, null=True, blank=True)
+    prof_income_temp = models.CharField(max_length=20, null=True, blank=True)
+    rare_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+    cash_temp = models.CharField(max_length=20, null=True, blank=True)
+    cheque_temp = models.CharField(max_length=20, null=True, blank=True)
+    std_order_temp = models.CharField(max_length=20, null=True, blank=True)
+    slip_wir_temp = models.CharField(max_length=20, null=True, blank=True)
 
     occu_state_temp = models.CharField(max_length=50, null=True, blank=True)
 
