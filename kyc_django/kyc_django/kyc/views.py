@@ -1453,7 +1453,7 @@ def new_cus_form4(request):
 def new_cus_form5(request):
     if request.POST.get("profile_pic_temp") != "":
 
-        profile_pic_temp = request.POST.get("profile_pic_temp")
+        profile_pic_temp = request.FILES["profile_pic_temp"]
         Kyc_front.objects.filter(id=grab_id).update(profile_pic_temp=profile_pic_temp)
         
         print(profile_pic_temp)
