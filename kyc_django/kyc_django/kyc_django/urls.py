@@ -49,6 +49,8 @@ urlpatterns = [
     path('new_cus_form5', views.new_cus_form5),
     path('new_cus_form6', views.new_cus_form6),
     path('new_cus_form7', views.new_cus_form7),
+
+    
 ]
 
 if settings.DEBUG:

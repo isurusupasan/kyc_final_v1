@@ -257,7 +257,7 @@ class Kyc_front(models.Model):
     salutation_temp = models.CharField(max_length=5, null=True, blank=True)
     full_name_temp = models.CharField(max_length=200, null=True, blank=True)
     name_init_temp = models.CharField(max_length=100, null=True, blank=True)
-    profile_pic_temp = models.ImageField(upload_to='temp/images/id_self/%Y/%m/%d/', null=True, blank=True)
+    profile_pic_temp = models.ImageField(upload_to='front/images/id_self/%Y/%m/%d/', null=True, blank=True)
     live_video_temp = models.FileField(upload_to='temp/videos/liv_vid/%Y/%m/%d/', null=True, blank=True)
     id_type_temp = models.CharField(max_length=50, null=True, blank=True)
     nics_no_temp = models.CharField(max_length=50, null=True, blank=True)

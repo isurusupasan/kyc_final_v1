@@ -1454,8 +1454,13 @@ def new_cus_form5(request):
     if request.POST.get("profile_pic_temp") != "":
 
         profile_pic_temp = request.FILES["profile_pic_temp"]
-        Kyc_front.objects.filter(id=grab_id).update(profile_pic_temp=profile_pic_temp)
+        live_video_temp = request.FILES["live_video_temp"]
         
+        insert_image = Kyc_front.objects.get(id=grab_id)
+        insert_image.profile_pic_temp = profile_pic_temp
+        insert_image.live_video_temp = live_video_temp
+        insert_image.save()
+
         print(profile_pic_temp)
         return render(request, "new_cus/new_costomer_form6.html")
     else:
