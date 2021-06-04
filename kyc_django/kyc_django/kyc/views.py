@@ -1419,7 +1419,8 @@ def front(request):
 def new_cus_form2(request):
 
     if request.POST.get("nics_no_temp") != "":
-
+        
+        # taking the values of the new customer form 2 template
         nics_no_temp = request.POST.get("nics_no_temp")
         date_of_birth_temp = request.POST.get("date_of_birth_temp")
         id_type_temp = request.POST.get("id_type_temp")
@@ -1433,10 +1434,12 @@ def new_cus_form2(request):
         oafsc_temp = request.POST.get("oafsc_temp")
         vari_doc_temp = request.FILES["vari_doc_temp"]
 
+        # updating objects of the kyc_front where id = grab_id
         Kyc_front.objects.filter(id=grab_id).update(nics_no_temp=nics_no_temp, date_of_birth_temp=date_of_birth_temp, id_type_temp=id_type_temp,
         driv_lic_temp=driv_lic_temp, driv_exp_temp=driv_exp_temp, pass_no_temp=pass_no_temp, pass_exp_temp=pass_exp_temp, post_id_temp=post_id_temp, 
         post_id_exp_temp=post_id_exp_temp, birth_cernum_temp=birth_cernum_temp, oafsc_temp=oafsc_temp)
 
+        # this code is used to save the file to the database
         adding_vari_doc = Kyc_front.objects.get(id=grab_id)
         adding_vari_doc.vari_doc_temp = vari_doc_temp
         adding_vari_doc.save()
@@ -1445,6 +1448,7 @@ def new_cus_form2(request):
         return render(request, "new_cus/new_customer3.html")
     else:
         return render(request, "new_cus/new_costomer_form2.html")
+        
 
 def new_cus_form3(request):
     if request.POST.get("house_no_temp") != "":
