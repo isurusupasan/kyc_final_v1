@@ -2,12 +2,16 @@
     <head>
         <title>E - KYC</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="style3.css">
+        
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'kyc/css_new_cus/style3.css' %}">
     </head>
     <body>
-        <form>
+        <form form action="new_cus_form6" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
             <div class="row" style="padding-top: 50px;">
                 <h2 style="padding-left: 200px;">Help us validate your account status</h2>
                     <table>
@@ -33,7 +37,7 @@
                             <td>
                                 <div style="padding-left: 150px; padding-top: 20px;">
                                     <div id="Account_type_error" class="error" ><b>Oops! you cannot proceed without entering your account type</b></div>
-                                    <input id="Account_type" type="text" name="Name"style="border-radius: 10px; width: 250px; " placeholder="Type of the account">
+                                    <input id="Account_type" type="text" name="account_type_temp"style="border-radius: 10px; width: 250px; " placeholder="Type of the account">
                                 </div>
                             </td> 
                         </tr>
@@ -124,7 +128,7 @@
                                 <td>
                                     <div  style="padding-left: 30px; padding-top: 100px;">
                                        
-                                        <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction()" value="Submit">Next</button>
+                                        <button id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction()" value="Submit">Next</button>
                                     </div>
                                 </td>
                             </tr>

@@ -2,20 +2,24 @@
 	<head>
 		<title>new_customer_7</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-		<link rel="stylesheet" href="style3.css">
+		
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'kyc/css_new_cus/style3.css' %}">
 	</head>
 	<body>
 		<div class="container-fluid">
-			<form>
+			<form form action="new_cus_form7" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
 				<div class="row" style="padding-top: 50px;">
 					<h2 style="padding-left: 200px;">Help us validate your occupation status</h2>
 						<table>
 							<tr>
 								<td style="padding-left: 200px; padding-top: 20px;">
 									<div id="occupation_status_error" class="error" ><b>Oops! you cannot proceed without selecting the occupation status</b></div>
-									<select id="Occutation_Status">
+									<select id="Occutation_Status" name="occu_state_temp">
 										<option value="default">Occupation status</option>
 										<option value="Salaried Worker">Salaried Worker</option>
 										<option value="Retire">Retired</option>
@@ -124,7 +128,7 @@
 									   <td>
 										<div  style="padding-left: 400px; padding-top: 100px;">
 										   
-										<button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction(0)" value="Submit">Skip</button> 
+										<button id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction(0)" value="Submit">Submit</button> 
 									</div>   
 									</td>
 									

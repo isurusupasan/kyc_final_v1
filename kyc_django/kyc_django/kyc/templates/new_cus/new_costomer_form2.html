@@ -2,142 +2,148 @@
     <head>
         <title>E - KYC</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="style3.css">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'kyc/css_new_cus/style3.css' %}">
+
     </head>
     <body>
         <div class="row" style="padding-left: 100px;">
             <h2 style="padding-left: 100px; padding-top: 50px;">Help us validate your idenetity</h2>
-            <table>
+            <form action="new_cus_form2" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            <div style="padding-left: 100px; padding-top: 50px;">
+                                
+                                <div id="birthday_error" class="error"><b>Oops! you cannot proceed without entering your birthday</b></div>
+                                
+                            
+                                <input id="birthday" type="date" name="date_of_birth_temp"style=" width: 400px; padding-left:20px; color:#fff; " placeholder="Date of Birth"> <br>
+                                <p id="message" style="color:#ebcd34;font-size: 12px;font-weight: bold;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        
+                            <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                <div id="ID_error" class="error"><b>Oops! you cannot proceed without selecting yout ID type</b></div>
+                            <select id="ID_type" name="id_type_temp" style="width: 400px;">
+                                <option id="op_def" value="default">Select your ID type</option>
+                                <option id="op_nic" value="National_ID">NIC</option>
+                                <option id="op_dl"value="Driving_License" >Diving License</option>
+                                <option id="op_passport"value="Passport">Passport</option>
+                                <option id="op_PID"value="Postal_ID">Postal ID</option>
+                                <option id="op_BCN"value="Birth_certificate_number">Birth Certificate</option>
+                                <option id="op_OAFSC"value="Official_armed_forces_service_card">Offical armed force service card</option>
+                            </select>
+                        </div>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">
+                    <div style="padding-left: 100px; padding-top: 20px;">
+                        <div id="NIC_error" class="error"><b>Oops! you cannot proceed without entering your NIC Number</b></div>
+                        <input id="NIC" name="nics_no_temp" type="text" placeholder="NIC Number" style="width:400px;" />
+                    </div>
+                        
+                    </td>
+                </tr>
                 <tr>
                     <td>
-                        <div style="padding-left: 100px; padding-top: 50px;">
+                    <div style="padding-left: 100px; padding-top: 20px;">
+                        <div id="drlicense_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Number</b></div>
+                        <input id="drlicense" type="text" name="driv_lic_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Drivng License Number">
+                    </div>
+                        
+                    </td>
+                    <td>
+                        <div style="padding-left: 50px; padding-top: 20px;">
+                            <div id="drive_exp_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Expiration Date</b></div>
+                            <input id="drive_exp"type="text" name="driv_exp_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                        </div>
                             
-                            <div id="birthday_error" class="error"><b>Oops! you cannot proceed without entering your birthday</b></div>
+                        </td>
+                </tr>
+                <tr>
+                    <td>
+                    <div style="padding-left: 100px; padding-top: 20px;">
+                        <div id="passport_error" class="error"><b>Oops! you cannot proceed without entering your Passport Number</b></div>
+                        <input id="passport" type="text" name="pass_no_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Passport Number">
+                    </div>
+                        
+                    </td>
+                    <td>
+                        <div style="padding-left: 50px; padding-top: 20px;">
+                            <div id="passport_exp_error" class="error"><b>Oops! you cannot proceed without entering your Passport Expiration Date</b></div>
+                            <input id="passport_exp"type="text" name="pass_exp_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                        </div>
                             
-                           
-                            <input id="birthday" type="date" name="birthday"style=" width: 400px; padding-left:20px; color:#fff; " placeholder="Date of Birth"> <br>
-                            <p id="message" style="color:#ebcd34;font-size: 12px;font-weight: bold;"></p>
+                        </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                    <div style="padding-left: 100px; padding-top: 20px;">
+                        <div id="PID_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Number</b></div>
+                        <input id="PID" type="text" name="post_id_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Postal ID Number">
+                    </div>
+                        
+                    </td>
+                    <td>
+                        <div style="padding-left: 50px; padding-top: 20px;">
+                            <div id="PIDexpr_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Expiration Date</b></div>
+                            <input id="PIDexpr"type="text" name="post_id_exp_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                        </div>
+                            
+                        </td>
+                </tr>
+                <tr>
+                    <td>
+                    <div style="padding-left: 100px; padding-top: 20px;">
+                        <div id="BRC_error" class="error"><b>Oops! you cannot proceed without entering your Birth Certifacte Number</b></div>
+                        <input id="BRC" type="text" name="birth_cernum_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Birth Certifacte Number">
+                    </div>
+                        
+                    </td>
+                    <td rowspan="2" style="padding-left: 50px; padding-top: 20px;">
+                        <p>Upload a scan copy of selected identity recognition document</p>
+                        <div id="varification_error" class="error"><b>Oops! you cannot proceed without uploading an idenetity verification document</b></div>
+                        <input type="file" id="imgOther" name="profile_pic_temp" style="border: 0px;">
+                        
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <div style="padding-left: 100px; padding-top: 20px;">
+                            <div id="OAFSC_error" class="error"><b>Oops! you cannot proceed without entering your Offical armed force service card Number</b></div>
+                        <input id="OAFSC" type="text" name="oafsc_temp"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Offical armed force service card Number">
+                    </div>
+                        
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        
+                            
+                        </td>
+                    <td>
+                        <div style="padding-left: 600px; padding-top: 20px;">
+                            <button type="submit" id="submit" name="submit" class="submit" onclick="fun(0)" value="Submit">Next</button>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2">
-                       
-                        <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
-                            <div id="ID_error" class="error"><b>Oops! you cannot proceed without selecting yout ID type</b></div>
-                         <select id="ID_type" style="width: 400px;">
-                             <option id="op_def" value="default">Select your ID type</option>
-                             <option id="op_nic" value="National_ID">NIC</option>
-                             <option id="op_dl"value="Driving_License" >Diving License</option>
-                             <option id="op_passport"value="Passport">Passport</option>
-                             <option id="op_PID"value="Postal_ID">Postal ID</option>
-                             <option id="op_BCN"value="Birth_certificate_number">Birth Certificate</option>
-                             <option id="op_OAFSC"value="Official_armed_forces_service_card">Offical armed force service card</option>
-                        </select>
-                     </div>
-                        
-                    </td>
-                </tr>
-                <tr>
-                 <td colspan="2">
-                  <div style="padding-left: 100px; padding-top: 20px;">
-                    <div id="NIC_error" class="error"><b>Oops! you cannot proceed without entering your NIC Number</b></div>
-                     <input id="NIC" name="Search" type="text" placeholder="NIC Number" style="width:400px;" />
-                  </div>
-                     
-                 </td>
-             </tr>
-             <tr>
-                 <td>
-                  <div style="padding-left: 100px; padding-top: 20px;">
-                    <div id="drlicense_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Number</b></div>
-                      <input id="drlicense" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Drivng License Number">
-                  </div>
-                     
-                 </td>
-                 <td>
-                     <div style="padding-left: 50px; padding-top: 20px;">
-                        <div id="drive_exp_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Expiration Date</b></div>
-                         <input id="drive_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
-                     </div>
-                        
-                    </td>
-             </tr>
-             <tr>
-                 <td>
-                  <div style="padding-left: 100px; padding-top: 20px;">
-                    <div id="passport_error" class="error"><b>Oops! you cannot proceed without entering your Passport Number</b></div>
-                      <input id="passport" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Passport Number">
-                  </div>
-                     
-                 </td>
-                 <td>
-                     <div style="padding-left: 50px; padding-top: 20px;">
-                        <div id="passport_exp_error" class="error"><b>Oops! you cannot proceed without entering your Passport Expiration Date</b></div>
-                         <input id="passport_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
-                     </div>
-                        
-                    </td>
-             </tr>
-            
-             <tr>
-                 <td>
-                  <div style="padding-left: 100px; padding-top: 20px;">
-                    <div id="PID_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Number</b></div>
-                      <input id="PID" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Postal ID Number">
-                  </div>
-                     
-                 </td>
-                 <td>
-                     <div style="padding-left: 50px; padding-top: 20px;">
-                        <div id="PIDexpr_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Expiration Date</b></div>
-                         <input id="PIDexpr"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
-                     </div>
-                        
-                    </td>
-             </tr>
-             <tr>
-                 <td>
-                  <div style="padding-left: 100px; padding-top: 20px;">
-                    <div id="BRC_error" class="error"><b>Oops! you cannot proceed without entering your Birth Certifacte Number</b></div>
-                      <input id="BRC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Birth Certifacte Number">
-                  </div>
-                     
-                 </td>
-                 <td rowspan="2" style="padding-left: 50px; padding-top: 20px;">
-                     <p>Upload a scan copy of selected identity recognition document</p>
-                     <div id="varification_error" class="error"><b>Oops! you cannot proceed without uploading an idenetity verification document</b></div>
-                    <input type="file" id="imgOther" name="varification" style="border: 0px;">
-                    
-                 </td>
-                 
-             </tr>
-             <tr>
-                 <td>
-                    <div style="padding-left: 100px; padding-top: 20px;">
-                        <div id="OAFSC_error" class="error"><b>Oops! you cannot proceed without entering your Offical armed force service card Number</b></div>
-                      <input id="OAFSC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Offical armed force service card Number">
-                  </div>
-                     
-                 </td>
-                 
-             </tr>
-            
-             <tr>
-                 <td>
-                    
-                        
-                    </td>
-                 <td>
-                     <div style="padding-left: 600px; padding-top: 20px;">
-                        <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="fun(0)" value="Submit">Next</button>
-                    </div>
-                 </td>
-             </tr>
-             
-            </table>
+                
+                </table>
+            </form>
              <script>
                  function myFunction(){
                     ageCal();
@@ -515,7 +521,6 @@
              </script>
          
      </div>
-     <form>
      </div>
     </body>
 </html>

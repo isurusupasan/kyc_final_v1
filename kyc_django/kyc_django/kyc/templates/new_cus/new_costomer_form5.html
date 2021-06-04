@@ -2,12 +2,16 @@
     <head>
         <title>E - KYC</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="style3.css">
+
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'kyc/css_new_cus/style3.css' %}">
     </head>
     <body>
         <div class="row" style="padding-left: 200px; padding-top: 100px;">
-            <form action="">
+            <form action="new_cus_form5" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
                 <h2 style="padding-left: 100px;">Help us validate your identity</h2>
                 <table>
                     <tr>
@@ -20,7 +24,7 @@
                         <td>
                             <div style="padding-left: 100px; padding-top: 50px;">
                                 <div id="selfie_error" class="error"><b>Oops! you cannot proceed without uploading a live selfie</b></div>
-                                <input type="file" id="img" name="selfie" style="border: 0px;" class="inputfile"> 
+                                <input type="file" id="img" name="profile_pic_temp" style="border: 0px;" class="inputfile"> 
                             </div>
                         </td>
                     </tr>
@@ -34,7 +38,7 @@
                         <td>
                             <div style="padding-left: 100px; padding-top: 50px;">
                                 <div id="video_error" class="error"><b>Oops! you cannot proceed without uploading a live video</b></div>
-                                <input type="file" id="vid" name="video" style="border: 0px;" class="inputfile">
+                                <input type="file" id="vid" name="live_video_temp" style="border: 0px;" class="inputfile">
                             </div>
                         </td>
                     </tr>
@@ -45,7 +49,7 @@
                            </td>
                         <td>
                             <div style="padding-left: 500px; padding-top: 200px;">
-                               <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return fun()" value="Submit">Next</button>
+                               <button id="submit" name="submit" class="submit" type="submit"  onclick="return fun()" value="Submit">Next</button>
                            </div>
                         </td>
                     </tr>

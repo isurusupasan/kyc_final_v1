@@ -40,7 +40,15 @@ urlpatterns = [
     path('reject/', views.reject, name="reject"),
     path('edit_reject/<int:id>', views.edit_val1, name="edit_reject"),
     path('update_history', update_history, name="update_history"),
-    path('front', views.front)
+    path('front', views.front),
+
+    # new customer form set
+    path('new_cus_form2', views.new_cus_form2),
+    path('new_cus_form3', views.new_cus_form3),
+    path('new_cus_form4', views.new_cus_form4),
+    path('new_cus_form5', views.new_cus_form5),
+    path('new_cus_form6', views.new_cus_form6),
+    path('new_cus_form7', views.new_cus_form7),
 ]
 
 if settings.DEBUG:

@@ -5,6 +5,10 @@
         <link rel="stylesheet" href="new_customer_4.css">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'kyc/css_new_cus/new_customer_4.css' %}">
+		
     </head>
     <body>
 		<div class="container-fluid">
@@ -12,13 +16,14 @@
 		<div class="col-md-12">
 		<h2 style="padding-left:225px;padding-top: 50px;">Help us validate your identity</h2>
 		<center>
-        <form style="width:70%;padding-top:50px;">
+        <form style="width:70%;padding-top:50px;" action="new_cus_form4" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
 				<table width="100">
                 <tr>
                     <td colspan="2">
 						<div id="nationality_error" class="error"><b>Oops! you cannot proceed without entering your nationality</b></div>
 							
-                            <select id="Nationality" style="width: 400px;">
+                            <select id="Nationality" name="nationality_temp" style="width: 400px;">
                                 <option value="default">Nationality</option>
                                 <option value="srilankan">Sri Lankan</option>
 								<option value="other">Other</option>
@@ -67,7 +72,7 @@
                 </tr>
                 <tr>
                     <td colspan="4" style="text-align:right;">
-                        <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="validate1(0)" value="Submit">Next</button>
+                        <button id="submit" name="submit" class="submit" type="submit"  onclick="validate1(0)" value="Submit">Next</button>
                     </td>
                 </tr>
                 

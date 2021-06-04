@@ -268,6 +268,7 @@ class Kyc_front(models.Model):
     pass_exp_temp = models.CharField(max_length=20, blank=True, null=True)
     birth_cernum_temp = models.CharField(max_length=10, blank=True, null=True)
     post_id_temp = models.CharField(max_length=10, blank=True, null=True)
+    post_id_exp_temp = models.CharField(max_length=10, blank=True, null=True) # new
     oafsc_temp = models.CharField(max_length=10, blank=True, null=True)
     visa_copy_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/visa_copy/%Y/%m/%d/")
     othe_identity_doc_temp = models.ImageField(null=True, blank=True, upload_to="temp/images/other_doc/%Y/%m/%d/")
@@ -321,9 +322,15 @@ class Kyc_front(models.Model):
 
     # rejection acceptance variables
 
+    #newly defined
+    account_type_temp = models.CharField(max_length=50, null=True, blank=True)
+
+
+    occu_state_temp = models.CharField(max_length=50, null=True, blank=True)
+
     
 
     class Meta:
         db_table = "Kyc_front"
-    def __str__(self) -> str:
-        return "name : "+self.name_init_temp +" | "+self.email_add_temp+" | "+self.nics_no_temp
+    def __str__(self):
+        return "name : "+self.full_name_temp +" | "+self.email_add_temp

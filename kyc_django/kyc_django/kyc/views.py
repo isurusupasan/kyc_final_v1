@@ -1387,6 +1387,10 @@ def update_history(request):
 # creating method for new customer data grabbig in front page which is index1.html.
 
 def front(request):
+
+    # creating global variable to grab the id of the saving record
+    global grab_id
+
     if request.method == 'POST':
         # grabbing data form the index1.html 
         salutation = request.POST["salutation"]
@@ -1395,25 +1399,86 @@ def front(request):
         office_num = request.POST["office_number"]
         home_num = request.POST["home_number"]
         email_add = request.POST["email_add"]
-        email_add_verification=round(100000*random.random())
-        masegEmail = "you submit kyc information success\n"
-        codeEmail = str(email_add_verification)
+        
 
         submit_val= Kyc_front(salutation_temp=salutation, full_name_temp=full_name, mob_no_temp=mob_no,
-                                office_num_temp=office_num, home_num_temp=home_num, email_add_temp=email_add,
-                                email_add_verification=email_add_verification)
+                                office_num_temp=office_num, home_num_temp=home_num, email_add_temp=email_add)
         
         submit_val.save()
-
+        grab_id = str(submit_val.id)
+        print(grab_id)
+            
         
-
-        idS = str(submit_val.id)
-            # request.session['id'] = submit_kyc_temp.id
-        email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS,
-                    email_add)
-
-        return render(request, "kyc/verify.html")
+        return render(request, "new_cus/new_costomer_form2.html")
 
     else:
 
         return render(request, "kyc/index1.html")
+
+
+def new_cus_form2(request):
+
+    if request.POST.get("nics_no_temp") != "":
+
+        nics_no_temp = request.POST.get("nics_no_temp")
+        Kyc_front.objects.filter(id=grab_id).update(nics_no_temp=nics_no_temp)
+        
+        print(nics_no_temp)
+        return render(request, "new_cus/new_customer3.html")
+    else:
+        return render(request, "new_cus/new_costomer_form2.html")
+
+def new_cus_form3(request):
+    if request.POST.get("house_no_temp") != "":
+
+        house_no_temp = request.POST.get("house_no_temp")
+        Kyc_front.objects.filter(id=grab_id).update(house_no_temp=house_no_temp)
+        
+        print(house_no_temp)
+        return render(request, "new_cus/new_costomer_form4.html")
+    else:
+        return render(request,"new_cus/new_customer3.html")
+
+def new_cus_form4(request):
+    if request.POST.get("nationality_temp") != "default":
+
+        nationality_temp = request.POST.get("nationality_temp")
+        Kyc_front.objects.filter(id=grab_id).update(nationality_temp=nationality_temp)
+        
+        print(nationality_temp)
+        return render(request, "new_cus/new_costomer_form5.html")
+    else:
+        return render(request,"new_cus/new_costomer_form4.html")
+
+def new_cus_form5(request):
+    if request.POST.get("profile_pic_temp") != "":
+
+        profile_pic_temp = request.POST.get("profile_pic_temp")
+        Kyc_front.objects.filter(id=grab_id).update(profile_pic_temp=profile_pic_temp)
+        
+        print(profile_pic_temp)
+        return render(request, "new_cus/new_costomer_form6.html")
+    else:
+        return render(request,"new_cus/new_costomer_form5.html")
+
+def new_cus_form6(request):
+    if request.POST.get("account_type_temp") != "":
+
+        account_type_temp = request.POST.get("account_type_temp")
+        Kyc_front.objects.filter(id=grab_id).update(account_type_temp=account_type_temp)
+        
+        print(account_type_temp)
+        return render(request, "new_cus/new_customer_7.html")
+    else:
+        return render(request,"new_cus/new_costomer_form6.html")
+
+def new_cus_form7(request):
+    if request.POST.get("occu_state_temp") != "":
+
+        occu_state_temp = request.POST.get("occu_state_temp")
+        Kyc_front.objects.filter(id=grab_id).update(occu_state_temp=occu_state_temp)
+        
+        print(occu_state_temp)
+        return render(request, "kyc/verify.html")
+    else:
+        return render(request,"new_cus/new_customer_7.html")
