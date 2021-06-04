@@ -313,11 +313,11 @@ class Kyc_front(models.Model):
     
     #flag
 
-    submited_form = models.IntegerField(null=True)
-    check_city = models.IntegerField(null=True)
-    check_name = models.IntegerField(null=True)
-    check_home = models.IntegerField(null=True)
-    check_street = models.IntegerField(null=True)
+    submited_form = models.IntegerField(null=True, blank=True)
+    check_city = models.IntegerField(null=True, blank=True)
+    check_name = models.IntegerField(null=True, blank=True)
+    check_home = models.IntegerField(null=True, blank=True)
+    check_street = models.IntegerField(null=True, blank=True)
 
     # rejection acceptance variables
 
