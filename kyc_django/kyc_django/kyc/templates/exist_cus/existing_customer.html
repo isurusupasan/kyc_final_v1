@@ -213,12 +213,12 @@
                                 <div  style="padding-left: 100px;">
                                     <div id="residence_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
                                     Are you a residence of Sri Lanka?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    {% if Kyc_Infotemp.pep_person_temp == "Yes" %}
-                                    <input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id1" checked="checked" value="Yes" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id2" value="No">No
+                                    {% if Kyc_Infotemp.resident_sri_temp == "Yes" %}
+                                    <input type="radio" style="height: 10px;width: 10px;" name="resident_sri_temp" id="res_id1" checked="checked" value="Yes" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" style="height: 10px;width: 10px;" name="resident_sri_temp" id="res_id2" value="No">No
 									{% else %}
-									<input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id1" value="Yes" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id2" checked="checked" value="No">No
+									<input type="radio" style="height: 10px;width: 10px;" name="resident_sri_temp" id="res_id1" value="Yes" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" style="height: 10px;width: 10px;" name="resident_sri_temp" id="res_id2" checked="checked" value="No">No
 									{% endif %}
                                 </div>
                             </td>
@@ -588,8 +588,9 @@
 							<tr>
 								<td style="padding-left: 100px;width:400px;">
 									<div id="occupation_status_error" class="error" ><b>Oops! you cannot proceed without selecting the occupation status</b></div>
-									<select id="Occutation_Status" style="width:200px;">
-										<option value="default">Occupation status</option>
+									<select id="Occutation_Status" name="occu_state_temp" style="width:200px;">
+										<option disabled>Occupation status</option>
+										<option value={{Kyc_Infotemp.occu_state_temp}} selected>{{Kyc_Infotemp.occu_state_temp}}</option>
 										<option value="Salaried Worker">Salaried Worker</option>
 										<option value="Retire">Retired</option>
 										<option value="Self-Employee">Self-Employee</option>
@@ -598,7 +599,7 @@
 								
 								<td  colspan="2" style="padding-left: 100px;">
 									<div id="occupation_error" class="error" ><b>Oops! you cannot proceed without entering the occupation</b></div>
-									<input type="text" style="width: 300px;" id="occupation" name="occupation" class="occupation" placeholder="Occupation"></td>
+									<input type="text" style="width: 300px;" id="occupation" name="occupation_temp" value={{Kyc_Infotemp.occupation_temp}} class="occupation" placeholder="Occupation"></td>
 							</tr>
 							
 							<tr>
@@ -611,12 +612,22 @@
 								</td>
 								<td >
 									<div style="padding-left: 100px;">
-										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name=""class="checkbox"> &nbsp;Sales and business turnover
+									{% if Kyc_Infotemp.in_source_sales_temp %}
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name="in_source_sales_temp" class="checkbox" checked="checked"> &nbsp;Sales and business turnover
+									{% else %}
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name="in_source_sales_temp" class="checkbox"> &nbsp;Sales and business turnover
+									{% endif %}
+										
 										
 									</div>
 								</td>
 								<td>
-										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name=""class="checkbox">&nbsp;Family remittance
+									{% if Kyc_Infotemp.in_source_fam_rem_temp %}
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name="in_source_fam_rem_temp" class="checkbox" checked="checked">&nbsp;Family remittance
+									{% else %}
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name="in_source_fam_rem_temp" class="checkbox">&nbsp;Family remittance
+									{% endif %}
+										
 								</td>
 								
 							</tr>
@@ -624,12 +635,22 @@
 								<td></td>
 								<td >
 									<div style="padding-left: 100px;">
-										<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name=""class="checkbox">&nbsp;Commission income
+										{% if Kyc_Infotemp.in_source_commistion_temp %}
+											<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name="in_source_commistion_temp" class="checkbox" checked="checked">&nbsp;Commission income
+										{% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name="in_source_commistion_temp" class="checkbox">&nbsp;Commission income
+										{% endif %}
+										
 										
 									</div>
 								</td>
 								<td>
-										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name=""class="checkbox">&nbsp;Export proceeds	
+									{% if Kyc_Infotemp.in_source_export_temp %}
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name="in_source_export_temp" class="checkbox" checked="checked">&nbsp;Export proceeds	
+									{% else %}
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name="in_source_export_temp" class="checkbox">&nbsp;Export proceeds	
+									{% endif %}
+										
 								</td>
 							</tr>
 							<tr>
@@ -642,12 +663,19 @@
 									</td>
 									<td>
 										<div style="padding-left: 100px;">
-											<input type="checkbox" style="height: 10px;width: 10px;" id="" name=""class="checkbox2">&nbsp;Less than 100,000
-											
+											{% if Kyc_Infotemp.avg_income_temp == "Less than 100,000" %}
+												<input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="Less than 100,000" class="checkbox2" checked="checked">&nbsp;Less than 100,000
+											{% else %}
+												<input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="Less than 100,000" class="checkbox2">&nbsp;Less than 100,000
+											{% endif %}
 										</div>
 									</td>
 									<td style="width:300px;">
-											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;100,001.00 - 500,000.00 
+										{% if Kyc_Infotemp.avg_income_temp == "100,001.00 - 500,000.00" %}	
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="100,001.00 - 500,000.00" class="checkbox2" checked="checked">&nbsp;100,001.00 - 500,000.00 
+										{% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="100,001.00 - 500,000.00" class="checkbox2">&nbsp;100,001.00 - 500,000.00 
+										{% endif %}
 									</td>
 									
 								</tr>
@@ -655,12 +683,19 @@
 									<td></td>
 									<td>
 										<div style="padding-left: 100px;">
-											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="" class="checkbox2">&nbsp;500,001.00 - 1,000,000.00  
-											
+										{% if Kyc_Infotemp.avg_income_temp == "500,001.00 - 1,000,000.00" %}
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="500,001.00 - 1,000,000.00" class="checkbox2" checked="checked">&nbsp;500,001.00 - 1,000,000.00  
+										{% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="500,001.00 - 1,000,000.00" class="checkbox2">&nbsp;500,001.00 - 1,000,000.00  
+										{% endif %}
 										</div>
 									</td>
 									<td>
-											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;Above 1,000,000.00
+										{% if Kyc_Infotemp.avg_income_temp == "Above 1,000,000.00" %}
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="Above 1,000,000.00" class="checkbox2" checked="checked">&nbsp;Above 1,000,000.00
+										{% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="Above 1,000,000.00" class="checkbox2">&nbsp;Above 1,000,000.00
+										{% endif %}
 									</td>
 								</tr>
 								<tr>
@@ -672,9 +707,13 @@
 									</td>
 									<td colspan="2">
 										<div  style="padding-left: 100px;">
-											<input type="radio" name="PEP" id="pep_id1" style="width:10px; height:10px;">Yes &nbsp;&nbsp;&nbsp;
-											<input type="radio" name="PEP" id="pep_id2" style="width:10px; height:10px;">No &nbsp;&nbsp;&nbsp;
-											
+											{% if Kyc_Infotemp.pep_person_temp == "Yes" %}
+												<input type="radio" name="pep_person_temp" id="pep_id1" style="width:10px; height:10px;" value="Yes" checked="checked">Yes &nbsp;&nbsp;&nbsp;
+												<input type="radio" name="pep_person_temp" id="pep_id2" style="width:10px; height:10px;" value="No">No &nbsp;&nbsp;&nbsp;
+											{% else %}
+												<input type="radio" name="pep_person_temp" id="pep_id1" style="width:10px; height:10px;" value="Yes">Yes &nbsp;&nbsp;&nbsp;
+												<input type="radio" name="pep_person_temp" id="pep_id2" style="width:10px; height:10px;" value="No" checked="checked">No &nbsp;&nbsp;&nbsp;
+											{% endif %}
 										</div>
 									</td>
 								</tr>
