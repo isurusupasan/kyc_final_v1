@@ -25,8 +25,8 @@
                             <td>
                                 <div  style="padding-left: 150px; padding-top: 50px;">
                                    
-                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="haveAcc" value="Yes"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="noAcc" value="No" onclick="disable()"> &nbsp;No
+                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="haveAc" value="Yes"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="noAc" value="No" onclick="disable()"> &nbsp;No
                                 </div>
                             </td> 
                         </tr>
@@ -51,13 +51,13 @@
                             </td>
                             <td >
                                 <div style="padding-left: 150px; padding-top: 20px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox"> &nbsp;Business Transaction
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" value="True" class="checkbox"> &nbsp;Business Transaction
                                     
                                 </div>
                             </td>
                             <td>
                                 <div style=" padding-top: 20px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox">&nbsp;Family inward remittance
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" value="True" class="checkbox">&nbsp;Family inward remittance
                                     
                                 </div>
                             </td>
@@ -67,13 +67,13 @@
                             <td></td>
                             <td >
                                 <div style="padding-left: 150px; padding-top: 20px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox">&nbsp;Employment/Professional income
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c23" value="True" name="prof_income_temp" class="checkbox">&nbsp;Employment/Professional income
                                     
                                 </div>
                             </td>
                             <td>
                                 <div style=" padding-top: 20px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox">&nbsp;Rare transaction
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c24" value="True" name="rare_trans_temp" class="checkbox">&nbsp;Rare transaction
                                     
                                 </div>
                             </td>
@@ -88,13 +88,13 @@
                                 </td>
                                 <td style="width: 50px;">
                                     <div style="padding-left: 150px; padding-top: 20px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2">&nbsp;Cash
+                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c41" value="True" name="cash_temp" class="checkbox2">&nbsp;Cash
                                         
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" padding-top: 20px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp"  class="checkbox2">&nbsp;Cheque
+                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c42" value="True" name="cheque_temp"  class="checkbox2">&nbsp;Cheque
                                         
                                     </div>
                                 </td>
@@ -104,13 +104,13 @@
                                 <td></td>
                                 <td style="width: 100px;">
                                     <div style="padding-left: 150px; padding-top: 20px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp" class="checkbox2">&nbsp;Standing order 
+                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c43" value="True" name="std_order_temp" class="checkbox2">&nbsp;Standing order 
                                         
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" padding-top: 20px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2">&nbsp;Slip wire
+                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c47" value="True" name="slip_wir_temp" class="checkbox2">&nbsp;Slip wire
                                         
                                     </div>
                                 </td>
@@ -122,7 +122,7 @@
                                    <td>
                                     <div  style="padding-left: 400px; padding-top: 100px;">
                                        
-                                    <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction()" value="Submit">Skip</button> 
+                                    <button id="submit" name="submit" class="submit" type="submit"  onclick="return myFunction()" value="skip">Skip</button> 
                                 </div>   
                                 </td>
                                 <td>
