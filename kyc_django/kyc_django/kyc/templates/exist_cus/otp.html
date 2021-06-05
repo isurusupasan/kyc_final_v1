@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="style3.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'kyc/css_exist_cus/style3.css' %}">
 </head>
 <body>
 
@@ -18,13 +21,14 @@
         <div class="row" style="padding-top: 250px; padding-left: 550px;">
             
                 <div class="validate">
-                    <form class="login_form">
+                    <form class="login_form" action="exist_cus_otp" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                         <table >
                             <tr>
                                 <td>
                                     <label for="Tooltips" class="error"></label>
                                     <div class="cont" ><b><div id="otp_error" class="error">Oops! Cannot proceed without entering the OTP code</div></b> </div>
-                                    <input type="text"  id="otp" name="otp"  placeholder="OTP code" > 
+                                    <input type="text"  id="otp" name="enterd_otp"  placeholder="OTP code" > 
                                     
                                 </td>
                                 
@@ -47,9 +51,9 @@
     <div class="btn" style="padding-top: 250px; padding-left:850px;">
         
         <td>
-            <button type="button" id="Back" name="Back" class="submit" type="submit" >Back</button> &nbsp;&nbsp;
-            <button type="button" id="Resend" name="Resend" class="submit" type="submit" >Resend</button> &nbsp;&nbsp;
-            <button type="button" id="Next" name="Next" class="submit" type="submit" onclick="return fun();">Next</button> &nbsp;&nbsp;
+            <button id="Back" name="Back" class="submit" type="submit" value="back">Back</button> &nbsp;&nbsp;
+            <button id="Resend" name="Resend" class="submit" type="submit" value="resend" >Resend</button> &nbsp;&nbsp;
+            <button id="Next" name="Next" class="submit" type="submit" value="next" onclick="return fun();">Next</button> &nbsp;&nbsp;
         </td>
     </div>
 </form>

@@ -5,11 +5,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="style3.css">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'kyc/css_exist_cus/style3.css' %}">
     </head>
     <body>
         <div class="row" style="padding-left: 350px; padding-top: 200px;">
-            <form action="">
-               
+            <form action="exist_cus_update_info" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
                 <table>
                     <tr>
                         <td>
@@ -29,8 +32,8 @@
                     <tr>
                         <td>
                             <div style="padding-left: 230px; padding-top: 60px;">
-                               <a href="existing_customer.html"><button type="button" id="yes" name="yes" class="submit" type="submit"  onclick="return fun()" value="Submit">Yes</button></a> &nbsp;&nbsp;
-                               <button type="button" id="no" name="no" class="submit" type="submit"  onclick="return fun()" value="Submit">No</button> &nbsp;&nbsp;
+                               <a href="exist_cus_form"><button type="button" id="yes" name="yes" class="submit" type="submit"  onclick="return fun()" value="Submit">Yes</button></a> &nbsp;&nbsp;
+                               <button id="no" name="No_need_change" class="submit" type="submit"  onclick="return fun()" value="Submit">No</button> &nbsp;&nbsp;
                            </div>
                         </td>
                     </tr>

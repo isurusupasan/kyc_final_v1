@@ -2,6 +2,7 @@ import smtplib
 import random
 import urllib
 from email.message import EmailMessage
+from django.contrib.messages.api import success
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -1284,27 +1285,17 @@ def search_val(request):
         nic_no = request.POST["nics_no_temp"]
 
         if Kyc_Info.objects.filter(nics_no_temp=nic_no).exists():
-            messages.success(request, 'Successfully load your data')
 
+            # create a global record to contain record id of the nic thats given
+            global record_id_nic_search, record_nic_search
             
-            finded_user = Kyc_Info.objects.get(nics_no_temp=nic_no)
-            form = accept_form(request.POST, instance=finded_user)
+            # importing searched record wtih all the values and find the id
+            find_record = Kyc_Info.objects.get(nics_no_temp=nic_no)
+            record_id_nic_search = find_record.id
+            record_nic_search =find_record.nics_no_temp
+            print(record_id_nic_search)
 
-
-            #print(finded_user)
-            #print(form.errors)
-            if form.is_valid():
-                print(form.is_valid())
-                form.save()
-            
-            
-            
-            context = {
-                "Kyc_Infotemp": finded_user,
-            }
-
-
-            return render(request, 'kyc/search.html', context)
+            return render(request, 'exist_cus/otp.html')
         else:
             messages.success(request, 'Please fill the above details')
             return render(request, 'kyc/index1.html')
@@ -1607,3 +1598,48 @@ def new_cus_form7(request):
 
     else:
         return render(request,"new_cus/new_customer_7.html")
+
+global system_gen_otp, system_gen_otp_new
+
+def exist_cus_otp(request):
+
+    # defining global variable to system_gen otp
+
+    if request.method == 'POST' and 'Next' in request.POST:
+
+        # initializing otp 
+        system_gen_otp = 1000
+
+        if request.POST.get("enterd_otp") == str(system_gen_otp):
+            print("otp next")
+            print(record_id_nic_search, record_nic_search)
+
+            return render(request, "exist_cus/welcome.html")
+
+        else:
+
+            print("invalid otp")
+            return render(request, "exist_cus/otp.html")
+
+        
+    elif request.method == 'POST' and 'Resend' in request.POST:
+        print("otp resend")
+
+    elif request.method == 'POST' and 'Back' in request.POST:
+        print("redircting to root")
+        return render(request, 'kyc/search.html')
+
+
+    return render(request, "exist_cus/otp.html")
+
+
+def exist_cus_update_info(request):
+
+    if request.method == 'POST' and 'No_need_change' in request.POST:
+        return render(request, "kyc/search.html")
+
+    return render(request, "exist_cus/updateinfo.html")
+
+def exist_cus_form(request):
+
+    return render(request, "exist_cus/existing_customer.html")

@@ -50,6 +50,12 @@ urlpatterns = [
     path('new_cus_form6', views.new_cus_form6),
     path('new_cus_form7', views.new_cus_form7),
 
+
+    # exist_cus form set
+    path('exist_cus_otp', views.exist_cus_otp),
+    path('exist_cus_update_info', views.exist_cus_update_info),
+    path('exist_cus_form', views.exist_cus_form)
+
     
 ]
 
