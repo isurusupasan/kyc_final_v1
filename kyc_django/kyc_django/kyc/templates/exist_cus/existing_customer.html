@@ -249,20 +249,20 @@
                             <td>
                                 <div  style="padding-left: 100px;">
                                     <div id="houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
-                                    <input name="house_number" id="houseNo" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number" onclick="address_val()" readonly>
+                                    <input name="house_no_per_temp" value="{{Kyc_Infotemp.house_no_per_temp}}" id="houseNo" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number" onclick="address_val()" readonly>
                                 </div>
 						   </td>
 						   <td style="width:300px;">
 							<div>
 								<div id="street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
-								<input  type="text" name="street" id="street" style="border-radius: 10px; width: 250px; " placeholder="Street" onclick="address_val()" readonly>
+								<input  type="text" name="street_per_temp" value="{{Kyc_Infotemp.street_per_temp}}" id="street" style="border-radius: 10px; width: 250px; " placeholder="Street" onclick="address_val()" readonly>
 							</div>
 							   
 						   </td>
 						   <td>
 							<div>
 								<div id="city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
-								<input  name="city" id="city" type="text" style="border-radius: 10px; width: 250px; " placeholder="City" onclick="address_val()" readonly>
+								<input   name="city_per_temp" value="{{Kyc_Infotemp.city_per_temp}}" id="city" type="text" style="border-radius: 10px; width: 250px; " placeholder="City" onclick="address_val()" readonly>
 							</div>
 							   
 						   </td>
@@ -271,7 +271,7 @@
                             <td>
                                 <div  style="padding-left: 100px;">
                                     <div id="postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
-                                    <input type="text" name="postal_code" id="postal_code" style="border-radius: 10px; width: 250px; " placeholder="Postal Code" onclick="address_val()" readonly>
+                                    <input type="text" name="postal_code_per_temp" value="{{Kyc_Infotemp.postal_code_per_temp}}" id="postal_code" style="border-radius: 10px; width: 250px; " placeholder="Postal Code" onclick="address_val()" readonly>
                                 </div>
                                    
                                </td>
@@ -287,18 +287,18 @@
                                 <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="Current_houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
-                                        <input name="Current_house_number" id="houseNo2" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
+                                        <input name="house_no_temp" value="{{Kyc_Infotemp.house_no_temp}}" id="houseNo2" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
                                     </div>
                                        
                                    </td>
                                    <td>
                                         <div id="Current_street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
-                                        <input  type="text" name="Currentstreet" id="street2" style="border-radius: 10px; width: 250px; " placeholder="Street">
+                                        <input  type="text" name="street_temp" value="{{Kyc_Infotemp.street_temp}}" id="street2" style="border-radius: 10px; width: 250px; " placeholder="Street">
                                        
                                    </td>
                                    <td>
                                         <div id="Current_city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
-                                        <input  name="Currentcity" id="city2" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
+                                        <input  name="city_temp" value="{{Kyc_Infotemp.city_temp}}" id="city2" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
                                        
                                    </td>
                             </tr>
@@ -306,7 +306,7 @@
                                 <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="Current_postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
-                                        <input type="text" name="Current_postal_code" id="postal_code2" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
+                                        <input type="text" name="postal_code_temp" value="{{Kyc_Infotemp.postal_code_temp}}" id="postal_code2" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
                                     </div>
                                        
                                    </td>
@@ -316,7 +316,8 @@
                                 
                                 <div id="state_of_address_error" class="error"><b>Oops! you cannot proceed without selecting the state of address</b></div>
                                 <select type="text" id="state_of_address" style="width:250px;">
-                                    <option  value="default">State of the current address</option>
+                                    <option>{{Kyc_Infotemp.state_address_temp}}</option>
+									<option disabled>State of the current address</option>
                                     <option>Parent</option>
                                     <option>Lease/ rent</option>
                                     <option>Official</option>
@@ -338,7 +339,7 @@
                                </td>
                                <td colspan="2">
                                     <div id="address_varification_error" class="error"><b>Oops! you cannot proceed without uploading an address verification document</b></div>
-                                    <input type="file" id="address_varification" name="address_varification" style="border: 0px;" class="inputfile">
+                                    <input type="file" id="address_varification" name="vari_doc_temp" value="{{Kyc_Infotemp.vari_doc_temp}}" style="border: 0px;" class="inputfile">
                                </td>
                         </tr>
                        
@@ -422,7 +423,7 @@
 					<td>
 						<div style="padding-left: 100px;">
 							<div id="selfie_error" class="error"><b>Oops! you cannot proceed without uploading a live selfie</b></div>
-							<input type="file" id="img" name="selfie" style="border: 0px;" class="inputfile"> 
+							<input type="file" id="img" name="profile_pic_temp" value="{{Kyc_Infotemp.profile_pic_temp}}" style="border: 0px;" class="inputfile"> 
 						</div>
 					</td>
 				</tr>
@@ -436,7 +437,7 @@
 					<td>
 						<div style="padding-left: 100px;">
 							<div id="video_error" class="error"><b>Oops! you cannot proceed without uploading a live video</b></div>
-							<input type="file" id="vid" name="video" style="border: 0px;" class="inputfile">
+							<input type="file" id="vid" name="live_video_temp" value="{{Kyc_Infotemp.live_video_temp}}" style="border: 0px;" class="inputfile">
 						</div>
 					</td>
 				</tr>
