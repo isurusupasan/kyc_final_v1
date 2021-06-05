@@ -460,9 +460,13 @@
                             </td>
                             <td colspan="2">
                                 <div  style="padding-left:150px;">
-                                   
-                                    <input type="radio" style="height:10px; width: 10px; " name="yes" id="haveAcc"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" style="height:10px; width: 10px; "name="yes" id="noAcc" onclick="disable()"> &nbsp;No
+									{% if Kyc_Infotemp.have_acc_temp == "Yes" %}
+                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" value="Yes" id="haveAcc" checked="checked"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                	<input type="radio" style="height:10px; width: 10px; "name="have_acc_temp" value="No" id="noAcc" onclick="disable()"> &nbsp;No
+									{% else %}
+									<input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" value="Yes" id="haveAcc" > &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                	<input type="radio" style="height:10px; width: 10px; "name="have_acc_temp" value="No" id="noAcc" checked="checked" onclick="disable()"> &nbsp;No
+									{% endif %}
                                 </div>
                             </td> 
                         </tr>
@@ -473,7 +477,7 @@
                             <td colspan="2">
                                 <div style="padding-left: 150px;">
                                     <div id="Account_type_error" class="error" ><b>Oops! you cannot proceed without entering your account type</b></div>
-                                    <input id="Account_type" type="text" name="Name"style="border-radius: 10px; width: 250px; " placeholder="Type of the account">
+                                    <input id="Account_type" type="text" name="account_type_temp" value="{{Kyc_Infotemp.account_type_temp}}" style="border-radius: 10px; width: 250px; " placeholder="Type of the account">
                                 </div>
                             </td> 
                         </tr>
@@ -487,12 +491,22 @@
                             </td>
                             <td >
                                 <div style="padding-left: 150px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name=""class="checkbox"> &nbsp;Business Transaction
+									{% if Kyc_Infotemp.buisness_trans_temp == "on" %}
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox" checked="checked"> &nbsp;Business Transaction
+									{% else %}
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox"> &nbsp;Business Transaction
+									{% endif %}
+                                    
                                     
                                 </div>
                             </td>
                             <td style="width:300px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name=""class="checkbox">&nbsp;Family inward remittance
+								{% if Kyc_Infotemp.fam_remittance_temp == "on" %}
+									<input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox" checked="checked">&nbsp;Family inward remittance
+								{% else %}
+									<input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox">&nbsp;Family inward remittance
+								{% endif %}
+                                
                             </td>
                             
                         </tr>
@@ -500,12 +514,19 @@
                             <td></td>
                             <td >
                                 <div style="padding-left: 150px;">
-                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name=""class="checkbox">&nbsp;Employment/Professional income
-                                    
+                                    {% if Kyc_Infotemp.prof_income_temp %}
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox" checked="checked">&nbsp;Employment/Professional income
+                                    {% else %}
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox">&nbsp;Employment/Professional income
+									{% endif %}
                                 </div>
                             </td>
                             <td>
-                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name=""class="checkbox">&nbsp;Rare transaction
+								{% if Kyc_Infotemp.rare_trans_temp %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox" checked="checked">&nbsp;Rare transaction
+								{% else %}
+									<input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox">&nbsp;Rare transaction
+								{% endif %}
                             </td>
                         </tr>
                         <tr>
@@ -517,14 +538,21 @@
                                 </td>
                                 <td>
                                     <div style="padding-left: 150px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name=""class="checkbox2">&nbsp;Cash
-                                        
+										{% if Kyc_Infotemp.cash_temp %}
+                                        	<input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2" checked="checked">&nbsp;Cash
+                                        {% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2">&nbsp;Cash
+										{% endif %}
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" padding-top: 20px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="" class="checkbox2">&nbsp;Cheque
-                                        
+
+										{% if Kyc_Infotemp.cheque_temp %}
+                                        	<input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2" checked="checked">&nbsp;Cheque
+                                        {% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2">&nbsp;Cheque
+										{% endif %}
                                     </div>
                                 </td> 
                             </tr>
@@ -532,14 +560,20 @@
                                 <td></td>
                                 <td>
                                     <div style="padding-left: 150px;">
-                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="" class="checkbox2">&nbsp;Standing order 
-                                        
+										{% if Kyc_Infotemp.std_order_temp %}
+                                        	<input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2" checked="checked">&nbsp;Standing order 
+										{% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2">&nbsp;Standing order                                         
+										{% endif %}
                                     </div>
                                 </td>
                                 <td>
                                     <div>
-                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="" class="checkbox2">&nbsp;Slip wire
-                                        
+										{% if Kyc_Infotemp.slip_wir_temp %}
+                                        	<input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2" checked="checked">&nbsp;Slip wire
+										{% else %}
+											<input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2">&nbsp;Slip wire
+                                        {% endif %}
                                     </div>
                                 </td>
                             </tr>
