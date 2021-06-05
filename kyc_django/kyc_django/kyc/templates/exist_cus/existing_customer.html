@@ -44,15 +44,13 @@
 						<tr>
 							<td style="text-align:left;padding-left:70px;">
 							<select class="solutation">
-							<option value="Mr">Mr.</option>
-							<option value="Mrs">Mrs.</option>
-							<option value="Miss">Miss</option>
-							<option value="Rev">Rev.</option></select></td>
+								<option value="salutation_temp">{{Kyc_Infotemp.salutation_temp}}</option>
+							</select></td>
 						</tr>
 						<tr>
 							<td colspan="2">
 								<div id="name_error" class="error"><b>Oops! you cannot proceed without entering your name in full</b></div>
-								<input type="text"  id="fullname" name="fullname" placeholder="Name in full" style="width:90%;" onclick="fullname_val()" readonly> <br><!--rgb(91, 91, 247)-->
+								<input type="text"  id="fullname" name="full_name_temp" value="{{Kyc_Infotemp.full_name_temp}}" placeholder="Name in full" style="width:90%;" onclick="fullname_val()" readonly> <br><!--rgb(91, 91, 247)-->
                                 <div class="icon" style="text-align:left;padding-left:50px;"><i class="fa fa-info-circle" style="color: #fff;" aria-hidden="true"></i>&nbsp;&nbsp; Make sure your name matches what's on your ID so we can verify your identity</div>
 
 							</td>
@@ -61,24 +59,24 @@
 						<tr>
 							<td>
 								<div id="cn_error" class="error"><b>Oops! you cannot proceed without entering your contact number</b></div>
-								<input type="text"  id="mobile" name="mobile_number" placeholder="Contact number (sms security)" onclick="mobile_val()" readonly>
+								<input type="text"  id="mobile" name="mob_no_temp" value="{{Kyc_Infotemp.mob_no_temp}}" placeholder="Contact number (sms security)" onclick="mobile_val()" readonly>
 							</td>
 							<td>
 								<div id="email_error" class="error"><b>Oops! you cannot proceed without entering your email</b></div>
-								<input type="text"  id="email" name="email" placeholder="Email Address" onclick="email_val()" readonly>
+								<input type="text"  id="email" name="email_add_temp" value="{{Kyc_Infotemp.email_add_temp}}" placeholder="Email Address" onclick="email_val()" readonly>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div id="cn_error1" class="error"><b>Oops! you cannot proceed without entering your contact number (Home)</b></div> 
-								<input type="text"  id="hometel" name="home_number" placeholder="Contact number (Home)">
+								<input type="text"  id="hometel" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}" placeholder="Contact number (Home)">
 							</td>
 							
 						</tr>
 						<tr>
 							<td>
 								<div id="cn_error2" class="error"><b>Oops! you cannot proceed without entering your contact number (Office)</b></div> 
-								<input type="text"  id="officetel" name="office_number" placeholder="Contact number (Office)">
+								<input type="text"  id="officetel" name="office_num_temp" value="{{Kyc_Infotemp.office_num_temp}}" placeholder="Contact number (Office)">
 							</td>
 						</tr>
 						
@@ -99,7 +97,7 @@
 								<div id="birthday_error" class="error"><b>Oops! you cannot proceed without entering your birthday</b></div>
 								
 							   
-								<input id="birthday" type="date" name="birthday"style=" width: 400px; padding-left:20px; color:#fff; " placeholder="Date of Birth"> <br>
+								<input id="birthday" type="date" name="date_of_birth_temp" value="{{Kyc_Infotemp.date_of_birth_temp}}" style=" width: 400px; padding-left:20px; color:#fff; " placeholder="Date of Birth"> <br>
 								<p id="message" style="color:#ebcd34;font-size: 12px;font-weight: bold;"></p>
 							</div>
 						</td>
@@ -109,15 +107,9 @@
 						   
 							<div style="padding-left: 100px;" onChange="identity_recognition()">
 								<div id="ID_error" class="error"><b>Oops! you cannot proceed without selecting yout ID type</b></div>
-							 <select id="ID_type" style="width: 400px;">
-								 <option id="op_def" value="default">Select your ID type</option>
-								 <option id="op_nic" value="National_ID">NIC</option>
-								 <option id="op_dl"value="Driving_License" >Diving License</option>
-								 <option id="op_passport"value="Passport">Passport</option>
-								 <option id="op_PID"value="Postal_ID">Postal ID</option>
-								 <option id="op_BCN"value="Birth_certificate_number">Birth Certificate</option>
-								 <option id="op_OAFSC"value="Official_armed_forces_service_card">Offical armed force service card</option>
-							</select>
+								<select id="ID_type" name="id_type_temp" style="width: 400px;">
+									<option id="op_def" value="{{Kyc_Infotemp.id_type_temp}}">{{Kyc_Infotemp.id_type_temp}}</option>
+								</select>
 						 </div>
 							
 						</td>
@@ -126,7 +118,7 @@
 					 <td colspan="2">
 					  <div style="padding-left: 100px;">
 						<div id="NIC_error" class="error"><b>Oops! you cannot proceed without entering your NIC Number</b></div>
-						 <input id="NIC" name="Search" type="text" placeholder="NIC Number" style="width:400px;" onclick="nic_val()"/ readonly>
+						 <input id="NIC" name="nics_no_temp" type="text" value="{{Kyc_Infotemp.nics_no_temp}}" placeholder="NIC Number" style="width:400px;" onclick="nic_val()"/ readonly>
 					  </div>
 						 
 					 </td>
@@ -135,14 +127,14 @@
 					 <td>
 					  <div style="padding-left: 100px;">
 						<div id="drlicense_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Number</b></div>
-						  <input id="drlicense" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Drivng License Number">
+						  <input id="drlicense" type="text" name="driv_lic_temp" value="{{Kyc_Infotemp.driv_lic_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Drivng License Number">
 					  </div>
 						 
 					 </td>
 					 <td>
 						 <div style="padding-left: 50px;">
 							<div id="drive_exp_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Expiration Date</b></div>
-							 <input id="drive_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+							 <input id="drive_exp"type="date" name="driv_exp_temp" value="{{Kyc_Infotemp.driv_exp_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
 						 </div>
 							
 						</td>
@@ -151,14 +143,14 @@
 					 <td>
 					  <div style="padding-left: 100px;">
 						<div id="passport_error" class="error"><b>Oops! you cannot proceed without entering your Passport Number</b></div>
-						  <input id="passport" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Passport Number">
+						  <input id="passport" type="text" name="pass_no_temp" value="{{Kyc_Infotemp.pass_no_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Passport Number">
 					  </div>
 						 
 					 </td>
 					 <td>
 						 <div style="padding-left: 50px;">
 							<div id="passport_exp_error" class="error"><b>Oops! you cannot proceed without entering your Passport Expiration Date</b></div>
-							 <input id="passport_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+							 <input id="passport_exp"type="date" name="pass_exp_temp" value="{{Kyc_Infotemp.pass_exp_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
 						 </div>
 							
 						</td>
@@ -168,14 +160,14 @@
 					 <td>
 					  <div style="padding-left: 100px;">
 						<div id="PID_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Number</b></div>
-						  <input id="PID" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Postal ID Number">
+						  <input id="PID" type="text" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Postal ID Number">
 					  </div>
 						 
 					 </td>
 					 <td>
 						 <div style="padding-left: 50px;">
 							<div id="PIDexpr_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Expiration Date</b></div>
-							 <input id="PIDexpr"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+							 <input id="PIDexpr"type="date"  name="post_id_exp_temp" value="{{Kyc_Infotemp.post_id_exp_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
 						 </div>
 							
 						</td>
@@ -184,14 +176,14 @@
 					 <td>
 					  <div style="padding-left: 100px;">
 						<div id="BRC_error" class="error"><b>Oops! you cannot proceed without entering your Birth Certifacte Number</b></div>
-						  <input id="BRC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Birth Certifacte Number">
+						  <input id="BRC" type="text" name="birth_cernum_temp" value="{{Kyc_Infotemp.birth_cernum_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Birth Certifacte Number">
 					  </div>
 						 
 					 </td>
 					 <td rowspan="2" style="padding-left: 50px;">
 						 <p>Upload a scan copy of selected identity recognition document</p>
 						 <div id="varification_error" class="error"><b>Oops! you cannot proceed without uploading an idenetity verification document</b></div>
-						<input type="file" id="imgOther" name="varification" style="border: 0px;">
+						<input type="file" id="imgOther" name="othe_identity_doc_temp" value="{{Kyc_Infotemp.othe_identity_doc_temp}}" style="border: 0px;">
 						
 					 </td>
 					 
@@ -200,7 +192,7 @@
 					 <td>
 						<div style="padding-left: 100px;">
 							<div id="OAFSC_error" class="error"><b>Oops! you cannot proceed without entering your Offical armed force service card Number</b></div>
-						  <input id="OAFSC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Offical armed force service card Number">
+						  <input id="OAFSC" type="text" name="oafsc_temp" value="{{Kyc_Infotemp.oafsc_temp}}" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Offical armed force service card Number">
 					  </div>
 						 
 					 </td>
@@ -221,15 +213,19 @@
                                 <div  style="padding-left: 100px;">
                                     <div id="residence_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
                                     Are you a residence of Sri Lanka?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    
-                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id1" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id2">No
+                                    {% if Kyc_Infotemp.pep_person_temp == "Yes" %}
+                                    <input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id1" checked="checked" value="Yes" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id2" value="No">No
+									{% else %}
+									<input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id1" value="Yes" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" style="height: 10px;width: 10px;" name="pep_person_temp" id="res_id2" checked="checked" value="No">No
+									{% endif %}
                                 </div>
                             </td>
                             <td>
                                 <div  style="">
                                     <div id="resident_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
-                                    <input name="resident" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
+                                    <input name="country_resident_temp" value="{{Kyc_Infotemp.country_resident_temp}}" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
                                 </div>
                                 
                             </td> 

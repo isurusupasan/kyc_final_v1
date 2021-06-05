@@ -1642,4 +1642,21 @@ def exist_cus_update_info(request):
 
 def exist_cus_form(request):
 
-    return render(request, "exist_cus/existing_customer.html")
+    finded_user = Kyc_Info.objects.get(nics_no_temp=record_nic_search)
+    # form = accept_form(request.POST, instance=finded_user)
+
+    print(finded_user.email_add_temp)
+
+    #print(finded_user)
+    #print(form.errors)
+    """if form.is_valid():
+        print(form.is_valid())"""
+        #form.save()
+    
+    
+    
+    context = {
+        "Kyc_Infotemp": finded_user,
+    }
+
+    return render(request, "exist_cus/existing_customer.html", context)

@@ -63,20 +63,39 @@ class Kyc_Info(models.Model):
     history = HistoricalRecords(excluded_fields=['blue_flag_temp','green_flag_temp','red_flag_temp'])
     profile_rating_temp = models.CharField(max_length=50)
 
-    # rejection /acceptance variables
+    # newly added variables
+    post_id_exp_temp = models.CharField(max_length=10, blank=True, null=True)
+    account_type_temp = models.CharField(max_length=50, null=True, blank=True)
+    have_acc_temp = models.CharField(max_length=10, null=True, blank=True)
+
+    # purpose of the account
+    buisness_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+    fam_remittance_temp = models.CharField(max_length=20, null=True, blank=True)
+    prof_income_temp = models.CharField(max_length=20, null=True, blank=True)
+    rare_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+
+    # form of transaction
+    cash_temp = models.CharField(max_length=20, null=True, blank=True)
+    cheque_temp = models.CharField(max_length=20, null=True, blank=True)
+    std_order_temp = models.CharField(max_length=20, null=True, blank=True)
+    slip_wir_temp = models.CharField(max_length=20, null=True, blank=True)
+
+    # occupation details
+    occu_state_temp = models.CharField(max_length=50, null=True, blank=True)
+    occupation_temp = models.CharField(max_length=50, null=True, blank=True)
     
+    # sources of income
+    in_source_sales_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_fam_rem_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_commistion_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_export_temp = models.CharField(max_length=20, null=True, blank=True)
+    
+    # average monthly income
+    avg_income_temp = models.CharField(max_length=50, null=True, blank=True)
 
     class Meta:
         db_table = "Kyc_Info"
 
-
-
-
-    """company_name = models.CharField(max_length=50)
-    address_full = models.CharField(max_length=250)
-    email_add = models.CharField(max_length=250)
-    phone_num = models.CharField(max_length=12)
-    long_text = models.TextField(max_length=255)"""
 
 
     def __str__(self):
