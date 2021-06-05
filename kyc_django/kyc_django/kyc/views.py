@@ -1553,9 +1553,20 @@ def new_cus_form7(request):
     if request.POST.get("occu_state_temp") != "":
 
         occu_state_temp = request.POST.get("occu_state_temp")
+        pep_person_temp = request.POST.get("pep_person_temp")
+        occupation_temp = request.POST.get("occupation_temp")
+        in_source_sales_temp = request.POST.get("in_source_sales_temp")
+        in_source_fam_rem_temp = request.POST.get("in_source_fam_rem_temp")
+        in_source_commistion_temp = request.POST.get("in_source_commistion_temp")
+        in_source_export_temp = request.POST.get("in_source_export_temp")
+        avg_income_temp = request.POST.get("avg_income_temp")
         
 
-        Kyc_front.objects.filter(id=grab_id).update(occu_state_temp=occu_state_temp)
+
+        Kyc_front.objects.filter(id=grab_id).update(occu_state_temp=occu_state_temp, occupation_temp=occupation_temp,
+        in_source_sales_temp=in_source_sales_temp, in_source_fam_rem_temp=in_source_fam_rem_temp,
+        in_source_commistion_temp=in_source_commistion_temp, in_source_export_temp=in_source_export_temp,
+        avg_income_temp=avg_income_temp, pep_person_temp=pep_person_temp)
         
         print(occu_state_temp)
         return render(request, "kyc/verify.html")

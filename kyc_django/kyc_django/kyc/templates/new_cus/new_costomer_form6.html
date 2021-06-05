@@ -25,8 +25,8 @@
                             <td>
                                 <div  style="padding-left: 150px; padding-top: 50px;">
                                    
-                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="haveAc" value="Yes"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="noAc" value="No" onclick="disable()"> &nbsp;No
+                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="haveAcc" value="Yes"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" id="noAcc" value="No" onclick="disable()"> &nbsp;No
                                 </div>
                             </td> 
                         </tr>
@@ -136,7 +136,7 @@
                     <script>
                         function myFunction() 
                     {    
-                        var yes = document.querySelector( 'input[name="yes"]:checked');
+                        var yes = document.querySelector( 'input[name="have_acc_temp"]:checked');
                         var yes_error = document.getElementById("yes_error");   
 
                         var check = document.querySelector('.checkbox:checked');

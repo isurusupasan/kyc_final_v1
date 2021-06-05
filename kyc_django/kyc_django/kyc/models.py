@@ -322,21 +322,34 @@ class Kyc_front(models.Model):
 
     # rejection acceptance variables
 
-    #newly defined
+    # newly defined
     account_type_temp = models.CharField(max_length=50, null=True, blank=True)
     have_acc_temp = models.CharField(max_length=10, null=True, blank=True)
 
+    # purpose of the account
     buisness_trans_temp = models.CharField(max_length=20, null=True, blank=True)
     fam_remittance_temp = models.CharField(max_length=20, null=True, blank=True)
     prof_income_temp = models.CharField(max_length=20, null=True, blank=True)
     rare_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+
+    # form of transaction
     cash_temp = models.CharField(max_length=20, null=True, blank=True)
     cheque_temp = models.CharField(max_length=20, null=True, blank=True)
     std_order_temp = models.CharField(max_length=20, null=True, blank=True)
     slip_wir_temp = models.CharField(max_length=20, null=True, blank=True)
 
+    # occupation details
     occu_state_temp = models.CharField(max_length=50, null=True, blank=True)
-
+    occupation_temp = models.CharField(max_length=50, null=True, blank=True)
+    
+    # sources of income
+    in_source_sales_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_fam_rem_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_commistion_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_export_temp = models.CharField(max_length=20, null=True, blank=True)
+    
+    # average monthly income
+    avg_income_temp = models.CharField(max_length=50, null=True, blank=True)
     
 
     class Meta:

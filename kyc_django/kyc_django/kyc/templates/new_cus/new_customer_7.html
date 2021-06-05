@@ -29,7 +29,7 @@
 								
 								<td  colspan="2" style="padding-left: 400px; padding-top: 20px;">
 									<div id="occupation_error" class="error" ><b>Oops! you cannot proceed without entering the occupation</b></div>
-									<input type="text" style="width: 400px;" id="occupation" name="occupation" class="occupation" placeholder="Occupation"></td>
+									<input type="text" style="width: 400px;" id="occupation" name="occupation_temp" class="occupation" placeholder="Occupation"></td>
 							</tr>
 							
 							<tr>
@@ -42,13 +42,13 @@
 								</td>
 								<td >
 									<div style="padding-left: 150px; padding-top: 50px;">
-										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name=""class="checkbox"> &nbsp;Sales and business turnover
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name="in_source_sales_temp" class="checkbox"> &nbsp;Sales and business turnover
 										
 									</div>
 								</td>
 								<td>
 									<div style=" padding-top: 50px;">
-										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name=""class="checkbox">&nbsp;Family remittance
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name="in_source_fam_rem_temp" class="checkbox">&nbsp;Family remittance
 										
 									</div>
 								</td>
@@ -58,13 +58,13 @@
 								<td></td>
 								<td >
 									<div style="padding-left: 150px; padding-top: 20px;">
-										<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name=""class="checkbox">&nbsp;Commission income
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name="in_source_commistion_temp" class="checkbox">&nbsp;Commission income
 										
 									</div>
 								</td>
 								<td>
 									<div style=" padding-top: 20px;">
-										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name=""class="checkbox">&nbsp;Export proceeds
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name="in_source_export_temp" class="checkbox">&nbsp;Export proceeds
 										
 									</div>
 								</td>
@@ -79,13 +79,13 @@
 									</td>
 									<td style="width: 50px;">
 										<div style="padding-left: 150px; padding-top: 20px;">
-											<input type="checkbox" style="height: 10px;width: 10px;" id="" name=""class="checkbox2">&nbsp;Less than 100,000
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" class="checkbox2" value="Less than 100,000">&nbsp;Less than 100,000
 											
 										</div>
 									</td>
 									<td>
 										<div style=" padding-top: 20px;">
-											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;100,001.00 - 500,000.00 
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" class="checkbox2" value="100,001.00 - 500,000.00 ">&nbsp;100,001.00 - 500,000.00 
 											
 										</div>
 									</td>
@@ -95,13 +95,13 @@
 									<td></td>
 									<td style="width: 100px;">
 										<div style="padding-left: 150px; padding-top: 20px;">
-											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="" class="checkbox2">&nbsp;500,001.00 - 1,000,000.00  
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" class="checkbox2" value="500,001.00 - 1,000,000.00">&nbsp;500,001.00 - 1,000,000.00  
 											
 										</div>
 									</td>
 									<td>
 										<div style=" padding-top: 20px;">
-											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;Above 1,000,000.00
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" class="checkbox2" value="Above 1,000,000.00">&nbsp;Above 1,000,000.00
 											
 										</div>
 									</td>
@@ -115,8 +115,8 @@
 									</td>
 									<td>
 										<div  style="padding-left: 150px; padding-top: 20px;">
-											<input type="radio" name="PEP" id="pep_id1">Yes &nbsp;&nbsp;&nbsp;
-											<input type="radio" name="PEP" id="pep_id2">No &nbsp;&nbsp;&nbsp;
+											<input type="radio" name="pep_person_temp" id="pep_id1" value="Yes">Yes &nbsp;&nbsp;&nbsp;
+											<input type="radio" name="pep_person_temp" id="pep_id2" value="No">No &nbsp;&nbsp;&nbsp;
 											
 										</div>
 									</td>
@@ -137,7 +137,7 @@
 						<script>
 						function myFunction(val) 
 						{ 
-							var PEP = document.querySelector( 'input[name="PEP"]:checked');
+							var PEP = document.querySelector( 'input[name="pep_person_temp"]:checked');
                         	var PEP_error = document.getElementById('PEP_error');
 
 							var check = document.querySelector('.checkbox:checked');
