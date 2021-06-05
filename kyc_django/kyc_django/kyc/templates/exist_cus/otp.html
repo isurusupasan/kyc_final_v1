@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style3.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="text-center mt-4">
+       
+        <div class="row" style="padding-top: 250px; padding-left: 550px;">
+            
+                <div class="validate">
+                    <form class="login_form">
+                        <table >
+                            <tr>
+                                <td>
+                                    <label for="Tooltips" class="error"></label>
+                                    <div class="cont" ><b><div id="otp_error" class="error">Oops! Cannot proceed without entering the OTP code</div></b> </div>
+                                    <input type="text"  id="otp" name="otp"  placeholder="OTP code" > 
+                                    
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr>
+                                
+                                <td> <br>
+                                    <i class="fa fa-info-circle" style="color: #fff;" aria-hidden="true"></i>&nbsp;&nbsp; Enter the OTP sent to your phone/email to verify
+                                    <p name="info" id="info" style="text-align: left;"></p>
+                                </td>
+                            </tr>
+                           
+                        </table>    
+                        
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="btn" style="padding-top: 250px; padding-left:850px;">
+        
+        <td>
+            <button type="button" id="Back" name="Back" class="submit" type="submit" >Back</button> &nbsp;&nbsp;
+            <button type="button" id="Resend" name="Resend" class="submit" type="submit" >Resend</button> &nbsp;&nbsp;
+            <button type="button" id="Next" name="Next" class="submit" type="submit" onclick="return fun();">Next</button> &nbsp;&nbsp;
+        </td>
+    </div>
+</form>
+    <script>
+        function fun()
+        {   
+            var otp = document.getElementById('otp');
+            var otp_error = document.getElementById('otp_error');
+            
+            if(otp.value != "")
+            {
+              return true;
+            }
+            else
+            {
+                otp.style.borderColor = "#ebcd34";
+                otp.style.border = "2px solid #ebcd34";
+                otp_error.style.display = "block";
+                
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>

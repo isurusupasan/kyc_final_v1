@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           
+            body{
+                background-repeat: no-repeat;
+                background-size: auto;
+                background-size: 100% 100%;
+                background-image: linear-gradient(to bottom right, #5b32ac, #5a34ad, #5639b0, #503fb2, #4c42b5, #464ab8, #315fc1, #2a67c2);
+                color:#fff;
+                font-family: 'Raleway', sans-serif;
+                overflow-x: hidden;
+                background-attachment: fixed;
+                height: 100%;
+            }
+            .container{
+                text-align: center;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+            }
+            .container span{
+                
+                text-transform: uppercase;
+                display: block;
+            }
+            .text1{
+                color: white;
+                font-size: 50px;
+                font-weight: 700;
+                letter-spacing: 8px;
+                margin-bottom: -40px;
+                position: relative;
+                animation: text 3s 1;
+
+            }
+            
+            @keyframes text{
+                0%{
+                    color: black;
+                    margin-bottom: -40px;
+                }
+                30%{
+                    letter-spacing: 25px;
+                    margin-bottom: -40px;
+                }
+                85%{
+                    letter-spacing: 8px;
+                    margin-bottom: -40px;
+                }
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <span class="text1">Welcome back Shawn!</span>
+        
+    </div>
+    <script>
+function pageRedirect() {
+        window.location.replace("updateinfo.html");
+    }      
+    setTimeout("pageRedirect()", 3000);
+    </script>
+    
+</body>
+</html>

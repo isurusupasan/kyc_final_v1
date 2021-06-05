@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+	<style>
+		.swal-icon.swal-warning {
+                border-color: #ce6a6a !important;
+                }
+		.swal-text {
+				text-align: center;
+		}
+		.swal-button{
+		
+                background-color: #151862;
+                color:#fff;
+                width:150px;
+                height:40px;
+                border-radius:25px;
+                transition-duration: 1.4s;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+			<div class="col-md-12" style="padding-top:50px;">
+				<!--<h2 style="padding-left: 125px; padding-top: 50px;">Help us validate your idenetity</h2>-->
+				<center>
+				<form class="login_form">
+					
+					<table width="90%" style="text-align:center;">
+						<tr>
+							<td style="text-align:left;padding-left:70px;">
+							<select class="solutation">
+							<option value="Mr">Mr.</option>
+							<option value="Mrs">Mrs.</option>
+							<option value="Miss">Miss</option>
+							<option value="Rev">Rev.</option></select></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div id="name_error" class="error"><b>Oops! you cannot proceed without entering your name in full</b></div>
+								<input type="text"  id="fullname" name="fullname" placeholder="Name in full" style="width:90%;" onclick="fullname_val()" readonly> <br><!--rgb(91, 91, 247)-->
+                                <div class="icon" style="text-align:left;padding-left:50px;"><i class="fa fa-info-circle" style="color: #fff;" aria-hidden="true"></i>&nbsp;&nbsp; Make sure your name matches what's on your ID so we can verify your identity</div>
+
+							</td>
+						</tr>
+                        
+						<tr>
+							<td>
+								<div id="cn_error" class="error"><b>Oops! you cannot proceed without entering your contact number</b></div>
+								<input type="text"  id="mobile" name="mobile_number" placeholder="Contact number (sms security)" onclick="mobile_val()" readonly>
+							</td>
+							<td>
+								<div id="email_error" class="error"><b>Oops! you cannot proceed without entering your email</b></div>
+								<input type="text"  id="email" name="email" placeholder="Email Address" onclick="email_val()" readonly>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div id="cn_error1" class="error"><b>Oops! you cannot proceed without entering your contact number (Home)</b></div> 
+								<input type="text"  id="hometel" name="home_number" placeholder="Contact number (Home)">
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<div id="cn_error2" class="error"><b>Oops! you cannot proceed without entering your contact number (Office)</b></div> 
+								<input type="text"  id="officetel" name="office_number" placeholder="Contact number (Office)">
+							</td>
+						</tr>
+						
+					</table>
+            </div>
+        </div>
+		<hr style="border:1px solid #ebcd34">
+		<!-- new customer 2 --------------------------------------------------------------------------------------------------------------------------------------------------------->
+		
+		<div class="row">
+			<div class="col-md-12">
+				<!--<h2 style="padding-left: 100px; padding-top: 50px;">Help us validate your idenetity</h2>-->
+				<table>
+					<tr>
+						<td>
+							<div style="padding-left: 100px;">
+								
+								<div id="birthday_error" class="error"><b>Oops! you cannot proceed without entering your birthday</b></div>
+								
+							   
+								<input id="birthday" type="date" name="birthday"style=" width: 400px; padding-left:20px; color:#fff; " placeholder="Date of Birth"> <br>
+								<p id="message" style="color:#ebcd34;font-size: 12px;font-weight: bold;"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						   
+							<div style="padding-left: 100px;" onChange="identity_recognition()">
+								<div id="ID_error" class="error"><b>Oops! you cannot proceed without selecting yout ID type</b></div>
+							 <select id="ID_type" style="width: 400px;">
+								 <option id="op_def" value="default">Select your ID type</option>
+								 <option id="op_nic" value="National_ID">NIC</option>
+								 <option id="op_dl"value="Driving_License" >Diving License</option>
+								 <option id="op_passport"value="Passport">Passport</option>
+								 <option id="op_PID"value="Postal_ID">Postal ID</option>
+								 <option id="op_BCN"value="Birth_certificate_number">Birth Certificate</option>
+								 <option id="op_OAFSC"value="Official_armed_forces_service_card">Offical armed force service card</option>
+							</select>
+						 </div>
+							
+						</td>
+					</tr>
+					<tr>
+					 <td colspan="2">
+					  <div style="padding-left: 100px;">
+						<div id="NIC_error" class="error"><b>Oops! you cannot proceed without entering your NIC Number</b></div>
+						 <input id="NIC" name="Search" type="text" placeholder="NIC Number" style="width:400px;" onclick="nic_val()"/ readonly>
+					  </div>
+						 
+					 </td>
+				 </tr>
+				 <tr>
+					 <td>
+					  <div style="padding-left: 100px;">
+						<div id="drlicense_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Number</b></div>
+						  <input id="drlicense" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Drivng License Number">
+					  </div>
+						 
+					 </td>
+					 <td>
+						 <div style="padding-left: 50px;">
+							<div id="drive_exp_error" class="error"><b>Oops! you cannot proceed without entering your Drivng License Expiration Date</b></div>
+							 <input id="drive_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+						 </div>
+							
+						</td>
+				 </tr>
+				 <tr>
+					 <td>
+					  <div style="padding-left: 100px;">
+						<div id="passport_error" class="error"><b>Oops! you cannot proceed without entering your Passport Number</b></div>
+						  <input id="passport" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Passport Number">
+					  </div>
+						 
+					 </td>
+					 <td>
+						 <div style="padding-left: 50px;">
+							<div id="passport_exp_error" class="error"><b>Oops! you cannot proceed without entering your Passport Expiration Date</b></div>
+							 <input id="passport_exp"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+						 </div>
+							
+						</td>
+				 </tr>
+				
+				 <tr>
+					 <td>
+					  <div style="padding-left: 100px;">
+						<div id="PID_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Number</b></div>
+						  <input id="PID" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Postal ID Number">
+					  </div>
+						 
+					 </td>
+					 <td>
+						 <div style="padding-left: 50px;">
+							<div id="PIDexpr_error" class="error"><b>Oops! you cannot proceed without entering your Postal ID Expiration Date</b></div>
+							 <input id="PIDexpr"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+						 </div>
+							
+						</td>
+				 </tr>
+				 <tr>
+					 <td>
+					  <div style="padding-left: 100px;">
+						<div id="BRC_error" class="error"><b>Oops! you cannot proceed without entering your Birth Certifacte Number</b></div>
+						  <input id="BRC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Birth Certifacte Number">
+					  </div>
+						 
+					 </td>
+					 <td rowspan="2" style="padding-left: 50px;">
+						 <p>Upload a scan copy of selected identity recognition document</p>
+						 <div id="varification_error" class="error"><b>Oops! you cannot proceed without uploading an idenetity verification document</b></div>
+						<input type="file" id="imgOther" name="varification" style="border: 0px;">
+						
+					 </td>
+					 
+				 </tr>
+				 <tr>
+					 <td>
+						<div style="padding-left: 100px;">
+							<div id="OAFSC_error" class="error"><b>Oops! you cannot proceed without entering your Offical armed force service card Number</b></div>
+						  <input id="OAFSC" type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Offical armed force service card Number">
+					  </div>
+						 
+					 </td>
+					 
+				 </tr>
+				</table>
+				</div>
+			</div>
+			<hr style="border:1px solid #ebcd34">
+		<!-- new customer 3 --------------------------------------------------------------------------------------------------------------------------------------------------------->
+		
+		<div class="row">
+                <div class="tbl1" >
+                    <!--<h2 style="padding-left:100px;padding-top: 50px;">Help us validate your Residence</h2>-->
+                    <table>
+                        <tr>
+                            <td style="width:600px;">
+                                <div  style="padding-left: 100px;">
+                                    <div id="residence_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
+                                    Are you a residence of Sri Lanka?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id1" onclick="disable()">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height: 10px;width: 10px;" name="residence" id="res_id2">No
+                                </div>
+                            </td>
+                            <td>
+                                <div  style="">
+                                    <div id="resident_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
+                                    <input name="resident" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
+                                </div>
+                                
+                            </td> 
+                        </tr>
+						
+                    </table>
+					
+                </div>
+				
+                <div class="tbl2">
+					<!--<hr style="border:1px solid #fff;margin-left:100px;width:950px;">-->
+                    <table>  
+
+                        <tr>
+                            <td colspan="3" style="padding-bottom:0px;padding-top:0px;">
+							<center>
+                                  <p>Permanent Address</p></center>
+                            </td>
+                        <tr>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 100px;">
+                                    <div id="houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
+                                    <input name="house_number" id="houseNo" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number" onclick="address_val()" readonly>
+                                </div>
+						   </td>
+						   <td style="width:300px;">
+							<div>
+								<div id="street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
+								<input  type="text" name="street" id="street" style="border-radius: 10px; width: 250px; " placeholder="Street" onclick="address_val()" readonly>
+							</div>
+							   
+						   </td>
+						   <td>
+							<div>
+								<div id="city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
+								<input  name="city" id="city" type="text" style="border-radius: 10px; width: 250px; " placeholder="City" onclick="address_val()" readonly>
+							</div>
+							   
+						   </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 100px;">
+                                    <div id="postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
+                                    <input type="text" name="postal_code" id="postal_code" style="border-radius: 10px; width: 250px; " placeholder="Postal Code" onclick="address_val()" readonly>
+                                </div>
+                                   
+                               </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="padding-left:100px;">
+								<hr style="border:1px solid #fff;width:950px;">
+								<center>
+                                  <p>Current Address (if any)</p></center>
+                            </td>
+
+                            <tr>
+                                <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="Current_houseNo_error" class="error"><b>Oops! you cannot proceed without entering the House number</b></div>
+                                        <input name="Current_house_number" id="houseNo2" type="text" style="border-radius: 10px; width: 250px; " placeholder="House Number">
+                                    </div>
+                                       
+                                   </td>
+                                   <td>
+                                        <div id="Current_street_error" class="error"><b>Oops! you cannot proceed without entering the street</b></div>
+                                        <input  type="text" name="Currentstreet" id="street2" style="border-radius: 10px; width: 250px; " placeholder="Street">
+                                       
+                                   </td>
+                                   <td>
+                                        <div id="Current_city_error" class="error"><b>Oops! you cannot proceed without entering the city</b></div>
+                                        <input  name="Currentcity" id="city2" type="text" style="border-radius: 10px; width: 250px; " placeholder="City">
+                                       
+                                   </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="Current_postal_code_error" class="error"><b>Oops! you cannot proceed without entering the postal code</b></div>
+                                        <input type="text" name="Current_postal_code" id="postal_code2" style="border-radius: 10px; width: 250px; " placeholder="Postal Code">
+                                    </div>
+                                       
+                                   </td>
+                            </tr>
+                            <td colspan="2">
+                             <div style="padding-left: 100px;">
+                                
+                                <div id="state_of_address_error" class="error"><b>Oops! you cannot proceed without selecting the state of address</b></div>
+                                <select type="text" id="state_of_address" style="width:250px;">
+                                    <option  value="default">State of the current address</option>
+                                    <option>Parent</option>
+                                    <option>Lease/ rent</option>
+                                    <option>Official</option>
+                                    <option>Friend's/ Relatives</option>
+                                    <option>Boarder/ Lodger</option>
+                                </select> 
+                                
+                             </div>
+                                
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td> 
+                                <div style="padding-left: 100px;">
+                                   <p>Address Verification Document</p>
+                                </div>
+                                   
+                               </td>
+                               <td colspan="2">
+                                    <div id="address_varification_error" class="error"><b>Oops! you cannot proceed without uploading an address verification document</b></div>
+                                    <input type="file" id="address_varification" name="address_varification" style="border: 0px;" class="inputfile">
+                               </td>
+                        </tr>
+                       
+                    </table>
+                </div>
+			</div>
+		<hr style="border:1px solid #ebcd34">
+<!-- new customer 4 ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+		<div class="row">
+		<div class="col-md-12" style="padding-left:100px;">
+		<!--<h2 style="padding-left:225px;padding-top: 50px;">Help us validate your identity</h2>-->
+		<center>
+        <form style="width:70%;padding-top:50px;">
+				<table width="100%">
+                <tr>
+                    <td colspan="2">
+						<div id="nationality_error" class="error"><b>Oops! you cannot proceed without entering your nationality</b></div>
+							
+                            <select id="Nationality" style="width: 400px;">
+                                <option value="default">Nationality</option>
+                                <option value="srilankan">Sri Lankan</option>
+								<option value="other">Other</option>
+                           </select>
+                    </td>
+                    <td colspan="2" style="padding-left:80px;">
+						<div id="other_error" class="error"><b>Oops! you cannot proceed without specifying your nationality</b></div>
+						<input id="otherNationality"type="text" name="Name" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">   
+				   </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+						<div id="visa_error" class="error"><b>Oops! you cannot proceed without entering your visa type</b></div>
+						<select id="visa" style="width: 400px;">
+							<option value="default">Type of Visa</option>
+							<option value="Mrs">Diving License</option>
+							<option value="Miss">Passport</option>
+							<option value="Miss">Postal ID</option>
+							<option value="Miss">Birth Certificate</option>
+							<option value="other">Other</option>
+					   </select>
+                    </td>
+                    <td colspan="2" style="padding-left:80px;">
+						<div id="visa_exp_error" class="error"><b>Oops! you cannot proceed without entering the expiration date</b></div>
+						<input id="visa_exp" type="text" name="visa_exp" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan="2">
+						<div id="visa_other_error" class="error"><b>Oops! you cannot proceed without specifying your visa type</b></div>
+                        <input id="type_of_your_visa" type="text" name="Name" style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="If other">
+                    </td>
+                    <td colspan="2" style="padding-left:80px;">
+						<div id="visa_exp_error1" class="error"><b>Oops! you cannot proceed without entering the expiration date</b></div>
+						<input id="visa_exp_other"type="text" name="Name"style="border-radius: 10px; width: 400px; padding-left:20px;" placeholder="Expiration Date">
+					</td>
+                </tr>
+                <tr>
+					<td style="padding-right:0px;width:100px;">Copy of Visa</td>
+                    <td style="padding-left:0px;width:200px;" colspan="3">
+						<div id="copy_of_visa_error" class="error"><b>Oops! you cannot proceed without uploading a copy of your visa</b></div>
+						<input type="file" id="imgVisa"  style="border: 1px;">  
+					</td>
+                </tr>
+               </table>
+			</div>
+		</div>
+		<hr style="border:1px solid #ebcd34">
+	<!-- new customer 5 ------------------------------------------------------------------------------------------------------------------------------------------------------------->
+	
+		<div class="row">
+			<!--<h2 style="padding-left: 100px;">Help us validate your identity</h2>-->
+			<table width="100%">
+				<tr>
+					<td>
+						<div  style="padding-left: 100px;">
+							Upload a live selfie to validate NIC
+						</div> 
+					</td>
+					<td>
+						<div style="padding-left: 100px;">
+							<div id="selfie_error" class="error"><b>Oops! you cannot proceed without uploading a live selfie</b></div>
+							<input type="file" id="img" name="selfie" style="border: 0px;" class="inputfile"> 
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div  style="padding-left: 100px;">
+							
+							Upload a live video
+						</div> 
+					</td>
+					<td>
+						<div style="padding-left: 100px;">
+							<div id="video_error" class="error"><b>Oops! you cannot proceed without uploading a live video</b></div>
+							<input type="file" id="vid" name="video" style="border: 0px;" class="inputfile">
+						</div>
+					</td>
+				</tr>
+				
+			</table>
+        </div>
+		<hr style="border:1px solid #ebcd34">
+		<!-- new customer 6 --------------------------------------------------------------------------------------------------------------------------------------------------------->
+		
+		<div class="row">
+                <!--<h2 style="padding-left: 100px;">Help us validate your account status</h2>-->
+                    <table>
+                        <tr>
+                            <td>
+                                <div  style="padding-left: 100px;">
+                                    Have an account in Bank X?
+                                    <div id="yes_error" class="error" ><b>Oops! you cannot proceed without selecting <br> whether you have a acconunt in bank X or not</b></div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div  style="padding-left:150px;">
+                                   
+                                    <input type="radio" style="height:10px; width: 10px; " name="yes" id="haveAcc"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" style="height:10px; width: 10px; "name="yes" id="noAcc" onclick="disable()"> &nbsp;No
+                                </div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                               
+                            </td>
+                            <td colspan="2">
+                                <div style="padding-left: 150px;">
+                                    <div id="Account_type_error" class="error" ><b>Oops! you cannot proceed without entering your account type</b></div>
+                                    <input id="Account_type" type="text" name="Name"style="border-radius: 10px; width: 250px; " placeholder="Type of the account">
+                                </div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td style="width:350px;">
+                                <div  style="padding-left: 100px;">
+                                    <p>Purpose of the account</p>
+                                    <div id="check_error" class="error" ><b>Oops! you cannot proceed without <br> selecting the purpose of the account</b></div>
+                                    
+                                </div>
+                            </td>
+                            <td >
+                                <div style="padding-left: 150px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name=""class="checkbox"> &nbsp;Business Transaction
+                                    
+                                </div>
+                            </td>
+                            <td style="width:300px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name=""class="checkbox">&nbsp;Family inward remittance
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td >
+                                <div style="padding-left: 150px;">
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name=""class="checkbox">&nbsp;Employment/Professional income
+                                    
+                                </div>
+                            </td>
+                            <td>
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name=""class="checkbox">&nbsp;Rare transaction
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <div  style="padding-left: 100px;">
+                                        <p>Mode of transaction</p>
+                                        <div id="check_error2" class="error" ><b>Oops! you cannot proceed without <br> selecting the mode of transaction</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="padding-left: 150px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name=""class="checkbox2">&nbsp;Cash
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style=" padding-top: 20px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="" class="checkbox2">&nbsp;Cheque
+                                        
+                                    </div>
+                                </td> 
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div style="padding-left: 150px;">
+                                        <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="" class="checkbox2">&nbsp;Standing order 
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="" class="checkbox2">&nbsp;Slip wire
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+				<hr style="border:1px solid #ebcd34">
+<!-- new customer 7 ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+				<div class="row">
+					<!--<h2 style="padding-left: 100px;">Help us validate your occupation status</h2>-->
+						<table width="100%">
+							<tr>
+								<td style="padding-left: 100px;width:400px;">
+									<div id="occupation_status_error" class="error" ><b>Oops! you cannot proceed without selecting the occupation status</b></div>
+									<select id="Occutation_Status" style="width:200px;">
+										<option value="default">Occupation status</option>
+										<option value="Salaried Worker">Salaried Worker</option>
+										<option value="Retire">Retired</option>
+										<option value="Self-Employee">Self-Employee</option>
+									</select>
+								</td>
+								
+								<td  colspan="2" style="padding-left: 100px;">
+									<div id="occupation_error" class="error" ><b>Oops! you cannot proceed without entering the occupation</b></div>
+									<input type="text" style="width: 300px;" id="occupation" name="occupation" class="occupation" placeholder="Occupation"></td>
+							</tr>
+							
+							<tr>
+								<td>
+									<div  style="padding-left: 100px;">
+										Source of income <br>
+										<div id="check_error" class="error" ><b>Oops! you cannot proceed without <br> selecting the Source of income</b></div>
+										
+									</div>
+								</td>
+								<td >
+									<div style="padding-left: 100px;">
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c31" name=""class="checkbox"> &nbsp;Sales and business turnover
+										
+									</div>
+								</td>
+								<td>
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c32" name=""class="checkbox">&nbsp;Family remittance
+								</td>
+								
+							</tr>
+							<tr>
+								<td></td>
+								<td >
+									<div style="padding-left: 100px;">
+										<input type="checkbox" style="height: 10px;width: 10px;" id="c38" name=""class="checkbox">&nbsp;Commission income
+										
+									</div>
+								</td>
+								<td>
+										<input type="checkbox" style="height: 10px;width: 10px;"id="c34" name=""class="checkbox">&nbsp;Export proceeds	
+								</td>
+							</tr>
+							<tr>
+								<tr>
+									<td>
+										<div  style="padding-left: 100px;">
+											Average monthly income (Rs.)<br>
+											<div id="check_error2" class="error" ><b>Oops! you cannot proceed without <br> selecting the mode of transaction</b></div>
+										</div>
+									</td>
+									<td>
+										<div style="padding-left: 100px;">
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name=""class="checkbox2">&nbsp;Less than 100,000
+											
+										</div>
+									</td>
+									<td style="width:300px;">
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;100,001.00 - 500,000.00 
+									</td>
+									
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+										<div style="padding-left: 100px;">
+											<input type="checkbox" style="height: 10px;width: 10px;" id="" name="" class="checkbox2">&nbsp;500,001.00 - 1,000,000.00  
+											
+										</div>
+									</td>
+									<td>
+											<input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;Above 1,000,000.00
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div  style="padding-left: 100px;">
+											PEP (Politically exposed person) <br>
+											<div id="PEP_error" class="error" ><b>Oops! you cannot proceed without <br> selecting the PEP</b></div>
+										</div>
+									</td>
+									<td colspan="2">
+										<div  style="padding-left: 100px;">
+											<input type="radio" name="PEP" id="pep_id1" style="width:10px; height:10px;">Yes &nbsp;&nbsp;&nbsp;
+											<input type="radio" name="PEP" id="pep_id2" style="width:10px; height:10px;">No &nbsp;&nbsp;&nbsp;
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3" style="text-align:right;"> 
+										<button type="button" id="submit" name="submit" class="submit" type="submit" value="Submit">Update</button>  
+									</td>
+								</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+		<script type="text/javascript">
+		function mobile_val(){
+			/*swal({*/
+				swal("Sorry!", "You are unable to change your Mobile Number online. Please visit the nearest branch/ website or call us on +94 55 5555555", "warning");
+				
+			  /*title: "Sorry!",
+			  text: "You are unable to change your Mobile Number online. Please visit the nearest branch/ website or call us on +94 55 5555555",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,*/
+			/*})*/
+		}
+		
+		function nic_val(){
+			/*swal({
+			  title: "Sorry!",
+			  text: "You are unable to change your NIC Number online. Please visit the nearest branch/ website or call us on +94 55 5555555",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})*/
+			swal("Sorry!", "You are unable to change your NIC Number online. Please visit the nearest branch/ website or call us on +94 55 5555555", "warning");
+		}
+		
+		function fullname_val(){
+			/*swal({
+			  title: "Sorry!",
+			  text: "You are unable to change your Full Name online. Please visit the nearest branch/ website or call us on +94 55 5555555",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})*/
+			swal("Sorry!", "You are unable to change your Full Name online. Please visit the nearest branch/ website or call us on +94 55 5555555", "warning");
+		}
+		
+		function mobile1_val(){
+			/*swal({
+			  title: "Sorry!",
+			  text: "You are unable to change your Home Telephone Number online. Please visit the nearest branch/ website or call us on +94 55 5555555",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})*/
+			swal("Sorry!","You are unable to change your Home Telephone Number online. Please visit the nearest branch/ website or call us on +94 55 5555555", "warning");
+		}
+		
+		function email_val(){
+			/*swal({
+			  title: "Sorry!",
+			  text: "You are unable to change your Email online. Please visit the nearest branch/ website or call us on +94 55 5555555",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})*/
+			swal("Sorry!", "You are unable to change your Email online. Please visit the nearest branch/ website or call us on +94 55 5555555", "warning");
+		}
+		
+		function address_val(){
+			/*swal({
+			  title: "Sorry!",
+			  text: "You are unable to change your Address online. Please visit the nearest branch/ website or call us on +94 55 5555555",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})*/
+			swal("Sorry!", "You are unable to change your Address online. Please visit the nearest branch/ website or call us on +94 55 5555555", "warning");
+		}
+		</script>
+</body>
+</html>

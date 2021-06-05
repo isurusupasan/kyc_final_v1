@@ -1311,6 +1311,38 @@ def search_val(request):
 
     return render(request, 'kyc/search.html')
 
+"""def search_val(request):
+    if request.method == "POST":
+        nic_no = request.POST["nics_no_temp"]
+
+        if Kyc_Info.objects.filter(nics_no_temp=nic_no).exists():
+            messages.success(request, 'Successfully load your data')
+
+            
+            finded_user = Kyc_Info.objects.get(nics_no_temp=nic_no)
+            form = accept_form(request.POST, instance=finded_user)
+
+
+            #print(finded_user)
+            #print(form.errors)
+            if form.is_valid():
+                print(form.is_valid())
+                form.save()
+            
+            
+            
+            context = {
+                "Kyc_Infotemp": finded_user,
+            }
+
+
+            return render(request, 'kyc/search.html', context)
+        else:
+            messages.success(request, 'Please fill the above details')
+            return render(request, 'kyc/index1.html')
+
+    return render(request, 'kyc/search.html')"""
+
 def update_main(request):
     return render(request, "kyc/update_main.html")
 
@@ -1567,8 +1599,11 @@ def new_cus_form7(request):
         in_source_sales_temp=in_source_sales_temp, in_source_fam_rem_temp=in_source_fam_rem_temp,
         in_source_commistion_temp=in_source_commistion_temp, in_source_export_temp=in_source_export_temp,
         avg_income_temp=avg_income_temp, pep_person_temp=pep_person_temp)
+
+        all_data = Kyc_front.objects.get(id=grab_id)
         
         print(occu_state_temp)
         return render(request, "kyc/verify.html")
+
     else:
         return render(request,"new_cus/new_customer_7.html")
