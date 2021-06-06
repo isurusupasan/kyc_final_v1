@@ -754,16 +754,16 @@ def insertkyc(request, data_set):
 
     resident_sri = data_set.resident_sri_temp
     country_resident = data_set.country_resident_temp
-    house_no_per = data_set.house_no_temp
-    street_per = data_set.street_temp
-    city_per = data_set.city_temp
+    house_no_per = data_set.house_no_per_temp
+    street_per = data_set.street_per_temp
+    city_per = data_set.city_per_temp
 
-    postal_code_per = data_set.postal_code_temp
-    house_no = data_set.state_address_temp
-    street = data_set.house_no_per_temp
-    city = data_set.street_per_temp
-    postal_code = data_set.city_per_temp
-    state_address = data_set.postal_code_per_temp
+    postal_code_per = data_set.postal_code_per_temp
+    house_no = data_set.house_no_temp
+    street = data_set.street_temp
+    city = data_set.city_temp
+    postal_code = data_set.postal_code_temp
+    state_address = data_set.state_address_temp
     # calling variables for form inputs in contact detail section
 
     mob_no = data_set.mob_no_temp
