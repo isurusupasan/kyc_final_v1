@@ -59,7 +59,7 @@ def verify(request):
         
         print(input_number)
         # previous method Kyc_Infotemp.objects
-        if Kyc_front.objects.filter(email_add_verification=input_number).exists():
+        if Kyc_Infotemp.objects.filter(email_add_verification=input_number, id=saved_id_for_email_vari).exists():
             
             messages.success(request, "verified sucessfully")
             return render(request, "kyc/search.html")
@@ -683,7 +683,7 @@ def update_data(request, id):
 # def verify(request):
 
 
-def insertkyc(request):
+def insertkyc(request, data_set):
     print("successfully completed")
 
 
@@ -703,121 +703,98 @@ def insertkyc(request):
     global city_per, postal_code_per
 
     # variables of contact information
-    global mob_no, office_num, home_num, email_add
+    global mob_no, office_num, home_num, email_add, email_varified_temp
+
+    global post_id_exp_temp, account_type_temp, have_acc_temp, buisness_trans_temp, fam_remittance_temp, prof_income_temp
+    global rare_trans_temp, cash_temp, cheque_temp, std_order_temp, slip_wir_temp, occu_state_temp, occupation_temp
+    global in_source_sales_temp, in_source_fam_rem_temp, in_source_commistion_temp, in_source_export_temp, avg_income_temp
 
     # variable for flags
-    global green_flag, blue_flag, red_flag
+    global green_flag, blue_flag, red_flag, saved_id_for_email_vari
     green_flag = False
     blue_flag = False
     red_flag = False
+    email_varified_temp= False
 
     # calling variables for form inputs in personal detail section
-    salutation = request.POST["salutation"]
-    full_name = request.POST["fullname"]
-    name_init = request.POST["name_init"]
-    profile_pic = request.FILES["self_nic"]
-    live_video = request.FILES["live_video"]
-    id_type = request.POST["id_types"]
+    salutation = data_set.salutation_temp
+    full_name = data_set.full_name_temp
+    name_init = data_set.name_init_temp
+    profile_pic = data_set.profile_pic_temp
+    live_video = data_set.live_video_temp
+    id_type = data_set.id_type_temp
+    nics_no = data_set.nics_no_temp
+    date_of_birth = data_set.date_of_birth_temp
+    drive_lic = data_set.driv_lic_temp
+    driv_exp = data_set.driv_exp_temp
+    pass_no = data_set.pass_no_temp
+    pass_exp = data_set.pass_exp_temp
+    birth_cernum =data_set.birth_cernum_temp
+    post_id = data_set.post_id_temp
+    oafsc = data_set.oafsc_temp
 
-    try:
-        nics_no = request.POST["nic_no"]
-        date_of_birth = request.POST["birth_day"]
-    except MultiValueDictKeyError:
-        nics_no = ''
-        date_of_birth = ''
 
-    try:
-        drive_lic = request.POST.get("drive_lice")
-        driv_exp = request.POST["drive_exp"]
-    except MultiValueDictKeyError:
-        drive_lic = ''
-        driv_exp = ''
+    visa_copy = data_set.visa_copy_temp
+    othe_identity_doc = data_set.othe_identity_doc_temp
+    nationality = data_set.nationality_temp
+    nationality_other = data_set.nationality_other_temp
+    type_of_visa = data_set.type_of_visa_temp
+    visa_exp = data_set.visa_exp_temp
+    other_types = data_set.other_types_temp
+    other_exp = data_set.other_exp_temp
+    foreign_addre = data_set.foreign_addre_temp
 
-    try:
-        pass_no = request.POST["passport_num"]
-        pass_exp = request.POST["passport_exp"]
-    except MultiValueDictKeyError:
-        pass_no = ''
-        pass_exp = ''
 
-    try:
-        birth_cernum = request.POST["birth_certi"]
-    except MultiValueDictKeyError:
-        birth_cernum = ''
-
-    try:
-        post_id = request.POST["postal_iden"]
-    except MultiValueDictKeyError:
-        post_id = ''
-
-    try:
-        oafsc = request.POST["oafsc"]
-    except MultiValueDictKeyError:
-        oafsc = ''
-
-    try:
-        visa_copy = request.POST["img_visa"]
-    except MultiValueDictKeyError:
-        visa_copy = ''
-
-    try:
-        othe_identity_doc = request.POST["img_other"]
-    except MultiValueDictKeyError:
-        othe_identity_doc = ''
-
-    nationality = request.POST["nationality"]
-
-    try:
-        nationality_other = request.POST["nationality_other"]
-        type_of_visa = request.POST["visa_type"]
-        visa_exp = request.POST["visa_exp"]
-        other_types = request.POST["type_of_visa"]
-        other_exp = request.POST["visa_other_exp"]
-        foreign_addre = request.POST["foreign_address"]
-
-    except MultiValueDictKeyError:
-        nationality_other = ''
-        type_of_visa = ''
-        visa_exp = ''
-        other_types = ''
-        other_exp = ''
-        foreign_addre = ''
-
-    vari_doc_type = request.POST["Verification_addres"]
-    vari_doc = request.FILES["vari_image"]
-    pep_person = request.POST["pep"]
-    us_city = request.POST["us_city"]
+    vari_doc_type = data_set.vari_doc_type_temp
+    vari_doc = data_set.vari_doc_temp
+    pep_person = data_set.pep_person_temp
+    us_city = data_set.us_city_temp
 
     # calling variables for form inputs in residential detail section
-    resident_sri = request.POST["residence_sri"]
 
-    try:
-        country_resident = request.POST["resident_contry"]
-    except MultiValueDictKeyError:
-        country_resident = ''
+    resident_sri = data_set.resident_sri_temp
+    country_resident = data_set.country_resident_temp
+    house_no_per = data_set.house_no_temp
+    street_per = data_set.street_temp
+    city_per = data_set.city_temp
 
-    house_no_per = request.POST["house_number_per"]
-    street_per = request.POST["street_per"]
-    city_per = request.POST["city_per"]
-    postal_code_per = request.POST["postal_code_per"]
-
-    house_no = request.POST["house_number"]
-    street = request.POST["street"]
-    city = request.POST["city"]
-    postal_code = request.POST["postal_code"]
-    state_address = request.POST["state_of_address"]
-
+    postal_code_per = data_set.postal_code_temp
+    house_no = data_set.state_address_temp
+    street = data_set.house_no_per_temp
+    city = data_set.street_per_temp
+    postal_code = data_set.city_per_temp
+    state_address = data_set.postal_code_per_temp
     # calling variables for form inputs in contact detail section
-    mob_no = request.POST["mobile_number"]
-    office_num = request.POST["office_number"]
-    home_num = request.POST["home_number"]
-    email_add = request.POST["email_add"]
+
+    mob_no = data_set.mob_no_temp
+    office_num = data_set.office_num_temp
+    home_num = data_set.home_num_temp
+    email_add = data_set.email_add_temp
+
     email_add_verification=round(100000*random.random())
     masegEmail = "you submit kyc information success\n"
     codeEmail = str(email_add_verification)
 
     # profile rating
-    profile_rating = request.POST["profile_rating"]
+    profile_rating = 'evaluate later'
+    post_id_exp_temp = data_set.post_id_exp_temp
+    account_type_temp = data_set.account_type_temp
+    have_acc_temp = data_set.have_acc_temp
+    buisness_trans_temp = data_set.buisness_trans_temp
+    fam_remittance_temp = data_set.fam_remittance_temp
+    prof_income_temp = data_set.prof_income_temp
+    rare_trans_temp = data_set.rare_trans_temp
+    cash_temp = data_set.cash_temp
+    cheque_temp = data_set.cheque_temp
+    std_order_temp = data_set.std_order_temp
+    slip_wir_temp = data_set.slip_wir_temp
+    occu_state_temp = data_set.occu_state_temp
+    occupation_temp = data_set.occupation_temp
+    in_source_sales_temp = data_set.in_source_sales_temp
+    in_source_fam_rem_temp = data_set.in_source_fam_rem_temp
+    in_source_commistion_temp = data_set.in_source_commistion_temp
+    in_source_export_temp = data_set.in_source_export_temp
+    avg_income_temp = data_set.avg_income_temp
 
     rightFlag = []
     wrongFlag = []
@@ -920,14 +897,36 @@ def insertkyc(request):
                                            check_name=chekname,
                                            check_home=chekhome,
                                            check_street=chekStreet,
-                                           profile_rating_temp=profile_rating)
+                                           profile_rating_temp=profile_rating,
+                                           post_id_exp_temp =post_id_exp_temp,
+                                           account_type_temp =account_type_temp,
+                                           have_acc_temp =have_acc_temp,
+                                           buisness_trans_temp =buisness_trans_temp,
+                                           fam_remittance_temp =fam_remittance_temp,
+                                           prof_income_temp =prof_income_temp,
+                                           rare_trans_temp =rare_trans_temp,
+                                           cash_temp =cash_temp,
+                                           cheque_temp =cheque_temp,
+                                           std_order_temp =std_order_temp,
+                                           slip_wir_temp =slip_wir_temp,
+                                           occu_state_temp =occu_state_temp,
+                                           occupation_temp =occupation_temp,
+                                           in_source_sales_temp =in_source_sales_temp,
+                                           in_source_fam_rem_temp =in_source_fam_rem_temp,
+                                           in_source_commistion_temp =in_source_commistion_temp,
+                                           in_source_export_temp =in_source_export_temp,
+                                           avg_income_temp =avg_income_temp,
+                                           email_varified_temp=email_varified_temp)
             submit_kyc_temp.save()
             # messages.success(request, rightFlag2)
             idS = str(submit_kyc_temp.id)
+            saved_id_for_email_vari = submit_kyc_temp.id
             # request.session['id'] = submit_kyc_temp.id
             email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS,
                         email_add)
-            return render(request, 'kyc/verify.html')
+            #return render(request, 'kyc/verify.html')
+            data_set.delete()
+            return None
 
         else:
             if len(rightFlag2) > 2:
@@ -970,19 +969,42 @@ def insertkyc(request):
                                 check_city=chekCity,
                                 check_name=chekname,
                                 check_home=chekhome,
-                                check_street=chekStreet,profile_rating_temp=profile_rating)
+                                check_street=chekStreet,profile_rating_temp=profile_rating,
+                                post_id_exp_temp = post_id_exp_temp,
+                                account_type_temp = account_type_temp,
+                                have_acc_temp = have_acc_temp,
+                                buisness_trans_temp = buisness_trans_temp,
+                                fam_remittance_temp = fam_remittance_temp,
+                                prof_income_temp = prof_income_temp,
+                                rare_trans_temp = rare_trans_temp,
+                                cash_temp = cash_temp,
+                                cheque_temp = cheque_temp,
+                                std_order_temp = std_order_temp,
+                                slip_wir_temp = slip_wir_temp,
+                                occu_state_temp = occu_state_temp,
+                                occupation_temp = occupation_temp,
+                                in_source_sales_temp = in_source_sales_temp,
+                                in_source_fam_rem_temp = in_source_fam_rem_temp,
+                                in_source_commistion_temp = in_source_commistion_temp,
+                                in_source_export_temp = in_source_export_temp,
+                                avg_income_temp = avg_income_temp,
+                                email_varified_temp=email_varified_temp)
             submit_kyc_temp.save()
             print(len(rightFlag))
             idS = str(submit_kyc_temp.id)
+            saved_id_for_email_vari = submit_kyc_temp.id
             # request.session['id'] = submit_kyc_temp.id
             email_alert("BANK", masegEmail + "http://127.0.0.1:8000/verify?ecode=" + codeEmail + "&id=" + idS,
                         email_add)
-            return render(request, 'kyc/verify.html')
+            # return render(request, 'kyc/verify.html')
+            data_set.delete()
+            return None
 
 
     else:
         messages.warning(request, wrongFlag)
-        return render(request, 'kyc/index.html')   
+        #return render(request, 'kyc/index.html')
+        return None
 
 
 
@@ -1597,6 +1619,7 @@ def new_cus_form7(request):
         avg_income_temp=avg_income_temp, pep_person_temp=pep_person_temp)
 
         data_set = Kyc_front.objects.get(id=grab_id)
+        insertkyc(request, data_set)
         
         
         print(occu_state_temp)
