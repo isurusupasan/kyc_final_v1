@@ -326,20 +326,8 @@ class Kyc_front(models.Model):
     home_num_temp = models.CharField(max_length=20, blank=True, null=True)
     email_add_temp = models.CharField(max_length=100, blank=True, null=True)
     email_add_verification = models.CharField(max_length=50, blank=True, null=True)
-    red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    green_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
-    profile_rating_temp = models.CharField(max_length=50, null=True, blank=True)
     
-    #flag
-
-    submited_form = models.IntegerField(null=True, blank=True)
-    check_city = models.IntegerField(null=True, blank=True)
-    check_name = models.IntegerField(null=True, blank=True)
-    check_home = models.IntegerField(null=True, blank=True)
-    check_street = models.IntegerField(null=True, blank=True)
-
-    # rejection acceptance variables
+   
 
     # newly defined
     account_type_temp = models.CharField(max_length=50, null=True, blank=True)
