@@ -1514,7 +1514,11 @@ def new_cus_form4(request):
         visa_exp_temp = request.POST.get("visa_exp_temp")
         other_types_temp = request.POST.get("other_types_temp")
         other_exp_temp = request.POST.get("other_exp_temp")
-        visa_copy_temp = request.FILES["visa_copy_temp"]
+        try:
+            visa_copy_temp = request.FILES["visa_copy_temp"]
+        except MultiValueDictKeyError:
+            visa_copy_temp = ''
+        
         
         Kyc_front.objects.filter(id=grab_id).update(nationality_temp=nationality_temp, nationality_other_temp=nationality_other_temp,
         type_of_visa_temp=type_of_visa_temp, visa_exp_temp=visa_exp_temp, other_types_temp=other_types_temp,
