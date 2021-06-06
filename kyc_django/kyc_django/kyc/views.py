@@ -1406,6 +1406,7 @@ def update_history(request):
     # passing variables to the update.html using dictionary
     return render(request, "kyc/update_history.html", context)
 
+#================================================================New customer form managemetn=================================================
 
 # creating method for new customer data grabbig in front page which is index1.html.
 
@@ -1595,7 +1596,8 @@ def new_cus_form7(request):
         in_source_commistion_temp=in_source_commistion_temp, in_source_export_temp=in_source_export_temp,
         avg_income_temp=avg_income_temp, pep_person_temp=pep_person_temp)
 
-        all_data = Kyc_front.objects.get(id=grab_id)
+        data_set = Kyc_front.objects.get(id=grab_id)
+        
         
         print(occu_state_temp)
         return render(request, "kyc/verify.html")
@@ -1603,6 +1605,9 @@ def new_cus_form7(request):
     else:
         return render(request,"new_cus/new_customer_7.html")
 
+# ====================end of new customer form management===================================================================================
+
+#============================================================ existing customer management ==================================================
 global system_gen_otp, system_gen_otp_new
 
 def exist_cus_otp(request):
@@ -1664,3 +1669,5 @@ def exist_cus_form(request):
     }
 
     return render(request, "exist_cus/existing_customer.html", context)
+
+# end of existing customer management
