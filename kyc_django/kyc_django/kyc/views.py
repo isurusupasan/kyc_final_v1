@@ -60,7 +60,7 @@ def verify(request):
         print(input_number)
         # previous method Kyc_Infotemp.objects
         if Kyc_Infotemp.objects.filter(email_add_verification=input_number, id=saved_id_for_email_vari).exists():
-            
+            Kyc_Infotemp.objects.filter(email_add_verification=input_number, id=saved_id_for_email_vari).update(email_varified_temp="True")
             messages.success(request, "verified sucessfully")
             return render(request, "kyc/search.html")
 
