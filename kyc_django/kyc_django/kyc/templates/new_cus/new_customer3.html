@@ -27,7 +27,7 @@
                             </td>
                             <td>
                                 <div  style="padding-left: 300px; padding-top: 20px;">
-                                    <div id="resident_error" class="error"><b>Oops! you cannot proceed without selecting the residence</b></div>
+                                    <div id="resident_error" class="error"><b>Oops! you cannot proceed without selecting the resident country</b></div>
                                     <input name="country_resident_temp" id="resident" type="text" placeholder="Country of Residence" style="width:400px;" />
                                 </div>
                                 
@@ -177,7 +177,7 @@
                     function validate(val)
                     {
                         
-                        var residence = document.querySelector( 'input[name="residence"]:checked');
+                        var residence = document.querySelector( 'input[name="resident_sri_temp"]:checked');
                         var residence_error = document.getElementById('residence_error');
 
                         var resident = document.getElementById("resident");
@@ -226,7 +226,7 @@
 
                         flag1 = true;
                         flag2 = true;
-
+                        flag3 = true;
                         
                         if(val>=1 || val==0) {
                             if(houseNo.value == "") {
@@ -267,7 +267,7 @@
                         }
                         }
                         
-                        if(val>=3 || val==0) {
+                        if(val>=4 || val==0) {
                         if(postal_code.value == "") {
                             postal_code.style.borderColor = "#ebcd34";
                             postal_code.style.border = "2px solid #ebcd34";
@@ -276,44 +276,44 @@
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag4 = true;
                         }
                         }
                         
-                        if(val>=3 || val==0) {
+                        if(val>=5 || val==0) {
                         if(CurrenthouseNo.value == "") {
                             CurrenthouseNo.style.borderColor = "#ebcd34";
                             CurrenthouseNo.style.border = "2px solid #ebcd34";
                             Current_houseNo_error.style.display = "block";
-                            flag3 = false;
+                            flag5 = false;
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag5 = true;
                         }
                         }
-                        if(val>=3 || val==0) {
+                        if(val>=6 || val==0) {
                         if(Currentcity.value == "") {
                             Currentcity.style.borderColor = "#ebcd34";
                             Currentcity.style.border = "2px solid #ebcd34";
                             Current_city_error.style.display = "block";
-                            flag3 = false;
+                            flag6 = false;
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag6 = true;
                         }
                         }
-                        if(val>=3 || val==0) {
+                        if(val>=7 || val==0) {
                         if(Currentstreet.value == "") {
                             Currentstreet.style.borderColor = "#ebcd34";
                             Currentstreet.style.border = "2px solid #ebcd34";
                             Current_street_error.style.display = "block";
-                            flag3 = false;
+                            flag7 = false;
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag7 = true;
                         }
                         }
 
@@ -322,11 +322,11 @@
                             Current_postal_code.style.borderColor = "#ebcd34";
                             Current_postal_code.style.border = "2px solid #ebcd34";
                             Current_postal_code_error.style.display = "block";
-                            flag3 = false;
+                            flag8 = false;
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag8 = true;
                         }
                         }
 
@@ -335,11 +335,11 @@
                         if(address_varification.value == "") {
                             
                             address_varification_error.style.display = "block";
-                            flag3 = false;
+                            flag8 = false;
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag8 = true;
                         }
                         }
 
@@ -347,7 +347,7 @@
                         if(residence == null) {
                             
                             residence_error.style.display = "block";
-                            flag3 = false;
+                            flag9 = false;
                         }
                         else 
                         {
@@ -355,7 +355,7 @@
                                
                             } 
                            
-                            flag3 = true;
+                            flag9 = true;
                         }
                         }
                         if(val>=3 || val==0) {
@@ -363,11 +363,11 @@
                             state_of_address.style.borderColor = "#ebcd34";
                             state_of_address.style.border = "2px solid #ebcd34";
                             state_of_address_error.style.display = "block";
-                            flag3 = false;
+                            flag10 = false;
                         }
                         else {
                         //v1.style.borderColor = "white";
-                        flag3 = true;
+                        flag10 = true;
                         }
                     }
                         if(document.getElementById('res_id2').checked == true )
@@ -377,16 +377,16 @@
                             resident.style.borderColor = "#ebcd34";
                             resident.style.border = "2px solid #ebcd34";
                             resident_error.style.display = "block";
-                            flag3 = false;
+                            flag11 = false;
                         }
                         else {
                         //v3.style.borderColor = "white";
-                        flag3 = true;
+                        flag11 = true;
                         }
                         }
                         }
 
-                        flag = flag1 && flag2 && flag3;
+                        flag = flag1 && flag2 && flag3 && flag4 && flag5 && flag6 && flag7 && flag8 && flag9 && flag10 && flag11;
 
                         return flag;
                         }
