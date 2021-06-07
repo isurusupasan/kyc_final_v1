@@ -286,6 +286,26 @@ def update_data(request, id):
             masegEmail = "Sorry! \n"
             profile_rating = request.POST["profile_rating_temp"]
 
+            # new form added variables
+            post_id_exp_temp = request.POST["post_id_exp_temp"]
+            account_type_temp = request.POST["account_type_temp"]
+            have_acc_temp = request.POST["have_acc_temp"]
+            buisness_trans_temp = request.POST["buisness_trans_temp"]
+            fam_remittance_temp = request.POST["fam_remittance_temp"]
+            prof_income_temp = request.POST["prof_income_temp"]
+            rare_trans_temp = request.POST["rare_trans_temp"]
+            cash_temp = request.POST["cash_temp"]
+            cheque_temp = request.POST["cheque_temp"]
+            std_order_temp = request.POST["std_order_temp"]
+            slip_wir_temp = request.POST["slip_wir_temp"]
+            occu_state_temp = request.POST["occu_state_temp"]
+            occupation_temp = request.POST["occupation_temp"]
+            in_source_sales_temp = request.POST["in_source_sales_temp"]
+            in_source_fam_rem_temp = request.POST["in_source_fam_rem_temp"]
+            in_source_commistion_temp = request.POST["in_source_commistion_temp"]
+            in_source_export_temp = request.POST["in_source_export_temp"]
+            avg_income_temp = request.POST["avg_income_temp"]
+
             submit_kyc_temp = Kyc_Reject(salutation_temp=salutation, full_name_temp=full_name,
                                         name_init_temp=name_init, profile_pic_temp=profile_pic,
                                         live_video_temp=live_video,
@@ -316,7 +336,25 @@ def update_data(request, id):
                                         green_flag_temp=flag_2, blue_flag_temp=flag_3, date_now_temp=date_now_temp,
                                         staff_member_temp=staff_member_temp, file_note_temp=file_note_temp,
                                         reason_for_rej_temp=reason_for_rej_temp, rejected_temp=rejected_temp,
-                                        file_attachment_temp=file_attachment_temp, profile_rating_temp=profile_rating)
+                                        file_attachment_temp=file_attachment_temp, profile_rating_temp=profile_rating,
+                                        post_id_exp_temp=post_id_exp_temp,
+                                        account_type_temp=account_type_temp,
+                                        have_acc_temp=have_acc_temp,
+                                        buisness_trans_temp=buisness_trans_temp,
+                                        fam_remittance_temp=fam_remittance_temp,
+                                        prof_income_temp=prof_income_temp,
+                                        rare_trans_temp=rare_trans_temp,
+                                        cash_temp=cash_temp,
+                                        cheque_temp=cheque_temp,
+                                        std_order_temp=std_order_temp,
+                                        slip_wir_temp=slip_wir_temp,
+                                        occu_state_temp=occu_state_temp,
+                                        occupation_temp=occupation_temp,
+                                        in_source_sales_temp=in_source_sales_temp,
+                                        in_source_fam_rem_temp=in_source_fam_rem_temp,
+                                        in_source_commistion_temp=in_source_commistion_temp,
+                                        in_source_export_temp=in_source_export_temp,
+                                        avg_income_temp=avg_income_temp)
 
                     
             submit_kyc_temp.save()
@@ -547,36 +585,75 @@ def update_data(request, id):
                 email_add = request.POST["email_add_temp"]
                 email_add_verification = request.POST["email_add_verification"]
                 profile_rating = request.POST["profile_rating_temp"]
+                
+                # new form added variables
+                post_id_exp_temp = request.POST["post_id_exp_temp"]
+                account_type_temp = request.POST["account_type_temp"]
+                have_acc_temp = request.POST["have_acc_temp"]
+                buisness_trans_temp = request.POST["buisness_trans_temp"]
+                fam_remittance_temp = request.POST["fam_remittance_temp"]
+                prof_income_temp = request.POST["prof_income_temp"]
+                rare_trans_temp = request.POST["rare_trans_temp"]
+                cash_temp = request.POST["cash_temp"]
+                cheque_temp = request.POST["cheque_temp"]
+                std_order_temp = request.POST["std_order_temp"]
+                slip_wir_temp = request.POST["slip_wir_temp"]
+                occu_state_temp = request.POST["occu_state_temp"]
+                occupation_temp = request.POST["occupation_temp"]
+                in_source_sales_temp = request.POST["in_source_sales_temp"]
+                in_source_fam_rem_temp = request.POST["in_source_fam_rem_temp"]
+                in_source_commistion_temp = request.POST["in_source_commistion_temp"]
+                in_source_export_temp = request.POST["in_source_export_temp"]
+                avg_income_temp = request.POST["avg_income_temp"]
 
                 submit_kyc_temp = Kyc_Info(salutation_temp=salutation, full_name_temp=full_name,
-                                           name_init_temp=name_init, profile_pic_temp=profile_pic,
-                                           live_video_temp=live_video,
-                                           id_type_temp=id_type,
-                                           nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
-                                           driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
-                                           pass_no_temp=pass_no, pass_exp_temp=pass_exp,
-                                           birth_cernum_temp=birth_cernum,
-                                           post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
-                                           othe_identity_doc_temp=othe_identity_doc,
-                                           nationality_temp=nationality,
-                                           nationality_other_temp=nationality_other,
-                                           type_of_visa_temp=type_of_visa,
-                                           visa_exp_temp=visa_exp, other_types_temp=other_types,
-                                           other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
-                                           vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
-                                           pep_person_temp=pep_person,
-                                           us_city_temp=us_city,
-                                           resident_sri_temp=resident_sri,
-                                           country_resident_temp=country_resident,
-                                           house_no_temp=house_no, street_temp=street, city_temp=city,
-                                           postal_code_temp=postal_code, state_address_temp=state_address,
-                                           house_no_per_temp=house_no_per, street_per_temp=street_per,
-                                           city_per_temp=city_per, postal_code_per_temp=postal_code_per,
-                                           mob_no_temp=mob_no, office_num_temp=office_num,
-                                           home_num_temp=home_num, email_add_verification=email_add_verification,
-                                           email_add_temp=email_add, red_flag_temp=flag_1,
-                                           green_flag_temp=flag_2, blue_flag_temp=flag_3,
-                                           profile_rating_temp=profile_rating)
+                                            name_init_temp=name_init, profile_pic_temp=profile_pic,
+                                            live_video_temp=live_video,
+                                            id_type_temp=id_type,
+                                            nics_no_temp=nics_no, date_of_birth_temp=date_of_birth,
+                                            driv_lic_temp=drive_lic, driv_exp_temp=driv_exp,
+                                            pass_no_temp=pass_no, pass_exp_temp=pass_exp,
+                                            birth_cernum_temp=birth_cernum,
+                                            post_id_temp=post_id, oafsc_temp=oafsc, visa_copy_temp=visa_copy,
+                                            othe_identity_doc_temp=othe_identity_doc,
+                                            nationality_temp=nationality,
+                                            nationality_other_temp=nationality_other,
+                                            type_of_visa_temp=type_of_visa,
+                                            visa_exp_temp=visa_exp, other_types_temp=other_types,
+                                            other_exp_temp=other_exp, foreign_addre_temp=foreign_addre,
+                                            vari_doc_type_temp=vari_doc_type, vari_doc_temp=vari_doc,
+                                            pep_person_temp=pep_person,
+                                            us_city_temp=us_city,
+                                            resident_sri_temp=resident_sri,
+                                            country_resident_temp=country_resident,
+                                            house_no_temp=house_no, street_temp=street, city_temp=city,
+                                            postal_code_temp=postal_code, state_address_temp=state_address,
+                                            house_no_per_temp=house_no_per, street_per_temp=street_per,
+                                            city_per_temp=city_per, postal_code_per_temp=postal_code_per,
+                                            mob_no_temp=mob_no, office_num_temp=office_num,
+                                            home_num_temp=home_num, email_add_verification=email_add_verification,
+                                            email_add_temp=email_add, red_flag_temp=flag_1,
+                                            green_flag_temp=flag_2, blue_flag_temp=flag_3,
+                                            profile_rating_temp=profile_rating,
+                                            post_id_exp_temp=post_id_exp_temp,
+                                            account_type_temp=account_type_temp,
+                                            have_acc_temp=have_acc_temp,
+                                            buisness_trans_temp=buisness_trans_temp,
+                                            fam_remittance_temp=fam_remittance_temp,
+                                            prof_income_temp=prof_income_temp,
+                                            rare_trans_temp=rare_trans_temp,
+                                            cash_temp=cash_temp,
+                                            cheque_temp=cheque_temp,
+                                            std_order_temp=std_order_temp,
+                                            slip_wir_temp=slip_wir_temp,
+                                            occu_state_temp=occu_state_temp,
+                                            occupation_temp=occupation_temp,
+                                            in_source_sales_temp=in_source_sales_temp,
+                                            in_source_fam_rem_temp=in_source_fam_rem_temp,
+                                            in_source_commistion_temp=in_source_commistion_temp,
+                                            in_source_export_temp=in_source_export_temp,
+                                            avg_income_temp=avg_income_temp
+                                            )
 
                 
                 submit_kyc_temp.save()
