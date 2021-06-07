@@ -27,16 +27,31 @@ urlpatterns = [
     path('office', office),
     path('personal', personal),
     path('account', account),
+    
+    # update display function of records
     path('update', update, name="update"),
+
+    # defined for  developing purposes
     path('select/', productList, name="select"),
+
+    # get the selected user details in table of update.html
     path("update/<int:id>", update_data),
+
+    #defined for backend data verification by admin reject or accept data
     path('edit/<int:id>', edit_val),
+
+
     path('insertkyc', insertkyc),
     #path('insertkyc1', insertkyc1)
     path('upload/', views.image_upload_view),
+
+    # verify the email otp function in views
     path('verify/', views.verify, name="verify" ),
     
+    # including url in kyc to kyc_djago
     path('', include("kyc.urls")),
+
+    # diplay reject list in the html file
     path('reject/', views.reject, name="reject"),
     path('edit_reject/<int:id>', views.edit_val1, name="edit_reject"),
     path('update_history', update_history, name="update_history"),
