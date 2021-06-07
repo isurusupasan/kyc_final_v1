@@ -277,7 +277,12 @@ def update_data(request, id):
             date_now_temp = request.POST["date_now_temp"]
             staff_member_temp = request.POST["staff_member_temp"]
             file_note_temp = request.POST["file_note_temp"]
-            file_attachment_temp = request.POST["file_attachment_temp"]
+
+            try:
+                file_attachment_temp = request.POST["file_attachment_temp"]
+            except MultiValueDictKeyError:
+                file_attachment_temp = ""
+            
             reason_for_rej_temp = request.POST["reason_for_rej_temp"]
             rejected_temp = request.POST["rejected_temp"]
             flag_1 = request.POST["red_flag_temp"]
