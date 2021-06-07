@@ -10,6 +10,7 @@ from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject, Historic
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
 from .forms import update_forms, accept_form, ImageForm, reject_forms
+import numpy as np
 # import alert
 
 # import alert
@@ -1764,14 +1765,142 @@ def exist_cus_form(request):
     finded_user = Kyc_Info.objects.get(nics_no_temp=record_nic_search)
     # form = accept_form(request.POST, instance=finded_user)
 
+    # create id to pass in to the defined function
+    funtion_id = finded_user.id
+
     print(finded_user.email_add_temp)
 
-    #print(finded_user)
-    #print(form.errors)
-    """if form.is_valid():
-        print(form.is_valid())"""
-        #form.save()
-    
+    if request.method == 'POST' and 'update_new' in request.POST:
+
+        # section one dataset
+        salutation_temp = request.POST.get('salutation_temp')   #0
+        full_name_temp = request.POST.get('full_name_temp')     #1
+        mob_no_temp = request.POST.get('mob_no_temp')           #2
+        email_add_temp = request.POST.get('email_add_temp')     #3
+        home_num_temp = request.POST.get('home_num_temp')       #4
+        office_num_temp = request.POST.get('office_num_temp')   #5
+        
+        # section two dataset
+        nics_no_temp = request.POST.get("nics_no_temp")                 #6
+        date_of_birth_temp = request.POST.get("date_of_birth_temp")     #7
+        id_type_temp = request.POST.get("id_type_temp")                 #8
+        driv_lic_temp = request.POST.get("driv_lic_temp")               #9
+        driv_exp_temp = request.POST.get("driv_exp_temp")               #10
+        pass_no_temp = request.POST.get("pass_no_temp")                 #11
+        pass_exp_temp = request.POST.get("pass_exp_temp")               #12
+        post_id_temp = request.POST.get("post_id_temp")                 #13
+        post_id_exp_temp = request.POST.get("post_id_exp_temp")         #14
+        birth_cernum_temp = request.POST.get("birth_cernum_temp")       #15
+        oafsc_temp = request.POST.get("oafsc_temp")                     #16
+
+        try:
+            othe_identity_doc_temp = request.FILES["othe_identity_doc_temp"]    #17
+        except:
+            othe_identity_doc_temp = ""
+        # section 3 dataset
+
+        resident_sri_temp = request.POST.get("resident_sri_temp")               #18
+        country_resident_temp = request.POST.get("country_resident_temp")       #19
+        house_no_temp = request.POST.get("house_no_temp")                       #20
+        street_temp = request.POST.get("street_temp")                           #21
+        city_temp = request.POST.get("city_temp")                               #22
+        postal_code_temp = request.POST.get("postal_code_temp")                 #23
+        house_no_per_temp = request.POST.get("house_no_per_temp")               #24 
+        street_per_temp = request.POST.get("street_per_temp")                   #25
+        city_per_temp = request.POST.get("city_per_temp")                       #26
+        postal_code_per_temp = request.POST.get("postal_code_per_temp")         #27
+        state_address_temp = request.POST.get("state_address_temp")             #28
+        try:    
+            vari_doc_temp = request.FILES["vari_doc_temp"]                      #29
+        except:
+            vari_doc_temp = ""
+        # section 4 dataset
+
+        nationality_temp = request.POST.get("nationality_temp")                 #30
+        nationality_other_temp = request.POST.get("nationality_other_temp")     #31
+        type_of_visa_temp = request.POST.get("type_of_visa_temp")               #32
+        visa_exp_temp = request.POST.get("visa_exp_temp")                       #33
+        other_types_temp = request.POST.get("other_types_temp")                 #34
+        other_exp_temp = request.POST.get("other_exp_temp")                     #35
+        try:
+            visa_copy_temp = request.FILES["visa_copy_temp"]                    #36
+        except MultiValueDictKeyError:
+            visa_copy_temp = ''
+
+        # section 5 dataset
+        try:
+            profile_pic_temp = request.FILES["profile_pic_temp"]                #37
+        except:
+            profile_pic_temp = "" 
+
+        try:
+            live_video_temp = request.FILES["live_video_temp"]                  #38
+        except:
+            live_video_temp = ""
+
+        # section 6 dataset
+        account_type_temp = request.POST.get("account_type_temp")       #39
+        have_acc_temp = request.POST.get("have_acc_temp")               #40
+        buisness_trans_temp = request.POST.get("buisness_trans_temp")   #41
+        fam_remittance_temp = request.POST.get("fam_remittance_temp")   #42
+        prof_income_temp = request.POST.get("prof_income_temp")         #43
+        rare_trans_temp = request.POST.get("rare_trans_temp")           #44
+        cash_temp = request.POST.get("cash_temp")                       #45
+        cheque_temp = request.POST.get("cheque_temp")                   #46
+        std_order_temp = request.POST.get("std_order_temp")             #47
+        slip_wir_temp = request.POST.get("slip_wir_temp")               #48
+
+        #section 7 dataset
+        occu_state_temp = request.POST.get("occu_state_temp")                   #49
+        pep_person_temp = request.POST.get("pep_person_temp")                   #50
+        occupation_temp = request.POST.get("occupation_temp")                   #51
+        in_source_sales_temp = request.POST.get("in_source_sales_temp")         #52
+        in_source_fam_rem_temp = request.POST.get("in_source_fam_rem_temp")     #53
+        in_source_commistion_temp = request.POST.get("in_source_commistion_temp")   #54
+        in_source_export_temp = request.POST.get("in_source_export_temp")           #55
+        avg_income_temp = request.POST.get("avg_income_temp")                       #56
+
+        data_list_to_save = np.array([salutation_temp, full_name_temp, mob_no_temp, email_add_temp, home_num_temp, office_num_temp,
+                                    nics_no_temp, date_of_birth_temp, id_type_temp, driv_lic_temp, driv_exp_temp, pass_no_temp, pass_exp_temp,
+                                    post_id_temp, post_id_exp_temp, birth_cernum_temp, oafsc_temp, othe_identity_doc_temp,
+                                    resident_sri_temp, country_resident_temp, house_no_temp, street_temp, city_temp,
+                                    postal_code_temp,
+                                    house_no_per_temp,
+                                    street_per_temp,
+                                    city_per_temp,
+                                    postal_code_per_temp,
+                                    state_address_temp,
+                                    vari_doc_temp,
+                                    nationality_temp,
+                                    nationality_other_temp,
+                                    type_of_visa_temp,
+                                    visa_exp_temp,
+                                    other_types_temp,
+                                    other_exp_temp,
+                                    visa_copy_temp,
+                                    profile_pic_temp,
+                                    live_video_temp,
+                                    account_type_temp,
+                                    have_acc_temp,
+                                    buisness_trans_temp,
+                                    fam_remittance_temp,
+                                    prof_income_temp,
+                                    rare_trans_temp,
+                                    cash_temp,
+                                    cheque_temp,
+                                    std_order_temp,
+                                    slip_wir_temp,
+                                    occu_state_temp,
+                                    pep_person_temp,
+                                    occupation_temp,
+                                    in_source_sales_temp,
+                                    in_source_fam_rem_temp,
+                                    in_source_commistion_temp,
+                                    in_source_export_temp,
+                                    avg_income_temp])
+
+        make_save_list(request, funtion_id, data_list_to_save)
+        
     
     
     context = {
@@ -1781,3 +1910,76 @@ def exist_cus_form(request):
     return render(request, "exist_cus/existing_customer.html", context)
 
 # end of existing customer management
+
+def make_save_list(request, fuction_id, great):
+    great = great
+    print(great[0])
+    #print(great)
+
+    # section one dataset
+    salutation_temp = great[0]
+    full_name_temp = great[1]
+    mob_no_temp = great[2]
+    email_add_temp =great[3]
+    home_num_temp = great[4]
+    office_num_temp = great[5]
+    # section two dataset
+    nics_no_temp = great[6]
+    date_of_birth_temp = great[7]
+    id_type_temp = great[8]
+    driv_lic_temp = great[9]
+    driv_exp_temp = great[10]
+    pass_no_temp = great[11]
+    pass_exp_temp = great[12]
+    post_id_temp = great[13]
+    post_id_exp_temp = great[14]
+    birth_cernum_temp = great[15]
+    oafsc_temp = great[16]
+    othe_identity_doc_temp = great[17]
+    # section 3 dataset
+    resident_sri_temp = great[18]
+    country_resident_temp = great[19]
+    house_no_temp = great[20]
+    street_temp = great[21]
+    city_temp = great[22]
+    postal_code_temp = great[23]
+    house_no_per_temp = great[24]
+    street_per_temp = great[25]
+    city_per_temp = great[26]
+    postal_code_per_temp = great[27]
+    state_address_temp = great[28]
+    vari_doc_temp = great[29]
+    # section 4 dataset
+    nationality_temp = great[30]
+    nationality_other_temp = great[31]
+    type_of_visa_temp = great[32]
+    visa_exp_temp = great[33]
+    other_types_temp = great[34]
+    other_exp_temp = great[35]
+    visa_copy_temp = great[36]
+    # section 5 dataset
+    profile_pic_temp = great[37]
+    live_video_temp = great[38]
+    # section 6 dataset
+    account_type_temp = great[39]
+    have_acc_temp = great[40]
+    buisness_trans_temp = great[41]
+    fam_remittance_temp = great[42]
+    prof_income_temp = great[43]
+    rare_trans_temp = great[44]
+    cash_temp = great[45]
+    cheque_temp = great[46]
+    std_order_temp = great[47]
+    slip_wir_temp = great[48]
+    #section 7 dataset
+    occu_state_temp = great[49]
+    pep_person_temp = great[50]
+    occupation_temp = great[51]
+    in_source_sales_temp = great[52]
+    in_source_fam_rem_temp = great[53]
+    in_source_commistion_temp = great[54]
+    in_source_export_temp = great[55]
+    avg_income_temp = great[56]
+
+    
+    return None

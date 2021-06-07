@@ -37,14 +37,14 @@
 			<div class="col-md-12" style="padding-top:50px;">
 				<!--<h2 style="padding-left: 125px; padding-top: 50px;">Help us validate your idenetity</h2>-->
 				<center>
-				<form class="login_form">
+				<form class="login_form" method="post" enctype="multipart/form-data">
 				{% csrf_token %}
 					
 					<table width="90%" style="text-align:center;">
 						<tr>
 							<td style="text-align:left;padding-left:70px;">
-							<select class="solutation">
-								<option value="salutation_temp">{{Kyc_Infotemp.salutation_temp}}</option>
+							<select class="solutation" name="salutation_temp">
+								<option value="{{Kyc_Infotemp.salutation_temp}}">{{Kyc_Infotemp.salutation_temp}}</option>
 							</select></td>
 						</tr>
 						<tr>
@@ -719,7 +719,7 @@
 								</tr>
 								<tr>
 									<td colspan="3" style="text-align:right;"> 
-										<button type="button" id="submit" name="submit" class="submit" type="submit" value="Submit">Update</button>  
+										<button id="submit" name="update_new" class="submit" type="submit" value="Updat">Update</button>  
 									</td>
 								</tr>
 						</table>
