@@ -55,7 +55,7 @@
 
         </div>
 
-        <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px; height:1600px;">
+        <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px; height:2200px;">
 
             <form method="post" action="/update/{{Kyc_Infotemp.id}}">
                 {% csrf_token %}
@@ -123,7 +123,7 @@
 
                     <tr>
                         <td>
-                            <p class = "NIC">NIC</br>
+                            <p class = "NIC">NIC<br>
                                 <input class="NIC" type="number" id="NIC" name="nics_no_temp" value="{{Kyc_Infotemp.nics_no_temp}}" readonly>
                             </p>
                         </td>
@@ -165,17 +165,23 @@
                             <input class="Birthcertificatenumber" type="text" id="BRC" name="birth_cernum_temp" value="{{Kyc_Infotemp.birth_cernum_temp}}">
                         </td>
                         <td class="left_border">
-                            <p class = "Postal ID">Postal ID<br>
-                            <input class="Postal ID" type="text" id="PID" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}">
-                        </td>
-                        
-                    </tr>
-
-                    <tr > 
-                        <td td colspan="2" style="padding-left: 150px; ">
                             <p class = "OAFSC">Official armed forces service card<br>
                             <input class="OAFSC" type="text" id="OAFSC" style="width: 60%" name="oafsc_temp" value="{{Kyc_Infotemp.oafsc_temp}}">
                         </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "Postal ID">Postal ID<br>
+                            <input class="Postal ID" type="text" id="PID" name="post_id_temp" value="{{Kyc_Infotemp.post_id_temp}}">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Postal ID">Postal ID Expiration Date<br>
+                            <input class="Postal ID" type="date" id="PID" name="post_id_exp_temp" value="{{Kyc_Infotemp.post_id_exp_temp}}">
+                        </td>
+
+                    <tr> 
+                        <td style="padding-top: 10px;"></td>                        
                        
                     </tr>
 
@@ -285,6 +291,150 @@
                             </td>    
                         </tr>
 
+                </table>
+
+                <hr>
+                <p style="padding-left: 35px;"><i><b>Bank Information</b></i></p>
+                <br>
+
+                <table align="center" width="90%">
+                    <tr>
+                        <td style="width: 40%;">
+                            Have an account in Bank X?                            
+                        </td>
+                        <td colspan="2" style="width: 30%;">
+                            
+                            {% if Kyc_Infotemp.have_acc_temp == "Yes" %}
+                            <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" value="Yes" id="haveAcc" checked="checked"> &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" style="height:10px; width: 10px; "name="have_acc_temp" value="No" id="noAcc" onclick="disable()"> &nbsp;No
+                            {% else %}
+                            <input type="radio" style="height:10px; width: 10px; " name="have_acc_temp" value="Yes" id="haveAcc" > &nbsp;&nbsp;Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" style="height:10px; width: 10px; "name="have_acc_temp" value="No" id="noAcc" checked="checked" onclick="disable()"> &nbsp;No
+                            {% endif %}
+                            
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <table table align="center" width="90%">
+                    <tr>
+                        <td style="width: 50%;">
+                            Type of the account
+                        </td>
+                        <td style="width: 30%;">
+                            <input id="Account_type" type="text" name="account_type_temp" value="{{Kyc_Infotemp.account_type_temp}}" style="border-radius: 10px; width: 200px; " placeholder="Type of the account">
+                        </td> 
+                    </tr>
+                </table>
+                <hr>
+
+                <p style="padding-left: 35px;"><i><b>Purpose of the account</b></i></p>
+
+                <br>
+
+                <table align="center" width="90%">
+                    <tr>
+                        <td style="width: 50%;">
+                            
+                            {% if Kyc_Infotemp.buisness_trans_temp == "on" %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox" checked="checked"> &nbsp;Business Transaction
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox"> &nbsp;Business Transaction
+                            {% endif %}
+                        </td>
+                        <td style="width: 45%;" >
+                            {% if Kyc_Infotemp.fam_remittance_temp == "on" %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox" checked="checked">&nbsp;Family inward remittance
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox">&nbsp;Family inward remittance
+                            {% endif %}
+                            
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;padding-top: 10px">
+                            
+                            {% if Kyc_Infotemp.prof_income_temp %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox" checked="checked">&nbsp;Employment/Professional income
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox">&nbsp;Employment/Professional income
+                            {% endif %}
+
+                        </td>
+                        <td style="width: 45%;">
+                            {% if Kyc_Infotemp.rare_trans_temp %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox" checked="checked">&nbsp;Rare transaction
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox">&nbsp;Rare transaction
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+
+                <hr>
+
+                <p style="padding-left: 35px;"><i><b>Mode of transaction</b></i></p>
+
+                <br>
+
+                <table align="center" width="90%">
+                    <tr>
+                        <td>
+
+                            {% if Kyc_Infotemp.cash_temp %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2" checked="checked">&nbsp;Cash
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2">&nbsp;Cash
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if Kyc_Infotemp.cheque_temp %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2" checked="checked">&nbsp;Cheque
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2">&nbsp;Cheque
+                            {% endif %}
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            {% if Kyc_Infotemp.std_order_temp %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2" checked="checked">&nbsp;Standing order 
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2">&nbsp;Standing order                                         
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if Kyc_Infotemp.slip_wir_temp %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2" checked="checked">&nbsp;Slip wire
+                            {% else %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2">&nbsp;Slip wire
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+
+                <hr>
+                <p style="padding-left: 35px;"><i><b>Occupation status</b></i></p>
+
+                <table align="center" width="90%">
+                    <tr>
+                        <td>
+                            <select id="Occutation_Status" name="occu_state_temp" style="width:150px;">
+                                <option disabled>Occupation status</option>
+                                <option value={{Kyc_Infotemp.occu_state_temp}} selected>{{Kyc_Infotemp.occu_state_temp}}</option>
+                                <option value="Salaried Worker">Salaried Worker</option>
+                                <option value="Retire">Retired</option>
+                                <option value="Self-Employee">Self-Employee</option>
+                            </select>
+                        </td>
+                        
+                        <td>
+                            <input type="text" style="width: 200px;" id="occupation" name="occupation_temp" value={{Kyc_Infotemp.occupation_temp}} class="occupation" placeholder="Occupation">
+                        </td>
+                    </tr>
                 </table>
 
                 <br>
@@ -513,6 +663,105 @@
                                 </p>
                             </td>
                         </tr>
+                    </table>
+
+                    <hr>
+
+                    <br>
+                    <p style="text-align: left; padding-left: 35px;"><i><b><label>Source of income </label></b></i></p>
+
+                    <table style="width: 80%;">
+
+                        <tr>
+                            <td style="width: 40%;" >
+                                
+                                {% if Kyc_Infotemp.in_source_sales_temp %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c31" name="in_source_sales_temp" class="checkbox" checked="checked"> &nbsp;Sales and business turnover
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c31" name="in_source_sales_temp" class="checkbox"> &nbsp;Sales and business turnover
+                                {% endif %}
+                                    
+                                    
+                                
+                            </td>
+                            <td style="width: 40%;" >
+                                {% if Kyc_Infotemp.in_source_fam_rem_temp %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c32" name="in_source_fam_rem_temp" class="checkbox" checked="checked">&nbsp;Family remittance
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c32" name="in_source_fam_rem_temp" class="checkbox">&nbsp;Family remittance
+                                {% endif %}
+                                    
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width: 40%;">
+                                
+                                {% if Kyc_Infotemp.in_source_commistion_temp %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c38" name="in_source_commistion_temp" class="checkbox" checked="checked">&nbsp;Commission income
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c38" name="in_source_commistion_temp" class="checkbox">&nbsp;Commission income
+                                {% endif %}
+
+                            </td>
+                            <td style="width: 40%;">
+                                {% if Kyc_Infotemp.in_source_export_temp %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c34" name="in_source_export_temp" class="checkbox" checked="checked">&nbsp;Export proceeds	
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="c34" name="in_source_export_temp" class="checkbox">&nbsp;Export proceeds	
+                                {% endif %}
+                                    
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr>
+
+                    <br>
+                    <p style="text-align: left; padding-left: 35px;"><i><b><label>Average monthly income (Rs.) </label></b></i></p>
+
+                    <table table style="width: 80%;">
+                        
+                        <tr>
+                            
+                            <td style="width: 40%;">
+                                
+                                {% if Kyc_Infotemp.avg_income_temp == "Less than 100,000" %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="Less than 100,000" class="checkbox2" checked="checked">&nbsp;Less than 100,000
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="Less than 100,000" class="checkbox2">&nbsp;Less than 100,000
+                                {% endif %}
+                            
+                            </td>
+                            <td style="width: 40%;">
+                                {% if Kyc_Infotemp.avg_income_temp == "100,001.00 - 500,000.00" %}	
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="100,001.00 - 500,000.00" class="checkbox2" checked="checked">&nbsp;100,001.00 - 500,000.00 
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="100,001.00 - 500,000.00" class="checkbox2">&nbsp;100,001.00 - 500,000.00 
+                                {% endif %}
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td style="width: 40%;">
+                                
+                                {% if Kyc_Infotemp.avg_income_temp == "500,001.00 - 1,000,000.00" %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="500,001.00 - 1,000,000.00" class="checkbox2" checked="checked">&nbsp;500,001.00 - 1,000,000.00  
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="avg_income_temp" value="500,001.00 - 1,000,000.00" class="checkbox2">&nbsp;500,001.00 - 1,000,000.00  
+                                {% endif %}
+                               
+                            </td>
+                            <td style="width: 40%;">
+                                {% if Kyc_Infotemp.avg_income_temp == "Above 1,000,000.00" %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="Above 1,000,000.00" class="checkbox2" checked="checked">&nbsp;Above 1,000,000.00
+                                {% else %}
+                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="avg_income_temp" value="Above 1,000,000.00" class="checkbox2">&nbsp;Above 1,000,000.00
+                                {% endif %}
+                            </td>
+                        </tr>
+                        
                     </table>
 
                     <hr>
