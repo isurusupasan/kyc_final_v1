@@ -290,21 +290,23 @@ def update_data(request, id):
             post_id_exp_temp = request.POST["post_id_exp_temp"]
             account_type_temp = request.POST["account_type_temp"]
             have_acc_temp = request.POST["have_acc_temp"]
-            buisness_trans_temp = request.POST["buisness_trans_temp"]
-            fam_remittance_temp = request.POST["fam_remittance_temp"]
-            prof_income_temp = request.POST["prof_income_temp"]
-            rare_trans_temp = request.POST["rare_trans_temp"]
-            cash_temp = request.POST["cash_temp"]
-            cheque_temp = request.POST["cheque_temp"]
-            std_order_temp = request.POST["std_order_temp"]
-            slip_wir_temp = request.POST["slip_wir_temp"]
-            occu_state_temp = request.POST["occu_state_temp"]
-            occupation_temp = request.POST["occupation_temp"]
-            in_source_sales_temp = request.POST["in_source_sales_temp"]
-            in_source_fam_rem_temp = request.POST["in_source_fam_rem_temp"]
-            in_source_commistion_temp = request.POST["in_source_commistion_temp"]
-            in_source_export_temp = request.POST["in_source_export_temp"]
+            buisness_trans_temp = request.POST.get("buisness_trans_temp")
+            fam_remittance_temp = request.POST.get("fam_remittance_temp")
+            prof_income_temp = request.POST.get("prof_income_temp")
+            rare_trans_temp = request.POST.get("rare_trans_temp")
+            cash_temp = request.POST.get("cash_temp")
+            cheque_temp = request.POST.get("cheque_temp")
+            std_order_temp = request.POST.get("std_order_temp")
+            slip_wir_temp = request.POST.get("slip_wir_temp")
+            occu_state_temp = request.POST.get("occu_state_temp")
+            occupation_temp = request.POST.get("occupation_temp")
+            in_source_sales_temp = request.POST.get("in_source_sales_temp")
+            in_source_fam_rem_temp = request.POST.get("in_source_fam_rem_temp")
+            in_source_commistion_temp = request.POST.get("in_source_commistion_temp")
+            in_source_export_temp = request.POST.get("in_source_export_temp")
             avg_income_temp = request.POST["avg_income_temp"]
+            email_varified_temp = request.POST["email_varified_temp"]
+            
 
             submit_kyc_temp = Kyc_Reject(salutation_temp=salutation, full_name_temp=full_name,
                                         name_init_temp=name_init, profile_pic_temp=profile_pic,
@@ -354,7 +356,8 @@ def update_data(request, id):
                                         in_source_fam_rem_temp=in_source_fam_rem_temp,
                                         in_source_commistion_temp=in_source_commistion_temp,
                                         in_source_export_temp=in_source_export_temp,
-                                        avg_income_temp=avg_income_temp)
+                                        avg_income_temp=avg_income_temp,
+                                        email_varified_temp=email_varified_temp)
 
                     
             submit_kyc_temp.save()
@@ -590,21 +593,22 @@ def update_data(request, id):
                 post_id_exp_temp = request.POST["post_id_exp_temp"]
                 account_type_temp = request.POST["account_type_temp"]
                 have_acc_temp = request.POST["have_acc_temp"]
-                buisness_trans_temp = request.POST["buisness_trans_temp"]
-                fam_remittance_temp = request.POST["fam_remittance_temp"]
-                prof_income_temp = request.POST["prof_income_temp"]
-                rare_trans_temp = request.POST["rare_trans_temp"]
-                cash_temp = request.POST["cash_temp"]
-                cheque_temp = request.POST["cheque_temp"]
-                std_order_temp = request.POST["std_order_temp"]
-                slip_wir_temp = request.POST["slip_wir_temp"]
-                occu_state_temp = request.POST["occu_state_temp"]
-                occupation_temp = request.POST["occupation_temp"]
-                in_source_sales_temp = request.POST["in_source_sales_temp"]
-                in_source_fam_rem_temp = request.POST["in_source_fam_rem_temp"]
-                in_source_commistion_temp = request.POST["in_source_commistion_temp"]
-                in_source_export_temp = request.POST["in_source_export_temp"]
+                buisness_trans_temp = request.POST.get("buisness_trans_temp")
+                fam_remittance_temp = request.POST.get("fam_remittance_temp")
+                prof_income_temp = request.POST.get("prof_income_temp")
+                rare_trans_temp = request.POST.get("rare_trans_temp")
+                cash_temp = request.POST.get("cash_temp")
+                cheque_temp = request.POST.get("cheque_temp")
+                std_order_temp = request.POST.get("std_order_temp")
+                slip_wir_temp = request.POST.get("slip_wir_temp")
+                occu_state_temp = request.POST.get("occu_state_temp")
+                occupation_temp = request.POST.get("occupation_temp")
+                in_source_sales_temp = request.POST.get("in_source_sales_temp")
+                in_source_fam_rem_temp = request.POST.get("in_source_fam_rem_temp")
+                in_source_commistion_temp = request.POST.get("in_source_commistion_temp")
+                in_source_export_temp = request.POST.get("in_source_export_temp")
                 avg_income_temp = request.POST["avg_income_temp"]
+                email_varified_temp = request.POST["email_varified_temp"]
 
                 submit_kyc_temp = Kyc_Info(salutation_temp=salutation, full_name_temp=full_name,
                                             name_init_temp=name_init, profile_pic_temp=profile_pic,
@@ -652,7 +656,8 @@ def update_data(request, id):
                                             in_source_fam_rem_temp=in_source_fam_rem_temp,
                                             in_source_commistion_temp=in_source_commistion_temp,
                                             in_source_export_temp=in_source_export_temp,
-                                            avg_income_temp=avg_income_temp
+                                            avg_income_temp=avg_income_temp,
+                                            email_varified_temp=email_varified_temp
                                             )
 
                 
