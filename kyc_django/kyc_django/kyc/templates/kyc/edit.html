@@ -338,17 +338,17 @@
                     <tr>
                         <td style="width: 50%;">
                             
-                            {% if Kyc_Infotemp.buisness_trans_temp == "on" %}
-                                <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox" checked="checked"> &nbsp;Business Transaction
+                            {% if Kyc_Infotemp.buisness_trans_temp == "True" %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox" value="True" checked="checked"> &nbsp;Business Transaction
                             {% else %}
-                                <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox"> &nbsp;Business Transaction
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c21" name="buisness_trans_temp" class="checkbox" > &nbsp;Business Transaction
                             {% endif %}
                         </td>
                         <td style="width: 45%;" >
-                            {% if Kyc_Infotemp.fam_remittance_temp == "on" %}
-                                <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox" checked="checked">&nbsp;Family inward remittance
+                            {% if Kyc_Infotemp.fam_remittance_temp == "True" %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox" value="True" checked="checked">&nbsp;Family inward remittance
                             {% else %}
-                                <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox">&nbsp;Family inward remittance
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c22" name="fam_remittance_temp" class="checkbox" >&nbsp;Family inward remittance
                             {% endif %}
                             
                         </td>
@@ -357,18 +357,18 @@
                     <tr>
                         <td style="width: 50%;padding-top: 10px">
                             
-                            {% if Kyc_Infotemp.prof_income_temp %}
-                                <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox" checked="checked">&nbsp;Employment/Professional income
+                            {% if Kyc_Infotemp.prof_income_temp == "True" %}
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox" checked="checked" value="True">&nbsp;Employment/Professional income
                             {% else %}
-                                <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox">&nbsp;Employment/Professional income
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c23" name="prof_income_temp" class="checkbox" >&nbsp;Employment/Professional income
                             {% endif %}
 
                         </td>
                         <td style="width: 45%;">
-                            {% if Kyc_Infotemp.rare_trans_temp %}
-                                <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox" checked="checked">&nbsp;Rare transaction
+                            {% if Kyc_Infotemp.rare_trans_temp == "True" %}
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox" checked="checked" value="True">&nbsp;Rare transaction
                             {% else %}
-                                <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox">&nbsp;Rare transaction
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c24" name="rare_trans_temp" class="checkbox" >&nbsp;Rare transaction
                             {% endif %}
                         </td>
                     </tr>
@@ -385,14 +385,14 @@
                         <td>
 
                             {% if Kyc_Infotemp.cash_temp %}
-                                <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2" checked="checked">&nbsp;Cash
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2" checked="checked" value="True">&nbsp;Cash
                             {% else %}
                                 <input type="checkbox" style="height: 10px;width: 10px;" id="c41" name="cash_temp" class="checkbox2">&nbsp;Cash
                             {% endif %}
                         </td>
                         <td>
                             {% if Kyc_Infotemp.cheque_temp %}
-                                <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2" checked="checked">&nbsp;Cheque
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2" checked="checked" value="True">&nbsp;Cheque
                             {% else %}
                                 <input type="checkbox" style="height: 10px;width: 10px;"id="c42" name="cheque_temp" class="checkbox2">&nbsp;Cheque
                             {% endif %}
@@ -401,14 +401,14 @@
                     <tr>
                         <td>
                             {% if Kyc_Infotemp.std_order_temp %}
-                                <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2" checked="checked">&nbsp;Standing order 
+                                <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2" checked="checked" value="True">&nbsp;Standing order 
                             {% else %}
                                 <input type="checkbox" style="height: 10px;width: 10px;" id="c43" name="std_order_temp"  class="checkbox2">&nbsp;Standing order                                         
                             {% endif %}
                         </td>
                         <td>
                             {% if Kyc_Infotemp.slip_wir_temp %}
-                                <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2" checked="checked">&nbsp;Slip wire
+                                <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2" checked="checked" value="True">&nbsp;Slip wire
                             {% else %}
                                 <input type="checkbox" style="height: 10px;width: 10px;"id="c47" name="slip_wir_temp" class="checkbox2">&nbsp;Slip wire
                             {% endif %}
@@ -607,7 +607,7 @@
 
                             <td>
                                 <p>Home<br>
-                                    <input type="tel" name="home_number" id="hometel" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}">
+                                    <input type="tel" id="hometel" name="home_num_temp" value="{{Kyc_Infotemp.home_num_temp}}">
                                 </p>
                             </td>
                         </tr>
@@ -636,6 +636,9 @@
                             </td>
                             <td>
                                 <input type="text" name="email_add_verification" value="{{Kyc_Infotemp.email_add_verification}}" readonly>
+                            </td>
+                            <td>
+                                <input type="text" name="email_varified_temp" value="{{Kyc_Infotemp.email_varified_temp}}" readonly>
                             </td>
                         </tr>
 
