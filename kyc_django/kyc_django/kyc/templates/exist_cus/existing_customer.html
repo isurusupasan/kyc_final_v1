@@ -710,7 +710,7 @@
 											{% if Kyc_Infotemp.pep_person_temp == "Yes" %}
 												<input type="radio" name="pep_person_temp" id="pep_id1" style="width:10px; height:10px;" value="Yes" checked="checked">Yes &nbsp;&nbsp;&nbsp;
 												<input type="radio" name="pep_person_temp" id="pep_id2" style="width:10px; height:10px;" value="No">No &nbsp;&nbsp;&nbsp;
-											{% else %}
+											{% elif Kyc_Infotemp.pep_person_temp == "No" %}
 												<input type="radio" name="pep_person_temp" id="pep_id1" style="width:10px; height:10px;" value="Yes">Yes &nbsp;&nbsp;&nbsp;
 												<input type="radio" name="pep_person_temp" id="pep_id2" style="width:10px; height:10px;" value="No" checked="checked">No &nbsp;&nbsp;&nbsp;
 											{% endif %}
