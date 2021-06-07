@@ -229,14 +229,14 @@ class Image(models.Model):
 
 class Kyc_Reject(models.Model):
     
-    salutation_temp = models.CharField(max_length=5)
-    full_name_temp = models.CharField(max_length=200)
-    name_init_temp = models.CharField(max_length=100)
-    profile_pic_temp = models.ImageField(upload_to='rej/images/id_self/%Y/%m/%d/', null=True)
-    live_video_temp = models.FileField(upload_to='rej/videos/liv_vid/%Y/%m/%d/', null=True)
-    id_type_temp = models.CharField(max_length=50)
-    nics_no_temp = models.CharField(max_length=50)
-    date_of_birth_temp = models.CharField(max_length=20)
+    salutation_temp = models.CharField(max_length=5, null=True, blank=True)
+    full_name_temp = models.CharField(max_length=200, null=True, blank=True)
+    name_init_temp = models.CharField(max_length=100, null=True, blank=True)
+    profile_pic_temp = models.ImageField(upload_to='rej/images/id_self/%Y/%m/%d/', null=True, blank=True)
+    live_video_temp = models.FileField(upload_to='rej/videos/liv_vid/%Y/%m/%d/', null=True, blank=True)
+    id_type_temp = models.CharField(max_length=50, null=True, blank=True)
+    nics_no_temp = models.CharField(max_length=50, null=True, blank=True)
+    date_of_birth_temp = models.CharField(max_length=20, null=True, blank=True)
     driv_lic_temp = models.CharField(max_length=50, blank=True, null=True)
     driv_exp_temp = models.CharField(max_length=20, blank=True, null=True)
     pass_no_temp = models.CharField(max_length=50, blank=True, null=True)
@@ -246,7 +246,7 @@ class Kyc_Reject(models.Model):
     oafsc_temp = models.CharField(max_length=10, blank=True, null=True)
     visa_copy_temp = models.ImageField(null=True, blank=True, upload_to="rej/images/visa_copy/%Y/%m/%d/")
     othe_identity_doc_temp = models.ImageField(null=True, blank=True, upload_to="rej/images/other_doc/%Y/%m/%d/")
-    nationality_temp = models.CharField(max_length=50)
+    nationality_temp = models.CharField(max_length=50, null=True, blank=True)
     nationality_other_temp = models.CharField(max_length=50, blank=True, null=True)
     type_of_visa_temp = models.CharField(max_length=20,blank=True)
     visa_exp_temp = models.CharField(max_length=20, blank=True, null=True)
@@ -263,20 +263,20 @@ class Kyc_Reject(models.Model):
     country_resident_temp =models.CharField(blank=True, max_length=50)
 
     # current Address
-    house_no_temp = models.CharField(max_length=100)
-    street_temp = models.CharField(max_length=100)
-    city_temp = models.CharField(max_length=50)
+    house_no_temp = models.CharField(max_length=100, null=True, blank=True)
+    street_temp = models.CharField(max_length=100, null=True, blank=True)
+    city_temp = models.CharField(max_length=50, null=True, blank=True)
     postal_code_temp = models.CharField(max_length=10, blank=True, null=True)
     state_address_temp = models.CharField(max_length=50, blank=True, null=True)
 
     # permenent Address
-    house_no_per_temp = models.CharField(max_length=100)
-    street_per_temp = models.CharField(max_length=100)
-    city_per_temp = models.CharField(max_length=50)
+    house_no_per_temp = models.CharField(max_length=100, null=True, blank=True)
+    street_per_temp = models.CharField(max_length=100, null=True, blank=True)
+    city_per_temp = models.CharField(max_length=50, null=True, blank=True)
     postal_code_per_temp = models.CharField(max_length=10, blank=True, null=True)
     
     # contact infromation
-    mob_no_temp = models.CharField(max_length=20)
+    mob_no_temp = models.CharField(max_length=20, null=True, blank=True)
     office_num_temp = models.CharField(max_length=20, blank=True, null=True)
     home_num_temp = models.CharField(max_length=20, blank=True, null=True)
     email_add_temp = models.CharField(max_length=100, blank=True, null=True)
@@ -291,8 +291,40 @@ class Kyc_Reject(models.Model):
     file_note_temp = models.TextField(max_length=250, null=True, blank=True)
     rejected_temp = models.CharField(max_length=40, null=True, blank=True)
     reason_for_rej_temp = models.CharField(max_length=100, null=True, blank=True)
-    file_attachment_temp = models.FileField(upload_to='rej/videos/liv_vid/%Y/%m/%d/', null=True)
-    profile_rating_temp = models.CharField(max_length=50)
+    file_attachment_temp = models.FileField(upload_to='rej/videos/liv_vid/%Y/%m/%d/', null=True, blank=True)
+    profile_rating_temp = models.CharField(max_length=50, null=True, blank=True)
+
+
+    # newly added variables
+    post_id_exp_temp = models.CharField(max_length=10, blank=True, null=True)
+    account_type_temp = models.CharField(max_length=50, null=True, blank=True)
+    have_acc_temp = models.CharField(max_length=10, null=True, blank=True)
+
+    # purpose of the account
+    buisness_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+    fam_remittance_temp = models.CharField(max_length=20, null=True, blank=True)
+    prof_income_temp = models.CharField(max_length=20, null=True, blank=True)
+    rare_trans_temp = models.CharField(max_length=20, null=True, blank=True)
+
+    # form of transaction
+    cash_temp = models.CharField(max_length=20, null=True, blank=True)
+    cheque_temp = models.CharField(max_length=20, null=True, blank=True)
+    std_order_temp = models.CharField(max_length=20, null=True, blank=True)
+    slip_wir_temp = models.CharField(max_length=20, null=True, blank=True)
+
+    # occupation details
+    occu_state_temp = models.CharField(max_length=50, null=True, blank=True)
+    occupation_temp = models.CharField(max_length=50, null=True, blank=True)
+    
+    # sources of income
+    in_source_sales_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_fam_rem_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_commistion_temp = models.CharField(max_length=20, null=True, blank=True)
+    in_source_export_temp = models.CharField(max_length=20, null=True, blank=True)
+    
+    # average monthly income
+    avg_income_temp = models.CharField(max_length=50, null=True, blank=True)
+    email_varified_temp = models.CharField(max_length=10, null=True, blank=True)
     
 
     class Meta:
