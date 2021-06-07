@@ -10,6 +10,8 @@ Then run
 
 Run the manage.py migrations
 > python manage.py makemigrations
+
+run migrtions
 > python manage.py migrate
 
 Run the server
