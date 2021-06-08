@@ -1900,6 +1900,14 @@ def exist_cus_form(request):
                                     avg_income_temp])
 
         make_save_list(request, funtion_id, data_list_to_save)
+
+        finded_user = Kyc_Info.objects.get(nics_no_temp=record_nic_search)
+
+        context = {
+            "Kyc_Infotemp": finded_user,
+        }
+
+        return render(request, "exist_cus/existing_customer.html", context)
         
     
     
@@ -1911,20 +1919,28 @@ def exist_cus_form(request):
 
 # end of existing customer management
 
-def make_save_list(request, fuction_id, great):
-    great = great
-    print(great[0])
+def make_save_list(request, function_id, dataset_list_for_func):
+    great = dataset_list_for_func
+
+    id_set = function_id
+
+    print(great)
     #print(great)
 
-    # section one dataset
-    salutation_temp = great[0]
-    full_name_temp = great[1]
-    mob_no_temp = great[2]
-    email_add_temp =great[3]
+    # section one dataset======================================================================================
+
+    # salutation_temp = great[0]
+    # full_name_temp = great[1]
+    # mob_no_temp = great[2]
+    # email_add_temp =great[3]
+
     home_num_temp = great[4]
     office_num_temp = great[5]
-    # section two dataset
-    nics_no_temp = great[6]
+    Kyc_Info.objects.filter(id=function_id).update(home_num_temp=home_num_temp, office_num_temp=office_num_temp)
+
+    # section two dataset=======================================================================================
+
+    # nics_no_temp = great[6]
     date_of_birth_temp = great[7]
     id_type_temp = great[8]
     driv_lic_temp = great[9]
@@ -1936,20 +1952,43 @@ def make_save_list(request, fuction_id, great):
     birth_cernum_temp = great[15]
     oafsc_temp = great[16]
     othe_identity_doc_temp = great[17]
-    # section 3 dataset
+
+    Kyc_Info.objects.filter(id=function_id).update(date_of_birth_temp=date_of_birth_temp, id_type_temp=id_type_temp,
+        driv_lic_temp=driv_lic_temp, driv_exp_temp=driv_exp_temp, pass_no_temp=pass_no_temp, pass_exp_temp=pass_exp_temp, 
+        post_id_temp=post_id_temp, post_id_exp_temp=post_id_exp_temp, birth_cernum_temp=birth_cernum_temp, oafsc_temp=oafsc_temp)
+
+    # defingig a variable to insert files to sepcific location of the qurary set
+    insert_image_quary = Kyc_Info.objects.get(id=function_id)
+
+    if othe_identity_doc_temp != "":
+        insert_image_quary.othe_identity_doc_temp = othe_identity_doc_temp
+        insert_image_quary.save()
+
+    # section 3 dataset==============================================================================================
+
     resident_sri_temp = great[18]
     country_resident_temp = great[19]
     house_no_temp = great[20]
     street_temp = great[21]
     city_temp = great[22]
     postal_code_temp = great[23]
-    house_no_per_temp = great[24]
-    street_per_temp = great[25]
-    city_per_temp = great[26]
-    postal_code_per_temp = great[27]
+    # house_no_per_temp = great[24]
+    # street_per_temp = great[25]
+    # city_per_temp = great[26]
+    # postal_code_per_temp = great[27]
     state_address_temp = great[28]
     vari_doc_temp = great[29]
-    # section 4 dataset
+    
+    Kyc_Info.objects.filter(id=function_id).update(resident_sri_temp=resident_sri_temp, country_resident_temp=country_resident_temp,
+        house_no_temp=house_no_temp, street_temp=street_temp, city_temp=city_temp, postal_code_temp=postal_code_temp,
+        state_address_temp=state_address_temp)
+
+    if vari_doc_temp != "":
+        insert_image_quary.vari_doc_temp = vari_doc_temp
+        insert_image_quary.save()
+
+    # section 4 dataset================================================================================================
+
     nationality_temp = great[30]
     nationality_other_temp = great[31]
     type_of_visa_temp = great[32]
@@ -1957,10 +1996,33 @@ def make_save_list(request, fuction_id, great):
     other_types_temp = great[34]
     other_exp_temp = great[35]
     visa_copy_temp = great[36]
-    # section 5 dataset
+
+    Kyc_Info.objects.filter(id=function_id).update(nationality_temp=nationality_temp, nationality_other_temp=nationality_other_temp,
+        type_of_visa_temp=type_of_visa_temp, visa_exp_temp=visa_exp_temp, other_types_temp=other_types_temp,
+        other_exp_temp=other_exp_temp)
+
+    if visa_copy_temp != "":
+        insert_image_quary.visa_copy_temp = visa_copy_temp
+        insert_image_quary.save()
+
+
+    # section 5 dataset================================================================================================================
+
+
     profile_pic_temp = great[37]
     live_video_temp = great[38]
-    # section 6 dataset
+
+    if profile_pic_temp != "":
+        insert_image_quary.profile_pic_temp = profile_pic_temp
+        insert_image_quary.save()
+
+    if live_video_temp != "":
+        insert_image_quary.live_video_temp = live_video_temp
+        insert_image_quary.save()
+
+    # section 6 dataset==============================================================================================
+
+
     account_type_temp = great[39]
     have_acc_temp = great[40]
     buisness_trans_temp = great[41]
@@ -1971,7 +2033,16 @@ def make_save_list(request, fuction_id, great):
     cheque_temp = great[46]
     std_order_temp = great[47]
     slip_wir_temp = great[48]
-    #section 7 dataset
+
+    Kyc_Info.objects.filter(id=function_id).update(account_type_temp=account_type_temp, have_acc_temp=have_acc_temp,
+        buisness_trans_temp=buisness_trans_temp, fam_remittance_temp=fam_remittance_temp, cash_temp=cash_temp, 
+        prof_income_temp=prof_income_temp, rare_trans_temp=rare_trans_temp, cheque_temp=cheque_temp, 
+        std_order_temp=std_order_temp, slip_wir_temp=slip_wir_temp)
+
+
+    #section 7 dataset============================================================================================
+
+    
     occu_state_temp = great[49]
     pep_person_temp = great[50]
     occupation_temp = great[51]
@@ -1980,6 +2051,12 @@ def make_save_list(request, fuction_id, great):
     in_source_commistion_temp = great[54]
     in_source_export_temp = great[55]
     avg_income_temp = great[56]
+
+    Kyc_Info.objects.filter(id=function_id).update(occu_state_temp=occu_state_temp, occupation_temp=occupation_temp,
+        in_source_sales_temp=in_source_sales_temp, in_source_fam_rem_temp=in_source_fam_rem_temp,
+        in_source_commistion_temp=in_source_commistion_temp, in_source_export_temp=in_source_export_temp,
+        avg_income_temp=avg_income_temp, pep_person_temp=pep_person_temp)
+
 
     
     return None
