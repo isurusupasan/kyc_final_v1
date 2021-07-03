@@ -2072,35 +2072,47 @@ def social_score(request):
         spent_hours_video = request.POST.get("spent_hours_video")
         job_status = request.POST.get("job_status")
 
+        # relations details
         relations_name = request.POST.get("relations_name")
         relations_address = request.POST.get("relations_address")
         rel_relationship = request.POST.get("rel_relationship")
         rel_job_type = request.POST.get("rel_job_type")
         rel_job_status = request.POST.get("rel_job_status")
 
+        #friends details
         friend_name = request.POST.get("friend_name")
         friend_address = request.POST.get("friend_address")
         friend_job_type = request.POST.get("friend_job_type")
         friend_job_status = request.POST.get("friend_job_status")
-
+        
+        # volunteer services
         volun_service = request.POST.get("volun_service")
 
+        # sergery deails
         ser_heart = request.POST.get("ser_heart")
         ser_cancer = request.POST.get("ser_cancer")
         ser_kidney = request.POST.get("ser_kidney")
         ser_none = request.POST.get("ser_none")
         ser_other = request.POST.get("ser_other")
 
+        # major disease details
         dis_diabetics = request.POST.get("dis_diabetics")
         dis_cholestrol = request.POST.get("dis_cholestrol")
         dis_blood_presure = request.POST.get("dis_blood_presure")
         dis_none = request.POST.get("dis_none")
         dis_other = request.POST.get("dis_other")
-        print(edu_qualifi, emp_details, spent_hours_video, job_status)
-        print(relations_name, relations_address, rel_relationship, rel_job_type, rel_job_status)
-        print(friend_name, friend_address, friend_job_type, friend_job_status)
-        print(volun_service)
-        print(ser_heart, ser_cancer, ser_kidney, ser_none, ser_other)
-        print(dis_diabetics, dis_cholestrol, dis_blood_presure, dis_none, dis_other)
 
+        # passing variable sto social score model table
+        scoial_score_record = Social_core(edu_qualifi=edu_qualifi, emp_details=emp_details, spent_hours_video=spent_hours_video,
+         job_status=job_status, relations_name=relations_name, relations_address=relations_address,
+        rel_relationship= rel_relationship, rel_job_type=rel_job_type, rel_job_status=rel_job_status,
+        friend_name=friend_name, friend_address=friend_address, friend_job_type=friend_job_type, friend_job_status=friend_job_status,
+        volun_service=volun_service, 
+        ser_heart=ser_heart, ser_cancer=ser_cancer, ser_kidney=ser_kidney, ser_none=ser_none, ser_other=ser_other,
+        dis_diabetics=dis_diabetics, dis_cholestrol=dis_cholestrol, dis_blood_presure=dis_blood_presure, dis_none=dis_none,
+        dis_other=dis_other)
+
+        scoial_score_record.save()
+
+        
     return render(request, 'social_score/Social_score.html')
