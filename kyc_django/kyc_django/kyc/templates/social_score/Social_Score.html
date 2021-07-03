@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="{% static 'kyc/css_soc_score/style3.css' %}">
     </head>
     <body>
-        <form>
+        <form form action="social_score" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
             <div class="row" style="padding-left: 30px;">
                 <div class="tbl2" style="padding-top: 50px;">
                     <table>  
@@ -25,7 +26,7 @@
                                
                                 <div style="padding-left: 100px; padding-top: 20px;">
                                     <div id="edu_error" class="error"><b>Oops! you cannot proceed without selecting yout Education Qualification</b></div>
-                                 <select id="edu_type" style="width: 400px;">
+                                 <select id="edu_type" name="edu_qualifi" style="width: 400px;">
                                      <option  value="default">Select your Education Qualification</option>
                                      <option  value="phd">Ph.D./ Masters /MBA </option>
                                      <option value="Graduate" >Graduate </option>
@@ -50,7 +51,7 @@
                                
                                 <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
                                     <div id="j1_error" class="error"><b>Oops! you cannot proceed without selecting your Job type</b></div>
-                                 <select id="j1_type" style="width: 400px;">
+                                 <select id="j1_type" name="emp_details" style="width: 400px;">
                                      <option id="op_def" value="default">Select your Job type</option>
                                      <option id="op_nic" value="Government">Government sector</option>
                                      <option id="op_dl"value="Private" >Private sector</option>
@@ -63,7 +64,7 @@
                                
                                 <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
                                     <div id="j2_error" class="error"><b>Oops! you cannot proceed without selecting yout Job type</b></div>
-                                 <select id="j2_type" style="width: 400px;">
+                                 <select id="j2_type" name="job_status" style="width: 400px;">
                                      <option id="op_def" value="default">Select your Job type</option>
                                      <option id="op_nic" value="worked">Have worked</option>
                                      <option id="op_dl"value="Working" >Working</option>
@@ -86,7 +87,7 @@
                                
                                 <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
                                     <div id="hours_error" class="error"><b>Oops! you cannot proceed without entering the hours you spent</b></div>
-                                    <input  type="text" name="hours" id="hours" tyle="border-radius: 10px; width: 250px; " onkeypress="return isNumberKey(event)" placeholder="Number of hours">
+                                    <input  type="text" name="spent_hours_video" id="hours" tyle="border-radius: 10px; width: 250px; " onkeypress="return isNumberKey(event)" placeholder="Number of hours">
                              </div>
                                 
                             </td>
@@ -105,7 +106,7 @@
                                 <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="relation_name_error" class="error"><b>Oops! you cannot proceed without entering the name</b></div>
-                                        <input name="relation_name" id="relation_name" type="text" style="border-radius: 10px; width: 250px; " placeholder="Name">
+                                        <input name="relations_name" id="relation_name" type="text" style="border-radius: 10px; width: 250px; " placeholder="Name">
                                     </div>
                                        
                                    </td>
@@ -113,14 +114,14 @@
                                    <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="relationship_error" class="error"><b>Oops! you cannot proceed without entering the relationship</b></div>
-                                        <input  name="relationship" id="relationship" type="text" style="border-radius: 10px; width: 250px; " placeholder="Relationship">
+                                        <input  name="rel_relationship" id="relationship" type="text" style="border-radius: 10px; width: 250px; " placeholder="Relationship">
                                     </div>
                                        
                                    </td>
                                    <td>
                                     <div  style="padding-left: 100px; padding-top: 10px;">
                                         <div id="address_error" class="error"><b>Oops! you cannot proceed without entering the address</b></div>
-                                        <textarea name="" id="address" cols="30" rows="5" class="textarea1" placeholder="Address"></textarea>
+                                        <textarea name="relations_address" id="address" cols="30" rows="5" class="textarea1" placeholder="Address"></textarea>
                                         
                                     </div>
                                        
@@ -136,7 +137,7 @@
                                 <td>
                                     <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
                                         <div id="relation_j1_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
-                                     <select id="relation_j1" style="width: 400px;">
+                                     <select id="relation_j1" name="rel_job_type" style="width: 400px;">
                                          <option id="op_def" value="default">Select your Job type</option>
                                          <option id="op_nic" value="National_ID">Government sector</option>
                                          <option id="op_dl"value="Driving_License" >Private sector</option>
@@ -149,7 +150,7 @@
                                    
                                     <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
                                         <div id="relation_j2_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
-                                     <select id="relation_j2" style="width: 400px;">
+                                     <select id="relation_j2" name="rel_job_status" style="width: 400px;">
                                          <option id="op_def" value="default">Select your Job type</option>
                                          <option id="op_nic" value="National_ID">Have worked</option>
                                          <option id="op_dl"value="Driving_License" >Working</option>
@@ -197,7 +198,7 @@
                                     <td>
                                
                                         <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
-                                            <div id="friend_j1_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
+                                            <div id="friend_j1_error" name="friend_job_type" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
                                          <select id="friend_j1" style="width: 400px;">
                                              <option id="op_def" value="default">Select your Job type</option>
                                              <option id="op_nic" value="National_ID">Government sector</option>
@@ -210,7 +211,7 @@
                                     <td>
                                        
                                         <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
-                                            <div id="friend_j2_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
+                                            <div id="friend_j2_error" name="friend_job_status" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
                                          <select id="friend_j2" style="width: 400px;">
                                              <option id="op_def" value="default">Select your Job type</option>
                                              <option id="op_nic" value="National_ID">Have worked</option>
@@ -244,7 +245,7 @@
                                        
                                         <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
                                             <div id="volunteer_error" class="error"><b>Oops! you cannot proceed without selecting</b></div>
-                                         <select id="volunteer" style="width: 400px;">
+                                         <select id="volunteer" name="volun_service" style="width: 400px;">
                                              <option value="default">Select</option>
                                              <option value="yes">Yes</option>
                                              <option value="no" >No</option>
@@ -273,13 +274,13 @@
                                         </td>
                                         <td style="width: 50px;">
                                             <div style="padding-left: 100px; padding-top: 20px;">
-                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c1" name=""class="checkbox">&nbsp;Heart
+                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c1" name="ser_heart"class="checkbox">&nbsp;Heart
                                                 
                                             </div>
                                         </td>
                                         <td>
                                             <div style=" padding-top: 20px;">
-                                                <input type="checkbox" style="height: 10px;width: 10px;"id="c2" name="" class="checkbox">&nbsp;Cancer 
+                                                <input type="checkbox" style="height: 10px;width: 10px;"id="c2" name="ser_cancer" class="checkbox">&nbsp;Cancer 
                                                 
                                             </div>
                                         </td>
@@ -289,13 +290,13 @@
                                         <td></td>
                                         <td style="width: 100px;">
                                             <div style="padding-left: 100px; padding-top: 20px;">
-                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c3" name="" class="checkbox">&nbsp;Kidney transplant 
+                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c3" name="ser_kidney" class="checkbox">&nbsp;Kidney transplant 
                                                 
                                             </div>
                                         </td>
                                         <td>
                                             <div style=" padding-top: 20px;">
-                                                <input type="checkbox" style="height: 10px;width: 10px;"id="c4" name="" class="checkbox">&nbsp;None
+                                                <input type="checkbox" style="height: 10px;width: 10px;"id="c4" name="ser_none" class="checkbox">&nbsp;None
                                             </div>
                                         </td>
                                     </tr>
@@ -303,7 +304,7 @@
                                         <td></td>
                                         <td style="width: 100px;">
                                             <div style="padding-left: 100px; padding-top: 20px;">
-                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c5" name="" class="checkbox">&nbsp;Other 
+                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c5" name="ser_other" class="checkbox">&nbsp;Other 
                                                 
                                             </div>
                                         </td>
@@ -330,13 +331,13 @@
                                             </td>
                                             <td style="width: 50px;">
                                                 <div style="padding-left: 100px; padding-top: 20px;">
-                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name=""class="checkbox2">&nbsp;Diabetics
+                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="dis_diabetics" class="checkbox2">&nbsp;Diabetics
                                                     
                                                 </div>
                                             </td>
                                             <td>
                                                 <div style=" padding-top: 20px;">
-                                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;Cholesterol
+                                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="dis_cholestrol" class="checkbox2">&nbsp;Cholesterol
                                                     
                                                 </div>
                                             </td>
@@ -346,13 +347,13 @@
                                             <td></td>
                                             <td style="width: 100px;">
                                                 <div style="padding-left: 100px; padding-top: 20px;">
-                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="" class="checkbox2">&nbsp;Blood Pressure
+                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="dis_blood_presure" class="checkbox2">&nbsp;Blood Pressure
                                                     
                                                 </div>
                                             </td>
                                             <td>
                                                 <div style=" padding-top: 20px;">
-                                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;None
+                                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="dis_none" class="checkbox2">&nbsp;None
                                                     
                                                 </div>
                                             </td>
@@ -361,7 +362,7 @@
                                             <td></td>
                                             <td style="width: 100px;">
                                                 <div style="padding-left: 100px; padding-top: 20px;">
-                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c5" name="" class="checkbox2">&nbsp;Other 
+                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c5" name="dis_other" class="checkbox2">&nbsp;Other 
                                                     
                                                 </div>
                                             </td>
@@ -377,7 +378,7 @@
                                </td>
                                <td>
                                 <div class="col-md-3" style="padding-left: 200px; padding-top: 10px; padding-bottom: 50px;">
-                                    <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="validate(0)" value="Submit">Next</button>
+                                    <button id="submit" name="submit" class="submit" type="submit"  onclick="validate(0)" value="Submit">Next</button>
                                 </div>
                                    
                                </td>
