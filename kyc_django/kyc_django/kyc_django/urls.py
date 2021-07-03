@@ -69,7 +69,11 @@ urlpatterns = [
     # exist_cus form set
     path('exist_cus_otp', views.exist_cus_otp),
     path('exist_cus_update_info', views.exist_cus_update_info),
-    path('exist_cus_form', views.exist_cus_form)
+    path('exist_cus_form', views.exist_cus_form),
+
+
+    # social_score form set
+    path('social_scor', views.social_score)
 
     
 ]
