@@ -73,7 +73,7 @@ urlpatterns = [
 
 
     # social_score form set
-    path('social_scor', views.social_score)
+    path('social_score', views.social_score)
 
     
 ]
