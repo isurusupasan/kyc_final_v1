@@ -1,0 +1,659 @@
+<html>
+    <head>
+        <title>E - KYC</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <form>
+            <div class="row" style="padding-left: 30px;">
+                <div class="tbl2" style="padding-top: 50px;">
+                    <table>  
+                        <tr>
+                            <td>
+                                <div style="padding-left: 100px; padding-top: 20px;">
+                                    <p>Education Qualification</p>
+                                 </div>
+                                 
+                            </td>
+                               
+                            <td colspan="2">
+                               
+                                <div style="padding-left: 100px; padding-top: 20px;">
+                                    <div id="edu_error" class="error"><b>Oops! you cannot proceed without selecting yout Education Qualification</b></div>
+                                 <select id="edu_type" style="width: 400px;">
+                                     <option  value="default">Select your Education Qualification</option>
+                                     <option  value="phd">Ph.D./ Masters /MBA </option>
+                                     <option value="Graduate" >Graduate </option>
+                                     <option value="Undergraduate">Undergraduate</option>
+                                     <option value="Diploma">Diploma holder </option>
+                                     <option value="AL">Advanced level </option>
+                                     <option value="OL">Ordinary level </option>
+                                </select>
+                             </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="padding-left: 100px; padding-top: 20px;">
+                                    <p>Employement Details</p>
+                                 </div>
+                                 
+                            </td>
+                               
+                            <td>
+                               
+                                <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                    <div id="j1_error" class="error"><b>Oops! you cannot proceed without selecting your Job type</b></div>
+                                 <select id="j1_type" style="width: 400px;">
+                                     <option id="op_def" value="default">Select your Job type</option>
+                                     <option id="op_nic" value="Government">Government sector</option>
+                                     <option id="op_dl"value="Private" >Private sector</option>
+                                     <option id="op_passport"value="self">Self – Employee</option>
+                                </select>
+                             </div>
+                                
+                            </td>
+                            <td>
+                               
+                                <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                    <div id="j2_error" class="error"><b>Oops! you cannot proceed without selecting yout Job type</b></div>
+                                 <select id="j2_type" style="width: 400px;">
+                                     <option id="op_def" value="default">Select your Job type</option>
+                                     <option id="op_nic" value="worked">Have worked</option>
+                                     <option id="op_dl"value="Working" >Working</option>
+                                     <option id="op_passport"value="Retired">Retired</option>
+                                     </select>
+                             </div>
+                                
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div style="padding-left: 100px; padding-top: 20px;">
+                                    <p>Hours spent watching TV, video games,etc.</p>
+                                 </div>
+                                 
+                            </td>
+                               
+                            <td>
+                               
+                                <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                    <div id="hours_error" class="error"><b>Oops! you cannot proceed without entering the hours you spent</b></div>
+                                    <input  type="text" name="hours" id="hours" tyle="border-radius: 10px; width: 250px; " onkeypress="return isNumberKey(event)" placeholder="Number of hours">
+                             </div>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="3">
+                                <div style="padding-left: 100px; padding-top: 10px; ">
+                                    <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                  <p style="padding-left: 450px;">Information about closests relations</p> 
+                                </div>
+                                
+                            </td>
+
+                            <tr>
+                                <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="relation_name_error" class="error"><b>Oops! you cannot proceed without entering the name</b></div>
+                                        <input name="relation_name" id="relation_name" type="text" style="border-radius: 10px; width: 250px; " placeholder="Name">
+                                    </div>
+                                       
+                                   </td>
+                                  
+                                   <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="relationship_error" class="error"><b>Oops! you cannot proceed without entering the relationship</b></div>
+                                        <input  name="relationship" id="relationship" type="text" style="border-radius: 10px; width: 250px; " placeholder="Relationship">
+                                    </div>
+                                       
+                                   </td>
+                                   <td>
+                                    <div  style="padding-left: 100px; padding-top: 10px;">
+                                        <div id="address_error" class="error"><b>Oops! you cannot proceed without entering the address</b></div>
+                                        <textarea name="" id="address" cols="30" rows="5" class="textarea1" placeholder="Address"></textarea>
+                                        
+                                    </div>
+                                       
+                                   </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="padding-left: 100px; padding-top: 20px;">
+                                        <p>Employement Details</p>
+                                     </div>
+                                     
+                                </td>
+                                <td>
+                                    <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                        <div id="relation_j1_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
+                                     <select id="relation_j1" style="width: 400px;">
+                                         <option id="op_def" value="default">Select your Job type</option>
+                                         <option id="op_nic" value="National_ID">Government sector</option>
+                                         <option id="op_dl"value="Driving_License" >Private sector</option>
+                                         <option id="op_passport"value="Passport">Self – Employee</option>
+                                    </select>
+                                 </div>
+                                    
+                                </td>
+                                <td>
+                                   
+                                    <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                        <div id="relation_j2_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
+                                     <select id="relation_j2" style="width: 400px;">
+                                         <option id="op_def" value="default">Select your Job type</option>
+                                         <option id="op_nic" value="National_ID">Have worked</option>
+                                         <option id="op_dl"value="Driving_License" >Working</option>
+                                         <option id="op_passport"value="Passport">Retired</option>
+                                         </select>
+                                 </div>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div style="padding-left: 100px; padding-top: 10px; ">
+                                        <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                      <p style="padding-left: 450px;">Information about closests friends</p> 
+                                    </div>
+                                    
+                                </td>
+    
+                                <tr>
+                                    <td>
+                                        <div  style="padding-left: 100px; padding-top: 10px;">
+                                            <div id="friend_name_error" class="error"><b>Oops! you cannot proceed without entering the name</b></div>
+                                            <input name="friend_name" id="friend_name" type="text" style="border-radius: 10px; width: 250px; " placeholder="Name">
+                                        </div>
+                                           
+                                       </td>
+                                      
+                                       
+                                       <td>
+                                        <div  style="padding-left: 100px; padding-top: 10px;">
+                                            <div id="friend_address_error" class="error"><b>Oops! you cannot proceed without entering the address</b></div>
+                                            <textarea name="friend_address" id="friend_address" cols="30" rows="5" class="textarea1" placeholder="Address"></textarea>
+                                            
+                                        </div>
+                                           
+                                       </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="padding-left: 100px; padding-top: 20px;">
+                                            <p>Employement Details</p>
+                                         </div>
+                                         
+                                    </td>
+                                    <td>
+                               
+                                        <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                            <div id="friend_j1_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
+                                         <select id="friend_j1" style="width: 400px;">
+                                             <option id="op_def" value="default">Select your Job type</option>
+                                             <option id="op_nic" value="National_ID">Government sector</option>
+                                             <option id="op_dl"value="Driving_License" >Private sector</option>
+                                             <option id="op_passport"value="Passport">Self – Employee</option>
+                                        </select>
+                                     </div>
+                                        
+                                    </td>
+                                    <td>
+                                       
+                                        <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                            <div id="friend_j2_error" class="error"><b>Oops! you cannot proceed without selecting the job type</b></div>
+                                         <select id="friend_j2" style="width: 400px;">
+                                             <option id="op_def" value="default">Select your Job type</option>
+                                             <option id="op_nic" value="National_ID">Have worked</option>
+                                             <option id="op_dl"value="Driving_License" >Working</option>
+                                             <option id="op_passport"value="Passport">Retired</option>
+                                             </select>
+                                     </div>
+                                        
+                                    </td>
+                                </tr>
+                               <tr>
+                                <td colspan="3">
+                                    <div style="padding-left: 100px; padding-top: 10px; ">
+                                        <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                    
+                                    </div>
+                                    
+                                </td>
+                               </tr>
+                                <tr>
+                                    <td>
+                                        <div style="padding-left: 100px; padding-top: 20px;">
+                                            
+                                            <p>Volunteering in community service activities
+                                            </p>
+                                         </div>
+                                         
+                                    </td>
+                                       
+                                    <td colspan="2">
+                                       
+                                        <div style="padding-left: 100px; padding-top: 20px;" onChange="identity_recognition()">
+                                            <div id="volunteer_error" class="error"><b>Oops! you cannot proceed without selecting</b></div>
+                                         <select id="volunteer" style="width: 400px;">
+                                             <option value="default">Select</option>
+                                             <option value="yes">Yes</option>
+                                             <option value="no" >No</option>
+                                             </select>
+                                     </div>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div style="padding-left: 100px; padding-top: 10px; ">
+                                            <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                          <p style="padding-left: 450px;">Major Surgeries</p> 
+                                        </div>
+                                        
+                                    </td>
+        
+                                    <tr>
+                                <tr>
+                                    <tr>
+                                        <td>
+                                            <div  style="padding-left: 100px; padding-top: 20px;">
+                                                Average monthly income (Rs.)<br>
+                                                <div id="check_error" class="error" ><b>Oops! you cannot proceed without <br> selecting your major surgeries</b></div>
+                                            </div>
+                                        </td>
+                                        <td style="width: 50px;">
+                                            <div style="padding-left: 100px; padding-top: 20px;">
+                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c1" name=""class="checkbox">&nbsp;Heart
+                                                
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style=" padding-top: 20px;">
+                                                <input type="checkbox" style="height: 10px;width: 10px;"id="c2" name="" class="checkbox">&nbsp;Cancer 
+                                                
+                                            </div>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="width: 100px;">
+                                            <div style="padding-left: 100px; padding-top: 20px;">
+                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c3" name="" class="checkbox">&nbsp;Kidney transplant 
+                                                
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style=" padding-top: 20px;">
+                                                <input type="checkbox" style="height: 10px;width: 10px;"id="c4" name="" class="checkbox">&nbsp;None
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="width: 100px;">
+                                            <div style="padding-left: 100px; padding-top: 20px;">
+                                                <input type="checkbox" style="height: 10px;width: 10px;" id="c5" name="" class="checkbox">&nbsp;Other 
+                                                
+                                            </div>
+                                        </td>
+                                        
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding-left: 100px; padding-top: 10px; ">
+                                                <hr style="width: 1100px;height:2px;border:none;color:#fff;background-color:#fff; ">
+                                              <p style="padding-left: 450px;">Major Diseases</p> 
+                                            </div>
+                                            
+                                        </td>
+            
+                                        <tr>
+                                    <tr>
+                                        <tr>
+                                            <td>
+                                                <div  style="padding-left: 100px; padding-top: 20px;">
+                                                    Average monthly income (Rs.)<br>
+                                                    <div id="check_error2" class="error" ><b>Oops! you cannot proceed without <br>  selecting your major diseases</b></div>
+                                                </div>
+                                            </td>
+                                            <td style="width: 50px;">
+                                                <div style="padding-left: 100px; padding-top: 20px;">
+                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name=""class="checkbox2">&nbsp;Diabetics
+                                                    
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style=" padding-top: 20px;">
+                                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;Cholesterol
+                                                    
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="width: 100px;">
+                                                <div style="padding-left: 100px; padding-top: 20px;">
+                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="" name="" class="checkbox2">&nbsp;Blood Pressure
+                                                    
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style=" padding-top: 20px;">
+                                                    <input type="checkbox" style="height: 10px;width: 10px;"id="" name="" class="checkbox2">&nbsp;None
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="width: 100px;">
+                                                <div style="padding-left: 100px; padding-top: 20px;">
+                                                    <input type="checkbox" style="height: 10px;width: 10px;" id="c5" name="" class="checkbox2">&nbsp;Other 
+                                                    
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                            
+                        <tr>
+                            <td> 
+                                
+                               </td>
+                               <td>
+                                
+                               </td>
+                               <td>
+                                <div class="col-md-3" style="padding-left: 200px; padding-top: 10px; padding-bottom: 50px;">
+                                    <button type="button" id="submit" name="submit" class="submit" type="submit"  onclick="validate(0)" value="Submit">Next</button>
+                                </div>
+                                   
+                               </td>
+                        </tr>
+                       
+                    </table>
+                </div>
+               <script>
+                   
+                    function isNumberKey(evt)
+                    {
+                        var charCode = (evt.which) ? evt.which : event.keyCode
+                        if (charCode > 31 && (charCode < 48 || charCode > 57))
+                        return false;
+
+                        return true;
+                    }
+                    function validate(val)
+                    {
+                        var edu_type = document.getElementById("edu_type");
+                        var edu_error = document.getElementById("edu_error");
+                        
+                        
+                        var j1_type = document.getElementById("j1_type");
+                        var j1_error = document.getElementById("j1_error");
+                        
+                        var j2_type = document.getElementById("j2_type");
+                        var j2_error = document.getElementById("j2_error");
+                        
+                        var hours = document.getElementById("hours");
+                        var hours_error = document.getElementById("hours_error");
+                        
+                        var relation_name = document.getElementById("relation_name");
+                        var relation_name_error = document.getElementById("relation_name_error");
+
+                        var relationship = document.getElementById("relationship");
+                        var relationship_error = document.getElementById("relationship_error");
+
+                        var address = document.getElementById("address");
+                        var address_error = document.getElementById("address_error");
+
+                        var relation_j1 = document.getElementById("relation_j1");
+                        var relation_j1_error = document.getElementById("relation_j1_error");
+
+                        var relation_j2 = document.getElementById("relation_j2");
+                        var relation_j2_error = document.getElementById("relation_j2_error");
+
+                        var friend_name = document.getElementById("friend_name");
+                        var friend_name_error = document.getElementById("friend_name_error");
+
+                        var friend_address = document.getElementById("friend_address");
+                        var friend_address_error = document.getElementById("friend_address_error");
+
+                        var friend_j1 = document.getElementById("friend_j1");
+                        var friend_j1_error = document.getElementById("friend_j1_error");
+
+                        var friend_j2 = document.getElementById("friend_j2");
+                        var friend_j2_error = document.getElementById("friend_j2_error");
+
+                        var volunteer = document.getElementById("volunteer");
+                        var volunteer_error = document.getElementById("volunteer_error");
+
+                        var check = document.querySelector('.checkbox:checked');
+						var check_error = document.getElementById("check_error"); 
+
+                        var check2 = document.querySelector('.checkbox2:checked');
+						var check_error2 = document.getElementById("check_error2"); 
+
+                        
+                        flag1 = true;
+			            flag2 = true;
+           
+
+                        if(val>=1 || val==0) {
+                            if(edu_type.value == "default") {
+                                edu_type.style.borderColor = "#ebcd34";
+                                edu_type.style.border = "2px solid #ebcd34";
+                                edu_error.style.display = "block";
+                                flag1 = false;
+                            }
+                            else {
+                            //v1.style.borderColor = "white";
+                            flag1 = true;
+                            }
+                        }
+                        if(val>=2 || val==0) {
+                        if(j1_type.value == "default") {
+                            
+                            j1_type.style.borderColor = "#ebcd34";
+                            j1_type.style.border = "2px solid #ebcd34";
+                            j1_error.style.display = "block";
+                            flag2 = false;
+                        }
+                        else {
+                            //v1.style.borderColor = "white";
+                            flag2 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(j2_type.value == "default") {
+                            j2_type.style.borderColor = "#ebcd34";
+                            j2_type.style.border = "2px solid #ebcd34";
+                            j2_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(j2_type.value == "default") {
+                            j2_type.style.borderColor = "#ebcd34";
+                            j2_type.style.border = "2px solid #ebcd34";
+                            j2_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(hours.value == "") {
+                            hours.style.borderColor = "#ebcd34";
+                            hours.style.border = "2px solid #ebcd34";
+                            hours_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(relation_name.value == "") {
+                            relation_name.style.borderColor = "#ebcd34";
+                            relation_name.style.border = "2px solid #ebcd34";
+                            relation_name_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(relationship.value == "") {
+                            relationship.style.borderColor = "#ebcd34";
+                            relationship.style.border = "2px solid #ebcd34";
+                            relationship_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(address.value == "") {
+                            address.style.borderColor = "#ebcd34";
+                            address.style.border = "2px solid #ebcd34";
+                            address_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(relation_j1.value == "default") {
+                            relation_j1.style.borderColor = "#ebcd34";
+                            relation_j1.style.border = "2px solid #ebcd34";
+                            relation_j1_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(relation_j2.value == "default") {
+                            relation_j2.style.borderColor = "#ebcd34";
+                            relation_j2.style.border = "2px solid #ebcd34";
+                            relation_j2_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(friend_name.value == "") {
+                            friend_name.style.borderColor = "#ebcd34";
+                            friend_name.style.border = "2px solid #ebcd34";
+                            friend_name_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(friend_address.value == "") {
+                            friend_address.style.borderColor = "#ebcd34";
+                            friend_address.style.border = "2px solid #ebcd34";
+                            friend_address_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(friend_j1.value == "default") {
+                            friend_j1.style.borderColor = "#ebcd34";
+                            friend_j1.style.border = "2px solid #ebcd34";
+                            friend_j1_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(friend_j2.value == "default") {
+                            friend_j2.style.borderColor = "#ebcd34";
+                            friend_j2.style.border = "2px solid #ebcd34";
+                            friend_j2_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+                        if(volunteer.value == "default") {
+                            volunteer.style.borderColor = "#ebcd34";
+                            volunteer.style.border = "2px solid #ebcd34";
+                            volunteer_error.style.display = "block";
+                            flag3 = false;
+                        }
+                        else {
+                           flag3 = true;
+                            }
+                        }
+                        if(val>=3 || val==0) {
+							if(check == null) {
+                                
+								check_error.style.display = "block"
+								flag3 = false;
+                               
+							}
+							else {
+							//v3.style.borderColor = "white";
+							flag3 = true;
+							}
+							}
+                            if(val>=3 || val==0) {
+							if(check2 == null) {
+                                
+								check_error2.style.display = "block"
+								flag3 = false;
+                               
+							}
+							else {
+							//v3.style.borderColor = "white";
+							flag3 = true;
+							}
+							}
+
+                        flag = flag1 && flag2 && flag3;
+
+                        return flag;
+                    }
+
+                                    
+                                
+                        
+           
+        
+               </script>
+                
+            </div>
+        <form>
+    </body>
+</html>
