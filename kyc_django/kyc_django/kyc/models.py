@@ -432,7 +432,7 @@ class Social_core(models.Model):
     edu_qualifi = models.CharField(max_length=50, null=True, blank=True)
     emp_details = models.CharField(max_length=50, null=True, blank=True)
     spent_hours_video = models.IntegerField(null=True, blank=True)
-    job_type = models.CharField(max_length=50, null=True, blank=True)
+    job_status = models.CharField(max_length=50, null=True, blank=True)
 
     # infromation about closests relations
     relations_name = models.CharField(max_length=255, null=True, blank=True)
@@ -444,7 +444,6 @@ class Social_core(models.Model):
     # infromation about closest friends
     friend_name = models.CharField(max_length=255, null=True, blank=True)
     friend_address = models.CharField(max_length=255, null=True, blank=True)
-    friend_relationship = models.CharField(max_length=100, null=True, blank=True)
     friend_job_type =   models.CharField(max_length=50, null=True, blank=True)
     friend_job_status = models.CharField(max_length=50, null=True, blank=True)
 
