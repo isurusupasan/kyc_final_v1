@@ -2060,3 +2060,7 @@ def make_save_list(request, function_id, dataset_list_for_func):
 
     
     return None
+
+
+def social_score(requst):
+    return render(requst, 'social_score/Social_score.html')
