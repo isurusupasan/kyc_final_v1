@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime, date
+from numpy.core.fromnumeric import trace
 from simple_history.models import HistoricalRecords
 
 
@@ -425,3 +426,43 @@ class Kyc_front(models.Model):
         db_table = "Kyc_front"
     def __str__(self):
         return "name : "+self.full_name_temp +" | "+self.email_add_temp
+
+# creating database model for social sore
+class Social_core(models.Model):
+    edu_qualifi = models.CharField(max_length=50, null=True, blank=True)
+    emp_details = models.CharField(max_length=50, null=True, blank=True)
+    spent_hours_video = models.IntegerField(null=True, blank=True)
+    job_type = models.CharField(max_length=50, null=True, blank=True)
+
+    # infromation about closests relations
+    relations_name = models.CharField(max_length=255, null=True, blank=True)
+    relations_address = models.CharField(max_length=255, null=True, blank=True)
+    rel_relationship = models.CharField(max_length=100, null=True, blank=True)
+    rel_job_type = models.CharField(max_length=50, null=True, blank=True)
+    rel_job_status = models.CharField(max_length=50, null=True, blank=True)
+
+    # infromation about closest friends
+    friend_name = models.CharField(max_length=255, null=True, blank=True)
+    friend_address = models.CharField(max_length=255, null=True, blank=True)
+    friend_relationship = models.CharField(max_length=100, null=True, blank=True)
+    friend_job_type =   models.CharField(max_length=50, null=True, blank=True)
+    friend_job_status = models.CharField(max_length=50, null=True, blank=True)
+
+    # volunteering services
+    volun_service = models.CharField(max_length=20, null=True, blank=True)
+
+    # helth conditions major surgeries check boxes
+    ser_heart = models.CharField(max_length=10, null=True, blank=True)
+    ser_cancer = models.CharField(max_length=10, null=True, blank=True)
+    ser_kidney = models.CharField(max_length=10, null=True, blank=True)
+    ser_none = models.CharField(max_length=10, null=True, blank=True)
+    ser_other = models.CharField(max_length=10, null=True, blank=True)
+
+    # major diseases check boxes
+    dis_diabetics = models.CharField(max_length=10, null=True, blank=True)
+    dis_cholestrol = models.CharField(max_length=10, null=True, blank=True)
+    dis_blood_presure = models.CharField(max_length=10, null=True, blank=True)
+    dis_none = models.CharField(max_length=10, null=True, blank=True)
+    dis_other = models.CharField(max_length=10, null=True, blank=True)
+
+
