@@ -3,8 +3,9 @@
 ## to run the program
 
 first run
-> env\scripts\acitivate
-
+```
+> env\scripts\activate
+```
 Then run
 > pip install -r requirements.txt
 
