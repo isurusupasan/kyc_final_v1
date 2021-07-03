@@ -6,7 +6,7 @@ from django.contrib.messages.api import success
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject, HistoricalKyc_Info, Kyc_front
+from .models import Kyc_Info, Kyc_Infotemp, Id_Info, Image, Kyc_Reject, HistoricalKyc_Info, Kyc_front, Social_core
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
 from .forms import update_forms, accept_form, ImageForm, reject_forms
@@ -2062,5 +2062,45 @@ def make_save_list(request, function_id, dataset_list_for_func):
     return None
 
 
-def social_score(requst):
-    return render(requst, 'social_score/Social_score.html')
+def social_score(request):
+
+    if request.method == 'POST':
+
+        # personal details
+        edu_qualifi = request.POST.get("edu_qualifi")
+        emp_details = request.POST.get("emp_details")
+        spent_hours_video = request.POST.get("spent_hours_video")
+        job_status = request.POST.get("job_status")
+
+        relations_name = request.POST.get("relations_name")
+        relations_address = request.POST.get("relations_address")
+        rel_relationship = request.POST.get("rel_relationship")
+        rel_job_type = request.POST.get("rel_job_type")
+        rel_job_status = request.POST.get("rel_job_status")
+
+        friend_name = request.POST.get("friend_name")
+        friend_address = request.POST.get("friend_address")
+        friend_job_type = request.POST.get("friend_job_type")
+        friend_job_status = request.POST.get("friend_job_status")
+
+        volun_service = request.POST.get("volun_service")
+
+        ser_heart = request.POST.get("ser_heart")
+        ser_cancer = request.POST.get("ser_cancer")
+        ser_kidney = request.POST.get("ser_kidney")
+        ser_none = request.POST.get("ser_none")
+        ser_other = request.POST.get("ser_other")
+
+        dis_diabetics = request.POST.get("dis_diabetics")
+        dis_cholestrol = request.POST.get("dis_cholestrol")
+        dis_blood_presure = request.POST.get("dis_blood_presure")
+        dis_none = request.POST.get("dis_none")
+        dis_other = request.POST.get("dis_other")
+        print(edu_qualifi, emp_details, spent_hours_video, job_status)
+        print(relations_name, relations_address, rel_relationship, rel_job_type, rel_job_status)
+        print(friend_name, friend_address, friend_job_type, friend_job_status)
+        print(volun_service)
+        print(ser_heart, ser_cancer, ser_kidney, ser_none, ser_other)
+        print(dis_diabetics, dis_cholestrol, dis_blood_presure, dis_none, dis_other)
+
+    return render(request, 'social_score/Social_score.html')
