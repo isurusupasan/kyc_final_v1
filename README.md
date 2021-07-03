@@ -4,16 +4,21 @@
 
 first run
 ```
-> env\scripts\activate
+$ env\scripts\activate
 ```
 Then run
-> pip install -r requirements.txt
-
+```
+$ pip install -r requirements.txt
+```
 Run the manage.py migrations
-> python manage.py makemigrations
-
-run migrtions
-> python manage.py migrate
-
+```
+$ python manage.py makemigrations
+```
+run 
+```
+$ python manage.py migrate
+```
 Run the server
-> python manage.py runserver
+```
+$ python manage.py runserver
+```
